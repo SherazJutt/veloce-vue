@@ -1,4 +1,21 @@
 <script setup lang="ts">
+/**
+ * A button component with a few variations.
+ *
+ * Structure:
+ * - A single button element with a few classes based on the variant.
+ * - Inside the button, a div with flexbox to position the icon and text.
+ * - If loading is true, an svg spinner is shown instead of the icon.
+ *
+ * Props:
+ * - label: The text inside the button.
+ * - loading: Whether the button is in a loading state.
+ * - disabled: Whether the button is disabled.
+ * - variant: One of "outlined", "text", "ghost" or "solid". Default is "solid".
+ * - icon: The name of an icon from Iconify. If empty, no icon is shown.
+ * - iconClass: Classes to apply to the icon.
+ * - iconPosition: One of "left" or "right". Default is "left".
+ */
 import { computed } from "vue";
 import { Icon } from "@iconify/vue";
 
