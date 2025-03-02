@@ -1,21 +1,40 @@
 <script setup lang="ts">
-defineProps({
+import { computed } from "vue";
+import { Icon } from "@iconify/vue";
+
+const props = defineProps({
 	label: { type: String, default: "Button" },
 	loading: { type: Boolean, default: false },
 	disabled: { type: Boolean, default: false },
+	variant: { type: String as () => "outlined" | "text" | "ghost" | "solid", default: "solid" },
+	icon: { type: String, default: "" }, // Iconify icon name
+	iconClass: { type: String, default: "" },
+	iconPosition: { type: String as () => "left" | "right", default: "left" }, // Position of the icon
+});
+
+const buttonClasses = computed(() => {
+	switch (props.variant) {
+		case "outlined":
+			return "border !border-primary text-primary bg-transparent hover:bg-primary hover:text-white";
+		case "text":
+			return "bg-transparent text-primary hover:bg-gray-200";
+		case "ghost":
+			return "text-primary bg-gray-100 hover:bg-gray-200";
+		default:
+			return "bg-primary text-white hover:bg-primary/75"; // Solid
+	}
 });
 </script>
 
 <template>
-	<button type="button" :disabled="disabled || loading" class="bg-primary outline-primary disabled:bg-primary/75 hover:bg-primary/75 flex cursor-pointer items-center justify-center gap-2 rounded px-6 py-2 text-white transition duration-200 disabled:cursor-not-allowed">
-		<span>{{ label }}</span>
-
-		<!-- Show loading spinner only when loading is true -->
-		<svg v-if="loading" class="size-4 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-			<title id="title-05">Loading</title>
-			<desc id="desc-05">A rotating spinner icon indicating loading state</desc>
-			<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-			<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-		</svg>
+	<button type="button" :disabled="disabled || loading" :class="buttonClasses" class="flex cursor-pointer items-center justify-center gap-2 rounded border border-transparent px-6 py-2 transition duration-200 disabled:cursor-not-allowed disabled:opacity-50">
+		<div :class="iconPosition === 'right' ? 'flex-row-reverse' : 'flex-row'" class="flex items-center gap-2">
+			<!-- Left Icon -->
+			<Icon v-if="icon && !loading" :icon="icon" :class="iconClass" />
+			<!-- Label -->
+			<span>{{ label }}</span>
+		</div>
+		<!-- Loading Spinner -->
+		<Icon v-if="loading" icon="svg-spinners:90-ring-with-bg" class="size-5 animate-spin" />
 	</button>
 </template>
