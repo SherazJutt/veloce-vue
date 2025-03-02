@@ -1,20 +1,8 @@
+<script setup>
+import Button from "./components/ui/Button.vue";
+</script>
 <template>
-  <div>
-    <h1 class="text-3xl font-bold underline text">Hello world!</h1>
-  </div>
+	<div class="container p-8">
+		<Button />
+	</div>
 </template>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
