@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import Button from "./components/ui/Button.vue";
+import { RouterView } from "vue-router";
 </script>
 <template>
-	<div class="container p-8">
-		<Button />
-	</div>
+	<RouterView />
 </template>
