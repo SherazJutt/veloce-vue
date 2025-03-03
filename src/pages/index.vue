@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import Button from "../components/ui/Button.vue";
 import Popover from "../components/ui/Popover.vue";
+import Select from "../components/ui/Select.vue";
 import Tooltip from "../components/ui/Tooltip.vue";
+
+const selected = ref("Dashboard");
 </script>
 
 <template>
@@ -24,6 +28,9 @@ import Tooltip from "../components/ui/Tooltip.vue";
 					<div>Popover content</div>
 				</template>
 			</Popover>
+		</div>
+		<div class="mt-6 grid grid-cols-3 gap-4">
+			<Select v-model="selected" :options="['Dashboard', 'Analytics', 'Settings', 'Profile']" />
 		</div>
 	</div>
 </template>
