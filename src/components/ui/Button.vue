@@ -20,13 +20,14 @@ import { computed } from "vue";
 import { Icon } from "@iconify/vue";
 
 const props = defineProps({
-	label: { type: String, default: "Button" },
+	label: { type: String, default: "" },
 	loading: { type: Boolean, default: false },
 	disabled: { type: Boolean, default: false },
 	variant: { type: String as () => "outlined" | "text" | "ghost" | "solid", default: "solid" },
 	icon: { type: String, default: "" }, // Iconify icon name
 	iconClass: { type: String, default: "" },
 	iconPosition: { type: String as () => "left" | "right", default: "right" }, // Position of the icon
+	circle: { type: Boolean, default: false },
 });
 
 const buttonClasses = computed(() => {
@@ -44,10 +45,10 @@ const buttonClasses = computed(() => {
 </script>
 
 <template>
-	<button type="button" :disabled="disabled || loading" :class="buttonClasses" class="flex cursor-pointer items-center justify-center gap-2 rounded border border-transparent px-6 py-2 transition duration-200 disabled:cursor-not-allowed disabled:opacity-50">
-		<div class="flex w-full items-center justify-between gap-2">
+	<button type="button" :disabled="disabled || loading" :class="[buttonClasses, { 'rounded-full': circle }]" class="flex cursor-pointer items-center justify-center gap-2 rounded border border-transparent px-6 py-2 transition duration-200 disabled:cursor-not-allowed disabled:opacity-50">
+		<div :class="{ 'justify-center': !icon }" class="flex w-full items-center justify-between gap-2">
 			<!-- Label -->
-			<span :class="{ 'order-2': iconPosition === 'left' }">{{ label }}</span>
+			<span v-if="label" :class="{ 'order-2': iconPosition === 'left' }">{{ label }}</span>
 			<!-- Icon -->
 			<Icon v-if="icon && !loading" :icon="icon" :class="iconClass" class="text-xl duration-200" />
 		</div>
