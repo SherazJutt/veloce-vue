@@ -5,13 +5,14 @@ import Popover from "../components/ui/Popover.vue";
 import Select from "../components/ui/Select.vue";
 import Tooltip from "../components/ui/Tooltip.vue";
 import Modal from "../components/ui/Modal.vue";
+import Separator from "../components/ui/Separator.vue";
 
 const selected = ref("Dashboard");
 </script>
 
 <template>
 	<div class="container py-8">
-		<div class="mb-4">
+		<div class="mb-6">
 			<h3 class="text-primary mb-2 font-semibold">Buttons</h3>
 			<div class="grid grid-cols-4 gap-4">
 				<Button variant="solid" label="Solid" />
@@ -23,6 +24,8 @@ const selected = ref("Dashboard");
 				<Button icon="material-symbols:check" icon-position="left" label="Icon position" />
 			</div>
 		</div>
+
+		<Separator class="my-4" />
 
 		<div class="grid grid-cols-4 gap-4">
 			<div class="mb-4">
