@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-/* styles added in base layer will apply first and if you need to
- override styles for some reason the add those styles inside the over-rides layer */
-@layer base, over-rides;
-
 @theme {
 	/* theme colors */
 	--color-primary: #523ae4;
@@ -35,29 +31,23 @@
 	--breakpoint-4xl: 1800px;
 }
 
-/* define styles over-rides here */
-@layer over-rides {
-	.container {
-		@apply mx-auto w-[85%] max-w-[1440px];
-	}
+/* scrollbar */
+::-webkit-scrollbar {
+	@apply h-[4px] w-[4px];
 }
 
-/* define base styles here */
-@layer base {
-	/* scrollbar */
-	::-webkit-scrollbar {
-		@apply h-[4px] w-[4px];
-	}
+::-webkit-scrollbar-track {
+	@apply bg-gray-200;
+}
 
-	::-webkit-scrollbar-track {
-		@apply bg-gray-200;
-	}
+::-webkit-scrollbar-thumb {
+	@apply bg-primary;
+}
 
-	::-webkit-scrollbar-thumb {
-		@apply bg-primary;
-	}
+::-webkit-scrollbar-thumb:hover {
+	@apply bg-gray-600;
+}
 
-	::-webkit-scrollbar-thumb:hover {
-		@apply bg-gray-600;
-	}
+@utility container {
+	@apply mx-auto w-[85%] max-w-[1440px];
 }
