@@ -6,6 +6,7 @@ import Select from "../components/ui/Select.vue";
 import Tooltip from "../components/ui/Tooltip.vue";
 import Modal from "../components/ui/Modal.vue";
 import Separator from "../components/ui/Separator.vue";
+import RangeSlider from "../components/ui/RangeSlider.vue";
 
 const selected = ref("Dashboard");
 </script>
@@ -60,6 +61,11 @@ const selected = ref("Dashboard");
 					<Button class="w-full" label="Modal" />
 				</Modal>
 			</div>
+		</div>
+		<Separator class="my-4" />
+
+		<div>
+			<RangeSlider />
 		</div>
 	</div>
 </template>

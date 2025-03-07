@@ -45,7 +45,7 @@ const buttonClasses = computed(() => {
 </script>
 
 <template>
-	<button type="button" :disabled="disabled || loading" :class="[buttonClasses, { 'rounded-full': circle }]" class="flex cursor-pointer items-center justify-center gap-2 rounded border border-transparent px-6 py-2 transition duration-200 disabled:cursor-not-allowed disabled:opacity-50">
+	<button type="button" :disabled="disabled || loading" :class="[buttonClasses, { 'rounded-full': circle }]" class="flex cursor-pointer items-center justify-center gap-2 rounded border border-transparent px-3 py-2 transition duration-200 disabled:cursor-not-allowed disabled:opacity-50">
 		<div :class="{ 'justify-center': !icon }" class="flex w-full items-center justify-between gap-2">
 			<!-- Label -->
 			<span v-if="label" :class="{ 'order-2': iconPosition === 'left' }">{{ label }}</span>
