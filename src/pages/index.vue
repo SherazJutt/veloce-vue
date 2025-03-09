@@ -15,7 +15,7 @@ const selected = ref("Dashboard");
 	<div class="container py-8">
 		<div class="mb-6">
 			<h3 class="text-primary mb-2 font-semibold">Buttons</h3>
-			<div class="grid grid-cols-4 gap-4">
+			<div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 				<Button variant="solid" label="Solid" />
 				<Button variant="ghost" label="Ghost" />
 				<Button variant="outlined" label="Outlined" />
@@ -28,7 +28,7 @@ const selected = ref("Dashboard");
 
 		<Separator class="my-4" />
 
-		<div class="grid grid-cols-4 gap-4">
+		<div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 			<div class="mb-4">
 				<h3 class="text-primary mb-2 font-semibold">Tooltip</h3>
 				<!-- Tooltip -->
