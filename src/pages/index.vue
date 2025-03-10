@@ -7,8 +7,10 @@ import Tooltip from "../components/ui/Tooltip.vue";
 import Modal from "../components/ui/Modal.vue";
 import Separator from "../components/ui/Separator.vue";
 import RangeSlider from "../components/ui/RangeSlider.vue";
+import Checkbox from "../components/ui/Checkbox.vue";
 
 const selected = ref("Dashboard");
+const checkbox = ref(true);
 </script>
 
 <template>
@@ -66,6 +68,7 @@ const selected = ref("Dashboard");
 
 		<div>
 			<RangeSlider />
+			<Checkbox v-model="checkbox" label="Checkbox" />
 		</div>
 	</div>
 </template>
