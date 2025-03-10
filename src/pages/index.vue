@@ -76,7 +76,7 @@ const input = ref("test input text");
 		<Separator class="my-4" />
 
 		<div>
-			<Input v-model="input" icon="icon-park-outline:text" placeholder="Input" help-text="Text field with helper text" />
+			<Input v-model="input" icon="icon-park-outline:text" placeholder="Placeholder" help-text="Text field with helper text" />
 		</div>
 	</div>
 </template>
