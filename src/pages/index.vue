@@ -8,9 +8,11 @@ import Modal from "../components/ui/Modal.vue";
 import Separator from "../components/ui/Separator.vue";
 import RangeSlider from "../components/ui/RangeSlider.vue";
 import Checkbox from "../components/ui/Checkbox.vue";
+import Input from "../components/ui/Input.vue";
 
 const selected = ref("Dashboard");
 const checkbox = ref(true);
+const input = ref("test input text");
 </script>
 
 <template>
@@ -69,6 +71,12 @@ const checkbox = ref(true);
 		<div>
 			<RangeSlider />
 			<Checkbox v-model="checkbox" label="Checkbox" />
+		</div>
+
+		<Separator class="my-4" />
+
+		<div>
+			<Input v-model="input" icon="icon-park-outline:text" placeholder="Input" help-text="Text field with helper text" />
 		</div>
 	</div>
 </template>
