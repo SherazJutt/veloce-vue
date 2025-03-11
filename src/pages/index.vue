@@ -9,6 +9,7 @@ import Separator from "../components/ui/Separator.vue";
 import RangeSlider from "../components/ui/RangeSlider.vue";
 import Checkbox from "../components/ui/Checkbox.vue";
 import Input from "../components/ui/Input.vue";
+import Carousel from "../components/ui/Carousel.vue";
 
 const selected = ref("Dashboard");
 const checkbox = ref(true);
@@ -75,8 +76,12 @@ const input = ref("test input text");
 
 		<Separator class="my-4" />
 
-		<div>
+		<div class="my-4">
 			<Input v-model="input" icon="icon-park-outline:text" placeholder="Placeholder" help-text="Text field with helper text" />
 		</div>
+
+		<Carousel>
+			<div class="carousel__item w-full bg-red-400 py-8 text-center">slide</div>
+		</Carousel>
 	</div>
 </template>
