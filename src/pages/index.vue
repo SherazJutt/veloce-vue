@@ -10,6 +10,7 @@ import RangeSlider from "../components/ui/RangeSlider.vue";
 import Checkbox from "../components/ui/Checkbox.vue";
 import Input from "../components/ui/Input.vue";
 import Carousel from "../components/ui/Carousel.vue";
+import Drawer from "../components/ui/Drawer.vue";
 
 const selected = ref("Dashboard");
 const checkbox = ref(true);
@@ -29,6 +30,14 @@ const input = ref("test input text");
 				<Button icon="material-symbols:check" label="Icon" />
 				<Button icon="material-symbols:check" icon-position="left" label="Icon position" />
 			</div>
+		</div>
+
+		<Separator class="my-4" />
+
+		<div class="my-4 flex gap-4">
+			<Drawer direction="left" />
+			<Drawer direction="bottom" />
+			<Drawer direction="right" />
 		</div>
 
 		<Separator class="my-4" />
@@ -79,6 +88,8 @@ const input = ref("test input text");
 		<div class="my-4">
 			<Input v-model="input" icon="icon-park-outline:text" placeholder="Placeholder" help-text="Text field with helper text" />
 		</div>
+
+		<Separator class="my-4" />
 
 		<Carousel>
 			<div class="carousel__item w-full bg-red-400 py-8 text-center">slide</div>
