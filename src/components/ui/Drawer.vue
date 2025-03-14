@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import Button from "./Button.vue";
 
 const props = defineProps({
@@ -47,6 +47,14 @@ const defaultClasses = computed(() => {
 
 	return classes;
 });
+
+watch(show, () => {
+	if (show.value) {
+		document.body.classList.add("overflow-hidden");
+	} else {
+		document.body.classList.remove("overflow-hidden");
+	}
+});
 </script>
 
 <template>
@@ -54,11 +62,21 @@ const defaultClasses = computed(() => {
 
 	<!-- drawer  -->
 	<div :class="[drawerdirections, defaultClasses]" class="z-50 flex flex-col justify-between bg-white duration-300">
-		<div class="flex items-center justify-between bg-gray-100 p-2">
-			<span>Title</span>
-			<Icon icon="material-symbols:close" class="cursor-pointer text-gray-400 hover:text-gray-500" @click="show = !show" />
+		<div v-if="props.direction === 'bottom'" class="flex h-8 items-center justify-center border-b border-gray-200 p-2 select-none">
+			<span class="bg-primary h-1.5 w-12 cursor-pointer rounded-full"></span>
+		</div>
+
+		<div class="flex justify-between p-2">
+			<div>
+				<h4 class="font-semibold">Title</h4>
+				<p class="text-sm text-gray-500">Some description here</p>
+			</div>
+			<div v-if="props.direction !== 'bottom'">
+				<Button icon="material-symbols:close-rounded" class="!p-1" circle variant="text" @click="show = false" />
+			</div>
 		</div>
 		<div class="flex size-full items-center justify-center bg-gray-50 p-2">Content</div>
 		<div class="bg-gray-100 p-2">Footer</div>
 	</div>
+	<div :class="show ? 'opacity-100' : 'pointer-events-none'" class="fixed inset-0 z-[49] bg-black/40 opacity-0 duration-200" @click="show = false"></div>
 </template>
