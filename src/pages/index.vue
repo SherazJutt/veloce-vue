@@ -9,7 +9,7 @@ import Separator from "../components/ui/Separator.vue";
 import RangeSlider from "../components/ui/RangeSlider.vue";
 import Checkbox from "../components/ui/Checkbox.vue";
 import Input from "../components/ui/Input.vue";
-import Carousel from "../components/ui/Carousel.vue";
+// import Carousel from "../components/ui/Carousel.vue";
 import Drawer from "../components/ui/Drawer.vue";
 
 const selected = ref("Dashboard");
@@ -37,14 +37,35 @@ const input = ref("test input text");
 		<h3 class="text-primary mb-2 font-semibold">Drawer</h3>
 
 		<div class="my-4 flex gap-4">
-			<Drawer direction="left">
+			<Drawer direction="left" footer title="Title" description="some drawer description">
 				<Button label="Left" />
+				<template #content>
+					<p v-for="item in 15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quasi earum sapiente aliquid repudiandae quae. Tempora unde voluptatem iusto. Minima, corrupti eveniet quibusdam nobis animi porro et esse ea tempore?</p>
+				</template>
+
+				<template #footer>
+					<div>Footer</div>
+				</template>
 			</Drawer>
-			<Drawer direction="bottom">
+			<Drawer direction="bottom" footer title="Title" description="some drawer description">
 				<Button label="Bottom" />
+				<template #content>
+					<p v-for="item in 25">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quasi earum sapiente aliquid repudiandae quae. Tempora unde voluptatem iusto. Minima, corrupti eveniet quibusdam nobis animi porro et esse ea tempore?</p>
+				</template>
+
+				<template #footer>
+					<div>Footer</div>
+				</template>
 			</Drawer>
-			<Drawer direction="right">
+			<Drawer direction="right" footer title="Title" description="some drawer description">
 				<Button label="Right" />
+				<template #content>
+					<p v-for="item in 15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quasi earum sapiente aliquid repudiandae quae. Tempora unde voluptatem iusto. Minima, corrupti eveniet quibusdam nobis animi porro et esse ea tempore?</p>
+				</template>
+
+				<template #footer>
+					<div>Footer</div>
+				</template>
 			</Drawer>
 		</div>
 
