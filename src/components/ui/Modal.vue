@@ -29,7 +29,7 @@ watch(show, () => {
 			</div>
 			<!-- Modal body -->
 			<div class="max-h-[calc(100dvh-100px)] flex-1 overflow-auto px-4 py-2 sm:max-h-[75vh]">
-				<p v-for="item in 15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo autem consequatur aspernatur animi voluptate quasi non, maxime iste, harum ipsa reiciendis laborum ad unde a sequi molestias? Dolore, obcaecati sed?</p>
+				<p v-for="_ in 15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo autem consequatur aspernatur animi voluptate quasi non, maxime iste, harum ipsa reiciendis laborum ad unde a sequi molestias? Dolore, obcaecati sed?</p>
 			</div>
 			<div class="flex items-center justify-end gap-4 border-t border-gray-200 px-4 py-2">
 				<Button class="!px-3 !py-1" variant="ghost" label="Close" @click="show = false" />

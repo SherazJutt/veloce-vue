@@ -47,7 +47,7 @@ const accordionItems = ref([
 			<Drawer direction="left" footer title="Title" description="some drawer description">
 				<Button label="Left" />
 				<template #content>
-					<p v-for="item in 15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quasi earum sapiente aliquid repudiandae quae. Tempora unde voluptatem iusto. Minima, corrupti eveniet quibusdam nobis animi porro et esse ea tempore?</p>
+					<p v-for="_ in 15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quasi earum sapiente aliquid repudiandae quae. Tempora unde voluptatem iusto. Minima, corrupti eveniet quibusdam nobis animi porro et esse ea tempore?</p>
 				</template>
 
 				<template #footer>
@@ -57,7 +57,7 @@ const accordionItems = ref([
 			<Drawer direction="bottom" footer title="Title" description="some drawer description">
 				<Button label="Bottom" />
 				<template #content>
-					<p v-for="item in 25">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quasi earum sapiente aliquid repudiandae quae. Tempora unde voluptatem iusto. Minima, corrupti eveniet quibusdam nobis animi porro et esse ea tempore?</p>
+					<p v-for="_ in 25">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quasi earum sapiente aliquid repudiandae quae. Tempora unde voluptatem iusto. Minima, corrupti eveniet quibusdam nobis animi porro et esse ea tempore?</p>
 				</template>
 
 				<template #footer>
@@ -67,7 +67,7 @@ const accordionItems = ref([
 			<Drawer direction="right" footer title="Title" description="some drawer description">
 				<Button label="Right" />
 				<template #content>
-					<p v-for="item in 15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quasi earum sapiente aliquid repudiandae quae. Tempora unde voluptatem iusto. Minima, corrupti eveniet quibusdam nobis animi porro et esse ea tempore?</p>
+					<p v-for="_ in 15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quasi earum sapiente aliquid repudiandae quae. Tempora unde voluptatem iusto. Minima, corrupti eveniet quibusdam nobis animi porro et esse ea tempore?</p>
 				</template>
 
 				<template #footer>
