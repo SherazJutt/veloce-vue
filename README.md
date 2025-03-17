@@ -37,6 +37,42 @@ A collection of reusable **Vue 3 + TypeScript** components styled with **Tailwin
 
 ---
 
+## 🎨 CSS Configuration Guide
+
+```bash
+@theme {
+  /* Theme Colors */
+  --color-primary: #523ae4;
+  --color-secondary: #0f0d0d;
+
+  /* Breakpoints */
+  --breakpoint-coxs: 375px;
+  --breakpoint-xs: 425px;
+  --breakpoint-cosm: 500px;
+  --breakpoint-sm: 576px;
+  --breakpoint-comd: 650px;
+  --breakpoint-md: 768px;
+  --breakpoint-colg: 850px;
+  --breakpoint-lg: 992px;
+  --breakpoint-coxl: 1050px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-co2xl: 1320px;
+  --breakpoint-2xl: 1440px;
+  --breakpoint-3xl: 1660px;
+  --breakpoint-1700: 1700px;
+  --breakpoint-4xl: 1800px;
+
+  /*
+    📝 Usage:
+    - Use normal breakpoints: sm, md, lg, xl ...
+    - Min breakpoints: min-sm, min-md ...
+    - Max breakpoints: max-sm, max-md ...
+    - Combined: min-sm:max-md:bg-red-500
+  */
+}
+
+```
+
 ## 🎮 Usage Example
 
 ### Install TailwindCSS (if not installed):
