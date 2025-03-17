@@ -143,3 +143,6 @@ Feel free to open issues or submit pull requests for new components, improvement
 Icons Link: https://icon-sets.iconify.design/
 Icon resize: Use font size utilities like text-xl, text-2xl, etc.
 Global Icon component: `<Icon icon="mdi:home" />` is globally registered.
+
+## 📝 License
+This project is licensed under the MIT License.
