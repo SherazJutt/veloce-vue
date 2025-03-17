@@ -44,3 +44,35 @@ A collection of reusable **Vue 3 + TypeScript** components styled with **Tailwin
 ```bash
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
+```
+
+```bash
+<script setup lang="ts">
+import Button from '@/components/Button.vue';
+import Accordion from '@/components/Accordion.vue';
+
+const items = [
+  { title: 'Section 1', content: 'This is content for section 1.' },
+  { title: 'Section 2', content: 'This is content for section 2.' },
+];
+</script>
+
+<template>
+  <!-- Button Example -->
+  <Button label="Click Me" variant="solid" />
+
+  <!-- Accordion Example -->
+  <Accordion :items="items" />
+
+  <!-- Tooltip Example -->
+  <div class="mt-4">
+    <Tooltip text="I am a tooltip!">
+      <Button label="Hover me" variant="outlined" />
+    </Tooltip>
+  </div>
+
+  <!-- Select Example -->
+  <Select :options="['Option 1', 'Option 2', 'Option 3']" v-model="selectedOption" />
+</template>
+```
+
