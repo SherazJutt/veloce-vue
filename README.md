@@ -76,28 +76,34 @@ const items = [
 </template>
 ```
 
-🎨 Design Tokens
+## 🎨 Design Tokens
 
 Border color: border-gray-200
 Background highlight: bg-primary
 
-🌐 Global Icon Component
+## 🌐 Global Icon Component
+
 Icons are globally available via the <Icon /> component using Iconify:
 
+```
 <Icon icon="mdi:home" class="text-xl text-gray-600" />
+```
+
 Resize icons: with Tailwind’s text-sm, text-lg, text-xl, etc.
 Usage: No import needed; just drop <Icon /> wherever required.
 
 
-🧩 Tech Stack
-Vue 3 (Composition API)
-TypeScript
-TailwindCSS
-Iconify (global icon management)
-🤝 Contributing
+## 🧩 Tech Stack
+- Vue 3 (Composition API)
+- TypeScript
+- TailwindCSS
+- Iconify (global icon management)
+
+## 🤝 Contributing
+
 Feel free to open issues or submit pull requests for new components, improvements, or fixes. Contributions are highly appreciated!
 
-Notes
+## Notes
 Icons Link: https://icon-sets.iconify.design/
 Icon resize: Use font size utilities like text-xl, text-2xl, etc.
-Global Icon component: <Icon icon="mdi:home" /> is globally registered.
+Global Icon component: `<Icon icon="mdi:home" />` is globally registered.
