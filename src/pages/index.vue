@@ -11,10 +11,17 @@ import Checkbox from "../components/ui/Checkbox.vue";
 import Input from "../components/ui/Input.vue";
 // import Carousel from "../components/ui/Carousel.vue";
 import Drawer from "../components/ui/Drawer.vue";
+import Accordion from "../components/ui/Accordion.vue";
 
 const selected = ref("Dashboard");
 const checkbox = ref(true);
 const input = ref("test input text");
+
+const accordionItems = ref([
+	{ title: "Item 1", content: "Item 1 content", slot: "item1" },
+	{ title: "Item 2", content: "Item 2 content" },
+	{ title: "Item 3", content: "Item 3 content" },
+]);
 </script>
 
 <template>
@@ -118,7 +125,15 @@ const input = ref("test input text");
 			<Input v-model="input" icon="icon-park-outline:text" placeholder="Placeholder" help-text="Text field with helper text" />
 		</div>
 
-		<!-- <Separator class="my-4" /> -->
+		<Separator class="mt-8 mb-4" />
+
+		<div>
+			<Accordion :items="accordionItems">
+				<template #item1>
+					<p>Item 1 content (rendered from slot)</p>
+				</template>
+			</Accordion>
+		</div>
 
 		<!-- <Carousel>
 			<div class="carousel__item w-full bg-red-400 py-8 text-center">slide</div>
