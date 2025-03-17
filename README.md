@@ -76,3 +76,10 @@ const items = [
 </template>
 ```
 
+## 🎨 Design Tokens
+---
+Border color: border-gray-200
+Background highlight: bg-primary
+---
+
+
