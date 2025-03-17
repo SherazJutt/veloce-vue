@@ -4,6 +4,7 @@ import Button from "./Button.vue";
 
 const props = defineProps({
 	direction: { type: String as () => "left" | "bottom" | "right", default: "bottom" },
+	footer: { type: Boolean, default: false },
 });
 
 const show = ref(false);
@@ -58,7 +59,9 @@ watch(show, () => {
 </script>
 
 <template>
-	<Button label="Drawer" @click="show = !show" />
+	<div @click="show = !show">
+		<slot />
+	</div>
 
 	<!-- drawer  -->
 	<div :class="[drawerdirections, defaultClasses]" class="z-50 flex flex-col justify-between bg-white duration-300">
@@ -76,7 +79,8 @@ watch(show, () => {
 			</div>
 		</div>
 		<div class="flex size-full items-center justify-center bg-gray-50 p-2">Content</div>
-		<div class="bg-gray-100 p-2">Footer</div>
+		<!-- footer -->
+		<div v-if="footer" class="bg-gray-100 p-2">Footer</div>
 	</div>
 	<div :class="show ? 'opacity-100' : 'pointer-events-none'" class="fixed inset-0 z-[49] bg-black/40 opacity-0 duration-200" @click="show = false"></div>
 </template>
