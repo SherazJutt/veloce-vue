@@ -1,10 +1,46 @@
-#### Icons
+# vue-components
 
-Link => https://icon-sets.iconify.design/
-size => use font size to resize the icons
-component => ( <Icon  icon="icon" /> ) ---> global component (no need to import)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) 
+[![Vue 3](https://img.shields.io/badge/Vue-3.x-brightgreen.svg)](https://v3.vuejs.org/) 
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)](https://www.typescriptlang.org/)
 
-### colors
+A collection of reusable **Vue 3 + TypeScript** components styled with **TailwindCSS**. These components are designed to help you quickly build modern UIs with consistent design patterns.
 
-border: 'gray-200'
-background: primary
+---
+
+## 🛠 Features
+
+- ⚙️ Built with **TypeScript** - Fully typed components for better DX.
+- 🧩 **Reusable Vue 3 components** using the Composition API.
+- 🎨 Styled with **TailwindCSS** utility classes.
+- 🌐 Global **Iconify** icon support via `<Icon />` component.
+- ⚡ Lightweight, modular, and easy to extend.
+
+---
+
+## 📦 Components Included
+
+| Component         | Description                                 |
+|-------------------|---------------------------------------------|
+| `Accordion.vue`   | Expandable accordion list with slot support |
+| `Button.vue`      | Versatile button with multiple variants     |
+| `Carousel.vue`    | Lightweight image/content carousel          |
+| `Checkbox.vue`    | Customizable checkbox input                 |
+| `Drawer.vue`      | Slide-in drawer with overlay                |
+| `Input.vue`       | Styled input field with labels and states   |
+| `Modal.vue`       | Modal dialog with smooth transitions        |
+| `Popover.vue`     | Popover for contextual info dropdown        |
+| `RangeSlider.vue` | Range slider input with step support        |
+| `Select.vue`      | Dropdown select with built-in search        |
+| `Separator.vue`   | Horizontal/vertical divider                 |
+| `Tooltip.vue`     | Tooltip component for hover information     |
+
+---
+
+## 🎮 Usage Example
+
+### Install TailwindCSS (if not installed):
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
