@@ -96,7 +96,7 @@ Usage: No import needed; just drop <Icon /> wherever required.
 ## 🧩 Tech Stack
 - Vue 3 (Composition API)
 - TypeScript
-- TailwindCSS
+- TailwindCSS v4
 - Iconify (global icon management)
 
 ## 🤝 Contributing
