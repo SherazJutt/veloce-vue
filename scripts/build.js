@@ -37,15 +37,21 @@ const rootPkg = JSON.parse(readFileSync(resolve("package.json"), "utf-8"));
 // 🧱 7. Create output package.json dynamically
 console.log("🧾 Creating package.json...");
 const pkg = {
-	name: rootPkg.name,
+	name: "@sherazjutt/vue-components",
+	private: false,
 	version: rootPkg.version,
 	type: "module",
-	description: rootPkg.description,
-	license: rootPkg.license,
-	author: rootPkg.author,
-	repository: rootPkg.repository,
-	bugs: rootPkg.bugs,
-	homepage: rootPkg.homepage,
+	description: "A Vue 3 UI component library built with Vite + TypeScript.",
+	license: "MIT",
+	author: "Sheraz <sherazarshad419@gmail.com>",
+	repository: {
+		type: "git",
+		url: "git+https://github.com/SherazJutt/vue-components.git",
+	},
+	bugs: {
+		url: "https://github.com/SherazJutt/vue-components/issues",
+	},
+	homepage: "https://github.com/SherazJutt/vue-components#readme",
 
 	main: "./index.cjs",
 	module: "./index.js",
