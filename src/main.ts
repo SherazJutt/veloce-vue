@@ -1,3 +1,5 @@
+import Button from "./components/Button/Button.vue";
 import "./style.css";
 
-export { default as Button } from "./components/Button/Button.vue";
+export { Button };
+export type ButtonProps = InstanceType<typeof Button>["$props"];

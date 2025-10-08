@@ -1,50 +1,41 @@
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
+  <button :class="classes" @click="onClick">{{ label }}</button>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
-
-import './button.css';
+import { computed } from "vue";
 
 const props = withDefaults(
   defineProps<{
-    /**
-     * The label of the button
-     */
     label: string;
-    /**
-     * primary or secondary button
-     */
     primary?: boolean;
-    /**
-     * size of the button
-     */
-    size?: 'small' | 'medium' | 'large';
-    /**
-     * background color of the button
-     */
-    backgroundColor?: string;
   }>(),
   { primary: false }
 );
 
 const emit = defineEmits<{
-  (e: 'click', id: number): void;
+  (e: "click"): void;
 }>();
 
 const classes = computed(() => ({
-  'storybook-button': true,
-  'storybook-button--primary': props.primary,
-  'storybook-button--secondary': !props.primary,
-  [`storybook-button--${props.size || 'medium'}`]: true,
+  button: true,
+  "button-primary": props.primary,
+  "button-secondary": !props.primary,
 }));
 
-const style = computed(() => ({
-  backgroundColor: props.backgroundColor,
-}));
-
-const onClick = () => {
-  emit('click', 1);
-};
+const onClick = () => emit("click");
 </script>
+
+<style>
+.button {
+  padding: 6px 12px;
+}
+.button-primary {
+  background: blue;
+  color: white;
+}
+.button-secondary {
+  background: gray;
+  color: white;
+}
+</style>
