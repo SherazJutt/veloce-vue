@@ -1,14 +1,27 @@
 {
   "name": "ui-library",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "private": false,
   "type": "module",
+  "main": "build/package/index.cjs",
+  "module": "build/package/index.js",
+  "types": "build/package/index.d.ts",
+  "files": [
+    "build/package"
+  ],
+  "exports": {
+    ".": {
+      "types": "./build/package/index.d.ts",
+      "import": "./build/package/index.js",
+      "require": "./build/package/index.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
     "build:types": "vue-tsc -p tsconfig.json --declaration --emitDeclarationOnly",
     "build:js": "vite build",
-    "build": "pnpm run build:types && pnpm run build:js",
+    "build": "rm -rf build/package && pnpm run build:types && pnpm run build:js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
