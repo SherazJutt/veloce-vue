@@ -5,8 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
+    "build:types": "vue-tsc -p tsconfig.json --declaration --emitDeclarationOnly",
+    "build:js": "vite build",
+    "build": "pnpm run build:types && pnpm run build:js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
