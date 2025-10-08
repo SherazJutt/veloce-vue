@@ -11,7 +11,7 @@ export default defineConfig({
     sourcemap: true,
 
     lib: {
-      entry: path.resolve(__dirname, "src/main.ts"),
+      entry: path.resolve(__dirname, "src/index.ts"),
       name: "ui-library",
       fileName: (format) => `index.${format === "es" ? "js" : format}`,
       formats: ["es", "cjs"],

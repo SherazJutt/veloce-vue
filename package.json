@@ -19,9 +19,9 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
-    "build:types": "vue-tsc -p tsconfig.json --declaration --emitDeclarationOnly",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly --outDir build/types",
     "build:js": "vite build",
-    "build": "rm -rf build/package && pnpm run build:types && pnpm run build:js",
+    "build": "pnpm run build:types && pnpm run build:js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

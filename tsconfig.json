@@ -3,7 +3,7 @@
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,
-    "declarationDir": "build/package",
+    "declarationDir": "build/types",
     "outDir": "build/package",
     "noEmit": false,
     "noEmitOnError": false,
