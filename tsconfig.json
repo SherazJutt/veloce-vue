@@ -1,41 +1,47 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "compilerOptions": {
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "declarationDir": "build/package",
-    "outDir": "build/package",
-    "noEmit": false,
-    "noEmitOnError": false,
+	"extends": "@vue/tsconfig/tsconfig.dom.json",
+	"compilerOptions": {
+		/* === Output Settings === */
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"declarationDir": "build/package",
+		"outDir": "build/package",
+		"noEmit": false,
+		"noEmitOnError": false,
 
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "target": "ES2020",
-    "jsx": "preserve",
-    "types": ["vue", "vite/client"],
-    "baseUrl": ".",
-    "rootDir": "src",
-    "paths": {
-      "@/*": ["src/*"]
-    },
+		/* === Module Resolution === */
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"target": "ES2020",
+		"jsx": "preserve",
 
-    "composite": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+		/* === Type Resolution === */
+		"types": ["vue", "vite/client"],
+		"baseUrl": ".",
+		"rootDir": "src",
+		"paths": {
+			"@/*": ["src/*"]
+		},
 
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true
-  },
-  "include": ["src/**/*.ts", "src/**/*.vue"],
-  "exclude": [
-    "vite.config.ts",
-    "**/*.stories.*",
-    "**/*.spec.*",
-    "**/*.test.*",
-    "node_modules",
-    "dist",
-    "build"
-  ]
+		/* === Build & Compatibility === */
+		"composite": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+
+		/* === Linting & Strictness === */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedSideEffectImports": true
+	},
+
+	/* === File Inclusion === */
+	"include": ["src/**/*.ts", "src/**/*.vue"],
+
+	/* === File Exclusion === */
+	"exclude": ["vite.config.ts", "**/*.stories.*", "**/*.spec.*", "**/*.test.*", "node_modules", "dist", "build"]
 }

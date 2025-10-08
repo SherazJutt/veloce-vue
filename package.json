@@ -1,41 +1,48 @@
 {
-  "name": "ui-library",
-  "version": "0.1.0",
-  "private": false,
-  "type": "module",
-  "main": "build/package/index.cjs",
-  "module": "build/package/index.js",
-  "types": "build/package/index.d.ts",
-  "files": [
-    "build/package"
-  ],
-  "exports": {
-    ".": {
-      "types": "./build/package/index.d.ts",
-      "import": "./build/package/index.js",
-      "require": "./build/package/index.cjs"
-    }
-  },
-  "scripts": {
-    "dev": "vite",
-    "preview": "vite preview",
-    "build:types": "vue-tsc --declaration --emitDeclarationOnly --outDir build/types",
-    "build:js": "vite build",
-    "build": "pnpm run build:js && pnpm run build:types",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "dependencies": {
-    "vue": "^3.5.22"
-  },
-  "devDependencies": {
-    "@storybook/vue3-vite": "^9.1.10",
-    "@types/node": "^24.6.0",
-    "@vitejs/plugin-vue": "^6.0.1",
-    "@vue/tsconfig": "^0.8.1",
-    "storybook": "^9.1.10",
-    "typescript": "~5.9.3",
-    "vite": "^7.1.7",
-    "vue-tsc": "^3.1.0"
-  }
+	"name": "ui-library",
+	"version": "0.1.0",
+	"private": false,
+	"type": "module",
+	"main": "build/package/index.cjs",
+	"module": "build/package/index.js",
+	"types": "build/package/index.d.ts",
+	"files": [
+		"build/package"
+	],
+	"exports": {
+		".": {
+			"types": "./build/package/index.d.ts",
+			"import": "./build/package/index.js",
+			"require": "./build/package/index.cjs"
+		}
+	},
+	"scripts": {
+		"dev": "vite",
+		"preview": "vite preview",
+		"build:types": "vue-tsc --declaration --emitDeclarationOnly --outDir build/types",
+		"build:js": "vite build",
+		"build": "pnpm run build:js && pnpm run build:types",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
+	},
+	"dependencies": {
+		"vue": "^3.5.22"
+	},
+	"devDependencies": {
+		"@storybook/vue3-vite": "^9.1.10",
+		"@types/node": "^24.6.0",
+		"@vitejs/plugin-vue": "^6.0.1",
+		"@vue/tsconfig": "^0.8.1",
+		"storybook": "^9.1.10",
+		"typescript": "~5.9.3",
+		"vite": "^7.1.7",
+		"vue-tsc": "^3.1.0",
+		"@iconify/vue": "^4.3.0",
+		"@tailwindcss/vite": "^4.0.9",
+		"@types/vue-router": "^2.0.0",
+		"prettier": "^3.4.2",
+		"prettier-plugin-organize-attributes": "^1.0.0",
+		"prettier-plugin-tailwindcss": "^0.6.9",
+		"tailwindcss": "^4.0.9"
+	}
 }
