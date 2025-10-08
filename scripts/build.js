@@ -2,11 +2,12 @@ import { execSync } from "node:child_process";
 import { rmSync, cpSync, writeFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
+const buildDir = resolve("build");
 const outDir = resolve("build/package");
 
 // 🧹 1. Clean previous build
 console.log("🧹 Cleaning old build...");
-rmSync(outDir, { recursive: true, force: true });
+rmSync(buildDir, { recursive: true, force: true });
 
 // 📁 2. Ensure output directory exists (fixes your issue)
 if (!existsSync(outDir)) {

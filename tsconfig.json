@@ -24,7 +24,6 @@
 		},
 
 		/* === Build & Compatibility === */
-		"composite": true,
 		"skipLibCheck": true,
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
