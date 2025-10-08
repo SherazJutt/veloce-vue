@@ -6,7 +6,6 @@ export default defineConfig({
 	plugins: [vue()],
 	build: {
 		outDir: path.resolve(__dirname, "./build/package"),
-		emptyOutDir: true,
 		sourcemap: true,
 
 		lib: {
