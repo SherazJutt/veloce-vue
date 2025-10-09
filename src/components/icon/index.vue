@@ -1,22 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import Check from "../icons/check.vue";
-import Close from "../icons/close.vue";
-import Loading from "../icons/loading.vue";
-import ChevronDown from "../icons/chevron-down.vue";
-import Alert from "../icons/alert.vue";
-
-// Map of all icons
-const icons = {
-  check: Check,
-  close: Close,
-  loading: Loading,
-  "chevron-down": ChevronDown,
-  alert: Alert,
-} as const;
-
-// icons names for autocomplete
-export type IconNames = keyof typeof icons;
+import { icons, type IconNames } from "./index.ts";
 
 // Props
 const props = defineProps<{

@@ -1,3 +1,5 @@
+import { IconsList } from "../components/icon";
+
 export function generateStoryControls(props: Record<string, any>) {
   const args: Record<string, any> = {};
   const argTypes: Record<string, any> = {};
@@ -5,6 +7,11 @@ export function generateStoryControls(props: Record<string, any>) {
   for (const [key, val] of Object.entries(props)) {
     // --- default value
     args[key] = val.default;
+
+    if (key === "icon") {
+      argTypes[key] = { control: "select", options: IconsList };
+      continue;
+    }
 
     // --- select controls (union-like)
     if (val.options) {

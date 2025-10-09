@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/vue3-vite";
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import Button from "./Index.vue";
 import { props } from "./props";
 import { generateStoryControls } from "../../utils/storyControls";
@@ -15,7 +15,9 @@ const meta: Meta<typeof Button> = {
 
 export default meta;
 
-export const Default = {
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     icon: "",
     label: "Label",
@@ -23,7 +25,7 @@ export const Default = {
   },
 };
 
-export const WithIconLeft = {
+export const WithIconLeft: Story = {
   args: {
     label: "Label",
     icon: "check",
@@ -31,7 +33,7 @@ export const WithIconLeft = {
   },
 };
 
-export const WithIconRight = {
+export const WithIconRight: Story = {
   args: {
     label: "Label",
     icon: "check",
@@ -39,7 +41,7 @@ export const WithIconRight = {
   },
 };
 
-export const Loading = {
+export const Loading: Story = {
   args: {
     label: "Loading...",
     loading: true,
@@ -47,7 +49,7 @@ export const Loading = {
   },
 };
 
-export const Disabled = {
+export const Disabled: Story = {
   args: {
     label: "Disabled",
     disabled: true,
@@ -55,47 +57,47 @@ export const Disabled = {
   },
 };
 
-export const Solid = {
+export const Solid: Story = {
   args: {
     label: "Solid",
     variant: "solid",
   },
 };
 
-export const Outlined = {
+export const Outlined: Story = {
   args: {
     label: "Outlined",
     variant: "outlined",
   },
 };
 
-export const Text = {
+export const Text: Story = {
   args: {
     label: "Text",
     variant: "text",
   },
 };
 
-export const Ghost = {
+export const Ghost: Story = {
   args: {
     label: "Ghost",
     variant: "ghost",
   },
 };
 
-export const Rounded = {
+export const Rounded: Story = {
   args: {
     label: "Rounded",
     rounded: true,
-    icon: "",
+    icon: "check",
   },
 };
 
-export const OnlyIcon = {
+export const OnlyIcon: Story = {
   args: {
     icon: "check",
     label: "",
-    rounded: false,
+    rounded: true,
   },
 };
 
