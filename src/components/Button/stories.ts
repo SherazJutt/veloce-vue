@@ -8,6 +8,7 @@ const { args, argTypes } = generateStoryControls(props);
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
   component: Button,
+  tags: ["autodocs"],
   args,
   argTypes,
 };
