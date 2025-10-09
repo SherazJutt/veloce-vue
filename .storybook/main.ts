@@ -2,7 +2,7 @@ import type { StorybookConfig } from "@storybook/vue3-vite";
 import tailwindcss from "@tailwindcss/vite";
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.stories.@(ts)"],
+  stories: ["../src/**/stories.@(ts)"],
   addons: [],
   framework: {
     name: "@storybook/vue3-vite",
