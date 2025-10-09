@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import Icon from "../icon/index.vue";
 
 // Props definition
 // `items` is an array of objects where each object represents an accordion item.

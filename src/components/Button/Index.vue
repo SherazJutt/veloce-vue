@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { props as buttonProps } from "./props";
-import Icon from "../icon/index.vue";
 
 const props = defineProps(buttonProps);
 

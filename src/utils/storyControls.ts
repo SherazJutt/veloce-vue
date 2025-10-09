@@ -5,9 +5,16 @@ export function generateStoryControls(props: Record<string, any>) {
   const argTypes: Record<string, any> = {};
 
   for (const [key, val] of Object.entries(props)) {
-    // --- default value
+    // this will skip the iconClass completely from the args and argTypes
+    // --- skip iconClass
+    if (key === "iconClass") {
+      continue;
+    }
+
+    // --- default value (this will set the default value for the args)
     args[key] = val.default;
 
+    // this will set the icon control to select with the options from the IconsList
     if (key === "icon") {
       argTypes[key] = { control: "select", options: IconsList };
       continue;
