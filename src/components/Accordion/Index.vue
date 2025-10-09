@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import Icon from "../icon/index.vue";
 
 // Props definition
 // `items` is an array of objects where each object represents an accordion item.
@@ -24,7 +25,7 @@ const activeIndex = ref<Number | null>(null);
         <!-- Accordion Title -->
         <span class="title text-gray-600">{{ item.title }}</span>
         <!-- Chevron Icon -->
-        <Icon icon="jam:chevron-down" :class="{ 'rotate-180': activeIndex === index }" class="icon text-[1.4rem] text-gray-400 duration-200" />
+        <Icon icon="chevron-down" :class="{ 'rotate-180': activeIndex === index }" class="icon text-[1.4rem] text-gray-400 duration-200" />
       </div>
 
       <!-- Accordion Body -->
