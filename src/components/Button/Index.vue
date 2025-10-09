@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { props as buttonProps } from "./props";
-// import { Icon } from "@iconify/vue";
+import Icon from "../Icon.vue";
 
 const props = defineProps(buttonProps);
 
@@ -30,8 +30,9 @@ const classes = computed(() => {
       <span v-if="props.label" :class="{ 'order-2': props.iconPosition === 'left' }">
         {{ props.label }}
       </span>
-      <!-- <Icon v-if="props.icon && !props.loading" :icon="props.icon" :class="props.iconClass" class="text-xl duration-200" /> -->
+      <Icon v-if="props.icon && !props.loading" :icon="props.icon" :class="props.iconClass" :size="24" />
     </div>
-    <!-- <Icon v-if="props.loading" icon="svg-spinners:90-ring-with-bg" class="size-5 animate-spin" /> -->
+
+    <Icon v-if="props.loading" icon="loading0" fallback-icon="Alert" :size="240" />
   </button>
 </template>
