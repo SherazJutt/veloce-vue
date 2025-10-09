@@ -20,19 +20,20 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <button type="button" :disabled="props.disabled || props.loading" :class="[classes, { 'rounded-full': props.rounded }, 'flex cursor-pointer items-center justify-center gap-2 rounded border border-transparent px-3 py-2 transition duration-200 disabled:cursor-not-allowed disabled:opacity-50']">
-    <div
-      :class="{
-        'justify-center': !props.icon,
-      }"
-      class="flex w-full items-center justify-between gap-2"
-    >
-      <span v-if="props.label" :class="{ 'order-2': props.iconPosition === 'left' }">
-        {{ props.label }}
-      </span>
-      <Icon v-if="props.icon && !props.loading" :icon="props.icon" :class="props.iconClass" :size="24" />
+  <!-- prettier-ignore -->
+  <button 
+    type="button" 
+    :disabled="props.disabled || props.loading" 
+    :class="[
+      classes, { 'rounded-full': props.rounded }, 
+      'flex cursor-pointer items-center justify-center gap-2 rounded border border-transparent px-3 py-2 transition duration-200 disabled:cursor-not-allowed disabled:opacity-50'
+    ]"
+  >
+    <div :class="{ 'justify-center': !props.icon }" class="flex w-full items-center justify-between gap-2">
+      <span v-if="props.label" :class="{ 'order-2': props.iconPosition === 'left' }"> {{ props.label }} </span>
+      <Icon v-if="props.icon && !props.loading" :icon="props.icon" :class="props.iconClass" />
     </div>
 
-    <Icon v-if="props.loading" icon="loading0" fallback-icon="Alert" :size="240" />
+    <Icon v-if="props.loading" icon="loading" />
   </button>
 </template>
