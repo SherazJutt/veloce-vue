@@ -4,19 +4,19 @@ import { ref } from "vue";
 const isOpen = ref(false);
 
 defineProps({
-	position: { type: String as () => "left" | "top" | "right" | "bottom", default: "bottom" },
-	bodyClass: { type: String, default: "" },
+  position: { type: String as () => "left" | "top" | "right" | "bottom", default: "bottom" },
+  bodyClass: { type: String, default: "" },
 });
 </script>
 
 <template>
-	<div class="relative" @mouseenter="isOpen = true" @mouseleave="isOpen = false">
-		<!-- Tooltip trigger -->
-		<slot />
+  <div class="relative" @mouseenter="isOpen = true" @mouseleave="isOpen = false">
+    <!-- Tooltip trigger -->
+    <slot />
 
-		<!-- Tooltip content -->
-		<!-- prettier-ignore -->
-		<div 
+    <!-- Tooltip content -->
+    <!-- prettier-ignore -->
+    <div 
 		v-if="isOpen" 
 		:class="[
 			'absolute z-10 w-max rounded-md bg-white px-3 py-2 text-sm text-primary border shadow-xl transition-opacity duration-200',
@@ -28,5 +28,5 @@ defineProps({
 		]">
 		<slot name="body" />
 		</div>
-	</div>
+  </div>
 </template>
