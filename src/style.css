@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+	/* theme colors */
+	--color-primary: #523ae4;
+	--color-secondary: #0f0d0d;
+
+	/* breakpoints */
+
+	/* to use normal breakpoints you can use sm, md, lg, xl ... */
+	/* to use min breakpoints you can use min-sm, min-md, min-lg, min-xl ... */
+	/* to use max breakpoints you can use max-sm, max-md, max-lg, max-xl ... */
+	/* by default all the breakpints are min width so (min-breakpoint) is not requird
+      unless you need min-max breakpoint
+      eg.(min width: 576px and max width: 768px) with tailwild css (min-sm:max-md:bg-red-500) */
+
+	--breakpoint-coxs: 375px;
+	--breakpoint-xs: 425px;
+	--breakpoint-cosm: 500px;
+	--breakpoint-sm: 576px;
+	--breakpoint-comd: 650px;
+	--breakpoint-md: 768px;
+	--breakpoint-colg: 850px;
+	--breakpoint-lg: 992px;
+	--breakpoint-coxl: 1050px;
+	--breakpoint-xl: 1200px;
+	--breakpoint-co2xl: 1320px;
+	--breakpoint-2xl: 1440px;
+	--breakpoint-3xl: 1660px;
+	--breakpoint-1700: 1700px;
+	--breakpoint-4xl: 1800px;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+	@apply h-[4px] w-[4px];
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-gray-200;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-primary;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	@apply bg-gray-600;
+}
+
+@utility container {
+	@apply mx-auto w-[85%] max-w-[1440px];
+}

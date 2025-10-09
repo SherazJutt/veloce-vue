@@ -4,7 +4,7 @@
 	"private": false,
 	"type": "module",
 	"scripts": {
-		"storybook": "storybook dev -p 6006",
+		"dev": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
 		"build": "node scripts/build.js"
 	},
