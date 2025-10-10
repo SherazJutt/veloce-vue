@@ -72,7 +72,7 @@ const pkg = {
   },
 
   files: [
-    ".", // include everything in build/package
+    "**/*", // include everything in build/package
   ],
 
   sideEffects: [
