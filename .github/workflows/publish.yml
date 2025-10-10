@@ -27,6 +27,11 @@ jobs:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             - name: 🏗️ Build the package
+              run: pnpm run build
+
+            - name: 🚢 Publish to npm
               run: |
-                  pnpm run build
-                  ls build/package
+                  cd build/package
+                  npm publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
