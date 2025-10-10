@@ -1,12 +1,14 @@
 import { defineConfig, Plugin } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  plugins: [vue(), enforceScriptSetupLangTS()],
+  plugins: [vue(), enforceScriptSetupLangTS(), tailwindcss()],
   build: {
     outDir: path.resolve(__dirname, "./build/package"),
     sourcemap: true,
+    cssCodeSplit: false,
 
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
@@ -23,7 +25,6 @@ export default defineConfig({
         },
       },
     },
-    cssCodeSplit: false,
   },
 });
 
