@@ -37,12 +37,14 @@ const rootPkg = JSON.parse(readFileSync(resolve("package.json"), "utf-8"));
 console.log("🧾 Creating package.json...");
 const pkg = {
   name: "@sherazjutt/vue-components",
-  private: false,
   version: rootPkg.version,
+  private: false,
   type: "module",
+
   description: "A Vue 3 UI component library built with Vite + TypeScript.",
   license: "MIT",
   author: "Sheraz <sherazarshad419@gmail.com>",
+
   repository: {
     type: "git",
     url: "git+https://github.com/SherazJutt/vue-components.git",
@@ -52,27 +54,38 @@ const pkg = {
   },
   homepage: "https://github.com/SherazJutt/vue-components#readme",
 
+  // Entry points
   main: "./index.cjs",
   module: "./index.js",
-  types: "./index.d.ts",
+  types: "./exports.d.ts",
+  style: "./ui-library.css",
 
+  // Export map for modern tooling
   exports: {
     ".": {
-      require: "./index.cjs",
       import: "./index.js",
-      types: "./index.d.ts",
+      require: "./index.cjs",
+      types: "./exports.d.ts",
+      default: "./index.js",
     },
+    "./ui-library.css": "./ui-library.css", // allow CSS import resolution
   },
 
-  files: ["."],
-  sideEffects: false,
+  files: [
+    ".", // include everything in build/package
+  ],
+
+  sideEffects: [
+    "./ui-library.css", // ensures CSS isn’t tree-shaken
+  ],
 
   peerDependencies: {
     vue: "^3.3.0",
   },
-  keywords: rootPkg.keywords,
+
+  keywords: ["vue3", "tailwindcss", "component library", "vue", "vuejs", "vue.js", "typescript", "vue-components", "ui", "tailwind", "framework", "ui-framework"],
 };
 
 writeFileSync(`${outDir}/package.json`, JSON.stringify(pkg, null, 2));
 
-console.log("✅ Build complete. Ready for publish!");
+console.log("Build complete. Ready for publish!");
