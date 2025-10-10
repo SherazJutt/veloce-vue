@@ -29,5 +29,4 @@ jobs:
             - name: 🏗️ Build the package
               run: |
                   pnpm run build
-                  ls
-                  ls build
+                  ls build/package
