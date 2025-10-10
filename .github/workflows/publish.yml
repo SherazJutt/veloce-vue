@@ -31,7 +31,7 @@ jobs:
 
             - name: 🚢 Publish to npm
               run: |
-                  ls
+                  ls build
                   cd build/package
                   npm publish --access public
               env:
