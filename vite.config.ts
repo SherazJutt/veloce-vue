@@ -28,8 +28,6 @@ export default defineConfig({
         return false;
       },
       output: {
-        assetFileNames: "styles.css", // extract CSS to this file
-
         interop: "auto",
         globals: { vue: "Vue" },
       },
