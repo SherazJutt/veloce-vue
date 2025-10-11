@@ -35,24 +35,25 @@ const rootPkg = JSON.parse(readFileSync(resolve("package.json"), "utf-8"));
 
 // 🧱 7. Create output package.json dynamically
 console.log("🧾 Creating package.json...");
+
 const pkg = {
-  name: "@sherazjutt/vue-components",
+  name: "veloce-vue",
   version: rootPkg.version,
   private: false,
   type: "module",
 
-  description: "A Vue 3 UI component library built with Vite + TypeScript.",
+  description: "A Vue 3 library built with Vite + TypeScript + Tailwind CSS.",
   license: "MIT",
   author: "Sheraz <sherazarshad419@gmail.com>",
 
   repository: {
     type: "git",
-    url: "git+https://github.com/SherazJutt/vue-components.git",
+    url: "git+https://github.com/SherazJutt/veloce-vue.git", // repo URL
   },
   bugs: {
-    url: "https://github.com/SherazJutt/vue-components/issues",
+    url: "https://github.com/SherazJutt/veloce-vue/issues", // issues URL
   },
-  homepage: "https://github.com/SherazJutt/vue-components#readme",
+  homepage: "https://github.com/SherazJutt/veloce-vue#readme", // homepage URL
 
   // Entry points
   main: "./index.cjs",
@@ -68,7 +69,7 @@ const pkg = {
       types: "./exports.d.ts",
       default: "./index.js",
     },
-    "./styles.css": "./ui-library.css", // allow CSS import resolution
+    "./styles.css": "./ui-library.css", //  CSS import resolution
   },
 
   files: [
@@ -83,7 +84,7 @@ const pkg = {
     vue: "^3.3.0",
   },
 
-  keywords: ["vue3", "tailwindcss", "component library", "vue", "vuejs", "vue.js", "typescript", "vue-components", "ui", "tailwind", "framework", "ui-framework"],
+  keywords: ["vue3", "tailwindcss", "component library", "vue", "vuejs", "vue.js", "typescript", "veloce-vue", "ui", "tailwind", "framework", "ui-framework"],
 };
 
 writeFileSync(`${outDir}/package.json`, JSON.stringify(pkg, null, 2));
