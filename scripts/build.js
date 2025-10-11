@@ -76,7 +76,7 @@ const pkg = {
   ],
 
   sideEffects: [
-    "./ui-library.css", // ensures CSS isn’t tree-shaken
+    "./styles.css", // ensures CSS isn’t tree-shaken
   ],
 
   peerDependencies: {

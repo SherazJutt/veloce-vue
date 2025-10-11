@@ -28,7 +28,7 @@ export default defineConfig({
         return false;
       },
       output: {
-        assetFileNames: "style.css", // extract CSS to this file
+        assetFileNames: "styles.css", // extract CSS to this file
 
         interop: "auto",
         globals: { vue: "Vue" },
