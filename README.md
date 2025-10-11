@@ -7,7 +7,7 @@ A modern Vue.js UI component library built with Vue, Typescript, Storybook and T
 Install the library from NPM:
 
 ```bash
-pnpm add @sherazjutt/vue-components
+pnpm add veloce-vue
 ```
 
 ## Setup
@@ -17,7 +17,7 @@ pnpm add @sherazjutt/vue-components
 Import the library's styles in your main application file:
 
 ```javascript
-import "@sherazjutt/vue-components/style.css";
+import "veloce-vue/style.css";
 ```
 
 ### 2. Import Components
@@ -25,7 +25,7 @@ import "@sherazjutt/vue-components/style.css";
 Import the components you need in your Vue components:
 
 ```javascript
-import { Button } from "@sherazjutt/vue-components";
+import { Button } from "veloce-vue";
 ```
 
 ## Usage Example
@@ -39,7 +39,7 @@ import { Button } from "@sherazjutt/vue-components";
 </template>
 
 <script setup>
-import { Button } from "@sherazjutt/vue-components";
+import { Button } from "veloce-vue";
 </script>
 ```
 
@@ -48,7 +48,7 @@ import { Button } from "@sherazjutt/vue-components";
 In your main application file (e.g., `main.ts`):
 
 ```javascript
-import "@sherazjutt/vue-components/styles.css";
+import "veloce-vue/styles.css";
 import "./style.css";
 
 import { createApp } from "vue";
@@ -85,7 +85,7 @@ To test the storybook locally, you can run `pnpm run preview-storybook`. This wi
 Create `ui.config.ts` and add the following code:
 
 ```javascript
-import { config } from "@sherazjutt/vue-components";
+import { config } from "veloce-vue";
 
 const themeConfig = {
   colors: {
