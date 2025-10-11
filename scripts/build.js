@@ -58,7 +58,7 @@ const pkg = {
   main: "./index.cjs",
   module: "./index.js",
   types: "./exports.d.ts",
-  style: "./ui-library.css",
+  style: "./styles.css",
 
   // Export map for modern tooling
   exports: {
