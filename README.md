@@ -48,7 +48,7 @@ import { Button } from "@sherazjutt/vue-components";
 In your main application file (e.g., `main.ts`):
 
 ```javascript
-import "@sherazjutt/vue-components/style.css";
+import "@sherazjutt/vue-components/styles.css";
 import "./style.css";
 
 import { createApp } from "vue";
