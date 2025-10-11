@@ -59,7 +59,7 @@ const pkg = {
   main: "./index.cjs",
   module: "./index.js",
   types: "./exports.d.ts",
-  style: "./ui-library.css",
+  style: "./veloce-vue.css",
 
   // Export map for modern tooling
   exports: {
@@ -69,7 +69,7 @@ const pkg = {
       types: "./exports.d.ts",
       default: "./index.js",
     },
-    "./styles.css": "./ui-library.css", //  CSS import resolution
+    "./styles.css": "./veloce-vue.css", //  CSS import resolution
   },
 
   files: [
@@ -77,7 +77,7 @@ const pkg = {
   ],
 
   sideEffects: [
-    "./styles.css", // ensures CSS isn’t tree-shaken
+    "./veloce-vue.css", // ensures CSS isn’t tree-shaken
   ],
 
   peerDependencies: {

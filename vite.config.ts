@@ -12,7 +12,7 @@ export default defineConfig({
 
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "ui-library",
+      name: "veloce-vue",
       fileName: (format) => `index.${format === "es" ? "js" : format}`,
       formats: ["es", "cjs"],
     },
