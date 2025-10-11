@@ -80,12 +80,12 @@ Run `pnpm run build-storybook` to build storybook only.
 
 To test the storybook locally, you can run `pnpm run preview-storybook`. This will start the storybook production build.
 
-### Consuming application Theme configuration
+### Consuming application UI configuration
 
 Create `ui.config.ts` and add the following code:
 
 ```javascript
-import { createThemeConfig } from "@sherazjutt/vue-components";
+import { config } from "@sherazjutt/vue-components";
 
 const themeConfig = {
   colors: {
@@ -95,19 +95,19 @@ const themeConfig = {
   },
 };
 
-export default createThemeConfig(themeConfig);
+export default config(themeConfig);
 ```
 
 Import and use it in `main.ts`:
 
 ```javascript
-import themeConfig from "./ui.config";
+import UIConfig from "./ui.config";
 
 // after creating your Vue app instance:
-app.use(themeConfig);
+app.use(UIConfig);
 ```
 
-Use the theme colors in your components/styles:
+Use the UI colors in your components/styles:
 
 ```html
 <div :style="{ backgroundColor: 'var(--ui-color-primary)' }">...</div>

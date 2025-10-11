@@ -1,7 +1,7 @@
-import type { Colors, config } from "@/types/config";
+import type { Colors, config as Config } from "@/types/config";
 
 // create theme settings
-export const createThemeConfig = (config: config) => {
+export const config = (config: Config) => {
   return {
     install() {
       if (!config || !config.colors) {
