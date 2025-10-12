@@ -1,8 +1,13 @@
-import ConfigComponent from "./Index.vue";
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import ThemeComponent from "./Index.vue";
 
-export default {
+const meta: Meta<typeof ThemeComponent> = {
   title: "Config",
-  component: ConfigComponent,
+  component: ThemeComponent,
 };
 
-export const Config = {};
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Theme: Story = {};
