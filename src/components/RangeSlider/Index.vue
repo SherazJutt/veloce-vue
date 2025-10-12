@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from "vue";
+import { props as rangeSliderProps } from "./props.ts";
 
-const progress = ref<number>(58.5714);
+const props = defineProps(rangeSliderProps);
+
+const emit = defineEmits(["update:value"]);
+
+const progress = ref<number>(props.value);
 const isDragging = ref<boolean>(false);
 const tooltipVisible = ref<boolean>(false);
 
@@ -16,7 +21,7 @@ const updateProgress = (event: MouseEvent | TouchEvent) => {
 
   // Check if the event is a touch event or mouse event
   if (event instanceof TouchEvent) {
-    clientX = event.touches[0].clientX;
+    clientX = event.touches[0]?.clientX ?? 0;
   } else {
     clientX = event.clientX;
   }
@@ -25,6 +30,7 @@ const updateProgress = (event: MouseEvent | TouchEvent) => {
   const newProgress = Math.max(0, Math.min(100, (offsetX / rect.width) * 100));
 
   progress.value = newProgress;
+  emit("update:value", newProgress);
 };
 
 const startDrag = (event: MouseEvent | TouchEvent) => {
@@ -76,7 +82,7 @@ onUnmounted(() => {
       <div class="absolute top-1/2 -ml-2 flex h-4 w-4 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-gray-300 bg-white shadow" :style="{ left: progress + '%' }" unselectable="on" onselectstart="return false;" @mousedown="startDrag" @touchstart="startDrag"></div>
 
       <!-- Tooltip -->
-      <div v-if="tooltipVisible" class="absolute -top-9 mx-auto w-10 -translate-x-1/2 rounded bg-gray-800 px-2 py-1 text-xs text-white" :style="{ left: progress + '%' }">
+      <div v-if="tooltipVisible && showTooltip" class="absolute -top-9 mx-auto w-10 -translate-x-1/2 rounded bg-gray-800 px-2 py-1 text-xs text-white" :style="{ left: progress + '%' }">
         {{ Math.round(progress) }}%
         <span class="absolute -bottom-1 left-1/2 -ml-1 h-2 w-2 rotate-45 bg-gray-800"></span>
       </div>
