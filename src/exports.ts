@@ -1,6 +1,8 @@
 export { default as Button } from "./components/Button/Index.vue";
 export { default as Accordion } from "./components/Accordion/Index.vue";
 
+export { config } from "./utils/config";
+
 // export { default as Carousel } from "./components/Carousel/Index.vue";
 // export { default as Checkbox } from "./components/Checkbox/Index.vue";
 // export { default as Drawer } from "./components/Drawer/Index.vue";

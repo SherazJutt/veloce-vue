@@ -12,17 +12,24 @@ export default defineConfig({
 
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "ui-library",
+      name: "veloce-vue",
       fileName: (format) => `index.${format === "es" ? "js" : format}`,
       formats: ["es", "cjs"],
     },
 
     rollupOptions: {
+      external: (id) => {
+        // Externalize Vue and all its sub-modules
+        if (id === "vue" || id.startsWith("vue/")) return true;
+        // Externalize other peer dependencies (this will requires the consuming app to install the peer dependencies explicitly
+        // e.g pnpm add vuedraggable)
+
+        // return ["vuedraggable"].includes(id);
+        return false;
+      },
       output: {
         interop: "auto",
-        globals: {
-          vue: "Vue",
-        },
+        globals: { vue: "Vue" },
       },
     },
   },
