@@ -1,4 +1,4 @@
-# Vue-Components
+# Veloce Vue
 
 A modern Vue.js UI component library built with Vue, Typescript, Storybook and Tailwind CSS.
 
