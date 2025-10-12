@@ -2,6 +2,8 @@
 
 A modern Vue.js UI component library built with Vue, Typescript, Storybook and Tailwind CSS.
 
+https://www.npmjs.com/package/veloce-vue
+
 ## Installation
 
 Install the library from NPM:
