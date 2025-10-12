@@ -40,27 +40,16 @@ const createRender = () => (args: any) => ({
 // reusable render wrapper for all stories
 const render = createRender();
 
-export const Default: Story = {
-  render,
-};
-
-export const Left: Story = {
+export const Bottom: Story = {
   args: {
-    position: "left",
+    position: "bottom",
   },
   render,
 };
 
-export const Right: Story = {
+export const Top: Story = {
   args: {
-    position: "right",
-  },
-  render,
-};
-
-export const Center: Story = {
-  args: {
-    position: "center",
+    position: "top",
   },
   render,
 };
