@@ -1,4 +1,4 @@
-# Vue-Components
+# Veloce Vue
 
 A modern Vue.js UI component library built with Vue, Typescript, Storybook and Tailwind CSS.
 
@@ -63,23 +63,6 @@ app.mount("#app");
 - Vue 3.5 or higher
 - Tailwind CSS v4 (for styling)
 
-## Development
-
-This library is built using:
-
-- Vue 3
-- Tailwind CSS v4
-- Vite
-- Storybook for component documentation
-- TypeScript
-
-## Production
-
-Run `pnpm build` to build the package.
-Run `pnpm run build-storybook` to build storybook only.
-
-To test the storybook locally, you can run `pnpm run preview-storybook`. This will start the storybook production build.
-
 ### Consuming application UI configuration
 
 Create `ui.config.ts` and add the following code:
@@ -112,3 +95,24 @@ Use the UI colors in your components/styles:
 ```html
 <div :style="{ backgroundColor: 'var(--ui-color-primary)' }">...</div>
 ```
+
+> **ℹ️ Developer Alert:**  
+> This library is in active development. APIs and styles may change between releases.  
+> Please consult the documentation and changelog for updates before production use.
+
+## Development
+
+This library is built using:
+
+- Vue 3
+- Tailwind CSS v4
+- Vite
+- Storybook for component documentation
+- TypeScript
+
+## Production
+
+Run `pnpm build` to build the package.
+Run `pnpm run build-storybook` to build storybook only.
+
+To test the storybook locally, you can run `pnpm run preview-storybook`. This will start the storybook production build.
