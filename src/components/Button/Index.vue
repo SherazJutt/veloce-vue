@@ -30,7 +30,7 @@ const classes = computed(() => {
   >
     <div :class="{ 'justify-center': !props.icon }" class="flex w-full items-center justify-between gap-2">
       <span v-if="props.label" :class="{ 'order-2': props.iconPosition === 'left' }"> {{ props.label }} </span>
-      <Icon v-if="props.icon && !props.loading" :icon="props.icon" :class="props.iconClass" />
+      <Icon v-if="props.icon && !props.loading" :icon="props.icon" :class="props.iconClass" class="duration-200" />
     </div>
 
     <Icon v-if="props.loading" icon="loading" />
