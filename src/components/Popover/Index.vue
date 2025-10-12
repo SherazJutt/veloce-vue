@@ -1,17 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { props } from "./props";
 
 const isOpen = ref(false);
 
-defineProps({
-  position: { type: String as () => "left" | "center" | "right", default: "center" },
-  bodyClass: { type: String, default: "" },
-  contentClass: { type: String, default: "" },
-});
+defineProps(props);
 </script>
 
 <template>
-  <div class="relative" @mouseleave="isOpen = false">
+  <div class="relative inline-block" @mouseleave="isOpen = false">
     <!-- component to render the popover on -->
     <div class="relative" @mouseover="isOpen = true">
       <!-- arrow icon -->
