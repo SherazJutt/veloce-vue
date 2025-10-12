@@ -6,7 +6,7 @@
       <h3 class="text-lg font-medium">Theme Colors</h3>
 
       <div class="mt-2.5 flex flex-wrap">
-        <div v-for="color in colors" :key="color.name" class="grow basis-1/3 p-2 text-center first:rounded-l-md last:rounded-r-md" :style="{ backgroundColor: `var(${color.variable})` }">
+        <div v-for="color in colors" :key="color.name" class="grow basis-1/3 p-2 text-center text-white/85 first:rounded-l-md last:rounded-r-md" :style="{ backgroundColor: `var(${color.variable})` }">
           <div>{{ color.name }} color</div>
           <div>{{ getComputedColorValue(color.variable) || "Not found" }}</div>
         </div>

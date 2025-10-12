@@ -13,8 +13,8 @@ export const Home = {
     accentColor: { control: "color", name: "Accent color" },
   },
   args: {
-    primaryColor: "#3b82f6",
-    secondaryColor: "#22c55e",
+    primaryColor: "#523ae4",
+    secondaryColor: "#0f0d0d",
     accentColor: "#f59e0b",
   },
   render: (args: any) => ({
@@ -36,7 +36,6 @@ export const Home = {
 
       return { args };
     },
-
     template: "<HomeComponent />",
   }),
 };
