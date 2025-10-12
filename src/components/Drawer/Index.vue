@@ -11,14 +11,14 @@
         <p class="text-sm text-gray-500">{{ description }}</p>
       </div>
       <div class="ml-auto">
-        <Button icon="material-symbols:close-rounded" class="!p-1" circle variant="text" @click="show = false" />
+        <Button icon="close" class="!p-1" circle variant="text" @click="show = false" />
       </div>
     </div>
     <div class="size-full overflow-auto p-2">
       <slot name="content" />
     </div>
     <!-- footer -->
-    <div v-if="footer" class="border-t border-gray-200 p-2">
+    <div v-if="showFooter" class="border-t border-gray-200 p-2">
       <slot name="footer" />
     </div>
   </div>
@@ -26,17 +26,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
+import { computed, watch } from "vue";
 import Button from "../Button/Index.vue";
+import { props as drawerProps } from "./props";
 
-const props = defineProps({
-  direction: { type: String as () => "left" | "bottom" | "right", default: "bottom" },
-  title: { type: String, default: "" },
-  description: { type: String, default: "" },
-  footer: { type: Boolean, default: false },
-});
+const props = defineProps(drawerProps);
 
-const show = ref(false);
+const show = defineModel();
 
 const drawerdirections = computed(() => {
   let currClasses = "";
