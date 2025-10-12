@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import Button from "../Button/Index.vue";
+import Button from "../button/Index.vue";
 import { props as modalProps } from "./props";
 
 const props = defineProps(modalProps);

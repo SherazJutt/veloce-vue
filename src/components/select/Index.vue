@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import Button from "../Button/Index.vue";
+import Button from "../button/Index.vue";
 import { props as selectProps } from "./props.ts";
 
 const props = defineProps(selectProps);

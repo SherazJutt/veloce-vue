@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import Drawer from "./Index.vue";
-import Button from "../Button/Index.vue";
+import Button from "../button/Index.vue";
 import { props } from "./props";
 import { generateStoryControls } from "../../utils/storyControls";
 

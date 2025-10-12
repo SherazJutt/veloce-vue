@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import Select from "./Index.vue";
-import { generateStoryControls } from "../../utils/storyControls";
+import { generateStoryControls } from "../../utils/storyControls.ts";
 import { props } from "./props.ts";
 const { args, argTypes } = generateStoryControls(props);
 

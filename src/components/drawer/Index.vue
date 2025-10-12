@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 import { computed, watch } from "vue";
-import Button from "../Button/Index.vue";
+import Button from "../button/Index.vue";
 import { props as drawerProps } from "./props";
 
 const props = defineProps(drawerProps);

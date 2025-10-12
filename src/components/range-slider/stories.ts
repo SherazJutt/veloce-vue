@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import RangeSlider from "./Index.vue";
 import { props } from "./props.ts";
-import { generateStoryControls } from "../../utils/storyControls";
+import { generateStoryControls } from "../../utils/storyControls.ts";
 
 const { args, argTypes } = generateStoryControls(props);
 
