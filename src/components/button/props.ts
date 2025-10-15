@@ -5,9 +5,9 @@ export const props = {
   loading: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
   variant: {
-    type: String as PropType<"outlined" | "text" | "ghost" | "solid">,
+    type: String as PropType<"outlined" | "text" | "ghost" | "solid" | "gray">,
     default: "solid",
-    options: ["outlined", "text", "ghost", "solid"],
+    options: ["outlined", "text", "ghost", "solid", "gray"],
   },
   icon: { type: String, default: "" },
   iconClass: { type: String, default: "" },

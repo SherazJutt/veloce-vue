@@ -12,6 +12,8 @@ const classes = computed(() => {
       return "bg-transparent text-primary hover:bg-gray-200 disabled:hover:bg-transparent disabled:hover:text-primary";
     case "ghost":
       return "text-primary bg-gray-100 hover:bg-gray-200 disabled:hover:bg-transparent disabled:hover:text-primary";
+    case "gray":
+      return "bg-gray-100 text-gray-700 hover:bg-gray-200 disabled:hover:bg-gray-100 disabled:hover:text-gray-900";
     default:
       return "bg-primary text-white hover:bg-primary/75 disabled:hover:bg-primary disabled:hover:text-white"; // solid
   }
@@ -30,9 +32,9 @@ const classes = computed(() => {
   >
     <div :class="{ 'justify-center': !props.icon }" class="flex w-full items-center justify-between gap-2">
       <span v-if="props.label" :class="{ 'order-2': props.iconPosition === 'left' }"> {{ props.label }} </span>
-      <Icon v-if="props.icon && !props.loading" :icon="props.icon" :class="props.iconClass" class="duration-200" />
+      <Icon v-if="props.icon && !props.loading" :icon="props.icon" :class="props.iconClass" class="duration-200 size-5 text-current" />
+      <Icon v-if="props.loading" icon="loading" class="duration-200 size-5 text-current" />
     </div>
 
-    <Icon v-if="props.loading" icon="loading" />
   </button>
 </template>
