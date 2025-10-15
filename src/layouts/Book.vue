@@ -22,5 +22,7 @@ import { useBook } from "@/composables/useBook";
 
 const { stories } = useBook();
 
-const showSidebar = ref<boolean>(false);
+console.log(stories.value);
+
+const showSidebar = ref<boolean>(true);
 </script>

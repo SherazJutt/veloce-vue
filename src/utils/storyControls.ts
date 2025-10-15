@@ -53,5 +53,5 @@ export function generateStoryControls(props: Record<string, any>) {
     argTypes[key] = { control: false };
   }
 
-  return { args, argTypes };
+  return { props: args, controls: argTypes };
 }

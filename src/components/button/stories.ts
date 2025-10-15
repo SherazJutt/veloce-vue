@@ -1,21 +1,61 @@
 import Button from "./Index.vue";
-import { generateStoryControls } from "../../utils/storyControls";
+import { generateStoryControls } from "@/utils/storyControls";
 
-const { args, argTypes } = generateStoryControls(Button.props);
+const { props, controls } = generateStoryControls(Button.props);
 
-const meta = {
+export default {
   name: "Button",
   component: Button,
-  args,
-  argTypes,
-};
-
-export default meta;
-
-export const Default = {
-  args: {
-    icon: "",
-    label: "Label",
-    iconPosition: "right",
-  },
+  props,
+  controls,
+  stories: [
+    {
+      name: "Default",
+      args: { icon: "", label: "Label", iconPosition: "right" },
+    },
+    {
+      name: "WithIconLeft",
+      args: { label: "Label", icon: "check", iconPosition: "left" },
+    },
+    {
+      name: "WithIconRight",
+      args: { label: "Label", icon: "check", iconPosition: "right" },
+    },
+    {
+      name: "Loading",
+      args: { label: "Loading...", loading: true, icon: "check" },
+    },
+    {
+      name: "Disabled",
+      args: { label: "Disabled", disabled: true, icon: "check" },
+    },
+    {
+      name: "Solid",
+      args: { label: "Solid", variant: "solid" },
+    },
+    {
+      name: "Outlined",
+      args: { label: "Outlined", variant: "outlined" },
+    },
+    {
+      name: "Text",
+      args: { label: "Text", variant: "text" },
+    },
+    {
+      name: "Ghost",
+      args: { label: "Ghost", variant: "ghost" },
+    },
+    {
+      name: "Rounded",
+      args: { label: "Rounded", rounded: true, icon: "check" },
+    },
+    {
+      name: "OnlyIcon",
+      args: { icon: "check", label: "", rounded: true },
+    },
+    {
+      name: "CustomIconClass",
+      args: { label: "Custom icon", icon: "check", iconClass: "w-5 h-5" },
+    },
+  ],
 };
