@@ -5,8 +5,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import Button from "../../components/button/Index.vue";
-import Meta from "../../components/button/stories";
+import Button from "../components/button/Index.vue";
+// import Meta from "../components/button/stories";
 
 // console.log(Meta);
 </script>
