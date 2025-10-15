@@ -17,18 +17,35 @@ interface component {
   stories: Story[];
 }
 
-export function useBook() {
-  const components = ref<component[]>([]);
-  const selectedComponent = ref<component | null>(null);
-  const selectedStory = ref<Story | null>(null);
+// shared state
+const components = ref<component[]>([]);
+const selectedComponent = ref<component | null>(null);
+const selectedStory = ref<Story | null>(null);
+let isInitialized = false;
+
+// initialize the book
+const initializeBook = () => {
+  if (isInitialized) return;
 
   const modules = import.meta.glob("/src/components/**/stories.ts", { eager: true });
 
   for (const [_, mod] of Object.entries(modules)) {
     const m = mod as Record<string, any>;
-    const component = m.default ?? {};
-    components.value.push({ ...component, id: generateRandomId(), stories: component.stories.map((story: Story) => ({ ...story, id: generateRandomId() })), component: markRaw(component.component) });
+    const componentDef = m.default ?? {};
+    components.value.push({
+      ...componentDef,
+      id: generateRandomId(),
+      stories: componentDef.stories.map((story: Story) => ({ ...story, id: generateRandomId() })),
+      component: markRaw(componentDef.component),
+    });
   }
+
+  isInitialized = true;
+};
+
+// useBook composable
+export default function useBook() {
+  initializeBook();
 
   const setComponent = (component: component) => {
     if (selectedComponent.value && selectedComponent.value.id === component.id) {

@@ -11,7 +11,6 @@ export default {
   stories: [
     {
       name: "Default",
-      showControls: false,
       args: {},
     },
     {
