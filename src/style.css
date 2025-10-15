@@ -58,5 +58,5 @@
 }
 
 @utility container {
-  @apply mx-auto w-[85%] max-w-[1440px];
+  @apply mx-auto w-[85%] max-w-[1024px];
 }

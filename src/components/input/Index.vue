@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { props as inputProps } from "./props";
-
-const props = defineProps(inputProps);
+const props = defineProps({
+  icon: { type: String, default: "" },
+  placeholder: { type: String, default: "" },
+  helpText: { type: String, default: "" },
+  type: { type: String, default: "text", options: ["text", "password"] },
+});
 
 const model = defineModel();
 </script>

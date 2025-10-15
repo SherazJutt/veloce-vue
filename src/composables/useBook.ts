@@ -31,7 +31,7 @@ export function useBook() {
   }
 
   const setComponent = (component: component) => {
-    if (selectedComponent.value) {
+    if (selectedComponent.value && selectedComponent.value.id === component.id) {
       selectedComponent.value = null;
       selectedStory.value = null;
       return;
@@ -40,6 +40,7 @@ export function useBook() {
     selectedComponent.value = component;
     selectedStory.value = selectedComponent.value?.stories[0] ?? null;
   };
+
   const setStory = (story: Story) => {
     selectedStory.value = story;
   };
