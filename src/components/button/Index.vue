@@ -1,9 +1,25 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { props as buttonProps } from "./props";
 import Icon from "../icon/index.vue";
 
-const props = defineProps(buttonProps);
+const props = defineProps({
+  label: { type: String, default: "" },
+  loading: { type: Boolean, default: false },
+  disabled: { type: Boolean, default: false },
+  variant: {
+    type: String as () => "outlined" | "text" | "ghost" | "solid",
+    default: "solid",
+    options: ["outlined", "text", "ghost", "solid"],
+  },
+  icon: { type: String, default: "" },
+  iconClass: { type: String, default: "" },
+  iconPosition: {
+    type: String as () => "left" | "right",
+    default: "right",
+    options: ["left", "right"],
+  },
+  rounded: { type: Boolean, default: false },
+});
 
 const classes = computed(() => {
   switch (props.variant) {
