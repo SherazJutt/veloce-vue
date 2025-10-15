@@ -6,7 +6,6 @@ import { useElementSize } from "@vueuse/core";
 import Controls from "../components/book/Controls.vue";
 
 const { components, selectedComponent, setComponent, selectedStory, setStory } = useBook();
-console.log(components.value);
 
 const showSidebar = ref<boolean>(true);
 const controlsPanel = useTemplateRef("controlsPanel");
@@ -30,6 +29,12 @@ const getPropsTypes = (props: Record<string, any>) => {
 
   return defaultProps || [];
 };
+
+const getPreviewCustomizations = computed(() => {
+  if (selectedComponent.value?.parameters) {
+    return selectedComponent.value.parameters.preview;
+  }
+});
 </script>
 <template>
   <div class="h-screen w-full">
@@ -58,7 +63,7 @@ const getPropsTypes = (props: Record<string, any>) => {
               {{ selectedComponent?.name }} <small>({{ selectedStory?.name }})</small>
             </h4>
             <!-- component preview -->
-            <div class="p-4">
+            <div class="p-4" :style="getPreviewCustomizations">
               <Component :is="selectedComponent?.component" v-bind="selectedStory?.args" />
             </div>
           </div>

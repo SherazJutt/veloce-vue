@@ -9,6 +9,7 @@ const props = defineProps({
   variant: { type: String as () => "outlined" | "text" | "ghost" | "solid" | "gray", default: "solid", options: ["outlined", "text", "ghost", "solid", "gray"] },
   showFilter: { type: Boolean, default: false },
   isOpen: { type: Boolean, default: false },
+  closeOnClickOutside: { type: Boolean, default: true },
 });
 
 const emit = defineEmits(["update:modelValue", "update:isOpen"]);
@@ -17,7 +18,7 @@ const selectedOption = ref(props.modelValue);
 const isOpen = ref(props.isOpen ?? false);
 
 const target = useTemplateRef<HTMLElement>("target");
-onClickOutside(target, () => (isOpen.value = false));
+onClickOutside(target, () => props.closeOnClickOutside && (isOpen.value = false));
 
 // Keep `show` in sync with external prop
 watch(

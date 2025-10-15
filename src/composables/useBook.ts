@@ -15,6 +15,11 @@ interface component {
   name: string;
   props: Record<string, any>;
   stories: Story[];
+  parameters: {
+    preview: {
+      height: string;
+    };
+  };
 }
 
 // shared state
