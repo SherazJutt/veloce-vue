@@ -26,6 +26,9 @@ interface component {
 const components = ref<component[]>([]);
 const selectedComponent = ref<component | null>(null);
 const selectedStory = ref<Story | null>(null);
+const showSidebar = ref<boolean>(true);
+const showControlsPanel = ref<boolean>(true);
+
 let isInitialized = false;
 
 // initialize the book
@@ -67,5 +70,5 @@ export default function useBook() {
     selectedStory.value = story;
   };
 
-  return { components, selectedComponent, selectedStory, setComponent, setStory };
+  return { components, selectedComponent, selectedStory, setComponent, setStory, showSidebar, showControlsPanel };
 }

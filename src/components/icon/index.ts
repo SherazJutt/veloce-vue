@@ -3,6 +3,7 @@ import Close from "../../icons/close.vue";
 import Loading from "../../icons/loading.vue";
 import ChevronDown from "../../icons/chevron-down.vue";
 import Alert from "../../icons/alert.vue";
+import Hamburger from "../../icons/hamburger.vue";
 
 // Map of all icons
 export const icons = {
@@ -11,6 +12,7 @@ export const icons = {
   loading: Loading,
   "chevron-down": ChevronDown,
   alert: Alert,
+  hamburger: Hamburger,
 } as const;
 
 // icons names for autocomplete

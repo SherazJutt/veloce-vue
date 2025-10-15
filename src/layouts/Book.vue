@@ -1,31 +1,15 @@
 <script setup lang="ts">
-import { ref, useTemplateRef, computed } from "vue";
+import { computed } from "vue";
 import Button from "../components/button/Index.vue";
 import useBook from "@/composables/useBook";
-import { useElementSize } from "@vueuse/core";
 import Controls from "../components/book/Controls.vue";
 
-const { components, selectedComponent, setComponent, selectedStory, setStory } = useBook();
-
-const showSidebar = ref<boolean>(true);
-const controlsPanel = useTemplateRef("controlsPanel");
-
-const { height } = useElementSize(controlsPanel);
-
-const getBottomPadding = computed(() => {
-  if (selectedStory.value?.showControls) {
-    return height.value + 18 + "px";
-  }
-
-  return 0;
-});
+const { components, selectedComponent, setComponent, selectedStory, setStory, showSidebar, showControlsPanel } = useBook();
 
 const getPropsTypes = (props: Record<string, any>) => {
   const defaultProps = Object.entries(props)
     .filter(([_, value]) => value !== undefined)
     .map(([key, value]) => ({ key, type: typeof value }));
-
-  console.log(defaultProps);
 
   return defaultProps || [];
 };
@@ -39,7 +23,7 @@ const getPreviewCustomizations = computed(() => {
 <template>
   <div class="h-screen w-full">
     <div class="flex h-12 items-center gap-6 border-b border-gray-200 bg-gray-100 px-4">
-      <Button icon="check" class="!p-0" @click="showSidebar = !showSidebar" />
+      <Button icon="hamburger" icon-class="!size-6" class="!p-1" @click="showSidebar = !showSidebar" />
       <h3>Navbar</h3>
     </div>
     <div class="flex h-[calc(100%-48px)]">
@@ -57,7 +41,7 @@ const getPreviewCustomizations = computed(() => {
         </div>
       </div>
       <div class="relative h-full w-full overflow-hidden">
-        <div v-if="selectedComponent" class="container h-full w-full overflow-auto p-2" :style="{ paddingBottom: getBottomPadding }">
+        <div v-if="selectedComponent" class="h-full w-full overflow-auto p-2">
           <div class="rounded-md border border-gray-200">
             <h4 class="bg-gray-100 p-2 text-base font-medium capitalize">
               {{ selectedComponent?.name }} <small>({{ selectedStory?.name }})</small>
@@ -73,14 +57,14 @@ const getPreviewCustomizations = computed(() => {
             <h4 class="rounded-t-md bg-gray-100 p-2 text-base font-medium capitalize">Props</h4>
 
             <div class="divide-y divide-gray-200">
-              <div class="grid h-14 grid-cols-4 items-center gap-2 divide-gray-200 p-2 text-center text-base font-medium capitalize">
+              <div class="grid h-14 grid-cols-4 items-center gap-2 divide-x divide-gray-200 p-2 text-center text-base font-medium capitalize">
                 <h4>Key</h4>
                 <p>Type</p>
                 <p>Default</p>
                 <p>Control</p>
               </div>
 
-              <div v-for="(item, index) in getPropsTypes(selectedComponent?.props)" :key="index" class="grid h-14 grid-cols-4 items-center gap-2 divide-gray-200 p-2 text-center text-sm capitalize">
+              <div v-for="(item, index) in getPropsTypes(selectedComponent?.props)" :key="index" class="grid h-14 grid-cols-4 items-center gap-2 divide-x divide-gray-200 p-2 text-center text-sm capitalize">
                 <h4>{{ item.key }}</h4>
                 <p>{{ item.type }}</p>
                 <span>-</span>
@@ -94,7 +78,14 @@ const getPreviewCustomizations = computed(() => {
         </div>
 
         <!-- controls -->
-        <div :class="selectedStory ? 'bottom-0' : '-bottom-full'" class="absolute right-0 left-0 z-50 h-fit max-h-[350px] overflow-auto border-t border-gray-200 bg-white p-4 duration-200" ref="controlsPanel"></div>
+        <div :class="showControlsPanel ? 'bottom-0' : '-bottom-full'" class="absolute right-0 left-0 z-50 h-fit max-h-[350px] overflow-auto border-y border-gray-200 bg-white duration-200">
+          <div class="flex justify-end bg-gray-100 px-2 py-1">
+            <Button icon="close" icon-class="!size-5 text-gray-700" class="!p-0" variant="ghost" rounded @click="showControlsPanel = !showControlsPanel" />
+          </div>
+          <div class="p-4">
+            <pre>{{ selectedStory }}</pre>
+          </div>
+        </div>
       </div>
     </div>
   </div>

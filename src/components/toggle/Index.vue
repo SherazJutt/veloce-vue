@@ -7,7 +7,7 @@
 import { computed } from "vue";
 
 const props = defineProps({
-  variant: { type: String as () => "primary" | "secondary", default: "default", options: ["primary", "secondary"] },
+  variant: { type: String as () => "primary" | "secondary" | "default", default: "default", options: ["primary", "secondary", "default"] },
 });
 
 const model = defineModel<boolean>({ default: false });
@@ -18,6 +18,8 @@ const variantClasses = computed(() => {
       return "bg-primary/25 hover:bg-primary/35 checked:after:bg-primary checked:bg-primary/25 after:bg-primary";
     case "secondary":
       return "bg-secondary/25 hover:bg-secondary/35 checked:after:bg-secondary checked:bg-secondary/25 after:bg-secondary";
+    case "default":
+      return "bg-gray-200 hover:bg-gray-300 after:!bg-gray-500";
     default:
       return "bg-gray-200 hover:bg-gray-300 after:!bg-gray-500";
   }
