@@ -12,6 +12,8 @@ const config: StorybookConfig = {
     options: {},
   },
 
+  staticDirs: ["../src/assets"],
+
   async viteFinal(config) {
     config.plugins = config.plugins || [];
     config.plugins.push(tailwindcss(), vueDevTools());
