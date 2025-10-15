@@ -2,9 +2,10 @@ import { defineConfig, Plugin } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
 import tailwindcss from "@tailwindcss/vite";
+import vueDevTools from "vite-plugin-vue-devtools";
 
 export default defineConfig({
-  plugins: [vue(), enforceScriptSetupLangTS(), tailwindcss()],
+  plugins: [vue(), enforceScriptSetupLangTS(), tailwindcss(), vueDevTools()],
   build: {
     outDir: path.resolve(__dirname, "./build/package"),
     sourcemap: true,

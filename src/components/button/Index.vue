@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import Icon from "../icon/index.vue";
+import { icons } from "../icon";
 
 const props = defineProps({
   label: { type: String, default: "" },
@@ -11,7 +12,7 @@ const props = defineProps({
     default: "solid",
     options: ["outlined", "text", "ghost", "solid"],
   },
-  icon: { type: String, default: "" },
+  icon: { type: String, default: "", options: icons },
   iconClass: { type: String, default: "" },
   iconPosition: {
     type: String as () => "left" | "right",
