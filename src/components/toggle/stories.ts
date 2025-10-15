@@ -11,8 +11,15 @@ export default {
   stories: [
     {
       name: "Default",
-      showControls: true,
-      args: {},
+      args: {
+        modelValue: false,
+      },
+    },
+    {
+      name: "Checked",
+      args: {
+        modelValue: true,
+      },
     },
   ],
 };

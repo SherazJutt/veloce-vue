@@ -68,35 +68,28 @@ const getPropsTypes = (props: Record<string, any>) => {
             <h4 class="rounded-t-md bg-gray-100 p-2 text-base font-medium capitalize">Props</h4>
 
             <div class="divide-y divide-gray-200">
-              <div class="grid grid-cols-4 items-center gap-2 divide-gray-200 p-2 text-center text-base font-medium capitalize">
+              <div class="grid h-14 grid-cols-4 items-center gap-2 divide-gray-200 p-2 text-center text-base font-medium capitalize">
                 <h4>Key</h4>
                 <p>Type</p>
                 <p>Default</p>
                 <p>Control</p>
               </div>
 
-              <div v-for="(item, index) in getPropsTypes(selectedComponent?.props)" :key="index" class="grid grid-cols-4 items-center gap-2 divide-gray-200 p-2 text-center text-sm capitalize">
+              <div v-for="(item, index) in getPropsTypes(selectedComponent?.props)" :key="index" class="grid h-14 grid-cols-4 items-center gap-2 divide-gray-200 p-2 text-center text-sm capitalize">
                 <h4>{{ item.key }}</h4>
                 <p>{{ item.type }}</p>
                 <span>-</span>
-                <!-- <p>{{ selectedStory?.args }}</p> -->
                 <Controls :prop="item.key" />
               </div>
             </div>
-            <!-- <pre>{{ item }}</pre> -->
           </div>
-          <!-- <pre>{{ selectedStory }}</pre> -->
-          <!-- <pre>{{ selectedComponent }}</pre> -->
         </div>
         <div class="p-2 py-16 text-center" v-else>
           <h3>Select a component to view</h3>
         </div>
 
         <!-- controls -->
-        <!-- selectedStory?.showControls -->
-        <div :class="selectedStory ? 'bottom-0' : '-bottom-full'" class="absolute right-0 left-0 z-50 h-fit max-h-[350px] overflow-auto border-t border-gray-200 bg-white p-4 duration-200" ref="controlsPanel">
-          <!-- <Controls /> -->
-        </div>
+        <div :class="selectedStory ? 'bottom-0' : '-bottom-full'" class="absolute right-0 left-0 z-50 h-fit max-h-[350px] overflow-auto border-t border-gray-200 bg-white p-4 duration-200" ref="controlsPanel"></div>
       </div>
     </div>
   </div>

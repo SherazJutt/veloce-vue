@@ -10,6 +10,10 @@
       <template v-if="selectedComponent?.controls[prop].control === 'select'">
         <Select v-model="selectedStory.args[prop]" class="w-full" :options="selectedComponent?.controls[prop].options" variant="gray" />
       </template>
+      <!-- toggle -->
+      <template v-if="selectedComponent?.controls[prop].control === 'boolean'">
+        <Toggle v-model="selectedStory.args[prop]" />
+      </template>
     </div>
   </div>
 </template>
@@ -17,6 +21,7 @@
 import useBook from "@/composables/useBook";
 import Input from "../input/Index.vue";
 import Select from "../select/Index.vue";
+import Toggle from "../toggle/Index.vue";
 
 const props = defineProps({
   prop: { type: String, required: true },
