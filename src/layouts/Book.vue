@@ -8,10 +8,21 @@
       <!-- sidebar -->
       <div :class="showSidebar ? 'w-[240px]' : 'w-0'" class="h-full shrink-0 overflow-hidden border-r border-gray-300 duration-200">
         <div class="p-2">
-          <pre>{{ stories }}</pre>
+          <template v-for="component in components" :key="component.name">
+            <h3 :class="{ '!bg-blue-500 !text-white': selectedComponent?.id === component.id }" class="cursor-pointer rounded-md bg-gray-100 p-2 duration-200 hover:bg-gray-200" @click="setComponent(component)">{{ component.name }}</h3>
+            <div v-if="selectedComponent?.id === component.id" class="space-y-1 p-2">
+              <div v-for="story in component.stories" :key="story.name" :class="{ '!bg-blue-500 !text-white': selectedStory?.id === story.id }" class="rounded-md bg-gray-50 px-2 py-1 duration-200 hover:bg-gray-100">
+                <h4 class="cursor-pointer text-sm" @click="setStory(story)">{{ story.name }}</h4>
+                <!-- <pre>{{ storyStory.args }}</pre> -->
+              </div>
+            </div>
+          </template>
         </div>
       </div>
-      <div class="h-full w-full p-2">router view</div>
+      <div class="h-full w-full p-2">
+        <pre>{{ selectedStory }}</pre>
+        <pre>{{ selectedComponent }}</pre>
+      </div>
     </div>
   </div>
 </template>
@@ -20,9 +31,9 @@ import { ref } from "vue";
 import Button from "../components/button/Index.vue";
 import { useBook } from "@/composables/useBook";
 
-const { stories } = useBook();
+const { components, selectedComponent, setComponent, selectedStory, setStory } = useBook();
 
-console.log(stories.value);
+console.log(components.value);
 
 const showSidebar = ref<boolean>(true);
 </script>
