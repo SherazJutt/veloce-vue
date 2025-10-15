@@ -7,7 +7,9 @@
     <div class="flex h-[calc(100%-48px)]">
       <!-- sidebar -->
       <div :class="showSidebar ? 'w-[240px]' : 'w-0'" class="h-full shrink-0 overflow-hidden border-r border-gray-300 duration-200">
-        <div class="p-2">sidebar</div>
+        <div class="p-2">
+          <pre>{{ stories }}</pre>
+        </div>
       </div>
       <div class="h-full w-full p-2">router view</div>
     </div>
@@ -16,6 +18,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Button from "../components/button/Index.vue";
+import { useBook } from "@/composables/useBook";
+
+const { stories } = useBook();
 
 const showSidebar = ref<boolean>(false);
 </script>
