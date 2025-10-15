@@ -4,7 +4,7 @@ import { generateStoryControls } from "../../utils/storyControls";
 const { args, argTypes } = generateStoryControls(Button.props);
 
 const meta = {
-  title: "Components/Button",
+  name: "Button",
   component: Button,
   args,
   argTypes,

@@ -8,5 +8,5 @@
 import Button from "../../components/button/Index.vue";
 import Meta from "../../components/button/stories";
 
-console.log(Meta);
+// console.log(Meta);
 </script>

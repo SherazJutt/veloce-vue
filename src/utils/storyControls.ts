@@ -5,11 +5,16 @@ export function generateStoryControls(props: Record<string, any>) {
   const argTypes: Record<string, any> = {};
 
   for (const [key, val] of Object.entries(props)) {
-    // this will skip the iconClass completely from the args and argTypes
-    // --- skip iconClass
-    if (key === "iconClass") {
-      continue;
-    }
+    // console.log(key, val);
+
+    // skip keys ----------------
+
+    //  iconClass
+    // if (key === "iconClass") {
+    //   continue;
+    // }
+
+    // ---------------- skip keys
 
     // --- default value (this will set the default value for the args)
     args[key] = val.default;
