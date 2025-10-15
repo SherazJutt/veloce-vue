@@ -20,13 +20,15 @@ const getBottomPadding = computed(() => {
   return 0;
 });
 
-const getPropsTypes = (props: Record<string, any>) => {
-  const defaultProps = Object.entries(props)
-    .filter(([_, value]) => value !== undefined)
-    .map(([key, value]) => ({ key, type: typeof value }));
+// const getPropsTypes = (props: Record<string, any>) => {
+//   console.log(selectedComponent.value?.controls);
 
-  return defaultProps || [];
-};
+//   const defaultProps = Object.entries(props)
+//     .filter(([_, value]) => value !== undefined)
+//     .map(([key, value]) => ({ key, type: typeof value }));
+
+//   return defaultProps || [];
+// };
 </script>
 <template>
   <div class="h-screen w-full">
@@ -48,8 +50,9 @@ const getPropsTypes = (props: Record<string, any>) => {
           </template>
         </div>
       </div>
+
       <div class="relative h-full w-full overflow-hidden">
-        <div v-if="selectedComponent" class="container h-full w-full overflow-auto p-2" :style="{ paddingBottom: getBottomPadding }">
+        <div v-if="selectedComponent" class="container h-full w-full overflow-auto p-2 pt-6" :style="{ paddingBottom: getBottomPadding }">
           <div class="overflow-hidden rounded-md border border-gray-200">
             <h4 class="bg-gray-100 p-2 text-base font-medium capitalize">{{ selectedComponent?.name }} ({{ selectedStory?.name }})</h4>
             <!-- component preview -->
@@ -69,10 +72,13 @@ const getPropsTypes = (props: Record<string, any>) => {
                 <p>Value</p>
               </div>
 
-              <div v-for="(item, index) in getPropsTypes(selectedComponent?.props)" :key="index" class="grid grid-cols-3 items-center gap-2 divide-x divide-gray-200 p-2 text-center text-sm capitalize">
-                <h4>{{ item.key }}</h4>
-                <p>{{ item.type }}</p>
-                <p>{{ selectedStory?.args[item.key] }}</p>
+              <div v-for="(item, key, index) in selectedComponent?.controls" :key="index" class="grid grid-cols-3 items-center gap-2 divide-x divide-gray-200 p-2 text-center text-sm capitalize">
+                <h4>{{ key }}</h4>
+                <p>{{ typeof selectedComponent?.props[key] }}</p>
+                <div>
+                  {{ item }}
+                  <input type="text" v-if="item.control === 'text'" class="border" :value="selectedStory?.args[key]" @input="selectedStory?.args && (selectedStory.args[key] = $event.target?.value)" />
+                </div>
               </div>
             </div>
             <!-- <pre>{{ item }}</pre> -->

@@ -1,8 +1,6 @@
 import Input from "./Index.vue";
 import { generateStoryControls } from "@/utils/storyControls";
 
-console.log(Input.props);
-
 const { props, controls } = generateStoryControls(Input.props);
 
 export default {
