@@ -1,28 +1,26 @@
 <template>
-  <template v-if="selectedStory?.args">
-    <div v-for="(value, key) in selectedStory?.args" :key="key">
-      <div class="flex items-center gap-4">
-        <h4 class="text-sm font-medium capitalize">{{ key }}</h4>
-        <!-- controls -->
-        <template v-if="selectedComponent?.controls[key].control === 'text'">
-          <Input v-model="selectedStory.args[key]" class="w-full" />
-        </template>
-      </div>
+  <div v-if="selectedStory?.args && prop">
+    <!-- controls -->
+    <div class="flex items-center gap-4">
+      <!-- input -->
+      <template v-if="selectedComponent?.controls[prop].control === 'text'">
+        <Input v-model="selectedStory.args[prop]" class="w-full" />
+      </template>
+      <!-- select -->
+      <template v-if="selectedComponent?.controls[prop].control === 'select'">
+        <Select v-model="selectedStory.args[prop]" class="w-full" :options="selectedComponent?.controls[prop].options" variant="ghost" />
+      </template>
     </div>
-
-    <!-- <pre>{{ selectedStory.args }}</pre> -->
-  </template>
-
-  <!-- <template v-for="(value, key) in selectedComponent?.controls" :key="key">
-    <div class="flex items-center gap-8">
-      <div>{{ key }}</div>
-      <div>{{ value }}</div>
-    </div>
-  </template> -->
+  </div>
 </template>
 <script setup lang="ts">
 import useBook from "@/composables/useBook";
 import Input from "../input/Index.vue";
+import Select from "../select/Index.vue";
+
+const props = defineProps({
+  prop: { type: String, required: true },
+});
 
 const { selectedStory, selectedComponent } = useBook();
 </script>

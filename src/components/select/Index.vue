@@ -1,18 +1,23 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import Button from "../button/Index.vue";
-import { props as selectProps } from "./props.ts";
 
-const props = defineProps(selectProps);
+const props = defineProps({
+  modelValue: { type: String, default: "" },
+  options: { type: Array as () => string[], required: true },
+  variant: { type: String as () => "outlined" | "text" | "ghost" | "solid", default: "solid", options: ["outlined", "text", "ghost", "solid"] },
+  showFilter: { type: Boolean, default: false },
+});
 
-const emit = defineEmits(["update:modelValue", "update:isOpen"]);
+const emit = defineEmits(["update:modelValue"]);
 
+const isOpen = ref(false);
 const selectedOption = ref(props.modelValue);
 
 const selectOption = (option: string) => {
   selectedOption.value = option;
   emit("update:modelValue", option);
-  emit("update:isOpen", false);
+  isOpen.value = false;
 };
 
 const searchQuery = ref("");
@@ -34,7 +39,7 @@ const filteredOptions = computed(() => {
       <li v-if="showFilter" class="border-b border-gray-200 p-2">
         <input type="text" v-model="searchQuery" class="focus:border-primary w-full rounded-sm border border-gray-200 px-2 py-1 focus:outline-none" placeholder="Search" />
       </li>
-      <li v-for="(option, index) in filteredOptions" :key="index" :class="option === selectedOption && 'bg-primary/10'" class="hover:bg-primary/5 cursor-pointer px-4 py-2" @click="selectOption(option)">
+      <li v-for="(option, index) in filteredOptions" :key="index" :class="option === selectedOption && 'bg-primary/10'" class="hover:bg-primary/5 cursor-pointer px-4 py-2 text-left" @click="selectOption(option)">
         {{ option }}
       </li>
     </ul>
