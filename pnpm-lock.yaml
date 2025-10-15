@@ -11,6 +11,9 @@ importers:
       vue:
         specifier: ^3.5.22
         version: 3.5.22(typescript@5.9.3)
+      vue-router:
+        specifier: ^4.5.1
+        version: 4.5.1(vue@3.5.22(typescript@5.9.3))
     devDependencies:
       '@storybook/addon-docs':
         specifier: ^9.1.10

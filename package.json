@@ -4,13 +4,15 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "dev": "storybook dev -p 6006",
+    "dev": "vite",
+    "storybook-dev": "storybook dev -p 6006",
     "build-storybook": "storybook build -o build/storybook",
     "preview-storybook": "serve build/storybook",
     "build": "node scripts/build.js"
   },
   "dependencies": {
-    "vue": "^3.5.22"
+    "vue": "^3.5.22",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@storybook/addon-docs": "^9.1.10",
