@@ -8,7 +8,7 @@
       </template>
       <!-- select -->
       <template v-if="selectedComponent?.controls[prop].control === 'select'">
-        <Select v-model="selectedStory.args[prop]" class="w-full" :options="selectedComponent?.controls[prop].options" variant="ghost" />
+        <Select v-model="selectedStory.args[prop]" class="w-full" :options="selectedComponent?.controls[prop].options" variant="gray" />
       </template>
     </div>
   </div>

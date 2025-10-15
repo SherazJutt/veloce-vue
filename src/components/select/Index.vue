@@ -1,18 +1,31 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, useTemplateRef, watch } from "vue";
 import Button from "../button/Index.vue";
+import { onClickOutside } from "@vueuse/core";
 
 const props = defineProps({
   modelValue: { type: String, default: "" },
   options: { type: Array as () => string[], required: true },
-  variant: { type: String as () => "outlined" | "text" | "ghost" | "solid", default: "solid", options: ["outlined", "text", "ghost", "solid"] },
+  variant: { type: String as () => "outlined" | "text" | "ghost" | "solid" | "gray", default: "solid", options: ["outlined", "text", "ghost", "solid", "gray"] },
   showFilter: { type: Boolean, default: false },
+  isOpen: { type: Boolean, default: false },
 });
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue", "update:isOpen"]);
 
-const isOpen = ref(false);
 const selectedOption = ref(props.modelValue);
+const isOpen = ref(props.isOpen ?? false);
+
+const target = useTemplateRef<HTMLElement>("target");
+onClickOutside(target, () => (isOpen.value = false));
+
+// Keep `show` in sync with external prop
+watch(
+  () => props.isOpen,
+  (val) => {
+    if (val !== isOpen.value) isOpen.value = val;
+  },
+);
 
 const selectOption = (option: string) => {
   selectedOption.value = option;
@@ -30,9 +43,9 @@ const filteredOptions = computed(() => {
 </script>
 
 <template>
-  <div class="relative">
+  <div class="relative" ref="target">
     <!-- select trigger -->
-    <Button :icon-class="isOpen ? 'rotate-180' : ''" icon="chevron-down" class="w-full" :variant="variant" :label="selectedOption || 'Select'" @click="isOpen = !isOpen" />
+    <Button :icon-class="isOpen ? 'rotate-180' : ''" icon="chevron-down" class="w-full capitalize" :variant="variant" :label="selectedOption || 'Select'" @click="isOpen = !isOpen" />
 
     <!-- select menu -->
     <ul v-if="isOpen" class="absolute top-full z-10 mt-1 flex w-full list-none flex-col rounded border border-gray-200 bg-white shadow-md shadow-slate-500/10">
