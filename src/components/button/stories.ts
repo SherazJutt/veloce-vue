@@ -11,6 +11,7 @@ export default {
   stories: [
     {
       name: "Default",
+      showControls: true,
       args: { icon: "", label: "Label", iconPosition: "right" },
     },
     {

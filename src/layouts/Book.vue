@@ -9,19 +9,26 @@
       <div :class="showSidebar ? 'w-[240px]' : 'w-0'" class="h-full shrink-0 overflow-hidden border-r border-gray-300 duration-200">
         <div class="p-2">
           <template v-for="component in components" :key="component.name">
-            <h3 :class="{ '!bg-blue-500 !text-white': selectedComponent?.id === component.id }" class="cursor-pointer rounded-md bg-gray-100 p-2 duration-200 hover:bg-gray-200" @click="setComponent(component)">{{ component.name }}</h3>
+            <h3 :class="{ '!bg-blue-500 !text-white': selectedComponent?.id === component.id }" class="cursor-pointer rounded-md bg-gray-100 p-2 duration-200 select-none hover:bg-gray-200" @click="setComponent(component)">{{ component.name }}</h3>
             <div v-if="selectedComponent?.id === component.id" class="space-y-1 p-2">
               <div v-for="story in component.stories" :key="story.name" :class="{ '!bg-blue-500 !text-white': selectedStory?.id === story.id }" class="rounded-md bg-gray-50 px-2 py-1 duration-200 hover:bg-gray-100">
-                <h4 class="cursor-pointer text-sm" @click="setStory(story)">{{ story.name }}</h4>
-                <!-- <pre>{{ storyStory.args }}</pre> -->
+                <h4 class="cursor-pointer text-sm select-none" @click="setStory(story)">{{ story.name }}</h4>
               </div>
             </div>
           </template>
         </div>
       </div>
-      <div class="h-full w-full p-2">
-        <pre>{{ selectedStory }}</pre>
-        <pre>{{ selectedComponent }}</pre>
+      <div class="relative h-full w-full overflow-hidden">
+        <div class="h-full w-full overflow-auto p-2">
+          <Component :is="selectedComponent?.component" v-bind="selectedStory?.args" />
+          <pre>{{ selectedStory }}</pre>
+          <pre>{{ selectedComponent }}</pre>
+        </div>
+
+        <!-- controls -->
+        <div :class="selectedStory?.showControls ? 'bottom-0' : '-bottom-full'" class="absolute right-0 left-0 z-50 h-fit max-h-[350px] overflow-auto border-t border-gray-300 bg-white p-2 duration-200">
+          <pre>{{ selectedStory }}</pre>
+        </div>
       </div>
     </div>
   </div>
