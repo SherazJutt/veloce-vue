@@ -6,7 +6,6 @@ A modern Vue.js UI component library built with Vue, Typescript, Storybook and T
 ![npm downloads](https://img.shields.io/npm/dm/veloce-vue.svg)
 ![license](https://img.shields.io/npm/l/veloce-vue.svg)
 
-
 ## Installation
 
 Install the library from NPM:
@@ -109,11 +108,35 @@ Use the UI colors in your components/styles:
 
 This library is built using:
 
-- Vue 3
-- Tailwind CSS v4
 - Vite
-- Storybook for component documentation
+- Vue 3
 - TypeScript
+- Tailwind CSS v4
+- Storybook v9.1.10
+
+### Run development server
+
+```bash
+pnpm dev
+```
+
+### Build storybook
+
+```bash
+pnpm run build-storybook
+```
+
+### Preview storybook build
+
+```bash
+pnpm run preview-storybook
+```
+
+### Build npm package
+
+```bash
+pnpm run build
+```
 
 ## Production
 
