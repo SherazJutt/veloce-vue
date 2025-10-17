@@ -120,11 +120,17 @@ This library is built using:
 pnpm dev
 ```
 
+This will start the development server at `http://localhost:6006`.
+
+## Production
+
 ### Build storybook
 
 ```bash
 pnpm run build-storybook
 ```
+
+This will build the storybook into the `build/storybook` directory.
 
 ### Preview storybook build
 
@@ -132,15 +138,12 @@ pnpm run build-storybook
 pnpm run preview-storybook
 ```
 
+This will start the storybook production build at `http://localhost:3000`.
+
 ### Build npm package
 
 ```bash
 pnpm run build
 ```
 
-## Production
-
-Run `pnpm build` to build the package.
-Run `pnpm run build-storybook` to build storybook only.
-
-To test the storybook locally, you can run `pnpm run preview-storybook`. This will start the storybook production build.
+This will build the npm package into the `build/package` directory.
