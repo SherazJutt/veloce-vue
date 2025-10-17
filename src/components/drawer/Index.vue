@@ -74,11 +74,11 @@ const defaultClasses = computed(() => {
   return classes;
 });
 
-watch(show, () => {
-  if (show.value) {
-    document.body.classList.add("overflow-hidden");
-  } else {
-    document.body.classList.remove("overflow-hidden");
-  }
-});
+// watch(show, () => {
+//   if (show.value) {
+//     document.body.classList.add("overflow-hidden");
+//   } else {
+//     document.body.classList.remove("overflow-hidden");
+//   }
+// });
 </script>
