@@ -21,7 +21,12 @@ const render = (args: any) => ({
   setup() {
     return { args };
   },
-  template: `<Separator v-bind="args" />`,
+  // <div class="h-24 mx-auto">
+  template: `
+    <div class="flex justify-center items-center" :class="args.direction === 'vertical' ? 'h-40' : 'h-fit'">
+      <Separator v-bind="args" />
+    </div>
+  `,
 });
 
 export const Horizontal: Story = {
@@ -31,15 +36,5 @@ export const Horizontal: Story = {
 
 export const Vertical: Story = {
   args: { direction: "vertical" },
-  render: (args) => ({
-    components: { Separator },
-    setup() {
-      return { args };
-    },
-    template: `
-    <div class="h-24 w-24 mx-auto">
-      <Separator v-bind="args" />
-    </div>
-    `,
-  }),
+  render,
 };

@@ -31,7 +31,7 @@ const createRender = () => (args: any) => ({
     return { args };
   },
   template: `
-  <Drawer v-bind="args" v-model="args.show" title="Drawer title" description="A short description">
+  <Drawer v-bind="args" :showFooter="true" v-model="args.show" title="Drawer title" description="A short description">
     <Button label="Open Drawer" />
     <template #content>
       <div class="p-2">Drawer Content</div>
