@@ -74,8 +74,8 @@ const defaultClasses = computed(() => {
   return classes;
 });
 
-watch(show, () => {
-  if (show.value) {
+watch(show, (val) => {
+  if (val) {
     document.body.classList.add("overflow-hidden");
   } else {
     document.body.classList.remove("overflow-hidden");
