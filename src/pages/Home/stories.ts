@@ -13,9 +13,9 @@ export const Home = {
     accentColor: { control: "color", name: "Accent color" },
   },
   args: {
-    primaryColor: "#523ae4",
-    secondaryColor: "#0f0d0d",
-    accentColor: "#f59e0b",
+    primaryColor: "#f7934c",
+    secondaryColor: "#f7b05b",
+    accentColor: "#ffc15e",
   },
   render: (args: any) => ({
     components: { HomeComponent },

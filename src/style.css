@@ -3,9 +3,12 @@
 /* Default CSS variables (can be overridden by consuming apps) */
 /* we are using separate vars to prevent name collisions with Tailwind CSS */
 :root {
-  --ui-color-primary: #523ae4;
-  --ui-color-secondary: #0f0d0d;
-  --ui-color-accent: #f59e0b;
+  --ui-color-primary: #f7934c;
+  --ui-color-secondary: #f7b05b;
+  --ui-color-accent: #ffc15e;
+
+  /* Optional gradient for logo or buttons */
+  --ui-gradient-primary: linear-gradient(135deg, #f71900 0%, #000000 100%);
 }
 
 @theme {
