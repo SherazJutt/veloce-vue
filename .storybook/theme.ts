@@ -6,6 +6,6 @@ export default create({
   brandUrl: "/",
   brandImage: "veloce-vue-horizontal.png",
   brandTarget: "_self",
-  colorPrimary: "#523ae4",
-  colorSecondary: "#f59e0b",
+  colorPrimary: "#f7934c",
+  colorSecondary: "#f7b05b",
 });
