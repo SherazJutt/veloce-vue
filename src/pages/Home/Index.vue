@@ -1,11 +1,5 @@
 <template>
-  <div>
-    <h1 class="py-6 text-center text-3xl font-bold">Welcome</h1>
-
-    <div class="mt-3">
-      <MarkdownBlock :content="content" />
-    </div>
-  </div>
+  <MarkdownBlock :content="content" />
 </template>
 
 <script setup lang="ts">

@@ -1,11 +1,10 @@
-# Veloce Vue
+<h1 align="center">Welcome to Veloce Vue</h1>
 
 A modern Vue.js UI component library built with Vue, Typescript, Storybook and Tailwind CSS.
 
 [![npm version](https://img.shields.io/npm/v/veloce-vue.svg)](https://www.npmjs.com/package/veloce-vue)
 ![npm downloads](https://img.shields.io/npm/dm/veloce-vue.svg)
 ![license](https://img.shields.io/npm/l/veloce-vue.svg)
-
 
 ## Installation
 
@@ -109,15 +108,42 @@ Use the UI colors in your components/styles:
 
 This library is built using:
 
-- Vue 3
-- Tailwind CSS v4
 - Vite
-- Storybook for component documentation
+- Vue 3
 - TypeScript
+- Tailwind CSS v4
+- Storybook v9.1.10
+
+### Run development server
+
+```bash
+pnpm dev
+```
+
+This will start the development server at `http://localhost:6006`.
 
 ## Production
 
-Run `pnpm build` to build the package.
-Run `pnpm run build-storybook` to build storybook only.
+### Build storybook
 
-To test the storybook locally, you can run `pnpm run preview-storybook`. This will start the storybook production build.
+```bash
+pnpm run build-storybook
+```
+
+This will build the storybook into the `build/storybook` directory.
+
+### Preview storybook build
+
+```bash
+pnpm run preview-storybook
+```
+
+This will start the storybook production build at `http://localhost:3000`.
+
+### Build npm package
+
+```bash
+pnpm run build
+```
+
+This will build the npm package into the `build/package` directory.

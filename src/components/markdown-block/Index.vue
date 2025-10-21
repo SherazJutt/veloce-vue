@@ -5,10 +5,10 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import MarkdownIt from "markdown-it";
+import "github-markdown-css/github-markdown-light.css";
 
 let DOMPurify: any = null;
 try {
-  // only import if installed
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   DOMPurify = require("dompurify"); // works in Vite dev
 } catch (e) {
@@ -30,6 +30,7 @@ const md = new MarkdownIt({
 try {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const Prism = require("prismjs");
+  console.log(Prism);
   // load common languages through prismjs imports if needed
   md.set({
     highlight: (code: string, lang: string) => {
@@ -42,6 +43,7 @@ try {
     },
   });
 } catch (e) {
+  console.error(e);
   // prism not installed -> skip highlighting
 }
 
@@ -62,40 +64,13 @@ const compiledHtml = computed(() => {
 });
 </script>
 
-<style scoped>
-.markdown-body {
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial;
-  line-height: 1.7;
-  color: #111827;
-  padding: 1rem;
-  max-width: none;
-}
-/* small readable defaults; replace with Tailwind or your CSS */
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3 {
-  margin-top: 1.25rem;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-.markdown-body pre {
-  overflow: auto;
-  padding: 0.75rem;
-  border-radius: 6px;
-  background: #f6f8fa;
-}
-.markdown-body code {
-  background: #f3f4f6;
-  padding: 0.15rem 0.35rem;
-  border-radius: 4px;
-  font-size: 0.92em;
+<style>
+/* --- Inline badge alignment fix --- */
+.markdown-body p a img,
+.markdown-body p img {
+  display: inline !important;
+  vertical-align: middle;
+  margin-right: 6px;
+  margin-bottom: 0 !important;
 }
 </style>
