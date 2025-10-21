@@ -18,6 +18,10 @@ const meta: Meta<typeof Modal> = {
         component: `\`\`\`bash \n import { Modal } from "veloce-vue";  \n \`\`\`
         `,
       },
+      story: {
+        inline: true,
+        height: "320px",
+      },
     },
   },
 };
@@ -25,26 +29,57 @@ const meta: Meta<typeof Modal> = {
 export default meta;
 type Story = StoryObj<typeof Modal>;
 
-// reusable render factory
-const createRender = () => (args: any) => ({
-  components: { Modal, Button },
-  setup() {
-    return { args };
-  },
-  template: `
-	  <Modal v-bind="args">
-	  	<Button label="Open Modal" />
-	  </Modal>
-  `,
-});
-
-// reusable render wrapper for all stories
-const render = createRender();
-
-// reusable stories
 export const Default: Story = {
   args: {
     show: false,
   },
-  render,
+  render: (args: any) => ({
+    components: { Modal, Button },
+    setup() {
+      return { args };
+    },
+    template: `
+      <Modal v-bind="args" >
+        <Button label="Open Modal" />
+        <template #content>
+          <p>Content of the modal</p>
+        </template>
+        <template #footer>
+          <div class="flex items-center justify-end gap-4">
+            <Button class="!px-3 !py-1" variant="ghost" label="Close" @click="show = false" />
+            <Button class="!px-3 !py-1" label="Save" @click="show = false" />
+          </div>
+        </template>
+      </Modal>
+    `,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `
+          <script lang="ts" setup>
+            import { ref } from "vue";
+            import Modal from "veloce-vue";
+            import Button from "veloce-vue";
+            const show = ref(false);
+          </script>
+                
+          <template>
+            <Modal v-bind="args">
+              <Button label="Open Modal" />
+              <template #content>
+                <p>Content of the modal</p>
+              </template>
+              <template #footer>
+                <div class="flex items-center justify-end gap-4">
+                  <Button class="!px-3 !py-1" variant="ghost" label="Close" @click="show = false" />
+                  <Button class="!px-3 !py-1" label="Save" @click="show = false" />
+                </div>
+              </template>
+            </Modal>
+          </template>
+        `.trim(),
+      },
+    },
+  },
 };
