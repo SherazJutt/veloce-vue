@@ -11,6 +11,14 @@ const meta: Meta<typeof Button> = {
   tags: ["autodocs"],
   args,
   argTypes,
+  parameters: {
+    docs: {
+      description: {
+        component: `\`\`\`bash \n import { Button } from "veloce-vue";  \n \`\`\`
+        `,
+      },
+    },
+  },
 };
 
 export default meta;

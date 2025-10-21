@@ -12,6 +12,14 @@ const meta: Meta<typeof Popover> = {
   tags: ["autodocs"],
   args,
   argTypes,
+  parameters: {
+    docs: {
+      description: {
+        component: `\`\`\`bash \n import { Popover } from "veloce-vue";  \n \`\`\`
+        `,
+      },
+    },
+  },
 };
 
 export default meta;

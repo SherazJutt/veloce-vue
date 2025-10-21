@@ -12,6 +12,10 @@ const meta: Meta<typeof Select> = {
   argTypes,
   parameters: {
     docs: {
+      description: {
+        component: `\`\`\`bash \n import { Select } from "veloce-vue";  \n \`\`\`
+        `,
+      },
       story: {
         inline: true,
         height: "200px",

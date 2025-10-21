@@ -11,6 +11,14 @@ const meta: Meta<typeof Separator> = {
   tags: ["autodocs"],
   args,
   argTypes,
+  parameters: {
+    docs: {
+      description: {
+        component: `\`\`\`bash \n import { Separator } from "veloce-vue";  \n \`\`\`
+        `,
+      },
+    },
+  },
 };
 
 export default meta;

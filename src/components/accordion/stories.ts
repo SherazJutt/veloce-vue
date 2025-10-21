@@ -5,6 +5,14 @@ const meta: Meta<typeof Accordion> = {
   title: "Components/Accordion",
   component: Accordion,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: `\`\`\`bash \n import { Accordion } from "veloce-vue";  \n \`\`\`
+        `,
+      },
+    },
+  },
 };
 
 export default meta;

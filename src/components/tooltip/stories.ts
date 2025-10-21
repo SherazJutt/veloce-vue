@@ -12,6 +12,14 @@ const meta: Meta<typeof Tooltip> = {
   tags: ["autodocs"],
   args,
   argTypes,
+  parameters: {
+    docs: {
+      description: {
+        component: `\`\`\`bash \n import { Tooltip } from "veloce-vue";  \n \`\`\`
+        `,
+      },
+    },
+  },
 };
 
 export default meta;

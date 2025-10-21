@@ -11,6 +11,14 @@ const meta: Meta<typeof RangeSlider> = {
   tags: ["autodocs"],
   args,
   argTypes,
+  parameters: {
+    docs: {
+      description: {
+        component: `\`\`\`bash \n import { RangeSlider } from "veloce-vue";  \n \`\`\`
+        `,
+      },
+    },
+  },
 };
 
 export default meta;

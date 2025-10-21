@@ -14,6 +14,10 @@ const meta: Meta<typeof Drawer> = {
   argTypes,
   parameters: {
     docs: {
+      description: {
+        component: `\`\`\`bash \n import { Drawer } from "veloce-vue";  \n \`\`\`
+        `,
+      },
       story: {
         inline: true,
         height: "300px",
