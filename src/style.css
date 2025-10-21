@@ -3,9 +3,10 @@
 /* Default CSS variables (can be overridden by consuming apps) */
 /* we are using separate vars to prevent name collisions with Tailwind CSS */
 :root {
-  --ui-color-primary: #523ae4;
-  --ui-color-secondary: #0f0d0d;
-  --ui-color-accent: #f59e0b;
+  --ui-color-primary: #f7934c;
+  --ui-color-secondary: #f7b05b;
+  --ui-color-accent: #ffc15e;
+  --ui-color-text: #1c1c1c;
 }
 
 @theme {
@@ -13,6 +14,13 @@
   --color-primary: var(--ui-color-primary);
   --color-secondary: var(--ui-color-secondary);
   --color-accent: var(--ui-color-accent);
+  --color-text: var(--ui-color-text);
+
+  --shadow: 0px 0px 16px 8px rgba(160, 165, 175, 0.15); /* base */
+  --shadow-sm: 0px 0px 18px 10px rgba(160, 165, 175, 0.1);
+  --shadow-md: 0px 0px 20px 12px rgba(160, 165, 175, 0.13);
+  --shadow-lg: 0px 0px 22px 14px rgba(160, 165, 175, 0.16);
+  --shadow-xl: 0px 0px 24px 16px rgba(160, 165, 175, 0.18);
 
   /* breakpoints */
 
@@ -55,8 +63,4 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-600;
-}
-
-@utility container {
-  @apply mx-auto w-[85%] max-w-[1440px];
 }

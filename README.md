@@ -1,4 +1,4 @@
-# Veloce Vue
+<h1 align="center">Welcome to VeloceVue</h1>
 
 A modern Vue.js UI component library built with Vue, Typescript, Storybook and Tailwind CSS.
 
@@ -147,3 +147,5 @@ pnpm run build
 ```
 
 This will build the npm package into the `build/package` directory.
+
+> ℹ️ VeloceVue is in active development. APIs and styles may evolve.

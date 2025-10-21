@@ -15,20 +15,20 @@ const activeIndex = ref<Number | null>(null);
 
 <template>
   <!-- Accordion Container -->
-  <div class="w-full divide-y divide-gray-200 rounded border border-slate-200 bg-white">
+  <div class="w-full divide-y divide-gray-200 overflow-hidden rounded-xl border border-slate-200 bg-white shadow">
     <!-- Iterate through items array -->
     <div v-for="(item, index) in items" :key="index" v-if="items.length">
       <!-- Accordion Header -->
       <!-- Clicking toggles activeIndex between `index` and `null` (for collapse) -->
-      <div :class="{ 'bg-primary/5': activeIndex === index }" class="hover:bg-primary/5 relative flex cursor-pointer justify-between gap-4 p-3 font-medium duration-100" @click="activeIndex = activeIndex === index ? null : index">
+      <div class="text-text relative flex cursor-pointer justify-between gap-4 p-3 font-medium duration-100 hover:bg-gray-100" @click="activeIndex = activeIndex === index ? null : index">
         <!-- Accordion Title -->
-        <span class="title text-gray-600">{{ item.title }}</span>
+        <span class="title">{{ item.title }}</span>
         <!-- Chevron Icon -->
-        <Icon icon="chevron-down" :class="{ 'rotate-180': activeIndex === index }" class="icon text-[1.4rem] text-gray-400 duration-200" />
+        <Icon icon="chevron-down" :class="{ 'rotate-180 ': activeIndex === index }" class="icon text-[1.4rem] duration-200" />
       </div>
 
       <!-- Accordion Body -->
-      <div v-if="activeIndex === index" class="p-3 text-gray-500">
+      <div v-if="activeIndex === index" class="text-text p-3">
         <!-- If slot name is provided, render slot content -->
         <template v-if="item.slot">
           <slot :name="item.slot" />
