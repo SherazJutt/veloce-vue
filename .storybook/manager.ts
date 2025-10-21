@@ -3,11 +3,11 @@ import theme from "./theme";
 
 addons.setConfig({
   theme,
-  title: "Veloce Vue",
+  title: "VeloceVue",
 });
 
 addons.register("TitleAddon", (api) => {
-  const PAGE_TITLE = "Veloce Vue";
+  const PAGE_TITLE = "VeloceVue";
 
   const setTitle = () => {
     let storyData: { title?: string; name?: string } | null = null;

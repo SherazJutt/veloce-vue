@@ -2,7 +2,7 @@ import { create } from "storybook/theming";
 
 export default create({
   base: "dark",
-  brandTitle: "Veloce Vue",
+  brandTitle: "VeloceVue",
   brandUrl: "/",
   brandImage: "veloce-vue-horizontal-text-white.png",
   brandTarget: "_self",
