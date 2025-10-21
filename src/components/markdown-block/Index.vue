@@ -63,12 +63,17 @@ watch(
 );
 </script>
 
-<style>
-.markdown-body pre {
-  border-radius: 0.75rem;
-  padding: 1rem;
-}
-.markdown-body code {
-  font-family: "JetBrains Mono", monospace;
+<style lang="scss">
+.markdown-body {
+  pre[class*="language-"] {
+    background: #f6f8fa;
+    border: 1px solid #ededed;
+  }
+  ul {
+    list-style-type: disc;
+  }
+  ol {
+    list-style-type: decimal;
+  }
 }
 </style>
