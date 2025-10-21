@@ -3,74 +3,72 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onMounted, watch } from "vue";
 import MarkdownIt from "markdown-it";
+import Prism from "prismjs";
 import "github-markdown-css/github-markdown-light.css";
+import "prismjs/themes/prism.css";
+// import "prismjs/themes/prism-tomorrow.css";
+// import "prismjs/themes/prism-coy.css";
+// import "prismjs/themes/prism-funky.css";
+// import "prismjs/themes/prism-okaidia.css";
+// import "prismjs/themes/prism-solarizedlight.css";
+// import "prismjs/themes/prism-twilight.css";
+
+// Load languages
+import "prismjs/components/prism-typescript";
+import "prismjs/components/prism-json";
+import "prismjs/components/prism-bash";
+import "prismjs/components/prism-javascript";
 
 let DOMPurify: any = null;
 try {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  DOMPurify = require("dompurify"); // works in Vite dev
-} catch (e) {
+  DOMPurify = require("dompurify");
+} catch {
   DOMPurify = null;
 }
 
-const props = defineProps<{
-  content: string;
-}>();
+const props = defineProps<{ content: string }>();
 
-// Configure markdown-it
 const md = new MarkdownIt({
-  html: true, // allow HTML in markdown
-  linkify: true, // autolink URLs
-  typographer: true, // smart quotes, dashes
-});
-
-// optional: syntax highlighting if prismjs is installed
-try {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const Prism = require("prismjs");
-  console.log(Prism);
-  // load common languages through prismjs imports if needed
-  md.set({
-    highlight: (code: string, lang: string) => {
-      try {
-        const grammar = Prism.languages[lang] || Prism.languages.markup;
-        return `<pre class="language-${lang}"><code>${Prism.highlight(code, grammar, lang)}</code></pre>`;
-      } catch (e) {
-        return `<pre class="language-text"><code>${md.utils.escapeHtml(code)}</code></pre>`;
+  html: true,
+  linkify: true,
+  typographer: true,
+  highlight: (code: string, lang: string): string => {
+    try {
+      const grammar = Prism.languages[lang] ?? Prism.languages.markup;
+      if (!grammar) {
+        throw new Error("No grammar found");
       }
-    },
-  });
-} catch (e) {
-  console.error(e);
-  // prism not installed -> skip highlighting
-}
+      return `<pre class="language-${lang}"><code>${Prism.highlight(code, grammar, lang)}</code></pre>`;
+    } catch {
+      return `<pre class="language-text"><code>${md.utils.escapeHtml(code)}</code></pre>`;
+    }
+  },
+});
 
 const compiledHtml = computed(() => {
   const rendered = md.render(props.content || "");
   if (DOMPurify && typeof DOMPurify.sanitize === "function") {
-    // DOMPurify exposes window.DOMPurify in browser; require() returns a factory for server
-    try {
-      // If DOMPurify is server-side require, it returns a function that needs window
-      const purifier = DOMPurify.default || DOMPurify;
-      // In Vite dev, using window.DOMPurify might be available when library is bundled; fallback:
-      return purifier.sanitize ? purifier.sanitize(rendered) : rendered;
-    } catch {
-      return rendered;
-    }
+    const purifier = DOMPurify.default || DOMPurify;
+    return purifier.sanitize ? purifier.sanitize(rendered) : rendered;
   }
   return rendered;
 });
+
+onMounted(() => Prism.highlightAll());
+watch(
+  () => props.content,
+  () => Prism.highlightAll(),
+);
 </script>
 
 <style>
-/* --- Inline badge alignment fix --- */
-.markdown-body p a img,
-.markdown-body p img {
-  display: inline !important;
-  vertical-align: middle;
-  margin-right: 6px;
-  margin-bottom: 0 !important;
+.markdown-body pre {
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+.markdown-body code {
+  font-family: "JetBrains Mono", monospace;
 }
 </style>

@@ -17,7 +17,7 @@ pnpm add veloce-vue
 import "veloce-vue/style.css";
 ```
 
-```vue
+```javascript
 <template>
   <Button label="Primary Button" />
 </template>
