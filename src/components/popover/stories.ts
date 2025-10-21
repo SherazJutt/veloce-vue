@@ -53,6 +53,26 @@ export const Bottom: Story = {
     position: "bottom",
   },
   render,
+  parameters: {
+    docs: {
+      source: {
+        code: `
+          <script lang="ts" setup>
+            import { ref } from "vue";
+            import Popover from "veloce-vue";
+            import Button from "veloce-vue";
+          </script>
+          <template>
+            <Popover position="bottom">
+              <template #default>
+                <Button class="w-full" label="Hover me" />
+              </template>
+            </Popover>
+          </template>
+        `.trim(),
+      },
+    },
+  },
 };
 
 export const Top: Story = {
@@ -60,4 +80,24 @@ export const Top: Story = {
     position: "top",
   },
   render,
+  parameters: {
+    docs: {
+      source: {
+        code: `
+          <script lang="ts" setup>
+            import { ref } from "vue";
+            import Popover from "veloce-vue";
+            import Button from "veloce-vue";
+          </script>
+          <template>
+            <Popover position="top">
+              <template #default>
+                <Button class="w-full" label="Hover me" />
+              </template>
+            </Popover>
+          </template>
+        `.trim(),
+      },
+    },
+  },
 };

@@ -8,8 +8,7 @@ const meta: Meta<typeof Accordion> = {
   parameters: {
     docs: {
       description: {
-        component: `\`\`\`bash \n import { Accordion } from "veloce-vue";  \n \`\`\`
-        `,
+        component: `\`\`\`bash \n import { Accordion } from "veloce-vue";  \n \`\`\``,
       },
     },
   },
@@ -47,7 +46,7 @@ export const ManyItems: Story = {
   },
 };
 
-export const WithSlots: Story = {
+export const WithSlots = {
   args: {
     items: [
       { title: "Slot 1", content: "", slot: "first" },
@@ -55,7 +54,7 @@ export const WithSlots: Story = {
       { title: "Slot 3", content: "", slot: "third" },
     ],
   },
-  render: (args) => ({
+  render: (args: any) => ({
     components: { Accordion },
     setup() {
       return { args };
@@ -80,6 +79,43 @@ export const WithSlots: Story = {
       </Accordion>
     `,
   }),
+  parameters: {
+    docs: {
+      source: {
+        code: `
+            <script lang="ts" setup>
+            import Accordion from "@/components/Accordion.vue";
+                  
+            const items = [
+              { title: "Slot 1", content: "", slot: "first" },
+              { title: "Slot 2", content: "", slot: "second" },
+              { title: "Slot 3", content: "", slot: "third" },
+            ];
+            </script>
+                  
+            <template>
+              <Accordion :items="items">
+                <template #first>
+                  <div class="text-sm text-gray-600">Custom content for the <b>first</b> slot.</div>
+                </template>
+                <template #second>
+                  <ul class="list-disc pl-5 text-gray-600 text-sm">
+                    <li>Second slot item A</li>
+                    <li>Second slot item B</li>
+                  </ul>
+                </template>
+                <template #third>
+                  <div>
+                    <span class="text-gray-600 text-sm">Third slot with a </span>
+                    <a href="#" class="text-primary underline">link</a>
+                  </div>
+                </template>
+              </Accordion>
+            </template>
+        `.trim(),
+      },
+    },
+  },
 };
 
 export const Empty: Story = {

@@ -59,6 +59,35 @@ export const Default: Story = {
     show: false,
   },
   render,
+  parameters: {
+    docs: {
+      source: {
+        code: `
+          <script lang="ts" setup>
+            import { ref } from "vue";
+            import Drawer from "veloce-vue";
+            import Button from "veloce-vue";
+            const show = ref(false);
+          </script>
+                
+          <template>
+            <Drawer  :showFooter="true" v-model="show" title="Drawer title" description="A short description">
+              <Button label="Open Drawer" />
+              <template #content>
+                <div class="p-2">Drawer Content</div>
+              </template>
+              <template #footer>
+                <div class="flex justify-end gap-2">
+                  <Button label="Cancel" variant="ghost" />
+                  <Button label="Save" />
+                </div>
+              </template>
+            </Drawer>
+          </template>
+        `.trim(),
+      },
+    },
+  },
 };
 
 export const Left: Story = {
@@ -67,6 +96,7 @@ export const Left: Story = {
     show: true,
   },
   render,
+  parameters: { docs: { disable: true } },
 };
 
 export const Bottom: Story = {
@@ -75,6 +105,7 @@ export const Bottom: Story = {
     show: true,
   },
   render,
+  parameters: { docs: { disable: true } },
 };
 
 export const Right: Story = {
@@ -83,4 +114,5 @@ export const Right: Story = {
     show: true,
   },
   render,
+  parameters: { docs: { disable: true } },
 };
