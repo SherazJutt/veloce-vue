@@ -1,15 +1,18 @@
 <script setup lang="ts">
-import type { AccordionRootEmits, AccordionRootProps } from "reka-ui";
-import { AccordionRoot, useForwardPropsEmits } from "reka-ui";
+import { AccordionRoot, AccordionContent, AccordionItem, AccordionTrigger } from "./index";
 
-const props = defineProps<AccordionRootProps>();
-const emits = defineEmits<AccordionRootEmits>();
-
-const forwarded = useForwardPropsEmits(props, emits);
+const props = defineProps<{
+  items: { value: string; title: string; content: string }[];
+}>();
 </script>
 
 <template>
-  <AccordionRoot data-slot="accordion" v-bind="forwarded">
-    <slot />
+  <AccordionRoot type="single" class="w-full" collapsible :default-value="props.items[0]?.value">
+    <AccordionItem v-for="item in props.items" :key="item.value" :value="item.value">
+      <AccordionTrigger>{{ item.title }}</AccordionTrigger>
+      <AccordionContent>
+        {{ item.content }}
+      </AccordionContent>
+    </AccordionItem>
   </AccordionRoot>
 </template>
