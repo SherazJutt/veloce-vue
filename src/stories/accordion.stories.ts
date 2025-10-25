@@ -5,17 +5,57 @@ const meta: Meta<typeof Accordion> = {
   title: "Components/Accordion",
   component: Accordion,
   tags: ["autodocs"],
-  args: {
-    items: [
-      { value: "item-1", title: "Is it accessible?", content: "Yes. It adheres to the WAI-ARIA design pattern." },
-      { value: "item-2", title: "Is it unstyled?", content: "Yes. It's unstyled by default, giving you freedom over the look and feel." },
-      { value: "item-3", title: "Can it be animated?", content: "Yes! You can use the transition prop to configure the animation." },
-    ],
-  },
 };
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+const getItems = (length: number) => {
+  return Array.from({ length }, (_, index) => ({ value: `item-${index + 1}`, title: `${index + 1} Lorem ipsum dolor sit amet consectetur adipisicing elit.`, content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. ${index + 1}` }));
+};
+
+export const Default: Story = {
+  args: {
+    items: getItems(10),
+  },
+};
+
+export const DefaultOpen: Story = {
+  args: {
+    defaultOpen: true,
+    items: getItems(1),
+  },
+};
+
+export const SingleItem: Story = {
+  args: {
+    items: getItems(1),
+  },
+};
+
+export const ManyItems: Story = {
+  args: {
+    items: getItems(10),
+  },
+};
+
+export const AllowMultiple: Story = {
+  args: {
+    allowMultiple: true,
+    items: getItems(10),
+  },
+};
+
+export const Border: Story = {
+  args: {
+    border: true,
+    items: getItems(10),
+  },
+};
+
+export const Empty: Story = {
+  args: {
+    items: [],
+  },
+};
