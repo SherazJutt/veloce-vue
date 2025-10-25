@@ -1,6 +1,6 @@
 <template>
   <h1>Test</h1>
-  <Button variant="outline">Test</Button>
+  <Button variant="outline" :loading="false">Test</Button>
 </template>
 
 <script setup lang="ts">

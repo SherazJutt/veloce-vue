@@ -11,6 +11,9 @@ const meta: Meta<typeof Button> = {
   tags: ["autodocs"],
   args: {
     default: "Button",
+    loading: false,
+    variant: "default",
+    size: "default",
   },
   argTypes: {
     default: { control: "text" },
@@ -22,6 +25,8 @@ const meta: Meta<typeof Button> = {
       control: { type: "select" },
       options: sizeOptions,
     },
+    loading: { control: "boolean" },
+    as: { control: false },
   },
 };
 
