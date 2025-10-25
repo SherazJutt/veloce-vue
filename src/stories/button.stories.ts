@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import { Button } from "../ui/button";
+import { IconsList } from "../components/icon";
 
 const variantOptions = ["default", "destructive", "outline", "secondary", "ghost", "link"] as const;
-
 const sizeOptions = ["default", "sm", "lg", "icon", "icon-sm", "icon-lg"] as const;
 
 const meta: Meta<typeof Button> = {
@@ -27,6 +27,7 @@ const meta: Meta<typeof Button> = {
     },
     loading: { control: "boolean" },
     as: { control: false },
+    icon: { control: "select", options: IconsList },
   },
 };
 
@@ -91,43 +92,7 @@ export const Icon: Story = {
   args: { size: "icon" },
   render: () => ({
     components: { Button },
-    template: `<Button size="icon" aria-label="Add">✚</Button>`,
-  }),
-};
-
-export const IconSm: Story = {
-  args: { size: "icon-sm" },
-  render: () => ({
-    components: { Button },
-    template: `<Button size="icon-sm" aria-label="Star">★</Button>`,
-  }),
-};
-
-export const IconLg: Story = {
-  args: { size: "icon-lg" },
-  render: () => ({
-    components: { Button },
-    template: `<Button size="icon-lg" aria-label="More">⋯</Button>`,
-  }),
-};
-
-export const WithLeftIcon: Story = {
-  render: () => ({
-    components: { Button },
-    template: `<Button>
-      <span aria-hidden>✔</span>
-      <span>With left icon</span>
-    </Button>`,
-  }),
-};
-
-export const WithRightIcon: Story = {
-  render: () => ({
-    components: { Button },
-    template: `<Button>
-      <span>With right icon</span>
-      <span aria-hidden>✔</span>
-    </Button>`,
+    template: `<Button size="icon" aria-label="Add" icon="check"></Button>`,
   }),
 };
 
