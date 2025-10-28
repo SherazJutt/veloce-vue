@@ -23,7 +23,7 @@ import "prismjs/components/prism-javascript";
 
 let DOMPurify: any = null;
 try {
-  DOMPurify = require("dompurify");
+  DOMPurify = import("dompurify");
 } catch {
   DOMPurify = null;
 }

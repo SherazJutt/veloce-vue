@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/build.js"
+    "build": "node scripts/build.js",
+    "build:package": "node scripts/build.js --package",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@vueuse/core": "^13.9.0",

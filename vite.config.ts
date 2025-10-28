@@ -4,42 +4,44 @@ import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-export default defineConfig({
-  plugins: [vue(), enforceScriptSetupLangTS(), tailwindcss(), tsconfigPaths()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-      "@ui": path.resolve(__dirname, "./src/ui"),
-    },
-  },
-  build: {
-    outDir: path.resolve(__dirname, "./build/package"),
-    sourcemap: true,
-    cssCodeSplit: false,
+export default defineConfig(({ mode }) => {
+  const isPackage = mode === "package";
 
-    lib: {
-      entry: path.resolve(__dirname, "src/index.ts"),
-      name: "veloce-vue",
-      fileName: (format) => `index.${format === "es" ? "js" : format}`,
-      formats: ["es", "cjs"],
-    },
-
-    rollupOptions: {
-      external: (id) => {
-        // Externalize Vue and all its sub-modules
-        if (id === "vue" || id.startsWith("vue/")) return true;
-        // Externalize other peer dependencies (this will requires the consuming app to install the peer dependencies explicitly
-        // e.g pnpm add vuedraggable)
-
-        // return ["vuedraggable"].includes(id);
-        return false;
-      },
-      output: {
-        interop: "auto",
-        globals: { vue: "Vue" },
+  return {
+    plugins: [vue(), tailwindcss(), tsconfigPaths(), enforceScriptSetupLangTS()],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+        "@ui": path.resolve(__dirname, "./src/ui"),
       },
     },
-  },
+    build: isPackage
+      ? {
+          outDir: path.resolve(__dirname, "./build/package"),
+          sourcemap: true,
+          cssCodeSplit: false,
+          lib: {
+            entry: path.resolve(__dirname, "src/index.ts"),
+            name: "veloce-vue",
+            fileName: (format) => `index.${format === "es" ? "js" : format}`,
+            formats: ["es", "cjs"],
+          },
+          rollupOptions: {
+            external: (id) => {
+              if (id === "vue" || id.startsWith("vue/")) return true;
+              return false;
+            },
+            output: {
+              interop: "auto",
+              globals: { vue: "Vue" },
+            },
+          },
+        }
+      : {
+          outDir: path.resolve(__dirname, "./build/docs"),
+          sourcemap: true,
+        },
+  };
 });
 
 // ------------------------------- Custom Plugins -----------------------------------
