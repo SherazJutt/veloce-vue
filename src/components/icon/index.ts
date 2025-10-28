@@ -16,3 +16,5 @@ export const icons = {
 // icons names for autocomplete
 export type IconNames = keyof typeof icons;
 export const IconsList = Object.keys(icons) as IconNames[];
+
+export { default as Icon } from "./index.vue";
