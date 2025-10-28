@@ -13,6 +13,7 @@ interface Props extends PrimitiveProps {
   class?: HTMLAttributes["class"];
   loading?: boolean;
   icon?: string;
+  disabled?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -21,7 +22,7 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <Primitive :class="cn(buttonVariants({ variant, size }), props.class)" data-slot="button" :as="as" :as-child="asChild">
+  <Primitive :disabled="props.disabled || props.loading" :class="cn(buttonVariants({ variant, size }), props.class)" data-slot="button" :as="as" :as-child="asChild">
     <slot />
     <Icon v-if="props.icon && !props.loading" :icon="props.icon" class="size-5 text-current duration-200" />
     <Icon v-if="props.loading" icon="loading" class="size-5 text-current duration-200" />
