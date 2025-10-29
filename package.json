@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "build": "pnpm --filter veloce-vue build"
+  }
+}
