@@ -1,7 +1,4 @@
 {
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "build:ui": "pnpm --filter @veloce-vue/ui build"
   }
