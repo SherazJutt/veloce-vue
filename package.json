@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "dev": "pnpm --filter playground dev",
     "build": "pnpm --filter veloce-vue build"
   }
 }
