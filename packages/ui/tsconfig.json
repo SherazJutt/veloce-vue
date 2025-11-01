@@ -43,5 +43,5 @@
   "include": ["src/exports.ts", "src/**/*.vue", "src/**/*.ts"],
 
   /* === File Exclusion === */
-  "exclude": ["src/index.ts", "vite.config.ts", "**/*.stories.*", "**/*.spec.*", "**/*.test.*", "node_modules", "dist", "build"]
+  "exclude": ["src/main.ts", "vite.config.ts", "**/*.stories.*", "**/*.spec.*", "**/*.test.*", "node_modules", "dist", "build"]
 }
