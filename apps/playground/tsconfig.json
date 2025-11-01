@@ -1,11 +1,49 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    /* === Output Settings === */
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "../../build/playground",
+    "outDir": "../../build/playground",
+    "noEmit": false,
+    "noEmitOnError": false,
+
+    /* === Module Resolution === */
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES2020",
+    "jsx": "preserve",
+
+    /* === Type Resolution === */
+    "types": ["vue", "vite/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@lib/*": ["../../packages/ui/src/lib/*"],
+      "@ui/*": ["../../packages/ui/src/ui/*"]
     },
-    {
-      "path": "./tsconfig.app.json"
-    }
-  ]
+
+    "rootDirs": ["./src", "../../packages/ui/src"],
+
+    /* === Build & Compatibility === */
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+
+    /* === Linting & Strictness === */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+
+  /* === File Inclusion === */
+  "include": ["src/**/*.vue", "src/**/*.ts"],
+
+  /* === File Exclusion === */
+  "exclude": ["vite.config.ts", "node_modules", "dist", "build"]
 }
