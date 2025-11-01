@@ -8,5 +8,11 @@
     "build:playground": "pnpm --filter playground build",
     "preview:playground": "pnpm --filter playground preview",
     "prepare": "node scripts/prepare-workspace.mjs"
+  },
+
+  "devDependencies": {
+    "prettier": "^3.4.2",
+    "prettier-plugin-organize-attributes": "^1.0.0",
+    "prettier-plugin-tailwindcss": "^0.6.9"
   }
 }
