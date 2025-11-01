@@ -14,7 +14,6 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: path.resolve(__dirname, "../../build/package"),
     sourcemap: true,
     cssCodeSplit: false,
 

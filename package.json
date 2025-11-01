@@ -4,7 +4,7 @@
   },
   "scripts": {
     "dev": "pnpm --filter playground dev",
-    "build": "pnpm --filter veloce-vue build",
+    "build:package": "node scripts/build.mjs",
     "prepare": "node scripts/prepare-workspace.mjs"
   }
 }

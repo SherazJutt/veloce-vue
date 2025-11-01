@@ -2,41 +2,19 @@ import { execSync } from "node:child_process";
 import { rmSync, cpSync, writeFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-const outDir = resolve("../build/package");
-
-// 🧹 1. Clean previous build
-console.log("🧹 Cleaning old build...");
-rmSync(outDir, { recursive: true, force: true });
-
-// 📁 2. Ensure output directory exists (fixes your issue)
-if (!existsSync(outDir)) {
-  mkdirSync(outDir, { recursive: true });
-  console.log("📁 Created build/package directory.");
-}
-
-// set working directory to packages/ui
+//  set working directory to packages/ui
 process.chdir(resolve("packages/ui"));
 
-// ⚙️ 3. Build JS bundle with Vite
 console.log("📦 Building JS bundle with Vite...");
 execSync("pnpm vite build", { stdio: "inherit" });
 
-// 🧠 4. Generate TypeScript declaration files
 console.log("✍️ Generating TypeScript declarations...");
-execSync("pnpm exec vue-tsc --declaration --emitDeclarationOnly --outDir ../build/package", {
+execSync("pnpm exec vue-tsc --declaration --emitDeclarationOnly --outDir ./dist", {
   stdio: "inherit",
 });
 
-// 📄 5. Copy docs like README & LICENSE
-console.log("📋 Copying essential files...");
-["README.md", "LICENSE"].forEach((file) => {
-  if (existsSync(file)) cpSync(file, `${outDir}/${file}`);
-});
+const rootPkg = JSON.parse(readFileSync(resolve("package.json"), "utf-8"));
 
-// 🧾 6. Read root package.json
-const rootPkg = JSON.parse(readFileSync(resolve("packages/ui/package.json"), "utf-8"));
-
-// 🧱 7. Create output package.json dynamically
 console.log("🧾 Creating package.json...");
 
 const pkg = {
@@ -76,7 +54,7 @@ const pkg = {
   },
 
   files: [
-    "**/*", // include everything in build/package
+    "**/*",
   ],
 
   sideEffects: [
@@ -90,6 +68,6 @@ const pkg = {
   keywords: ["vue3", "tailwindcss", "component library", "vue", "vuejs", "vue.js", "typescript", "veloce-vue", "ui", "tailwind", "framework", "ui-framework"],
 };
 
-writeFileSync(`${outDir}/package.json`, JSON.stringify(pkg, null, 2));
+writeFileSync(`./dist/package.json`, JSON.stringify(pkg, null, 2));
 
 console.log("Build complete. Ready for publish!");

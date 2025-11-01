@@ -4,8 +4,7 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "node scripts/build.js"
+    "dev": "vite"
   },
   "dependencies": {
     "@vueuse/core": "^13.9.0",
