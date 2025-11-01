@@ -9,7 +9,7 @@ console.log("📦 Building JS bundle with Vite...");
 execSync("pnpm vite build", { stdio: "inherit" });
 
 console.log("✍️ Generating TypeScript declarations...");
-execSync("pnpm exec vue-tsc --declaration --emitDeclarationOnly --outDir ./dist", {
+execSync("pnpm exec vue-tsc --declaration --emitDeclarationOnly --outDir ../../build/package", {
   stdio: "inherit",
 });
 
@@ -68,6 +68,6 @@ const pkg = {
   keywords: ["vue3", "tailwindcss", "component library", "vue", "vuejs", "vue.js", "typescript", "veloce-vue", "ui", "tailwind", "framework", "ui-framework"],
 };
 
-writeFileSync(`./dist/package.json`, JSON.stringify(pkg, null, 2));
+writeFileSync(`../../build/package/package.json`, JSON.stringify(pkg, null, 2));
 
 console.log("Build complete. Ready for publish!");

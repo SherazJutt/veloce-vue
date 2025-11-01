@@ -16,9 +16,7 @@ export default defineConfig({
       "@ui": fileURLToPath(new URL("../../packages/ui/src/ui", import.meta.url)),
     },
   },
-  server: {
-    fs: {
-      allow: [fileURLToPath(new URL("../../", import.meta.url))],
-    },
+  build: {
+    outDir: "../../build/playground",
   },
 });

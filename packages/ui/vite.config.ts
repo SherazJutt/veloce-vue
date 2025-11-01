@@ -14,6 +14,7 @@ export default defineConfig({
     },
   },
   build: {
+    outDir: "../../build/package",
     sourcemap: true,
     cssCodeSplit: false,
 

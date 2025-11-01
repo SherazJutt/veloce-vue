@@ -4,7 +4,7 @@
     /* === Output Settings === */
     "declaration": true,
     "emitDeclarationOnly": true,
-    "declarationDir": "./dist",
+    "declarationDir": "../../build/package",
     "outDir": "./dist",
     "noEmit": false,
     "noEmitOnError": false,
