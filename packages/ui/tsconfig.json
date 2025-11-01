@@ -40,8 +40,8 @@
   },
 
   /* === File Inclusion === */
-  "include": ["src/exports.ts", "src/**/*.vue", "src/**/*.ts"],
+  "include": ["src/exports.ts"],
 
   /* === File Exclusion === */
-  "exclude": ["src/index.ts", "vite.config.ts", "**/*.stories.*", "**/*.spec.*", "**/*.test.*", "node_modules", "dist", "build"]
+  "exclude": []
 }
