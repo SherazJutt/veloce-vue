@@ -1,6 +1,10 @@
 {
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
     "dev": "pnpm --filter playground dev",
-    "build": "pnpm --filter veloce-vue build"
+    "build": "pnpm --filter veloce-vue build",
+    "prepare": "node scripts/prepare-workspace.mjs"
   }
 }
