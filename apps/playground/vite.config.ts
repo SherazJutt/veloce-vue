@@ -9,8 +9,16 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [vue(), vueDevTools(), tailwindcss()],
   resolve: {
+    dedupe: ['vue'],
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@lib': fileURLToPath(new URL('../../packages/ui/src/lib', import.meta.url)),
+      '@ui': fileURLToPath(new URL('../../packages/ui/src', import.meta.url)),
+    },
+  },
+  server: {
+    fs: {
+      allow: [fileURLToPath(new URL('../../', import.meta.url))],
     },
   },
 })

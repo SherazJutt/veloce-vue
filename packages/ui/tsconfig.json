@@ -20,7 +20,8 @@
     "baseUrl": ".",
     "rootDir": "src",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@lib/*": ["./src/lib/*"]
     },
 
     /* === Build & Compatibility === */
