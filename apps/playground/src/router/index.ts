@@ -1,42 +1,33 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '../views/HomePage.vue'
-import ButtonPage from '../views/ButtonPage.vue'
-import AccordionPage from '../views/AccordionPage.vue'
+import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.url),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomePage,
+      path: "/",
+      name: "home",
+      component: () => import("../pages/HomePage.vue"),
       meta: {
-        title: 'Home - Veloce Vue UI Components'
-      }
+        title: "Home - Veloce Vue UI Components",
+      },
     },
     {
-      path: '/button',
-      name: 'button',
-      component: ButtonPage,
+      path: "/button",
+      name: "button",
+      component: () => import("../pages/ButtonPage.vue"),
       meta: {
-        title: 'Button Component - Veloce Vue'
-      }
+        title: "Button Component - Veloce Vue",
+      },
     },
     {
-      path: '/accordion',
-      name: 'accordion',
-      component: AccordionPage,
+      path: "/accordion",
+      name: "accordion",
+      component: () => import("../pages/AccordionPage.vue"),
       meta: {
-        title: 'Accordion Component - Veloce Vue'
-      }
-    }
+        title: "Accordion Component - Veloce Vue",
+      },
+    },
   ],
-})
+});
 
-// Optional: Update document title based on route meta
-router.beforeEach((to, from, next) => {
-  document.title = (to.meta.title as string) || 'Veloce Vue UI Components'
-  next()
-})
-
-export default router
+export default router;
