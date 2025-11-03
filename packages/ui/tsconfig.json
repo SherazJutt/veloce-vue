@@ -21,7 +21,8 @@
     "rootDir": "src",
     "paths": {
       "@/*": ["./src/*"],
-      "@lib/*": ["./src/lib/*"]
+      "@lib/*": ["./src/lib/*"],
+      "@types/*": ["./src/types/*"]
     },
 
     /* === Build & Compatibility === */
@@ -40,7 +41,7 @@
   },
 
   /* === File Inclusion === */
-  "include": ["src/exports.ts"],
+  "include": ["src/exports/ui.ts"],
 
   /* === File Exclusion === */
   "exclude": []

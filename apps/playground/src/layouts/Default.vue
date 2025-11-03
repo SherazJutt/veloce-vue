@@ -20,7 +20,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
-import { Button } from "@ui";
+import { Button } from "@veloce/ui";
 import Sidebar from "@/components/Sidebar.vue";
 
 const showSidebar = ref(true);

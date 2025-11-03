@@ -11,7 +11,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Button } from "@ui";
+import { Button } from "@veloce/ui";
 
 const showSidebar = defineModel();
 
