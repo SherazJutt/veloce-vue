@@ -4,12 +4,12 @@
   },
   "scripts": {
     "dev": "pnpm --filter playground dev",
+    "dev:docs": "pnpm --filter docs dev",
     "build:package": "node scripts/build.mjs",
     "build:playground": "pnpm --filter playground build",
     "preview:playground": "pnpm --filter playground preview",
     "prepare": "node scripts/prepare-workspace.mjs"
   },
-
   "devDependencies": {
     "prettier": "^3.4.2",
     "prettier-plugin-organize-attributes": "^1.0.0",
