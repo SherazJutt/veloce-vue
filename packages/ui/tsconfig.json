@@ -22,7 +22,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@lib/*": ["./src/lib/*"],
-      "@types/*": ["./src/types/*"]
+      "@types/*": ["./src/types/*"],
+      "@veloce/*": ["./src/exports/*"]
     },
 
     /* === Build & Compatibility === */

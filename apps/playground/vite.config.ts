@@ -13,6 +13,7 @@ export default defineConfig({
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
       "@lib": fileURLToPath(new URL("../../packages/ui/src/lib", import.meta.url)),
+      "@types": fileURLToPath(new URL("../../packages/ui/src/types", import.meta.url)),
       "@veloce": fileURLToPath(new URL("../../packages/ui/src/exports", import.meta.url)),
     },
   },
