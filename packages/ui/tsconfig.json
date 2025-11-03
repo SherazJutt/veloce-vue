@@ -32,8 +32,8 @@
   },
 
   /* === File Inclusion === */
-  "include": ["src/exports/**/*.ts"],
+  "include": ["src/exports/ui.ts", "src/exports/icons.ts", "src/exports/config.ts"],
 
   /* === File Exclusion === */
-  "exclude": []
+  "exclude": ["node_modules/**"]
 }
