@@ -9,9 +9,13 @@ console.log("📦 Building JS bundle with Vite...");
 execSync("pnpm vite build", { stdio: "inherit" });
 
 console.log("✍️ Generating TypeScript declarations...");
-execSync("pnpm exec vue-tsc --declaration --emitDeclarationOnly --outDir ../../build/package", {
-  stdio: "inherit",
-});
+// execSync("pnpm exec vue-tsc --declaration --emitDeclarationOnly --outDir ../../build/package", {
+//   stdio: "inherit",
+// });
+
+// execSync("pnpm exec vue-tsc --outDir ../../build/package", {
+//   stdio: "inherit",
+// });
 
 const rootPkg = JSON.parse(readFileSync(resolve("package.json"), "utf-8"));
 
