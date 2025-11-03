@@ -5,24 +5,15 @@ import { resolve } from "node:path";
 //  set working directory to packages/ui
 process.chdir(resolve("packages/ui"));
 
-console.log("📦 Building JS bundle with Vite...");
+console.log("📦 Building JS bundle with Vite (includes type generation)...");
 execSync("pnpm vite build", { stdio: "inherit" });
-
-console.log("✍️ Generating TypeScript declarations...");
-// execSync("pnpm exec vue-tsc --declaration --emitDeclarationOnly --outDir ../../build/package", {
-//   stdio: "inherit",
-// });
-
-// execSync("pnpm exec vue-tsc --outDir ../../build/package", {
-//   stdio: "inherit",
-// });
 
 const rootPkg = JSON.parse(readFileSync(resolve("package.json"), "utf-8"));
 
 console.log("🧾 Creating package.json...");
 
 const pkg = {
-  name: "veloce-ui",
+  name: "veloce",
   version: rootPkg.version,
   private: false,
   type: "module",
@@ -41,26 +32,37 @@ const pkg = {
   homepage: "https://github.com/SherazJutt/veloce-vue#readme", // homepage URL
 
   // Entry points
-  main: "./index.cjs",
+  main: "./index.js",
   module: "./index.js",
   types: "./index.d.ts",
-  style: "./veloce-ui.css",
+  style: "./styles.css",
 
-  // Export map for modern tooling
+  // Export map for modern tooling (only ui, icons, config)
   exports: {
     ".": {
-      import: "./index.js",
-      require: "./index.cjs",
       types: "./index.d.ts",
+      import: "./index.js",
       default: "./index.js",
     },
-    "./styles.css": "./veloce-ui.css", //  CSS import resolution
+    "./ui": {
+      types: "./exports/ui.d.ts",
+      default: "./exports/ui.js",
+    },
+    "./icons": {
+      types: "./exports/icons.d.ts",
+      default: "./exports/icons.js",
+    },
+    "./config": {
+      types: "./exports/config.d.ts",
+      default: "./exports/config.js",
+    },
+    "./styles.css": "./styles.css", //  CSS import resolution
   },
 
   files: ["**/*"],
 
   sideEffects: [
-    "./veloce-ui.css", // ensures CSS isn’t tree-shaken
+    "./styles.css", // ensures CSS isn’t tree-shaken
   ],
 
   peerDependencies: {

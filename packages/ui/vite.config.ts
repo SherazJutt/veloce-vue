@@ -3,9 +3,29 @@ import vue from "@vitejs/plugin-vue";
 import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import dts from "vite-plugin-dts";
 
 export default defineConfig({
-  plugins: [vue(), enforceScriptSetupLangTS(), tailwindcss(), tsconfigPaths({ ignoreConfigErrors: true })],
+  plugins: [
+    vue(),
+    enforceScriptSetupLangTS(),
+    tailwindcss(),
+    tsconfigPaths({ ignoreConfigErrors: true }),
+    dts({
+      tsconfigPath: "./tsconfig.json",
+      outDir: "../../build/package",
+      insertTypesEntry: true,
+      copyDtsFiles: true,
+      staticImport: true,
+      rollupTypes: false,
+
+      // Only generate types for public API (UI, Icons, Config)
+      include: ["src/index.ts"],
+
+      // Exclude test files and non-essential internal files
+      exclude: ["node_modules/**"],
+    }),
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -18,10 +38,13 @@ export default defineConfig({
     cssCodeSplit: false,
 
     lib: {
-      entry: path.resolve(__dirname, "src/index.ts"),
-      name: "veloce-vue",
-      fileName: (format) => `index.${format === "es" ? "js" : format}`,
-      formats: ["es", "cjs"],
+      entry: {
+        "exports/ui": path.resolve(__dirname, "src/exports/ui.ts"),
+        "exports/icons": path.resolve(__dirname, "src/exports/icons.ts"),
+        "exports/config": path.resolve(__dirname, "src/exports/config.ts"),
+      },
+      name: "veloce",
+      formats: ["es"],
     },
 
     rollupOptions: {

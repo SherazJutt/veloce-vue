@@ -5,5 +5,5 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Button } from "veloce-ui";
+import { Button } from "veloce/ui";
 </script>
