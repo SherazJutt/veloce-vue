@@ -40,7 +40,7 @@
   },
 
   /* === File Inclusion === */
-  "include": ["src/exports/ui.ts"],
+  "include": ["src/index.ts"],
 
   /* === File Exclusion === */
   "exclude": []

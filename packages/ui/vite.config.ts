@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [vue(), enforceScriptSetupLangTS(), tailwindcss(), tsconfigPaths()],
+  plugins: [vue(), enforceScriptSetupLangTS(), tailwindcss(), tsconfigPaths({ ignoreConfigErrors: true })],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

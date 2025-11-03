@@ -1,7 +1,15 @@
-import type { Colors, config as Config } from "../exports/types";
+interface Colors {
+  primary: string;
+  secondary: string;
+  accent: string;
+}
+
+interface config {
+  colors: Colors;
+}
 
 // create theme settings
-export const config = (config: Config) => {
+export const config = (config: config) => {
   return {
     install() {
       if (!config || !config.colors) {
