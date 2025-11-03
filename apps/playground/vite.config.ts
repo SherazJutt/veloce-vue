@@ -13,7 +13,7 @@ export default defineConfig({
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
       "@lib": fileURLToPath(new URL("../../packages/ui/src/lib", import.meta.url)),
-      "@ui": fileURLToPath(new URL("../../packages/ui/src/ui", import.meta.url)),
+      "@ui": fileURLToPath(new URL("../../packages/ui/src/exports.ts", import.meta.url)),
     },
   },
   build: {
