@@ -1,1 +1,1 @@
-export { Icon, iconsList } from "../components/icon";
+export { Icon, iconsList, Icons } from "../components/icon";

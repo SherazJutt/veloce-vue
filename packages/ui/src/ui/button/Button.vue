@@ -5,14 +5,14 @@ import type { ButtonVariants } from ".";
 import { Primitive } from "reka-ui";
 import { cn } from "@veloce/lib";
 import { buttonVariants } from ".";
-import { Icon } from "@veloce/icons";
+import { Icon, type Icons } from "@veloce/icons";
 
 interface Props extends PrimitiveProps {
   variant?: ButtonVariants["variant"];
   size?: ButtonVariants["size"];
   class?: HTMLAttributes["class"];
   loading?: boolean;
-  icon?: string;
+  icon?: Icons;
   disabled?: boolean;
 }
 

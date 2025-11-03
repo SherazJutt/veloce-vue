@@ -1,9 +1,10 @@
 import type { Component } from "vue";
-import Check from "../../icons/check.vue";
-import Close from "../../icons/close.vue";
-import Loading from "../../icons/loading.vue";
-import ChevronDown from "../../icons/chevron-down.vue";
-import Alert from "../../icons/alert.vue";
+import Check from "../../icons/Check.vue";
+import Close from "../../icons/Close.vue";
+import Loading from "../../icons/Loading.vue";
+import ChevronDown from "../../icons/ChevronDown.vue";
+import Alert from "../../icons/Alert.vue";
+import Hamburger from "../../icons/Hamburger.vue";
 
 // Map of all icons
 const iconsMap = {
@@ -12,6 +13,7 @@ const iconsMap = {
   loading: Loading,
   "chevron-down": ChevronDown,
   alert: Alert,
+  hamburger: Hamburger,
 } as const;
 
 // icons names for autocomplete

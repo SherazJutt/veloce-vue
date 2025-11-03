@@ -1,7 +1,7 @@
 <template>
   <div class="flex min-h-screen flex-col">
     <header class="flex items-center gap-4 bg-gray-100 p-4">
-      <Button @click="showSidebar = !showSidebar">Toggle</Button>
+      <Button icon="hamburger" size="icon-sm" @click="showSidebar = !showSidebar" />
       <h1 class="text-base font-medium">VeloceVue Playground</h1>
     </header>
     <main class="relative flex flex-1">
