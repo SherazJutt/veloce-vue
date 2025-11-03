@@ -15,6 +15,22 @@ const router = createRouter({
         },
       ],
     },
+    {
+      path: "/components",
+      component: DefaultLayout,
+      children: [
+        {
+          path: "button",
+          name: "button",
+          component: () => import("../pages/components/Button.vue"),
+        },
+        {
+          path: "accordion",
+          name: "accordion",
+          component: () => import("../pages/components/Accordion.vue"),
+        },
+      ],
+    },
   ],
 });
 
