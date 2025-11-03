@@ -32,7 +32,7 @@
   },
 
   /* === File Inclusion === */
-  "include": ["src/index.ts"],
+  "include": ["src/exports/**/*.ts"],
 
   /* === File Exclusion === */
   "exclude": []
