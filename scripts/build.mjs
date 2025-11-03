@@ -18,7 +18,7 @@ const rootPkg = JSON.parse(readFileSync(resolve("package.json"), "utf-8"));
 console.log("🧾 Creating package.json...");
 
 const pkg = {
-  name: "veloce-vue",
+  name: "veloce-ui",
   version: rootPkg.version,
   private: false,
   type: "module",
@@ -39,26 +39,24 @@ const pkg = {
   // Entry points
   main: "./index.cjs",
   module: "./index.js",
-  types: "./exports.d.ts",
-  style: "./veloce-vue.css",
+  types: "./index.d.ts",
+  style: "./veloce-ui.css",
 
   // Export map for modern tooling
   exports: {
     ".": {
       import: "./index.js",
       require: "./index.cjs",
-      types: "./exports.d.ts",
+      types: "./index.d.ts",
       default: "./index.js",
     },
-    "./styles.css": "./veloce-vue.css", //  CSS import resolution
+    "./styles.css": "./veloce-ui.css", //  CSS import resolution
   },
 
-  files: [
-    "**/*",
-  ],
+  files: ["**/*"],
 
   sideEffects: [
-    "./veloce-vue.css", // ensures CSS isn’t tree-shaken
+    "./veloce-ui.css", // ensures CSS isn’t tree-shaken
   ],
 
   peerDependencies: {
