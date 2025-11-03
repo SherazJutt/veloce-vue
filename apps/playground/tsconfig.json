@@ -4,8 +4,6 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@lib/*": ["../../packages/ui/src/lib/*"],
-      "@types/*": ["../../packages/ui/src/types/*"],
       "@veloce/*": ["../../packages/ui/src/exports/*"]
     },
 

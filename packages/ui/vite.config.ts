@@ -9,8 +9,6 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      "@lib": path.resolve(__dirname, "./src/lib"),
-      "@types": path.resolve(__dirname, "./src/types"),
       "@veloce": path.resolve(__dirname, "./src/exports"),
     },
   },
