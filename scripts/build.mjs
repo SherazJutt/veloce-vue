@@ -12,7 +12,7 @@ console.log("🧾 Creating package.json...");
 const rootPkg = JSON.parse(readFileSync(resolve("package.json"), "utf-8"));
 
 const pkg = {
-  name: "veloce",
+  name: "veloce-vue",
   version: rootPkg.version,
   private: false,
   type: "module",
@@ -55,7 +55,7 @@ const pkg = {
     vue: "^3.3.0",
   },
 
-  keywords: ["veloce", "veloce-vue", "veloce-ui"],
+  keywords: ["veloce-vue"],
 };
 
 writeFileSync(`../../build/package/package.json`, JSON.stringify(pkg, null, 2));
