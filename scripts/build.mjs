@@ -1,5 +1,5 @@
 import { execSync } from "node:child_process";
-import { rmSync, cpSync, writeFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
+import { rmSync, cpSync, writeFileSync, existsSync, mkdirSync, readFileSync, renameSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 
 //  set working directory to packages/ui
@@ -7,6 +7,35 @@ process.chdir(resolve("packages/ui"));
 
 console.log("📦 Building JS bundle with Vite (includes type generation)...");
 execSync("pnpm vite build", { stdio: "inherit" });
+
+// Clean up and organize build output
+const buildDir = resolve("../../build/package");
+
+// Rename CSS file to styles.css for cleaner naming
+const files = readdirSync(buildDir);
+const cssFile = files.find((f) => f.endsWith(".css") && f !== "styles.css");
+if (cssFile) {
+  const oldPath = resolve(buildDir, cssFile);
+  const newPath = resolve(buildDir, "styles.css");
+  if (existsSync(oldPath)) {
+    renameSync(oldPath, newPath);
+    console.log(`✨ Renamed ${cssFile} to styles.css`);
+  }
+}
+
+// Move type definitions to root for cleaner structure
+const exportsDir = resolve(buildDir, "exports");
+if (existsSync(exportsDir)) {
+  const typeFiles = ["ui.d.ts", "icons.d.ts", "config.d.ts"];
+  typeFiles.forEach((file) => {
+    const sourcePath = resolve(exportsDir, file);
+    const destPath = resolve(buildDir, file);
+    if (existsSync(sourcePath)) {
+      cpSync(sourcePath, destPath);
+      console.log(`✨ Moved ${file} to root`);
+    }
+  });
+}
 
 const rootPkg = JSON.parse(readFileSync(resolve("package.json"), "utf-8"));
 
@@ -37,7 +66,7 @@ const pkg = {
   types: "./index.d.ts",
   style: "./styles.css",
 
-  // Export map for modern tooling (only ui, icons, config)
+  // Export map for modern tooling (clean structure)
   exports: {
     ".": {
       types: "./index.d.ts",
@@ -45,21 +74,24 @@ const pkg = {
       default: "./index.js",
     },
     "./ui": {
-      types: "./exports/ui.d.ts",
-      default: "./exports/ui.js",
+      types: "./ui.d.ts",
+      import: "./ui.js",
+      default: "./ui.js",
     },
     "./icons": {
-      types: "./exports/icons.d.ts",
-      default: "./exports/icons.js",
+      types: "./icons.d.ts",
+      import: "./icons.js",
+      default: "./icons.js",
     },
     "./config": {
-      types: "./exports/config.d.ts",
-      default: "./exports/config.js",
+      types: "./config.d.ts",
+      import: "./config.js",
+      default: "./config.js",
     },
-    "./styles.css": "./styles.css", //  CSS import resolution
+    "./styles.css": "./styles.css",
   },
 
-  files: ["**/*"],
+  files: ["index.js", "index.d.ts", "ui.js", "ui.d.ts", "icons.js", "icons.d.ts", "config.js", "config.d.ts", "styles.css", "*.js.map", "components/**/*.d.ts", "ui/**/*.d.ts", "utils/**/*.d.ts"],
 
   sideEffects: [
     "./styles.css", // ensures CSS isn’t tree-shaken

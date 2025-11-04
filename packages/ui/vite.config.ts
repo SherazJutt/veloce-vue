@@ -14,16 +14,15 @@ export default defineConfig({
     dts({
       tsconfigPath: "./tsconfig.json",
       outDir: "../../build/package",
-      insertTypesEntry: true,
+      entryRoot: "src",
+      insertTypesEntry: false,
       copyDtsFiles: true,
       staticImport: true,
       rollupTypes: false,
 
-      // Only generate types for public API (UI, Icons, Config)
-      include: ["src/index.ts"],
-
-      // Exclude test files and non-essential internal files
-      exclude: ["node_modules/**"],
+      // Generate types for all public API files
+      include: ["src/index.ts", "src/exports/**/*.ts", "src/ui/**/*.vue", "src/ui/**/*.ts", "src/components/**/*.vue", "src/components/**/*.ts", "src/utils/**/*.ts"],
+      exclude: ["node_modules/**", "**/*.spec.ts", "**/*.test.ts"],
     }),
   ],
   resolve: {
@@ -39,9 +38,10 @@ export default defineConfig({
 
     lib: {
       entry: {
-        "exports/ui": path.resolve(__dirname, "src/exports/ui.ts"),
-        "exports/icons": path.resolve(__dirname, "src/exports/icons.ts"),
-        "exports/config": path.resolve(__dirname, "src/exports/config.ts"),
+        index: path.resolve(__dirname, "src/index.ts"),
+        ui: path.resolve(__dirname, "src/exports/ui.ts"),
+        icons: path.resolve(__dirname, "src/exports/icons.ts"),
+        config: path.resolve(__dirname, "src/exports/config.ts"),
       },
       name: "veloce",
       formats: ["es"],
