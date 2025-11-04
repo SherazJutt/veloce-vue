@@ -12,11 +12,3 @@ import AppSidebar from "@/components/AppSidebar.vue";
     </main>
   </SidebarProvider>
 </template>
-
-<!-- <template>
-  <div>ouoiu</div>
-  <AppSidebar />
-</template>
-<script setup lang="ts">
-import { AppSidebar } from "@veloce/ui";
-</script> -->
