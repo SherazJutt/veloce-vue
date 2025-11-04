@@ -39,10 +39,20 @@ const pkg = {
   style: "./styles.css",
 
   exports: {
-    ".": {
-      types: "./index.d.ts",
-      import: "./index.js",
-      default: "./index.js",
+    "./ui": {
+      types: "./exports/ui.d.ts",
+      import: "./ui.js",
+      default: "./ui.js",
+    },
+    "./icons": {
+      types: "./exports/icons.d.ts",
+      import: "./icons.js",
+      default: "./icons.js",
+    },
+    "./config": {
+      types: "./exports/config.d.ts",
+      import: "./config.js",
+      default: "./config.js",
     },
   },
 

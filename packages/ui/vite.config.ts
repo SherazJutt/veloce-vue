@@ -8,7 +8,6 @@ import dts from "vite-plugin-dts";
 export default defineConfig({
   plugins: [
     vue(),
-    enforceScriptSetupLangTS(),
     tailwindcss(),
     tsconfigPaths({ ignoreConfigErrors: true }),
     dts({
@@ -38,7 +37,6 @@ export default defineConfig({
 
     lib: {
       entry: {
-        index: path.resolve(__dirname, "src/index.ts"),
         ui: path.resolve(__dirname, "src/exports/ui.ts"),
         icons: path.resolve(__dirname, "src/exports/icons.ts"),
         config: path.resolve(__dirname, "src/exports/config.ts"),
@@ -64,23 +62,3 @@ export default defineConfig({
     },
   },
 });
-
-// ------------------------------- Custom Plugins -----------------------------------
-
-// Custom Vite plugin to enforce `lang="ts"` in `<script setup>`
-function enforceScriptSetupLangTS(): Plugin {
-  return {
-    name: "enforce-script-setup-lang-ts",
-    enforce: "pre",
-    transform(code, id) {
-      if (id.endsWith(".vue")) {
-        const hasScriptSetup = code.includes("<script setup");
-        const hasLangTS = code.includes('<script setup lang="ts"');
-
-        if (hasScriptSetup && !hasLangTS) {
-          throw new Error(`The file "${id}" is missing ---> (lang="ts") <--- in <script setup>.`);
-        }
-      }
-    },
-  };
-}
