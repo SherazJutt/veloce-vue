@@ -24,8 +24,8 @@ importers:
         specifier: ^4.2.0
         version: 4.2.0(@parcel/watcher@2.5.1)(@types/node@24.9.2)(@vue/compiler-sfc@3.5.22)(better-sqlite3@12.4.1)(db0@0.3.4(better-sqlite3@12.4.1))(eslint@9.39.0(jiti@2.6.1))(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.52.5)(sass-embedded@1.93.2)(sass@1.93.2)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(terser@5.44.0)(yaml@2.8.1))(vue-tsc@3.1.2(typescript@5.9.3))(yaml@2.8.1)
       veloce:
-        specifier: file:../../build/package
-        version: file:build/package(vue@3.5.22(typescript@5.9.3))
+        specifier: file:./veloce-0.16.0.tgz
+        version: file:apps/docs/veloce-0.16.0.tgz(vue@3.5.22(typescript@5.9.3))
       vue:
         specifier: ^3.5.22
         version: 3.5.22(typescript@5.9.3)
@@ -4370,8 +4370,9 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  veloce@file:build/package:
-    resolution: {directory: build/package, type: directory}
+  veloce@file:apps/docs/veloce-0.16.0.tgz:
+    resolution: {integrity: sha512-2ZVA9XuerWF6nuktCLx6C850Jv890PlMpuFkOlBxzWoxdlWBk+kW5vkn5o46wbCb9ZEAAUnNHdZysV4mBC7G3A==, tarball: file:apps/docs/veloce-0.16.0.tgz}
+    version: 0.16.0
     peerDependencies:
       vue: ^3.3.0
 
@@ -9182,7 +9183,7 @@ snapshots:
 
   vary@1.1.2: {}
 
-  veloce@file:build/package(vue@3.5.22(typescript@5.9.3)):
+  veloce@file:apps/docs/veloce-0.16.0.tgz(vue@3.5.22(typescript@5.9.3)):
     dependencies:
       vue: 3.5.22(typescript@5.9.3)
 
