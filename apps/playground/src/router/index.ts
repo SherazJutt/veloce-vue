@@ -31,11 +31,6 @@ const router = createRouter({
         },
       ],
     },
-    {
-      path: "/components/sidebar",
-      name: "sidebar",
-      component: () => import("../pages/components/Sidebar.vue"),
-    },
   ],
 });
 
