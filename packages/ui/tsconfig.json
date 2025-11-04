@@ -1,0 +1,39 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    /* === Output Settings === */
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "../../build/package",
+    "noEmit": false,
+    "noEmitOnError": false,
+
+    /* === Module Resolution === */
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES2020",
+    "jsx": "preserve",
+
+    /* === Type Resolution === */
+    "types": ["vue", "vite/client"],
+    "baseUrl": ".",
+    "rootDir": "src",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@veloce/*": ["./src/exports/*"]
+    },
+
+    /* === Linting & Strictness === */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+
+  /* === File Inclusion === */
+  "include": ["src/exports/ui.ts", "src/exports/icons.ts", "src/exports/config.ts"],
+
+  /* === File Exclusion === */
+  "exclude": ["node_modules/**"]
+}
