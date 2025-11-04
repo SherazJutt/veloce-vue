@@ -1,6 +1,6 @@
 <template>
   <!-- sidebar -->
-  <div :class="showSidebar ? 'w-[240px]' : 'w-0'" class="h-full shrink-0 overflow-hidden border-r border-gray-200 duration-200">
+  <div :class="showSidebar ? 'w-[240px]' : 'w-0'" class="h-full shrink-0 overflow-hidden duration-200">
     <div class="p-2">
       <template v-for="component in components" :key="component.name">
         <router-link class="block" :to="{ name: component.pathName }">
