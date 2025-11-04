@@ -4,7 +4,7 @@
 
     <div class="space-y-2">
       <h2 class="text-xl font-semibold">Button Component</h2>
-      <Button icon="check" variant="outline">Click me</Button>
+      <Button>Click me</Button>
     </div>
 
     <div class="space-y-2">
@@ -20,7 +20,6 @@
 </template>
 
 <script setup lang="ts">
-// Import styles
 import { Button } from "veloce/ui";
 import { Icon } from "veloce/icons";
 </script>

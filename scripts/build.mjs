@@ -48,6 +48,7 @@ const pkg = {
       import: "./config.js",
       default: "./config.js",
     },
+    "./styles.css": "./veloce.css",
   },
 
   peerDependencies: {
