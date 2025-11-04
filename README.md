@@ -1,17 +1,17 @@
-<h1 align="center">Welcome to VeloceVue</h1>
+<h1 align="center">Welcome to Veloce</h1>
 
-A modern Vue.js UI component library built with Vue, Typescript, Storybook and Tailwind CSS.
+A modern Vue.js UI component library built with Vue, Typescript and Tailwind CSS.
 
-[![npm version](https://img.shields.io/npm/v/veloce-vue.svg)](https://www.npmjs.com/package/veloce-vue)
-![npm downloads](https://img.shields.io/npm/dm/veloce-vue.svg)
-![license](https://img.shields.io/npm/l/veloce-vue.svg)
+[![npm version](https://img.shields.io/npm/v/veloce.svg)](https://www.npmjs.com/package/veloce)
+![npm downloads](https://img.shields.io/npm/dm/veloce.svg)
+![license](https://img.shields.io/npm/l/veloce.svg)
 
 ## Installation
 
 Install the library from NPM:
 
 ```bash
-pnpm add veloce-vue
+pnpm add veloce
 ```
 
 ## Setup
@@ -21,7 +21,7 @@ pnpm add veloce-vue
 Import the library's styles in your main application file:
 
 ```javascript
-import "veloce-vue/style.css";
+import "veloce/style.css";
 ```
 
 ### 2. Import Components
@@ -29,7 +29,7 @@ import "veloce-vue/style.css";
 Import the components you need in your Vue components:
 
 ```javascript
-import { Button } from "veloce-vue";
+import { Button } from "veloce/ui";
 ```
 
 ## Usage Example
@@ -43,7 +43,7 @@ import { Button } from "veloce-vue";
 </template>
 
 <script setup>
-import { Button } from "veloce-vue";
+import { Button } from "veloce/ui";
 </script>
 ```
 
@@ -52,7 +52,7 @@ import { Button } from "veloce-vue";
 In your main application file (e.g., `main.ts`):
 
 ```javascript
-import "veloce-vue/styles.css";
+import "veloce/styles.css";
 import "./style.css";
 
 import { createApp } from "vue";
@@ -72,7 +72,7 @@ app.mount("#app");
 Create `ui.config.ts` and add the following code:
 
 ```javascript
-import { config } from "veloce-vue";
+import { config } from "veloce/config";
 
 const themeConfig = {
   colors: {
@@ -112,7 +112,6 @@ This library is built using:
 - Vue 3
 - TypeScript
 - Tailwind CSS v4
-- Storybook v9.1.10
 
 ### Run development server
 
@@ -120,32 +119,24 @@ This library is built using:
 pnpm dev
 ```
 
-This will start the development server at `http://localhost:6006`.
+This will start the development server at `http://localhost:5173` in the playground application built with vite + vue.
+
+## Docs
+
+```bash
+pnpm dev:docs
+```
+
+This will start the development server at `http://localhost:3000` in the documentation application built with nuxt.
 
 ## Production
-
-### Build storybook
-
-```bash
-pnpm run build-storybook
-```
-
-This will build the storybook into the `build/storybook` directory.
-
-### Preview storybook build
-
-```bash
-pnpm run preview-storybook
-```
-
-This will start the storybook production build at `http://localhost:3000`.
 
 ### Build npm package
 
 ```bash
-pnpm run build
+pnpm build:package
 ```
 
 This will build the npm package into the `build/package` directory.
 
-> ℹ️ VeloceVue is in active development. APIs and styles may evolve.
+> ℹ️ Veloce is in active development. APIs and styles may evolve.
