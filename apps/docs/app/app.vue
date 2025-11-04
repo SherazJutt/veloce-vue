@@ -21,7 +21,6 @@
 
 <script setup lang="ts">
 // Import styles
-import "veloce/styles.css";
 import { Button } from "veloce/ui";
 import { Icon } from "veloce/icons";
 </script>

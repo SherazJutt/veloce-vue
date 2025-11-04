@@ -20,7 +20,7 @@ export default defineConfig({
       rollupTypes: false,
 
       // Generate types for all public API files
-      include: ["src/index.ts", "src/exports/**/*.ts", "src/ui/**/*.vue", "src/ui/**/*.ts", "src/components/**/*.vue", "src/components/**/*.ts", "src/utils/**/*.ts"],
+      include: ["src/exports/**/*.ts", "src/ui/**/*.vue", "src/ui/**/*.ts", "src/components/**/*.vue", "src/components/**/*.ts", "src/utils/**/*.ts", "src/lib/**/*.ts"],
       exclude: ["node_modules/**", "**/*.spec.ts", "**/*.test.ts"],
     }),
   ],
@@ -32,7 +32,7 @@ export default defineConfig({
   },
   build: {
     outDir: "../../build/package",
-    sourcemap: true,
+    sourcemap: false,
     cssCodeSplit: false,
 
     lib: {
@@ -41,7 +41,6 @@ export default defineConfig({
         icons: path.resolve(__dirname, "src/exports/icons.ts"),
         config: path.resolve(__dirname, "src/exports/config.ts"),
       },
-      name: "veloce",
       formats: ["es"],
     },
 

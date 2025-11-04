@@ -32,12 +32,6 @@ const pkg = {
 
   homepage: "https://github.com/SherazJutt/veloce-vue#readme", // homepage URL
 
-  // Entry points
-  main: "./index.js",
-  module: "./index.js",
-  types: "./index.d.ts",
-  style: "./styles.css",
-
   exports: {
     "./ui": {
       types: "./exports/ui.d.ts",
