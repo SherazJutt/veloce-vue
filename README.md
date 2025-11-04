@@ -2,7 +2,7 @@
 
 A modern Vue.js UI component library built with Vue, Typescript and Tailwind CSS.
 
-[![npm version](https://img.shields.io/npm/v/veloce.svg)](https://www.npmjs.com/package/veloce-vue)
+[![npm version](https://img.shields.io/npm/v/veloce-vue.svg)](https://www.npmjs.com/package/veloce-vue)
 ![npm downloads](https://img.shields.io/npm/dm/veloce-vue.svg)
 ![license](https://img.shields.io/npm/l/veloce-vue.svg)
 
