@@ -1,10 +1,13 @@
 <template>
   <div class="flex min-h-screen flex-col">
-    <header class="flex items-center gap-4 bg-gray-100 p-4">
-      <Button icon="hamburger" class="p-1!" @click="showSidebar = !showSidebar" />
-      <router-link to="/">
-        <h1 class="text-base font-medium">VeloceVue Playground</h1>
-      </router-link>
+    <header class="flex items-center justify-between gap-4 bg-gray-100 p-4">
+      <div class="flex items-center gap-2">
+        <Button icon="hamburger" class="p-1!" @click="showSidebar = !showSidebar" />
+        <router-link to="/">
+          <h1 class="text-base font-medium">VeloceVue Playground</h1>
+        </router-link>
+      </div>
+      <Button icon="check" class="p-1!" @click="toggleDark()" />
     </header>
     <main class="relative flex flex-1">
       <!-- sidebar -->
@@ -23,7 +26,11 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { Button } from "@veloce/ui";
-import Sidebar from "../components/Sidebar.vue";
+import Sidebar from "@/components/Sidebar.vue";
+import { useDark, useToggle } from "@vueuse/core";
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 
 const showSidebar = ref(true);
 </script>
