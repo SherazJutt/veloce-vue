@@ -2,7 +2,9 @@
   <div class="flex min-h-screen flex-col">
     <header class="flex items-center gap-4 bg-gray-100 p-4">
       <Button icon="hamburger" class="p-1!" @click="showSidebar = !showSidebar" />
-      <h1 class="text-base font-medium">VeloceVue Playground</h1>
+      <router-link to="/">
+        <h1 class="text-base font-medium">VeloceVue Playground</h1>
+      </router-link>
     </header>
     <main class="relative flex flex-1">
       <!-- sidebar -->

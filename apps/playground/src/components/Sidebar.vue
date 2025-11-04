@@ -1,10 +1,10 @@
 <template>
   <!-- sidebar -->
   <div :class="showSidebar ? 'w-[240px]' : 'w-0'" class="h-full shrink-0 overflow-hidden border-r border-gray-200 duration-200">
-    <div class="space-y-2 p-2">
+    <div class="p-2">
       <template v-for="component in components" :key="component.name">
         <router-link class="block" :to="{ name: component.pathName }">
-          <Button class="w-full justify-start" variant="ghost">{{ component.name }}</Button>
+          <Button class="w-full justify-start" size="sm" variant="text" :label="component.name" />
         </router-link>
       </template>
     </div>

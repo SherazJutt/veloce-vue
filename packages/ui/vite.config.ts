@@ -26,7 +26,6 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
       "@veloce": path.resolve(__dirname, "./src/exports"),
     },
   },
