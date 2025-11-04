@@ -29,6 +29,11 @@ const router = createRouter({
           name: "accordion",
           component: () => import("../pages/components/Accordion.vue"),
         },
+        {
+          path: "sidebar",
+          name: "sidebar",
+          component: () => import("../pages/components/Sidebar.vue"),
+        },
       ],
     },
   ],
