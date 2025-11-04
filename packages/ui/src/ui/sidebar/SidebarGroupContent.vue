@@ -1,17 +1,14 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue";
-import type { AlertVariants } from ".";
 import { cn } from "@veloce/lib";
-import { alertVariants } from ".";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];
-  variant?: AlertVariants["variant"];
 }>();
 </script>
 
 <template>
-  <div :class="cn(alertVariants({ variant }), props.class)" data-slot="alert" role="alert">
+  <div :class="cn('w-full text-sm', props.class)" data-slot="sidebar-group-content" data-sidebar="group-content">
     <slot />
   </div>
 </template>

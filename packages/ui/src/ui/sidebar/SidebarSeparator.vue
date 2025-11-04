@@ -1,17 +1,15 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue";
-import type { AlertVariants } from ".";
 import { cn } from "@veloce/lib";
-import { alertVariants } from ".";
+import { Separator } from "@/ui/separator";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];
-  variant?: AlertVariants["variant"];
 }>();
 </script>
 
 <template>
-  <div :class="cn(alertVariants({ variant }), props.class)" data-slot="alert" role="alert">
+  <Separator :class="cn('bg-sidebar-border mx-2 w-auto', props.class)" data-slot="sidebar-separator" data-sidebar="separator">
     <slot />
-  </div>
+  </Separator>
 </template>

@@ -1,17 +1,15 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue";
-import type { AlertVariants } from ".";
 import { cn } from "@veloce/lib";
-import { alertVariants } from ".";
+import { Input } from "@/ui/input";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];
-  variant?: AlertVariants["variant"];
 }>();
 </script>
 
 <template>
-  <div :class="cn(alertVariants({ variant }), props.class)" data-slot="alert" role="alert">
+  <Input :class="cn('bg-background h-8 w-full shadow-none', props.class)" data-slot="sidebar-input" data-sidebar="input">
     <slot />
-  </div>
+  </Input>
 </template>
