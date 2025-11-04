@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["../../packages/ui/src/*"],
       "@veloce/*": ["../../packages/ui/src/exports/*"]
     },
 

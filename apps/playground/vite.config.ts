@@ -11,7 +11,7 @@ export default defineConfig({
   resolve: {
     dedupe: ["vue"],
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "@": fileURLToPath(new URL("../../packages/ui/src", import.meta.url)),
       "@veloce": fileURLToPath(new URL("../../packages/ui/src/exports", import.meta.url)),
     },
   },
