@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "nuxt": "^4.2.0",
-    "veloce": "file:./veloce-0.16.0.tgz",
+    "veloce-vue": "^0.16.0",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3"
   }

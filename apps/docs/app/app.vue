@@ -20,6 +20,6 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from "veloce/ui";
-import { Icon } from "veloce/icons";
+import { Button } from "veloce-vue/ui";
+import { Icon } from "veloce-vue/icons";
 </script>
