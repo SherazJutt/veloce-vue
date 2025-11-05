@@ -34,6 +34,11 @@ const router = createRouter({
           name: "checkbox",
           component: () => import("../pages/components/Checkbox.vue"),
         },
+        {
+          path: "drawer",
+          name: "drawer",
+          component: () => import("../pages/components/Drawer.vue"),
+        },
       ],
     },
   ],

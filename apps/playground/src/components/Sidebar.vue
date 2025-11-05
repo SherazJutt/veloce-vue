@@ -28,5 +28,9 @@ const components = [
     name: "Checkbox",
     pathName: "checkbox",
   },
+  {
+    name: "Drawer",
+    pathName: "drawer",
+  },
 ];
 </script>
