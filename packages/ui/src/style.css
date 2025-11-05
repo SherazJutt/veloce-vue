@@ -51,7 +51,7 @@
   --ui-color-error-light: #ffe2e2;
 
   /* Text Colors */
-  --ui-color-text: var(--color-neutral-200);
+  --ui-color-text: var(--color-neutral-300);
   --ui-color-text-muted: var(--color-neutral-400);
   --ui-color-text-inverted: var(--color-neutral-900);
 
