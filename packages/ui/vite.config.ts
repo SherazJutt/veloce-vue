@@ -20,13 +20,12 @@ export default defineConfig({
       rollupTypes: false,
 
       // Generate types for all public API files
-      include: ["src/exports/**/*.ts", "src/ui/**/*.vue", "src/ui/**/*.ts", "src/components/**/*.vue", "src/components/**/*.ts", "src/utils/**/*.ts", "src/lib/**/*.ts"],
+      include: ["src/exports/**/*.ts", "src/components/**/*.vue", "src/components/**/*.ts"],
       exclude: ["node_modules/**", "**/*.spec.ts", "**/*.test.ts"],
     }),
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
       "@veloce": path.resolve(__dirname, "./src/exports"),
     },
   },

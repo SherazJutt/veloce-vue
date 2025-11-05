@@ -1,19 +1,24 @@
 <template>
-  <div class="flex min-h-screen flex-col">
-    <header class="flex items-center gap-4 bg-gray-100 p-4">
-      <Button icon="hamburger" size="icon-sm" @click="showSidebar = !showSidebar" />
-      <h1 class="text-base font-medium">VeloceVue Playground</h1>
+  <div class="bg-background flex min-h-screen flex-col">
+    <header class="flex items-center justify-between gap-4 border-b p-4">
+      <div class="flex items-center gap-2">
+        <Button icon="hamburger" class="p-1!" @click="showSidebar = !showSidebar" />
+        <router-link to="/">
+          <h1 class="text-base font-medium">VeloceVue Playground</h1>
+        </router-link>
+      </div>
+      <Button icon="check" class="p-1!" @click="toggleDark()" />
     </header>
     <main class="relative flex flex-1">
       <!-- sidebar -->
-      <div :class="showSidebar ? 'left-0' : '-left-full'" class="absolute bottom-0 top-0 w-[240px] shrink-0 overflow-hidden border-r border-gray-200 bg-white transition-all duration-200">
+      <div :class="showSidebar ? 'left-0' : '-left-full'" class="bg-background absolute bottom-0 top-0 w-[240px] shrink-0 overflow-hidden border-r duration-150">
         <Sidebar v-model="showSidebar" />
       </div>
-      <div :class="showSidebar ? 'lg:ml-[240px]' : ''" class="flex-1 p-2 duration-200">
+      <div :class="showSidebar ? 'lg:ml-[240px]' : ''" class="flex-1 p-2 duration-150">
         <router-view />
       </div>
     </main>
-    <footer class="bg-gray-100 p-4">
+    <footer class="border-t p-4">
       <p class="text-center text-sm">© 2025 VeloceVue. All rights reserved.</p>
     </footer>
   </div>
@@ -22,6 +27,10 @@
 import { ref } from "vue";
 import { Button } from "@veloce/ui";
 import Sidebar from "@/components/Sidebar.vue";
+import { useDark, useToggle } from "@vueuse/core";
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 
 const showSidebar = ref(true);
 </script>

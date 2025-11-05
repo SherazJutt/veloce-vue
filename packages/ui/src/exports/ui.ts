@@ -1,4 +1,3 @@
 import "../style.css";
 
-export { Accordion } from "../ui/accordion";
-export { Button } from "../ui/button";
+export { default as Button } from "../components/Button.vue";

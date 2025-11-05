@@ -19,7 +19,6 @@
     "baseUrl": ".",
     "rootDir": "src",
     "paths": {
-      "@/*": ["./src/*"],
       "@veloce/*": ["./src/exports/*"]
     },
 
