@@ -8,58 +8,85 @@
 /* Light mode colors */
 :root {
   /* Main Brand Colors */
-  --ui-color-primary: #f97316;
-  --ui-color-secondary: #3b82f6;
-  --ui-color-accent: #8b5cf6;
-
-  /* State Colors for Alerts/Notifications */
-  --ui-color-success: #10b981;
-  --ui-color-success-light: #d1fae5;
-  --ui-color-warning: #f59e0b;
-  --ui-color-warning-light: #fef3c7;
-  --ui-color-error: #ef4444;
-  --ui-color-error-light: #fee2e2;
-  --ui-color-info: #3b82f6;
+  --ui-color-primary: #00c16a;
+  --ui-color-primary-light: #d9fbe8;
+  --ui-color-secondary: #2b7fff;
+  --ui-color-secondary-light: #dbeafe;
+  --ui-color-success: #00c16a;
+  --ui-color-success-light: #d9fbe8;
+  --ui-color-info: #2b7fff;
   --ui-color-info-light: #dbeafe;
+  --ui-color-warning: #f0b100;
+  --ui-color-warning-light: #fef9c2;
+  --ui-color-error: #fb2c36;
+  --ui-color-error-light: #ffe2e2;
 
-  /* theme colors */
-  --ui-color-background: #fff;
-  --ui-color-border: oklch(92.8% 0.006 264.531);
+  /* Text Colors */
+  --ui-color-text: var(--color-neutral-700);
+  --ui-color-text-muted: var(--color-neutral-500);
+  --ui-color-text-inverted: var(--color-white);
+
+  /* Background Colors */
+  --ui-color-background: var(--color-white);
+
+  /* Border Colors */
+  --ui-color-border: var(--color-slate-200);
+  --ui-border-radius: 0.25rem;
 }
 
 /* Dark mode colors */
 :root:where(.dark) {
   /* Main Brand Colors */
-  --ui-color-primary: #fb923c;
-  --ui-color-secondary: #60a5fa;
-  --ui-color-accent: #a78bfa;
+  --ui-color-primary: #00dc82;
+  --ui-color-primary-light: #d9fbe8;
+  --ui-color-secondary: #51a2ff;
+  --ui-color-secondary-light: #dbeafe;
+  --ui-color-success: #00dc82;
+  --ui-color-success-light: #d9fbe8;
+  --ui-color-info: #51a2ff;
+  --ui-color-info-light: #dbeafe;
+  --ui-color-warning: #fdc700;
+  --ui-color-warning-light: #fef9c2;
+  --ui-color-error: #ff6467;
+  --ui-color-error-light: #ffe2e2;
+
+  /* Text Colors */
+  --ui-color-text: var(--color-neutral-200);
+  --ui-color-text-muted: var(--color-neutral-400);
+  --ui-color-text-inverted: var(--color-neutral-900);
 
   /* Background Colors */
-  --ui-color-background: oklch(0.13 0.028 261.692);
-  --ui-color-border: color-mix(in oklab, #fff 7.5%, transparent);
+  --ui-color-background: var(--color-neutral-900);
+
+  /* Border Colors */
+  --ui-color-border: var(--color-neutral-800);
 }
 
 @theme inline {
   /* Main Brand Colors */
   --color-primary: var(--ui-color-primary);
+  --color-primary-light: var(--ui-color-primary-light);
   --color-secondary: var(--ui-color-secondary);
-  --color-accent: var(--ui-color-accent);
-
-  /* Background Colors */
-  --color-background: var(--ui-color-background);
-
-  /* State Colors */
+  --color-secondary-light: var(--ui-color-secondary-light);
   --color-success: var(--ui-color-success);
   --color-success-light: var(--ui-color-success-light);
+  --color-info: var(--ui-color-info);
+  --color-info-light: var(--ui-color-info-light);
   --color-warning: var(--ui-color-warning);
   --color-warning-light: var(--ui-color-warning-light);
   --color-error: var(--ui-color-error);
   --color-error-light: var(--ui-color-error-light);
-  --color-info: var(--ui-color-info);
-  --color-info-light: var(--ui-color-info-light);
+  --color-neutral: var(--ui-color-neutral);
+  --color-neutral-light: var(--ui-color-neutral-light);
+
+  /* Background Colors */
+  --color-background: var(--ui-color-background);
 
   /* Border Colors */
   --color-border: var(--ui-color-border);
+
+  /* Border Radius */
+  --radius: var(--ui-border-radius);
 }
 
 @theme {
@@ -102,6 +129,14 @@
     @apply border-border;
   }
   body {
-    @apply text-gray-950 dark:text-white/90;
+    color: var(--ui-color-text);
   }
+}
+
+@utility text-inverted {
+  color: var(--ui-color-text-inverted);
+}
+
+@utility text-muted {
+  color: var(--ui-color-text-muted);
 }

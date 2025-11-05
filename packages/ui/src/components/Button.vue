@@ -6,26 +6,26 @@ const props = defineProps({
   label: { type: String, default: "" },
   loading: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
-  variant: { type: String as () => "outlined" | "text" | "ghost" | "solid" | "gray", default: "solid" },
+  variant: { type: String as () => "outlined" | "link" | "ghost" | "solid" | "soft", default: "solid" },
   icon: { type: String as () => Icons, default: "" },
   iconClass: { type: String, default: "" },
   iconPosition: { type: String as () => "left" | "right", default: "right" },
   rounded: { type: Boolean, default: false },
-  size: { type: String as () => "sm" | "md" | "lg", default: "md" },
+  size: { type: String as () => "sm" | "md" | "lg", default: "sm" },
 });
 
 const classes = computed(() => {
   switch (props.variant) {
-    case "outlined":
-      return "!border-primary/20 text-primary bg-white hover:!border-primary hover:bg-primary/5 disabled:hover:bg-white disabled:hover:!border-primary/20 disabled:opacity-50";
-    case "text":
-      return "bg-transparent text-gray-700 hover:bg-gray-100/80 disabled:hover:bg-transparent disabled:opacity-50";
     case "ghost":
-      return "text-gray-700 bg-gray-50 hover:bg-gray-100 hover:text-gray-900 disabled:hover:bg-gray-50 disabled:opacity-50";
-    case "gray":
-      return "bg-gray-900 text-white hover:bg-gray-800 disabled:hover:bg-gray-900 disabled:opacity-50";
+      return "bg-transparent dark:hover:bg-neutral-800 hover:bg-neutral-100 disabled:hover:bg-transparent";
+    case "outlined":
+      return "border-primary! text-primary hover:bg-primary hover:text-inverted disabled:hover:bg-transparent disabled:hover:text-primary disabled:hover:bg-primary disabled:hover:text-inverted";
+    case "link":
+      return "text-neutral-700 hover:underline dark:text-neutral-200";
+    case "soft":
+      return "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700";
     default:
-      return "bg-primary text-white hover:bg-primary/90 disabled:hover:bg-primary disabled:opacity-50"; // solid (default)
+      return "bg-primary text-inverted hover:bg-primary/70 disabled:hover:bg-primary dark:hover:bg-primary/80"; // solid (default)
   }
 });
 </script>
@@ -37,9 +37,9 @@ const classes = computed(() => {
     :disabled="props.disabled || props.loading" 
     :class="[
       classes, { 'rounded-full': props.rounded }, 
-      'flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-transparent text-sm transition-all duration-200 disabled:cursor-not-allowed focus:outline-none',
+      'flex cursor-pointer items-center justify-center font-medium gap-2 rounded border disabled:opacity-75 border-transparent transition-all duration-200 disabled:cursor-not-allowed focus:outline-none',
       { 'justify-center': !props.icon },
-      {'p-1 px-2': props.size === 'sm', 'p-2 px-3': props.size === 'md', 'p-3 px-4': props.size === 'lg'},
+      {'p-1 px-2 text-sm': props.size === 'sm', 'p-2 px-3 text-base': props.size === 'md', 'p-3 px-4 text-lg': props.size === 'lg'},
     ]"
   >
       <span v-if="props.label" :class="{ 'order-2': props.iconPosition === 'left' }"> {{ props.label }} </span>
