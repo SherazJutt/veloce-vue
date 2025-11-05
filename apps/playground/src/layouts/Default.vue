@@ -18,9 +18,6 @@
         <router-view />
       </div>
     </main>
-    <footer class="border-t p-4">
-      <p class="text-center text-sm">© 2025 VeloceVue. All rights reserved.</p>
-    </footer>
   </div>
 </template>
 <script setup lang="ts">

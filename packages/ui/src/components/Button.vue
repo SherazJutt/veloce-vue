@@ -42,8 +42,13 @@ const classes = computed(() => {
       {'p-1 px-2 text-sm': props.size === 'sm', 'p-2 px-3 text-base': props.size === 'md', 'p-3 px-4 text-lg': props.size === 'lg'},
     ]"
   >
-      <span v-if="props.label" :class="{ 'order-2': props.iconPosition === 'left' }"> {{ props.label }} </span>
-      <Icon v-if="props.icon && !props.loading" :icon="props.icon" :class="props.iconClass" class="duration-200 size-5 text-current" />
-      <Icon v-if="props.loading" icon="loading" class="duration-200 size-5 text-current" />
+  <slot v-if="$slots.default" />
+  <template v-else>
+    <span v-if="props.label" :class="{ 'order-2': props.iconPosition === 'left' }"> {{ props.label }} </span>
+    <Icon v-if="props.icon && !props.loading" :icon="props.icon" :class="props.iconClass" class="duration-200 size-5 text-current" />
+    <Icon v-if="props.loading" icon="loading" class="duration-200 size-5 text-current" />
+  </template>
+
+
   </button>
 </template>
