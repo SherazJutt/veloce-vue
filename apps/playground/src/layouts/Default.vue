@@ -1,13 +1,13 @@
 <template>
   <div class="flex min-h-screen flex-col">
-    <header class="flex items-center justify-between gap-4 border-b p-4">
+    <header class="flex h-14 items-center justify-between gap-4 border-b px-4">
       <div class="flex items-center gap-2">
-        <Button icon="hamburger" class="p-1!" @click="showSidebar = !showSidebar" />
+        <Button icon="hamburger" iconClass="size-6" class="p-1!" variant="soft" @click="showSidebar = !showSidebar" />
         <router-link to="/">
-          <h1 class="text-base font-medium">VeloceVue Playground</h1>
+          <h1 class="text-base font-medium">VeloceVue</h1>
         </router-link>
       </div>
-      <Button :icon="isDark ? 'sun' : 'moon'" class="p-1!" @click="toggleDark" />
+      <Button :icon="isDark ? 'sun' : 'moon'" class="p-1!" variant="ghost" @click="toggleDark" />
     </header>
     <main class="relative flex flex-1">
       <!-- sidebar -->
