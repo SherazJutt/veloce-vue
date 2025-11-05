@@ -29,6 +29,11 @@ const router = createRouter({
           name: "accordion",
           component: () => import("../pages/components/Accordion.vue"),
         },
+        {
+          path: "checkbox",
+          name: "checkbox",
+          component: () => import("../pages/components/Checkbox.vue"),
+        },
       ],
     },
   ],

@@ -24,5 +24,9 @@ const components = [
     name: "Accordion",
     pathName: "accordion",
   },
+  {
+    name: "Checkbox",
+    pathName: "checkbox",
+  },
 ];
 </script>
