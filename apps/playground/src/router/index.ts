@@ -44,6 +44,11 @@ const router = createRouter({
           name: "input",
           component: () => import("../pages/components/Input.vue"),
         },
+        {
+          path: "modal",
+          name: "modal",
+          component: () => import("../pages/components/Modal.vue"),
+        },
       ],
     },
   ],

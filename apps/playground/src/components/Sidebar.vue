@@ -36,5 +36,9 @@ const components = [
     name: "Input",
     pathName: "input",
   },
+  {
+    name: "Modal",
+    pathName: "modal",
+  },
 ];
 </script>

@@ -1,147 +1,17 @@
 @import "tailwindcss";
-
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Default CSS variables (can be overridden by consuming apps) */
-/* we are using separate vars to prevent name collisions with Tailwind CSS */
+/* variables */
+@import "./styles/vars.css";
 
-/* Light mode colors */
-:root {
-  /* Main Brand Colors */
-  --ui-color-primary: #00c16a;
-  --ui-color-primary-light: #d9fbe8;
-  --ui-color-secondary: #2b7fff;
-  --ui-color-secondary-light: #dbeafe;
-  --ui-color-success: #00c16a;
-  --ui-color-success-light: #d9fbe8;
-  --ui-color-info: #2b7fff;
-  --ui-color-info-light: #dbeafe;
-  --ui-color-warning: #f0b100;
-  --ui-color-warning-light: #fef9c2;
-  --ui-color-error: #fb2c36;
-  --ui-color-error-light: #ffe2e2;
+/* theme */
+@import "./styles/theme.css";
 
-  /* Text Colors */
-  --ui-color-text: var(--color-neutral-700);
-  --ui-color-text-muted: var(--color-neutral-500);
-  --ui-color-text-inverted: var(--color-white);
+/* scrollbar */
+@import "./styles/scrollbar.css";
 
-  /* Background Colors */
-  --ui-color-background: var(--color-white);
+/* utilities */
+@import "./styles/utilities.css";
 
-  /* Border Colors */
-  --ui-color-border: var(--color-slate-200);
-  --ui-border-radius: 0.25rem;
-}
-
-/* Dark mode colors */
-:root:where(.dark) {
-  /* Main Brand Colors */
-  --ui-color-primary: #00dc82;
-  --ui-color-primary-light: #d9fbe8;
-  --ui-color-secondary: #51a2ff;
-  --ui-color-secondary-light: #dbeafe;
-  --ui-color-success: #00dc82;
-  --ui-color-success-light: #d9fbe8;
-  --ui-color-info: #51a2ff;
-  --ui-color-info-light: #dbeafe;
-  --ui-color-warning: #fdc700;
-  --ui-color-warning-light: #fef9c2;
-  --ui-color-error: #ff6467;
-  --ui-color-error-light: #ffe2e2;
-
-  /* Text Colors */
-  --ui-color-text: var(--color-neutral-300);
-  --ui-color-text-muted: var(--color-neutral-400);
-  --ui-color-text-inverted: var(--color-neutral-900);
-
-  /* Background Colors */
-  --ui-color-background: var(--color-neutral-900);
-
-  /* Border Colors */
-  --ui-color-border: var(--color-neutral-800);
-}
-
-@theme inline {
-  /* Main Brand Colors */
-  --color-primary: var(--ui-color-primary);
-  --color-primary-light: var(--ui-color-primary-light);
-  --color-secondary: var(--ui-color-secondary);
-  --color-secondary-light: var(--ui-color-secondary-light);
-  --color-success: var(--ui-color-success);
-  --color-success-light: var(--ui-color-success-light);
-  --color-info: var(--ui-color-info);
-  --color-info-light: var(--ui-color-info-light);
-  --color-warning: var(--ui-color-warning);
-  --color-warning-light: var(--ui-color-warning-light);
-  --color-error: var(--ui-color-error);
-  --color-error-light: var(--ui-color-error-light);
-  --color-neutral: var(--ui-color-neutral);
-  --color-neutral-light: var(--ui-color-neutral-light);
-
-  /* Background Colors */
-  --color-background: var(--ui-color-background);
-
-  /* Border Colors */
-  --color-border: var(--ui-color-border);
-
-  /* Border Radius */
-  --radius: var(--ui-border-radius);
-}
-
-@theme {
-  /* shadows */
-  --shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
-  --shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
-
-  /* breakpoints */
-
-  /* to use normal breakpoints you can use sm, md, lg, xl ... */
-  /* to use min breakpoints you can use min-sm, min-md, min-lg, min-xl ... */
-  /* to use max breakpoints you can use max-sm, max-md, max-lg, max-xl ... */
-  /* by default all the breakpints are min width so (min-breakpoint) is not requird
-      unless you need min-max breakpoint
-      eg.(min width: 576px and max width: 768px) with tailwild css (min-sm:max-md:bg-red-500) */
-
-  --breakpoint-coxs: 375px;
-  --breakpoint-xs: 425px;
-  --breakpoint-cosm: 500px;
-  --breakpoint-sm: 576px;
-  --breakpoint-comd: 650px;
-  --breakpoint-md: 768px;
-  --breakpoint-colg: 850px;
-  --breakpoint-lg: 992px;
-  --breakpoint-coxl: 1050px;
-  --breakpoint-xl: 1200px;
-  --breakpoint-co2xl: 1320px;
-  --breakpoint-2xl: 1440px;
-  --breakpoint-3xl: 1660px;
-  --breakpoint-1700: 1700px;
-  --breakpoint-4xl: 1800px;
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    color: var(--ui-color-text);
-    background-color: var(--ui-color-background);
-  }
-}
-
-@utility text-inverted {
-  color: var(--ui-color-text-inverted);
-}
-
-@utility text-muted {
-  color: var(--ui-color-text-muted);
-}
-
-@utility text-dimmed {
-  color: var(--color-neutral-500);
-}
+/* layers */
+@import "./styles/layers/base.css";
