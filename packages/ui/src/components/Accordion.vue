@@ -2,12 +2,21 @@
 import { ref } from "vue";
 import { Icon, type Icons } from "@veloce/icons";
 
+export type AccordionItem = {
+  title: string;
+  content: string;
+  slot?: string;
+  icon?: Icons;
+};
+
 // Props definition
 // `items` is an array of objects where each object represents an accordion item.
-// Each item has a `title` (string), `content` (string), and an optional `slot` (string) for custom slot rendering.
+// Each item has a `title` (string), `content` (string), and an optional `slot` (string) for custom slot rendering or an optional `icon` (string) for an icon.
 const props = defineProps({
-  items: { type: Array as () => { title: string; content: string; slot?: string; icon?: Icons }[], required: true },
+  items: { type: Array as () => AccordionItem[], required: true },
   shadow: { type: Boolean, default: false },
+  contentClass: { type: String, default: "" },
+  headerClass: { type: String, default: "" },
 });
 
 // This ref holds the index of the currently active (opened) accordion item.
@@ -22,19 +31,19 @@ const activeIndex = ref<Number | null>(null);
     <div v-for="(item, index) in items" :key="index" v-if="items.length" class="text-sm">
       <!-- Accordion Header -->
       <!-- Clicking toggles activeIndex between `index` and `null` (for collapse) -->
-      <div class="relative flex justify-between gap-4 p-3 font-medium duration-100 hover:bg-neutral-100 dark:hover:bg-neutral-800" @click="activeIndex = activeIndex === index ? null : index">
-        <div>
+      <div :class="headerClass" class="relative flex justify-between gap-4 p-3 font-medium duration-100 hover:bg-neutral-100 dark:hover:bg-neutral-800" @click="activeIndex = activeIndex === index ? null : index">
+        <div class="accordion-title-main flex items-center gap-2">
           <!-- leading icon -->
-          <Icon v-if="item.icon" :icon="item.icon" class="size-5 duration-200" />
+          <Icon v-if="item.icon" :icon="item.icon" class="accordion-title-icon size-5 duration-200" />
           <!-- Accordion Title -->
-          <span>{{ item.title }}</span>
+          <span class="accordion-title-text">{{ item.title }}</span>
         </div>
         <!-- Chevron Icon -->
-        <Icon icon="chevron-down" :class="{ 'rotate-180 ': activeIndex === index }" class="size-5 duration-200" />
+        <Icon icon="chevron-down" :class="{ 'rotate-180 ': activeIndex === index }" class="accordion-chevron-icon size-5 duration-200" />
       </div>
 
       <!-- Accordion Body -->
-      <div v-if="activeIndex === index" class="text-muted p-3">
+      <div v-if="activeIndex === index" :class="contentClass" class="text-muted p-3">
         <!-- If slot name is provided, render slot content -->
         <template v-if="item.slot">
           <slot :name="item.slot" />

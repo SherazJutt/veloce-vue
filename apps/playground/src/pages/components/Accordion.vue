@@ -2,23 +2,23 @@
   <Accordion :items="items" />
 </template>
 <script setup lang="ts">
-import { Accordion } from "@veloce/ui";
+import { Accordion, type AccordionItem } from "@veloce/ui";
 
-const items = [
+const items: AccordionItem[] = [
   {
     title: "Item 1",
     content: "Content 1",
-    icon: "check", // valid icon
+    icon: "moon",
   },
   {
     title: "Item 2",
     content: "Content 2",
-    icon: "close", // valid icon
+    icon: "sun",
   },
   {
     title: "Item 3",
     content: "Content 3",
-    icon: "loading", // valid icon
+    icon: "hamburger",
   },
 ];
 </script>
