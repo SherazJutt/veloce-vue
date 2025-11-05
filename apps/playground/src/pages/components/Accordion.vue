@@ -7,17 +7,20 @@ import { Accordion, type AccordionItem } from "@veloce/ui";
 const items: AccordionItem[] = [
   {
     title: "Item 1",
-    content: "Content 1",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, eos! Voluptas explicabo odit quis earum nobis! Totam, molestias, magni beatae illum assumenda ipsum quas a nemo, tenetur perferendis minima quis!",
     icon: "moon",
   },
   {
     title: "Item 2",
-    content: "Content 2",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, eos! Voluptas explicabo odit quis earum nobis! Totam, molestias, magni beatae illum assumenda ipsum quas a nemo, tenetur perferendis minima quis!",
     icon: "sun",
   },
   {
     title: "Item 3",
-    content: "Content 3",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, eos! Voluptas explicabo odit quis earum nobis! Totam, molestias, magni beatae illum assumenda ipsum quas a nemo, tenetur perferendis minima quis!",
     icon: "hamburger",
   },
 ];
