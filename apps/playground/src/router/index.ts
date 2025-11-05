@@ -49,6 +49,11 @@ const router = createRouter({
           name: "modal",
           component: () => import("../pages/components/Modal.vue"),
         },
+        {
+          path: "popover",
+          name: "popover",
+          component: () => import("../pages/components/Popover.vue"),
+        },
       ],
     },
   ],

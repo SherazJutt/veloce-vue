@@ -6,3 +6,4 @@ export { default as Checkbox } from "../components/Checkbox.vue";
 export { default as Drawer } from "../components/Drawer.vue";
 export { default as Input } from "../components/Input.vue";
 export { default as Modal } from "../components/Modal.vue";
+export { default as Popover } from "../components/Popover.vue";

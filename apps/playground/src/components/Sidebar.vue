@@ -52,5 +52,9 @@ const components = [
     name: "Modal",
     pathName: "modal",
   },
+  {
+    name: "Popover",
+    pathName: "popover",
+  },
 ];
 </script>
