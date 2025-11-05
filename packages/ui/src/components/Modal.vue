@@ -14,7 +14,7 @@ const show = defineModel();
   <AnimatePresence :initial="false">
     <motion.div
       v-if="show"
-      class="modal-backdrop fixed left-0 top-0 z-20 flex h-screen w-screen items-center justify-center backdrop-blur-[2px]"
+      class="modal-backdrop z-99999999 fixed left-0 top-0 flex h-screen w-screen items-center justify-center backdrop-blur-[2px]"
       :initial="{ opacity: 0, scale: 0.85 }"
       :animate="{ opacity: 1, scale: 1 }"
       :exit="{ opacity: 0, scale: 1, translateX: '-120px' }"

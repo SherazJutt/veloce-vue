@@ -5,15 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 👇 Run this BEFORE loading CSS -->
   <script>
     const userPref = localStorage.getItem('color-mode');
-    const systemPrefDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = userPref === 'dark' || (!userPref && systemPrefDark);
 
-    if (isDark) {
+    if (userPref === 'dark') {
       document.documentElement.classList.add('dark');
-      document.documentElement.style.background = 'oklch(20.5% 0 0)'; // prevent flash
+      document.documentElement.style.background = 'oklch(20.5% 0 0)';
     } else {
       document.documentElement.classList.remove('dark');
       document.documentElement.style.background = '#fff';

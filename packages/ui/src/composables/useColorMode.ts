@@ -2,7 +2,7 @@ import { watch, onBeforeMount, computed } from "vue";
 import { useStorage } from "@vueuse/core";
 
 export const useColorMode = () => {
-  const mode = useStorage("color-mode", "light");
+  const mode = useStorage("color-mode", "dark");
   const isDark = computed(() => (mode.value === "dark" ? true : false));
 
   const toggleDark = () => (mode.value = isDark.value ? "light" : "dark");
