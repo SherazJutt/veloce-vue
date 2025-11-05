@@ -7,7 +7,7 @@
           <h1 class="text-base font-medium">VeloceVue Playground</h1>
         </router-link>
       </div>
-      <Button icon="check" class="p-1!" @click="toggleDark()" />
+      <Button :icon="isDark ? 'sun' : 'moon'" class="p-1!" @click="toggleDark()" />
     </header>
     <main class="relative flex flex-1">
       <!-- sidebar -->
