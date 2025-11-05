@@ -53,6 +53,7 @@ const pkg = {
 
   peerDependencies: {
     vue: "^3.3.0",
+    "motion-v": "^1.7.4",
   },
 
   keywords: ["veloce-vue"],
