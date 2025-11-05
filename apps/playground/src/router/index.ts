@@ -39,6 +39,11 @@ const router = createRouter({
           name: "drawer",
           component: () => import("../pages/components/Drawer.vue"),
         },
+        {
+          path: "input",
+          name: "input",
+          component: () => import("../pages/components/Input.vue"),
+        },
       ],
     },
   ],

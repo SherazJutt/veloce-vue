@@ -32,5 +32,9 @@ const components = [
     name: "Drawer",
     pathName: "drawer",
   },
+  {
+    name: "Input",
+    pathName: "input",
+  },
 ];
 </script>

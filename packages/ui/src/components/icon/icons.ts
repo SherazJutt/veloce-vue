@@ -6,6 +6,8 @@ import Alert from "../../icons/Alert.vue";
 import Hamburger from "../../icons/Hamburger.vue";
 import Sun from "../../icons/Sun.vue";
 import Moon from "../../icons/Moon.vue";
+import Eye from "../../icons/Eye.vue";
+import EyeOff from "../../icons/EyeOff.vue";
 
 // Map of all icons
 export const iconsMap = {
@@ -17,4 +19,6 @@ export const iconsMap = {
   hamburger: Hamburger,
   sun: Sun,
   moon: Moon,
+  eye: Eye,
+  "eye-off": EyeOff,
 } as const;
