@@ -1,0 +1,10 @@
+<template>
+	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+		<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+			<circle cx="8" cy="15" r="4.5" />
+			<path d="m14.5 12.5l5-5" />
+			<path d="M17.5 7.5l.5.5" />
+		</g>
+	</svg>
+</template>
+

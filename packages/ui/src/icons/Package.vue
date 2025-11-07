@@ -1,0 +1,13 @@
+<template>
+	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+		<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+			<path d="m21 16l-8-4.5V8.5" />
+			<path d="m21 16l-8 4.5" />
+			<path d="m21 16V8" />
+			<path d="m3 8l8 4.5" />
+			<path d="m3 8l8-4.5" />
+			<path d="M3 8v8l8 4.5" />
+		</g>
+	</svg>
+</template>
+

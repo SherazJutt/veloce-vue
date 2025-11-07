@@ -1,0 +1,13 @@
+<template>
+	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+		<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+			<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+			<path d="M14 2v6h6" />
+			<path d="M10 10v2" />
+			<path d="M10 14v2" />
+			<path d="M16 10h.01" />
+			<path d="M16 14h.01" />
+		</g>
+	</svg>
+</template>
+
