@@ -54,6 +54,11 @@ const router = createRouter({
           name: "popover",
           component: () => import("../pages/components/Popover.vue"),
         },
+        {
+          path: "range-slider",
+          name: "range-slider",
+          component: () => import("../pages/components/RangeSlider.vue"),
+        },
       ],
     },
   ],

@@ -56,5 +56,9 @@ const components = [
     name: "Popover",
     pathName: "popover",
   },
+  {
+    name: "RangeSlider",
+    pathName: "range-slider",
+  },
 ];
 </script>
