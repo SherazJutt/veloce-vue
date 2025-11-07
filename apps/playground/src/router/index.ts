@@ -64,6 +64,11 @@ const router = createRouter({
           name: "select",
           component: () => import("../pages/components/Select.vue"),
         },
+        {
+          path: "separator",
+          name: "separator",
+          component: () => import("../pages/components/Separator.vue"),
+        },
       ],
     },
   ],

@@ -64,5 +64,9 @@ const components = [
     name: "Select",
     pathName: "select",
   },
+  {
+    name: "Separator",
+    pathName: "separator",
+  },
 ];
 </script>
