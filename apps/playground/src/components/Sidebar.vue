@@ -4,7 +4,15 @@
     <div class="space-y-1 p-2">
       <template v-for="component in components" :key="component.name">
         <router-link class="block" :to="{ name: component.pathName }" v-slot="{ isActive }" @click="handleItemClick">
-          <Button class="hover:bg-primary-light! w-full justify-start" :severity="isActive ? 'primary' : 'neutral'" size="sm" :label="component.name" :variant="isActive ? 'soft' : 'ghost'" />
+          <Button
+            :class="{ 'text-neutral-500!': !isActive }"
+            class="hover:bg-primary-light! w-full justify-start dark:text-neutral-400"
+            font-weight="normal"
+            :severity="isActive ? 'primary' : 'neutral'"
+            size="sm"
+            :label="component.name"
+            :variant="isActive ? 'soft' : 'ghost'"
+          />
         </router-link>
       </template>
     </div>
