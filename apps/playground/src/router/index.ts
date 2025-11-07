@@ -79,6 +79,11 @@ const router = createRouter({
           name: "tooltip",
           component: () => import("../pages/components/Tooltip.vue"),
         },
+        {
+          path: "icons",
+          name: "icons",
+          component: () => import("../pages/components/Icons.vue"),
+        },
       ],
     },
   ],
