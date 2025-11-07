@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Icon, type Icons } from "@veloce/icons";
+import { Icon } from "@veloce/icons";
 import { motion, AnimatePresence } from "motion-v";
-
-export type AccordionItem = { title: string; content: string; slot?: string; icon?: Icons; active?: boolean };
+import { type AccordionItem } from "@veloce/types";
 
 // Props definition
 // `items` is an array of objects where each object represents an accordion item.
@@ -57,11 +56,7 @@ const toggleItem = (index: number) => {
     <div v-for="(item, index) in accordionItems" :key="index" v-if="accordionItems.length" class="text-sm">
       <!-- Accordion Header -->
       <!-- Clicking toggles activeIndex between `index` and `null` (for collapse) -->
-      <div
-        :class="[headerClass, { 'bg-neutral-50! dark:bg-neutral-700/15!': item.active }]"
-        class="relative flex justify-between gap-4 p-3 font-medium duration-100 hover:bg-neutral-100 dark:hover:bg-neutral-800"
-        @click="toggleItem(index)"
-      >
+      <div :class="[headerClass, { 'bg-neutral-50! dark:bg-neutral-700/15!': item.active }]" class="relative flex justify-between gap-4 p-3 font-medium duration-100 hover:bg-neutral-100 dark:hover:bg-neutral-800" @click="toggleItem(index)">
         <div class="accordion-title-main flex items-center gap-2">
           <!-- leading icon -->
           <Icon v-if="item.icon" :icon="item.icon" class="accordion-title-icon size-5 duration-200" />
