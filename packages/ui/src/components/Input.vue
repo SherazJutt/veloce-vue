@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, useTemplateRef } from "vue";
+import { computed, ref } from "vue";
 import { useRandomId } from "@veloce/utils";
 import { Icon, type Icons } from "@veloce/icons";
 import { type Size } from "@veloce/types";
@@ -10,6 +10,7 @@ const props = defineProps({
   leadingIcon: { type: String as () => Icons, default: "" },
   trailingIcon: { type: String as () => Icons, default: "" },
   placeholder: { type: String, default: "" },
+  iconClass: { type: String, default: "" },
   helpText: { type: String, default: "" },
   type: { type: String as () => "text" | "password", default: "text" },
   labelStyle: { type: String as () => "float" | "static", default: "static" },
@@ -29,7 +30,7 @@ const sizeClasses = computed(() => {
     case "sm":
       return { container: "h-[30px]", input: "px-2 py-1 text-sm", icon: "size-4", text: "text-sm", floatLabel: { focus: "text-xs", base: "text-sm" } };
     case "md":
-      return { container: "h-[34px]", input: "px-2.5 py-1.5 text-sm", icon: "size-5", text: "text-sm", floatLabel: { focus: "text-xs", base: "text-sm" } };
+      return { container: "h-[34px]", input: "px-2.5 py-1.5 text-sm", icon: "size-4", text: "text-sm", floatLabel: { focus: "text-xs", base: "text-sm" } };
     case "lg":
       return { container: "h-[42px]", input: "px-3 py-2 text-base", icon: "size-5", text: "text-base", floatLabel: { focus: "text-sm", base: "text-base" } };
     case "xl":
@@ -40,15 +41,15 @@ const sizeClasses = computed(() => {
 <template>
   <div>
     <!-- static label -->
-    <div v-if="labelStyle === 'static'" class="mb-2 pl-0.5">
+    <div v-if="labelStyle === 'static' && label" class="mb-2 pl-0.5">
       <label class="text-sm font-medium duration-100" :for="id">{{ label }}</label>
     </div>
 
     <div :class="[{ 'mb-6': helpText }, sizeClasses.container]" class="relative">
       <!-- leading icon -->
-      <Icon v-if="leadingIcon" :icon="leadingIcon" :class="sizeClasses.icon" class="text-muted absolute left-3 top-1/2 -translate-y-1/2" />
+      <Icon v-if="leadingIcon" :icon="leadingIcon" :class="[sizeClasses.icon, iconClass]" class="text-muted absolute left-3 top-1/2 -translate-y-1/2" />
       <!-- trailing icon -->
-      <Icon v-if="trailingIcon" :icon="trailingIcon" :class="sizeClasses.icon" class="text-muted absolute right-3 top-1/2 -translate-y-1/2" />
+      <Icon v-if="trailingIcon" :icon="trailingIcon" :class="[sizeClasses.icon, iconClass]" class="text-muted absolute right-3 top-1/2 -translate-y-1/2" />
 
       <!-- input -->
       <input

@@ -8,6 +8,7 @@ import Sun from "../../icons/Sun.vue";
 import Moon from "../../icons/Moon.vue";
 import Eye from "../../icons/Eye.vue";
 import EyeOff from "../../icons/EyeOff.vue";
+import Search from "../../icons/Search.vue";
 
 // Map of all icons
 export const iconsMap = {
@@ -21,4 +22,5 @@ export const iconsMap = {
   moon: Moon,
   eye: Eye,
   "eye-off": EyeOff,
+  search: Search,
 } as const;
