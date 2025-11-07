@@ -4,7 +4,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@veloce/*": ["../../packages/ui/src/exports/*"]
+      "@veloce/*": ["../../packages/ui/src/exports/*"],
+      "@store/*": ["./src/store/*"]
     },
 
     "rootDirs": ["./src", "../../packages/ui/src"],
@@ -14,5 +15,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
-  }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.d.ts"]
 }

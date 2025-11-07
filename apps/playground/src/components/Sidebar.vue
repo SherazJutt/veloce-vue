@@ -12,12 +12,14 @@
 </template>
 <script setup lang="ts">
 import { Button } from "@veloce/ui";
+import { global } from "@store/global";
 
+const emit = defineEmits<{ close: [] }>();
 const props = defineProps({
   closeOnClick: { type: Boolean, default: false },
 });
 
-const emit = defineEmits<{ close: [] }>();
+const { components } = global();
 
 const showSidebar = defineModel();
 
@@ -26,47 +28,4 @@ const handleItemClick = () => {
     emit("close");
   }
 };
-
-const components = [
-  {
-    name: "Button",
-    pathName: "button",
-  },
-  {
-    name: "Accordion",
-    pathName: "accordion",
-  },
-  {
-    name: "Checkbox",
-    pathName: "checkbox",
-  },
-  {
-    name: "Drawer",
-    pathName: "drawer",
-  },
-  {
-    name: "Input",
-    pathName: "input",
-  },
-  {
-    name: "Modal",
-    pathName: "modal",
-  },
-  {
-    name: "Popover",
-    pathName: "popover",
-  },
-  {
-    name: "RangeSlider",
-    pathName: "range-slider",
-  },
-  {
-    name: "Select",
-    pathName: "select",
-  },
-  {
-    name: "Separator",
-    pathName: "separator",
-  },
-];
 </script>
