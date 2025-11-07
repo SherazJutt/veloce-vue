@@ -16,6 +16,7 @@ const props = defineProps({
   size: { type: String as () => Size, default: "md" },
   fontWeight: { type: String as () => FontWeight, default: "medium" as FontWeight },
   showLogs: { type: Boolean, default: false },
+  neumorphic: { type: Boolean, default: false },
 });
 
 const severityClasses = {
@@ -92,6 +93,7 @@ const classes = computed(() => {
       { 'justify-center': !props.icon },
       { 'px-2 py-1 text-sm': props.size === 'sm', 'px-2.5 py-1.5 text-sm': props.size === 'md', 'px-3 py-2 text-base': props.size === 'lg', 'px-3.5 py-2.5 text-lg': props.size === 'xl' },
       { 'font-normal': props.fontWeight === 'normal', 'font-medium': props.fontWeight === 'medium', 'font-semibold': props.fontWeight === 'semibold', 'font-bold': props.fontWeight === 'bold' },
+      { neumorphic: props.neumorphic },
     ]"
     class="flex cursor-pointer items-center justify-center gap-2 rounded border border-transparent transition-all duration-200 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
   >
@@ -103,3 +105,18 @@ const classes = computed(() => {
     </template>
   </button>
 </template>
+<style lang="scss" scoped>
+.neumorphic {
+  position: relative;
+
+  &::after {
+    content: " ";
+    position: absolute;
+    inset: -1px;
+    border-top: inset;
+    border-color: rgba(255, 255, 255, 0.125);
+    border-top-width: 2px;
+    border-radius: var(--radius);
+  }
+}
+</style>

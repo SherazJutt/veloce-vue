@@ -74,6 +74,11 @@ const router = createRouter({
           name: "switch",
           component: () => import("../pages/components/Switch.vue"),
         },
+        {
+          path: "tooltip",
+          name: "tooltip",
+          component: () => import("../pages/components/Tooltip.vue"),
+        },
       ],
     },
   ],

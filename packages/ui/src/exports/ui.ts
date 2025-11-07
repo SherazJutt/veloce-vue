@@ -11,3 +11,4 @@ export { default as RangeSlider } from "../components/RangeSlider.vue";
 export { default as Select } from "../components/Select.vue";
 export { default as Separator } from "../components/Separator.vue";
 export { default as Switch } from "../components/Switch.vue";
+export { default as Tooltip } from "../components/Tooltip.vue";

@@ -93,6 +93,20 @@
       </div>
     </section>
 
+    <!-- Neumorphic -->
+    <section>
+      <h2 class="mb-4 text-xl font-semibold">Neumorphic</h2>
+      <div class="flex flex-wrap gap-3">
+        <Button neumorphic label="Neumorphic" variant="soft" severity="neutral" />
+        <Button neumorphic label="Neumorphic" variant="soft" severity="primary" />
+        <Button neumorphic label="Neumorphic" variant="soft" severity="secondary" />
+        <Button neumorphic label="Neumorphic" variant="soft" severity="success" />
+        <Button neumorphic label="Neumorphic" variant="soft" severity="info" />
+        <Button neumorphic label="Neumorphic" variant="soft" severity="warning" />
+        <Button neumorphic label="Neumorphic" variant="soft" severity="error" />
+      </div>
+    </section>
+
     <!-- Sizes -->
     <section>
       <h2 class="mb-4 text-xl font-semibold">Sizes</h2>
