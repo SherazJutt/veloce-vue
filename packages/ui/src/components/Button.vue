@@ -14,7 +14,7 @@ const props = defineProps({
   iconPosition: { type: String as () => Position, default: "right" },
   rounded: { type: Boolean, default: false },
   size: { type: String as () => Size, default: "md" },
-  fontWeight: { type: String as () => FontWeight, default: "normal" },
+  fontWeight: { type: String as () => FontWeight, default: "medium" as FontWeight },
   showLogs: { type: Boolean, default: false },
 });
 

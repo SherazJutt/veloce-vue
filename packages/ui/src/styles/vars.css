@@ -4,18 +4,12 @@
 /* Light mode colors */
 :root {
   /* Main Brand Colors */
-  --ui-color-primary: #00c16a;
-  --ui-color-primary-light: #d9fbe8;
+  --ui-color-primary: #e88711;
   --ui-color-secondary: #2b7fff;
-  --ui-color-secondary-light: #dbeafe;
-  --ui-color-success: #00c16a;
-  --ui-color-success-light: #d9fbe8;
+  --ui-color-success: #00dc82;
   --ui-color-info: #2b7fff;
-  --ui-color-info-light: #dbeafe;
   --ui-color-warning: #f0b100;
-  --ui-color-warning-light: #fef9c2;
   --ui-color-error: #fb2c36;
-  --ui-color-error-light: #ffe2e2;
 
   /* Text Colors */
   --ui-color-text: var(--color-neutral-700);
@@ -33,18 +27,12 @@
 /* Dark mode colors */
 :root:where(.dark) {
   /* Main Brand Colors */
-  --ui-color-primary: #00dc82;
-  --ui-color-primary-light: #d9fbe8;
+  --ui-color-primary: #e58b1d;
   --ui-color-secondary: #51a2ff;
-  --ui-color-secondary-light: #dbeafe;
   --ui-color-success: #00dc82;
-  --ui-color-success-light: #d9fbe8;
   --ui-color-info: #51a2ff;
-  --ui-color-info-light: #dbeafe;
   --ui-color-warning: #fdc700;
-  --ui-color-warning-light: #fef9c2;
   --ui-color-error: #ff6467;
-  --ui-color-error-light: #ffe2e2;
 
   /* Text Colors */
   --ui-color-text: var(--color-neutral-300);

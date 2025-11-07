@@ -69,6 +69,11 @@ const router = createRouter({
           name: "separator",
           component: () => import("../pages/components/Separator.vue"),
         },
+        {
+          path: "switch",
+          name: "switch",
+          component: () => import("../pages/components/Switch.vue"),
+        },
       ],
     },
   ],

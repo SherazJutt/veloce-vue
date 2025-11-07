@@ -12,6 +12,7 @@ export const global = createGlobalState(() => {
     { name: "RangeSlider", pathName: "range-slider", description: "Interactive slider for selecting numeric values" },
     { name: "Select", pathName: "select", description: "Dropdown select component with search and filtering" },
     { name: "Separator", pathName: "separator", description: "Visual divider with optional labels and icons" },
+    { name: "Switch", pathName: "switch", description: "Toggle component with multiple variants and severities" },
   ];
 
   return { components };

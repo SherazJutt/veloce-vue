@@ -4,7 +4,7 @@
   </div>
 
   <!-- drawer  -->
-  <div :class="[drawerdirections, defaultClasses]" class="bg-background z-50 flex flex-col justify-between duration-300">
+  <div :class="[drawerdirections, defaultClasses]" class="bg-background z-51 flex flex-col justify-between duration-300">
     <div class="border-b p-2">
       <div class="flex items-center justify-between gap-2">
         <!-- title -->
@@ -23,7 +23,8 @@
       <slot name="footer" />
     </div>
   </div>
-  <div :class="show ? 'opacity-100' : 'pointer-events-none'" class="z-49 fixed inset-0 bg-black/40 opacity-0 duration-200" @click="show = false"></div>
+  <!-- drawer backdrop -->
+  <div :class="show ? 'opacity-100' : 'pointer-events-none'" class="fixed inset-0 z-50 bg-black/40 opacity-0 duration-200" @click="show = false"></div>
 </template>
 
 <script setup lang="ts">
