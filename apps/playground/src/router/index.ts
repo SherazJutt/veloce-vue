@@ -59,6 +59,11 @@ const router = createRouter({
           name: "range-slider",
           component: () => import("../pages/components/RangeSlider.vue"),
         },
+        {
+          path: "select",
+          name: "select",
+          component: () => import("../pages/components/Select.vue"),
+        },
       ],
     },
   ],

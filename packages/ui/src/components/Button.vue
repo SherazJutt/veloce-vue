@@ -1,54 +1,104 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { Icon, type Icons } from "@veloce/icons";
+import { type Variant, type Severity, type Position, type Size, type FontWeight } from "@veloce/types";
 
 const props = defineProps({
   label: { type: String, default: "" },
   loading: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
-  variant: { type: String as () => "outlined" | "link" | "ghost" | "solid" | "soft", default: "solid" },
+  variant: { type: String as () => Variant, default: "solid" },
+  severity: { type: String as () => Severity, default: "primary" },
   icon: { type: String as () => Icons, default: "" },
   iconClass: { type: String, default: "" },
-  iconPosition: { type: String as () => "left" | "right", default: "right" },
+  iconPosition: { type: String as () => Position, default: "right" },
   rounded: { type: Boolean, default: false },
-  size: { type: String as () => "sm" | "md" | "lg", default: "sm" },
+  size: { type: String as () => Size, default: "md" },
+  fontWeight: { type: String as () => FontWeight, default: "normal" },
 });
 
+const severityClasses = {
+  primary: {
+    ghost: "bg-transparent text-primary hover:bg-primary/10 dark:hover:bg-neutral-800 disabled:hover:bg-transparent",
+    outlined: "border-primary! text-primary hover:bg-primary hover:text-inverted disabled:hover:bg-transparent disabled:hover:text-primary disabled:hover:bg-primary disabled:hover:text-inverted",
+    link: "text-primary hover:underline",
+    soft: "bg-primary-light text-primary hover:bg-primary-light/80 dark:bg-primary-light/20 dark:text-primary dark:hover:bg-primary-light/30",
+    solid: "bg-primary text-inverted hover:bg-primary/70 disabled:hover:bg-primary dark:hover:bg-primary/80",
+    neutral: "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700",
+  },
+  secondary: {
+    ghost: "bg-transparent text-secondary hover:bg-secondary/10 dark:hover:bg-neutral-800 disabled:hover:bg-transparent",
+    outlined: "border-secondary! text-secondary hover:bg-secondary hover:text-inverted disabled:hover:bg-transparent disabled:hover:text-secondary disabled:hover:bg-secondary disabled:hover:text-inverted",
+    link: "text-secondary hover:underline",
+    soft: "bg-secondary-light text-secondary hover:bg-secondary-light/80 dark:bg-secondary-light/20 dark:text-secondary dark:hover:bg-secondary-light/30",
+    solid: "bg-secondary text-inverted hover:bg-secondary/70 disabled:hover:bg-secondary dark:hover:bg-secondary/80",
+    neutral: "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700",
+  },
+  success: {
+    ghost: "bg-transparent text-success hover:bg-success/10 dark:hover:bg-neutral-800 disabled:hover:bg-transparent",
+    outlined: "border-success! text-success hover:bg-success hover:text-inverted disabled:hover:bg-transparent disabled:hover:text-success disabled:hover:bg-success disabled:hover:text-inverted",
+    link: "text-success hover:underline",
+    soft: "bg-success-light text-success hover:bg-success-light/80 dark:bg-success-light/20 dark:text-success dark:hover:bg-success-light/30",
+    solid: "bg-success text-inverted hover:bg-success/70 disabled:hover:bg-success dark:hover:bg-success/80",
+    neutral: "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700",
+  },
+  info: {
+    ghost: "bg-transparent text-info hover:bg-info/10 dark:hover:bg-neutral-800 disabled:hover:bg-transparent",
+    outlined: "border-info! text-info hover:bg-info hover:text-inverted disabled:hover:bg-transparent disabled:hover:text-info disabled:hover:bg-info disabled:hover:text-inverted",
+    link: "text-info hover:underline",
+    soft: "bg-info-light text-info hover:bg-info-light/80 dark:bg-info-light/20 dark:text-info dark:hover:bg-info-light/30",
+    solid: "bg-info text-inverted hover:bg-info/70 disabled:hover:bg-info dark:hover:bg-info/80",
+    neutral: "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700",
+  },
+  warning: {
+    ghost: "bg-transparent text-warning hover:bg-warning/10 dark:hover:bg-neutral-800 disabled:hover:bg-transparent",
+    outlined: "border-warning! text-warning hover:bg-warning hover:text-inverted disabled:hover:bg-transparent disabled:hover:text-warning disabled:hover:bg-warning disabled:hover:text-inverted",
+    link: "text-warning hover:underline",
+    soft: "bg-warning-light text-warning hover:bg-warning-light/80 dark:bg-warning-light/20 dark:text-warning dark:hover:bg-warning-light/30",
+    solid: "bg-warning text-inverted hover:bg-warning/70 disabled:hover:bg-warning dark:hover:bg-warning/80",
+    neutral: "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700",
+  },
+  error: {
+    ghost: "bg-transparent text-error hover:bg-error/10 dark:hover:bg-neutral-800 disabled:hover:bg-transparent",
+    outlined: "border-error! text-error hover:bg-error hover:text-inverted disabled:hover:bg-transparent disabled:hover:text-error disabled:hover:bg-error disabled:hover:text-inverted",
+    link: "text-error hover:underline",
+    soft: "bg-error-light text-error hover:bg-error-light/80 dark:bg-error-light/20 dark:text-error dark:hover:bg-error-light/30",
+    solid: "bg-error text-inverted hover:bg-error/70 disabled:hover:bg-error dark:hover:bg-error/80",
+    neutral: "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700",
+  },
+  neutral: {
+    ghost: "bg-transparent text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:hover:bg-transparent",
+    outlined: "border-neutral-700! text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 hover:text-inverted disabled:hover:bg-transparent disabled:hover:text-neutral-700 disabled:hover:bg-neutral-100 disabled:hover:text-inverted",
+    link: "text-neutral-700 dark:text-neutral-300 hover:underline",
+    soft: "bg-neutral-100 text-neutral-700 hover:bg-neutral-100/80 dark:bg-neutral-100/20 dark:text-neutral-300 dark:hover:bg-neutral-100/30",
+    solid: "bg-neutral-100 text-neutral-700 hover:bg-neutral-100/70 disabled:hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-100/80",
+    neutral: "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700",
+  },
+};
+
 const classes = computed(() => {
-  switch (props.variant) {
-    case "ghost":
-      return "bg-transparent dark:hover:bg-neutral-800 hover:bg-neutral-100 disabled:hover:bg-transparent";
-    case "outlined":
-      return "border-primary! text-primary hover:bg-primary hover:text-inverted disabled:hover:bg-transparent disabled:hover:text-primary disabled:hover:bg-primary disabled:hover:text-inverted";
-    case "link":
-      return "text-neutral-700 hover:underline dark:text-neutral-200";
-    case "soft":
-      return "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700";
-    default:
-      return "bg-primary text-inverted hover:bg-primary/70 disabled:hover:bg-primary dark:hover:bg-primary/80"; // solid (default)
-  }
+  return severityClasses[props.severity]?.[props.variant] || severityClasses.primary.solid;
 });
 </script>
 
 <template>
-  <!-- prettier-ignore -->
-  <button 
-    type="button" 
-    :disabled="props.disabled || props.loading" 
+  <button
+    type="button"
+    :disabled="props.disabled || props.loading"
     :class="[
-      classes, { 'rounded-full': props.rounded }, 
-      'flex cursor-pointer items-center justify-center font-medium gap-2 rounded border disabled:opacity-75 border-transparent transition-all duration-200 disabled:cursor-not-allowed focus:outline-none',
+      classes,
+      { 'rounded-full': props.rounded },
       { 'justify-center': !props.icon },
-      {'p-1 px-2 text-sm': props.size === 'sm', 'p-2 px-3 text-base': props.size === 'md', 'p-3 px-4 text-lg': props.size === 'lg'},
+      { 'px-2 py-1 text-sm': props.size === 'sm', 'px-2.5 py-1.5 text-sm': props.size === 'md', 'px-3 py-2 text-base': props.size === 'lg', 'px-3.5 py-2.5 text-lg': props.size === 'xl' },
+      { 'font-normal': props.fontWeight === 'normal', 'font-medium': props.fontWeight === 'medium', 'font-semibold': props.fontWeight === 'semibold', 'font-bold': props.fontWeight === 'bold' },
     ]"
+    class="flex cursor-pointer items-center justify-center gap-2 rounded border border-transparent transition-all duration-200 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
   >
-  <slot v-if="$slots.default" />
-  <template v-else>
-    <span v-if="props.label" :class="{ 'order-2': props.iconPosition === 'left' }"> {{ props.label }} </span>
-    <Icon v-if="props.icon && !props.loading" :icon="props.icon" :class="props.iconClass" class="duration-200 size-5 text-current" />
-    <Icon v-if="props.loading" icon="loading" class="duration-200 size-5 text-current" />
-  </template>
-
-
+    <slot v-if="$slots.default" />
+    <template v-else>
+      <span v-if="props.label" :class="{ 'order-2': props.iconPosition === 'left' }"> {{ props.label }} </span>
+      <Icon v-if="props.icon && !props.loading" :icon="props.icon" :class="props.iconClass" class="size-5 text-current duration-200" />
+      <Icon v-if="props.loading" icon="loading" class="size-5 text-current duration-200" />
+    </template>
   </button>
 </template>

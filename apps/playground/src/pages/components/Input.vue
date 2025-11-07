@@ -2,7 +2,7 @@
   <div class="space-y-4 py-2">
     <Input v-model="value" label-style="float" placeholder="Floating Label" />
 
-    <Input v-model="value" label-style="static" label="Static Label" placeholder="static label" />
+    <Input v-model="value" label-style="static" label="Static Label" placeholder="Static label" />
 
     <Input type="password" v-model="value" label="Password" placeholder="Password" />
 

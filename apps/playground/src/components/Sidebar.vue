@@ -1,10 +1,10 @@
 <template>
   <!-- sidebar -->
-  <div :class="showSidebar ? 'w-[240px]' : 'w-0'" class="h-full shrink-0 overflow-hidden">
+  <div :class="showSidebar ? 'w-[240px]' : 'w-0'" class="h-full shrink-0 overflow-auto">
     <div class="space-y-1 p-2">
       <template v-for="component in components" :key="component.name">
         <router-link class="block" :to="{ name: component.pathName }" v-slot="{ isActive }" @click="handleItemClick">
-          <Button :class="isActive ? 'text-primary!' : 'text-muted'" class="w-full justify-start" size="sm" :label="component.name" :variant="isActive ? 'soft' : 'ghost'" />
+          <Button :class="{ 'text-primary!': isActive }" class="w-full justify-start" severity="neutral" size="sm" :label="component.name" :variant="isActive ? 'soft' : 'ghost'" />
         </router-link>
       </template>
     </div>
@@ -59,6 +59,10 @@ const components = [
   {
     name: "RangeSlider",
     pathName: "range-slider",
+  },
+  {
+    name: "Select",
+    pathName: "select",
   },
 ];
 </script>

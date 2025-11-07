@@ -9,7 +9,7 @@
       </div>
       <Button :icon="isDark ? 'sun' : 'moon'" class="p-1!" variant="ghost" @click="toggleDark" />
     </header>
-    <main class="relative flex flex-1">
+    <main class="relative h-[calc(100dvh-3.5rem)] overflow-hidden">
       <!-- sidebar -->
       <AnimatePresence>
         <motion.div
@@ -26,7 +26,7 @@
           <Sidebar v-model="showSidebar" :close-on-click="isMobile" @close="showSidebar = false" />
         </motion.div>
       </AnimatePresence>
-      <div :class="{ 'lg:ml-[240px]': showSidebar }" class="flex-1 p-2 transition-[margin-left] duration-300 ease-in-out">
+      <div :class="{ 'lg:ml-[240px]': showSidebar }" class="h-full overflow-auto p-2 transition-[margin-left] duration-300 ease-in-out">
         <router-view />
       </div>
     </main>
