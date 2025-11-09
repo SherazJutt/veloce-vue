@@ -22,7 +22,7 @@
         <Button severity="info" label="Info" />
         <Button severity="warning" label="Warning" />
         <Button severity="error" label="Error" />
-        <Button severity="neutral" label="Neutral" show-logs />
+        <Button severity="neutral" label="Neutral" />
       </div>
     </section>
 
