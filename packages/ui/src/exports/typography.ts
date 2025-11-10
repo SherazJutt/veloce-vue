@@ -1,0 +1,11 @@
+export { default as Blockquote } from "../components/Blockquote.vue";
+export { default as Code } from "../components/Code.vue";
+export { default as H1 } from "../components/H1.vue";
+export { default as H2 } from "../components/H2.vue";
+export { default as H3 } from "../components/H3.vue";
+export { default as H4 } from "../components/H4.vue";
+export { default as H5 } from "../components/H5.vue";
+export { default as H6 } from "../components/H6.vue";
+export { default as Label } from "../components/Label.vue";
+export { default as P } from "../components/P.vue";
+export { default as Span } from "../components/Span.vue";
