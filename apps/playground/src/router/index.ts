@@ -13,6 +13,11 @@ const router = createRouter({
           name: "home",
           component: () => import("../pages/HomePage.vue"),
         },
+        {
+          path: "test",
+          name: "test",
+          component: () => import("../pages/test/Test.vue"),
+        },
       ],
     },
     {
@@ -83,6 +88,41 @@ const router = createRouter({
           path: "icons",
           name: "icons",
           component: () => import("../pages/components/Icons.vue"),
+        },
+        {
+          path: "badge",
+          name: "badge",
+          component: () => import("../pages/components/Badge.vue"),
+        },
+        {
+          path: "chip",
+          name: "chip",
+          component: () => import("../pages/components/Chip.vue"),
+        },
+        {
+          path: "fieldset",
+          name: "fieldset",
+          component: () => import("../pages/components/Fieldset.vue"),
+        },
+        {
+          path: "message",
+          name: "message",
+          component: () => import("../pages/components/Message.vue"),
+        },
+        {
+          path: "progress-bar",
+          name: "progress-bar",
+          component: () => import("../pages/components/ProgressBar.vue"),
+        },
+        {
+          path: "progress-spinner",
+          name: "progress-spinner",
+          component: () => import("../pages/components/ProgressSpinner.vue"),
+        },
+        {
+          path: "skeleton",
+          name: "skeleton",
+          component: () => import("../pages/components/Skeleton.vue"),
         },
       ],
     },
