@@ -124,6 +124,11 @@ const router = createRouter({
           name: "skeleton",
           component: () => import("../pages/components/Skeleton.vue"),
         },
+        {
+          path: "layout",
+          name: "layout",
+          component: () => import("../pages/components/Layout.vue"),
+        },
       ],
     },
   ],

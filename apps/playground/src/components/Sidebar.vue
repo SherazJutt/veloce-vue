@@ -1,6 +1,6 @@
 <template>
   <!-- sidebar -->
-  <div :class="showSidebar ? 'w-[240px]' : 'w-0'" class="h-full shrink-0 overflow-auto">
+  <div class="h-full shrink-0 overflow-auto">
     <div class="space-y-1 p-2">
       <template v-for="component in components" :key="component.name">
         <router-link class="block" :to="{ name: component.pathName }" v-slot="{ isActive }" @click="handleItemClick">
@@ -25,11 +25,10 @@ import { global } from "@store/global";
 const emit = defineEmits<{ close: [] }>();
 const props = defineProps({
   closeOnClick: { type: Boolean, default: false },
+  isActive: { type: Boolean, default: false },
 });
 
 const { components } = global();
-
-const showSidebar = defineModel();
 
 const handleItemClick = () => {
   if (props.closeOnClick) {
