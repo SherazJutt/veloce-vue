@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { Button } from "@veloce/ui";
 import { motion, AnimatePresence } from "motion-v";
+import { useWindowSize } from "@vueuse/core";
 
 const show = defineModel();
+
+const { width } = useWindowSize();
 </script>
 
 <template>
@@ -15,8 +18,8 @@ const show = defineModel();
     <motion.div
       v-if="show"
       class="modal-backdrop z-99999999 fixed left-0 top-0 flex h-screen w-screen items-center justify-center backdrop-blur-[2px]"
-      :initial="{ opacity: 0, scale: 0.85 }"
-      :animate="{ opacity: 1, scale: 1 }"
+      :initial="{ opacity: 0, scale: width < 768 ? 1 : 0.85, translateX: width < 768 ? '-120px' : '0' }"
+      :animate="{ opacity: 1, scale: 1, translateX: '0' }"
       :exit="{ opacity: 0, scale: 1, translateX: '-120px' }"
       :transition="{
         duration: 0.15,

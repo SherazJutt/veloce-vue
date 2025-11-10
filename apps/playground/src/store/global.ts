@@ -10,6 +10,7 @@ export const global = createGlobalState(() => {
     { name: "Drawer", pathName: "drawer", description: "Slide-out panel component for navigation or content" },
     { name: "Fieldset", pathName: "fieldset", description: "Fieldset component for grouping form elements" },
     { name: "Input", pathName: "input", description: "Text input field with floating labels and icons" },
+    { name: "Layout", pathName: "layout", description: "Layout component for organizing content" },
     { name: "Message", pathName: "message", description: "Message component for displaying alerts and notifications" },
     { name: "Modal", pathName: "modal", description: "Dialog overlay for displaying important content" },
     { name: "Popover", pathName: "popover", description: "Floating content container triggered by hover" },
