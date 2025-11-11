@@ -2,6 +2,7 @@ import { createGlobalState } from "@vueuse/core";
 
 export const global = createGlobalState(() => {
   const components = [
+    { name: "Typography", pathName: "typography", description: "Typography components for headings, paragraphs, and text elements" },
     { name: "Button", pathName: "button", description: "Interactive button component with multiple variants and severities" },
     { name: "Accordion", pathName: "accordion", description: "Collapsible content sections for organizing information" },
     { name: "Badge", pathName: "badge", description: "Badge component for displaying counts and labels" },
