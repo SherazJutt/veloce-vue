@@ -24,6 +24,7 @@ export const global = createGlobalState(() => {
     { name: "Switch", pathName: "switch", description: "Toggle component with multiple variants and severities" },
     { name: "Tooltip", pathName: "tooltip", description: "Tooltip component for displaying information on hover" },
     { name: "Icons", pathName: "icons", description: "Icons component for displaying icons" },
+    { name: "Toast", pathName: "toast", description: "Toast notification system for displaying temporary messages" },
   ];
 
   return { components };

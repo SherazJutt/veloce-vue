@@ -134,6 +134,11 @@ const router = createRouter({
           name: "typography",
           component: () => import("../pages/components/Typography.vue"),
         },
+        {
+          path: "toast",
+          name: "toast",
+          component: () => import("../pages/components/Toast.vue"),
+        },
       ],
     },
   ],
