@@ -31,7 +31,7 @@
   },
 
   /* === File Inclusion === */
-  "include": ["src/exports/ui.ts", "src/exports/icons.ts", "src/exports/config.ts"],
+  "include": ["src/exports/composables.ts", "src/exports/config.ts", "src/exports/icons.ts", "src/exports/toast.ts", "src/exports/types.ts", "src/exports/typography.ts", "src/exports/ui.ts", "src/exports/utils.ts"],
 
   /* === File Exclusion === */
   "exclude": ["node_modules/**"]
