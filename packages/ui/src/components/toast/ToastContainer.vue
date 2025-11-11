@@ -1,6 +1,6 @@
 <template>
   <div :class="containerClasses" class="w-full sm:w-auto">
-    <AnimatePresence mode="popLayout" :initial="false">
+    <AnimatePresence>
       <Toast
         v-for="toast in toasts"
         :key="toast.id"
@@ -66,7 +66,13 @@ const addToast = (toast: ToastItem) => {
     closable: toast.closable ?? true,
   };
 
-  toasts.value.push(newToast);
+  console.log(props.position);
+
+  if (props.position.includes("top")) {
+    toasts.value.unshift(newToast);
+  } else {
+    toasts.value.push(newToast);
+  }
 
   // Limit the number of toasts
   if (toasts.value.length > props.maxToasts) {
