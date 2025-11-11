@@ -17,8 +17,8 @@ const props = defineProps({
   margin: { type: String as () => Margin, default: "" },
   marginLeft: { type: String as () => Margin, default: "" },
   marginRight: { type: String as () => Margin, default: "" },
-  marginTop: { type: String as () => Margin, default: "sm" },
-  marginBottom: { type: String as () => Margin, default: "xs" },
+  marginTop: { type: String as () => Margin, default: "lg" },
+  marginBottom: { type: String as () => Margin, default: "md" },
   // padding
   padding: { type: String as () => Padding, default: "" },
   paddingLeft: { type: String as () => Padding, default: "" },

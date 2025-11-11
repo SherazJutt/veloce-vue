@@ -4,16 +4,6 @@ export function getTypography() {
   return { fontSizes, fontWeights, textColors, lineHeights, letterSpacings };
 }
 
-//   h2: "text-3xl",
-//   h3: "text-2xl",
-//   h4: "text-xl",
-//   h5: "text-lg",
-//   h6: "text-base",
-//   p: "text-base",
-//   span: "text-base",
-//   blockquote: "text-base",
-//   code: "text-base",
-
 const fontSizes: Record<FontSize, string> = {
   xs: "text-xs",
   sm: "text-sm",
