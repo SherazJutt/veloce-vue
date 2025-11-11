@@ -1,33 +1,52 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { type Severity, type FontWeight } from "@veloce/types";
+import type { TextColor, FontWeight, Margin, Padding, FontSize, LineHeight, LetterSpacing } from "@veloce/types";
+import { getTypography, getMargin, getPadding } from "@veloce/utils";
+
+const { fontSizes, fontWeights, textColors, letterSpacings, lineHeights } = getTypography();
+const { margin, marginLeft, marginRight, marginTop, marginBottom } = getMargin();
+const { padding, paddingLeft, paddingRight, paddingTop, paddingBottom } = getPadding();
 
 const props = defineProps({
-  severity: { type: String as () => Severity | "default", default: "default" },
-  fontWeight: { type: String as () => FontWeight, default: "bold" },
-  noMargin: { type: Boolean, default: false },
+  fontSize: { type: String as () => FontSize, default: "3xl" as FontSize },
+  color: { type: String as () => TextColor, default: "default" as TextColor },
+  fontWeight: { type: String as () => FontWeight, default: "medium" as FontWeight },
+  lineHeight: { type: String as () => LineHeight, default: "xs" as LineHeight },
+  letterSpacing: { type: String as () => LetterSpacing, default: "md" as LetterSpacing },
+  // margin
+  margin: { type: String as () => Margin, default: "" },
+  marginLeft: { type: String as () => Margin, default: "" },
+  marginRight: { type: String as () => Margin, default: "" },
+  marginTop: { type: String as () => Margin, default: "sm" },
+  marginBottom: { type: String as () => Margin, default: "sm" },
+  // padding
+  padding: { type: String as () => Padding, default: "" },
+  paddingLeft: { type: String as () => Padding, default: "" },
+  paddingRight: { type: String as () => Padding, default: "" },
+  paddingTop: { type: String as () => Padding, default: "" },
+  paddingBottom: { type: String as () => Padding, default: "" },
 });
 
-const colorClasses = {
-  default: "text-neutral-900 dark:text-neutral-100",
-  primary: "text-primary",
-  secondary: "text-secondary",
-  success: "text-success",
-  info: "text-info",
-  warning: "text-warning",
-  error: "text-error",
-  neutral: "text-neutral-700 dark:text-neutral-300",
-};
-
-const fontWeightClasses = {
-  normal: "font-normal",
-  medium: "font-medium",
-  semibold: "font-semibold",
-  bold: "font-bold",
-};
-
 const classes = computed(() => {
-  return [colorClasses[props.severity] || colorClasses.default, fontWeightClasses[props.fontWeight] || fontWeightClasses.bold, props.noMargin ? "" : "mb-3 mt-5", "text-3xl leading-tight "];
+  return [
+    fontSizes[props.fontSize],
+    textColors[props.color],
+    fontWeights[props.fontWeight],
+    lineHeights[props.lineHeight],
+    letterSpacings[props.letterSpacing],
+    // margin
+    margin[props.margin],
+    marginLeft[props.marginLeft],
+    marginRight[props.marginRight],
+    marginTop[props.marginTop],
+    marginBottom[props.marginBottom],
+    // padding
+    padding[props.padding],
+    paddingLeft[props.paddingLeft],
+    paddingRight[props.paddingRight],
+    paddingTop[props.paddingTop],
+    paddingBottom[props.paddingBottom],
+  ];
 });
 </script>
 
