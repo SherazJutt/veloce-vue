@@ -66,8 +66,6 @@ const addToast = (toast: ToastItem) => {
     closable: toast.closable ?? true,
   };
 
-  console.log(props.position);
-
   if (props.position.includes("top")) {
     toasts.value.unshift(newToast);
   } else {

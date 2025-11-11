@@ -17,7 +17,7 @@ const { width } = useWindowSize();
   <AnimatePresence :initial="false">
     <motion.div
       v-if="show"
-      class="modal-backdrop z-99999999 fixed left-0 top-0 flex h-screen w-screen items-center justify-center backdrop-blur-[2px]"
+      class="modal-backdrop z-99999999 fixed left-0 top-0 flex items-center justify-center backdrop-blur-[2px]"
       :initial="{ opacity: 0, scale: width < 768 ? 1 : 0.85, translateX: width < 768 ? '-120px' : '0' }"
       :animate="{ opacity: 1, scale: 1, translateX: '0' }"
       :exit="{ opacity: 0, scale: 1, translateX: '-120px' }"
