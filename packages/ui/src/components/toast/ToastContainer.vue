@@ -1,6 +1,6 @@
 <template>
   <div :class="containerClasses" class="w-full sm:w-auto">
-    <AnimatePresence mode="popLayout">
+    <AnimatePresence mode="popLayout" :initial="false">
       <Toast
         v-for="toast in toasts"
         :key="toast.id"
