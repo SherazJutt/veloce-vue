@@ -60,49 +60,13 @@ const iconToShow = computed(() => {
   return props.icon || defaultIcons[props.severity] || "info";
 });
 
-const isTopPosition = computed(() => {
-  return props.position.startsWith("top");
-});
-
-const isLeftPosition = computed(() => {
-  return props.position.includes("left");
-});
-
-const isRightPosition = computed(() => {
-  return props.position.includes("right");
-});
-
 const animationProps = computed(() => {
-  // Determine slide direction based on position
-  let xOffset = 0;
-  let yOffset = 0;
-
-  // For center positions, slide vertically
-  if (props.position.includes("center")) {
-    if (isTopPosition.value) {
-      yOffset = -50;
-    } else {
-      yOffset = 50;
-    }
-  } else {
-    // For left/right positions, slide horizontally with slight vertical offset
-    if (isTopPosition.value) {
-      yOffset = -20;
-    } else {
-      yOffset = 20;
-    }
-
-    if (isLeftPosition.value) {
-      xOffset = -100;
-    } else if (isRightPosition.value) {
-      xOffset = 100;
-    }
-  }
+  let yOffset = props.position.includes("top") ? -50 : 50;
 
   return {
-    initial: { opacity: 0, x: xOffset, y: yOffset, scale: 0.9 },
+    initial: { opacity: 0, x: 0, y: yOffset, scale: 0.9 },
     animate: { opacity: 1, x: 0, y: 0, scale: 1 },
-    exit: { opacity: 0, x: xOffset, y: yOffset, scale: 0.9 },
+    exit: { opacity: 0, x: 0, y: yOffset, scale: 0.9 },
   };
 });
 
