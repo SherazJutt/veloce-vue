@@ -2,10 +2,11 @@
   <div :class="containerClasses" class="w-full sm:w-auto">
     <AnimatePresence>
       <Toast
-        v-for="toast in toasts"
+        v-for="(toast, index) in toasts"
         :key="toast.id"
         :icon="toast.icon"
         class="pointer-events-auto"
+        :style="{ zIndex: index + 1 }"
         :id="toast.id"
         :message="toast.message"
         :severity="toast.severity"

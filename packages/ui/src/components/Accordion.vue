@@ -2,7 +2,7 @@
 import { computed, ref } from "vue";
 import { Icon } from "@veloce/icons";
 import { motion, AnimatePresence } from "motion-v";
-import { type AccordionItem } from "@veloce/types";
+import { type AccordionItem, type Size } from "@veloce/types";
 
 // Props definition
 // `items` is an array of objects where each object represents an accordion item.
@@ -14,6 +14,8 @@ const props = defineProps({
   contentClass: { type: String, default: "" },
   headerClass: { type: String, default: "" },
   multiple: { type: Boolean, default: false },
+  bordered: { type: Boolean, default: true },
+  rounded: { type: String as () => Size | "none", default: "sm" },
 });
 
 // Track active state for each accordion item by index
@@ -47,11 +49,21 @@ const toggleItem = (index: number) => {
     }
   }
 };
+
+const roundedClasses = computed(() => {
+  return {
+    none: "",
+    sm: "rounded",
+    md: "rounded-md",
+    lg: "rounded-lg",
+    xl: "rounded-xl",
+  };
+});
 </script>
 
 <template>
   <!-- Accordion Container -->
-  <div :class="{ shadow: props.shadow }" class="bg-background w-full divide-y overflow-hidden rounded border">
+  <div :class="[{ shadow: props.shadow, border: props.bordered }, roundedClasses[props.rounded]]" class="bg-background w-full divide-y overflow-hidden">
     <!-- Iterate through items array -->
     <div v-for="(item, index) in accordionItems" :key="index" v-if="accordionItems.length" class="text-sm">
       <!-- Accordion Header -->

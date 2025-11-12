@@ -8,11 +8,13 @@ const { margin, marginLeft, marginRight, marginTop, marginBottom } = getMargin()
 const { padding, paddingLeft, paddingRight, paddingTop, paddingBottom } = getPadding();
 
 const props = defineProps({
+  text: { type: String, default: "" },
   fontSize: { type: String as () => FontSize, default: "" as FontSize },
   color: { type: String as () => TextColor, default: "" as TextColor },
   fontWeight: { type: String as () => FontWeight, default: "" as FontWeight },
   lineHeight: { type: String as () => LineHeight, default: "" as LineHeight },
   letterSpacing: { type: String as () => LetterSpacing, default: "" as LetterSpacing },
+  required: { type: Boolean, default: false },
   // margin
   margin: { type: String as () => Margin, default: "" },
   marginLeft: { type: String as () => Margin, default: "" },
@@ -25,7 +27,6 @@ const props = defineProps({
   paddingRight: { type: String as () => Padding, default: "" },
   paddingTop: { type: String as () => Padding, default: "" },
   paddingBottom: { type: String as () => Padding, default: "" },
-  required: { type: Boolean, default: false },
 });
 
 const classes = computed(() => {
@@ -53,7 +54,7 @@ const classes = computed(() => {
 
 <template>
   <label :class="classes" class="block">
-    <slot />
-    <span v-if="required" class="text-error ml-1">*</span>
+    {{ props.text }}
+    <span v-if="props.required" class="text-error ml-1">*</span>
   </label>
 </template>

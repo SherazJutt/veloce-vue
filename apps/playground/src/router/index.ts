@@ -139,6 +139,16 @@ const router = createRouter({
           name: "toast",
           component: () => import("../pages/components/Toast.vue"),
         },
+        {
+          path: "jsonrenderer",
+          name: "jsonrenderer",
+          component: () => import("../pages/components/JsonRenderer.vue"),
+        },
+        {
+          path: "mini-editor",
+          name: "mini-editor",
+          component: () => import("../pages/components/MiniEditor.vue"),
+        },
       ],
     },
   ],

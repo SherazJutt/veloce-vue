@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
+import { Button } from "@veloce/ui";
 import type { TextColor, FontWeight, Margin, Padding, FontSize, LineHeight, LetterSpacing } from "@veloce/types";
 import { getTypography, getMargin, getPadding } from "@veloce/utils";
 
@@ -8,6 +9,7 @@ const { margin, marginLeft, marginRight, marginTop, marginBottom } = getMargin()
 const { padding, paddingLeft, paddingRight, paddingTop, paddingBottom } = getPadding();
 
 const props = defineProps({
+  text: { type: String, default: "" },
   fontSize: { type: String as () => FontSize, default: "" as FontSize },
   color: { type: String as () => TextColor, default: "" as TextColor },
   fontWeight: { type: String as () => FontWeight, default: "" as FontWeight },
@@ -49,10 +51,21 @@ const classes = computed(() => {
     paddingBottom[props.paddingBottom],
   ];
 });
+
+const isCopied = ref(false);
+
+const copyToClipboard = async () => {
+  navigator.clipboard.writeText(props.text);
+  isCopied.value = true;
+
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  isCopied.value = false;
+};
 </script>
 
 <template>
-  <code :class="[classes, block ? 'block p-2.5' : 'px-1.5 py-0.5']" class="rounded border border-neutral-200 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800">
-    <slot />
+  <code :class="[classes, block ? 'block p-2.5' : 'px-1.5 py-0.5']" class="relative rounded border border-neutral-200 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800">
+    <span>{{ props.text }}</span>
+    <Button :disabled="isCopied" :icon="isCopied ? 'check' : 'copy'" class="dark:hover:bg-neutral-700! p-1! absolute right-2 top-1/2 -translate-y-1/2" size="sm" variant="ghost" @click="copyToClipboard" />
   </code>
 </template>

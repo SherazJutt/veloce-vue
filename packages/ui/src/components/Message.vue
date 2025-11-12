@@ -1,13 +1,28 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { Icon, type Icons } from "@veloce/icons";
-import { type Severity, type Variant } from "@veloce/types";
+import type { Margin, Padding, Severity, Variant } from "@veloce/types";
+import { getMargin, getPadding } from "@veloce/utils";
+const { margin, marginLeft, marginRight, marginTop, marginBottom } = getMargin();
+const { padding, paddingLeft, paddingRight, paddingTop, paddingBottom } = getPadding();
 
 const props = defineProps({
   severity: { type: String as () => Severity, default: "info" },
   variant: { type: String as () => Variant, default: "solid" },
   icon: { type: String as () => Icons, default: "" },
   closable: { type: Boolean, default: false },
+  // margin
+  margin: { type: String as () => Margin, default: "" },
+  marginLeft: { type: String as () => Margin, default: "" },
+  marginRight: { type: String as () => Margin, default: "" },
+  marginTop: { type: String as () => Margin, default: "lg" },
+  marginBottom: { type: String as () => Margin, default: "md" },
+  // padding
+  padding: { type: String as () => Padding, default: "" },
+  paddingLeft: { type: String as () => Padding, default: "" },
+  paddingRight: { type: String as () => Padding, default: "" },
+  paddingTop: { type: String as () => Padding, default: "" },
+  paddingBottom: { type: String as () => Padding, default: "" },
 });
 
 const emit = defineEmits<{
@@ -60,6 +75,23 @@ const classes = computed(() => {
   return severityClasses[props.severity]?.[variantKey] || severityClasses.info.solid;
 });
 
+const marginPaddingClasses = computed(() => {
+  return [
+    // margin
+    margin[props.margin],
+    marginLeft[props.marginLeft],
+    marginRight[props.marginRight],
+    marginTop[props.marginTop],
+    marginBottom[props.marginBottom],
+    // padding
+    padding[props.padding],
+    paddingLeft[props.paddingLeft],
+    paddingRight[props.paddingRight],
+    paddingTop[props.paddingTop],
+    paddingBottom[props.paddingBottom],
+  ];
+});
+
 const iconToShow = computed(() => {
   return props.icon || defaultIcons[props.severity] || "info";
 });
@@ -70,7 +102,7 @@ const handleClose = () => {
 </script>
 
 <template>
-  <div :class="classes" class="flex items-start gap-3 rounded border p-3">
+  <div :class="[classes, marginPaddingClasses]" class="flex items-start gap-3 rounded border p-3">
     <template v-if="$slots.icon">
       <slot name="icon" />
     </template>
@@ -78,8 +110,6 @@ const handleClose = () => {
     <div class="flex-1">
       <slot />
     </div>
-    <button type="button" v-if="props.closable" class="ml-auto shrink-0 rounded p-0.5 hover:bg-black/10 dark:hover:bg-white/10" @click="handleClose">
-      <Icon icon="close" class="size-4" />
-    </button>
+    <Icon v-if="props.closable" icon="close" class="ml-auto shrink-0 cursor-pointer rounded p-0.5 duration-100 hover:bg-black/10 dark:hover:bg-white/10" @click="handleClose" />
   </div>
 </template>

@@ -22,3 +22,39 @@ export type LetterSpacing = Sizes;
 
 // =accordion types ========================================================
 export type AccordionItem = { title: string; content: string; slot?: string; icon?: Icons; active?: boolean };
+
+// =json renderer types ========================================================
+type CommonTypographyProps = {
+  fontSize?: FontSize;
+  color?: TextColor;
+  fontWeight?: FontWeight;
+  lineHeight?: LineHeight;
+  letterSpacing?: LetterSpacing;
+  margin?: Margin;
+  marginLeft?: Margin;
+  marginRight?: Margin;
+  marginTop?: Margin;
+  marginBottom?: Margin;
+  padding?: Padding;
+  paddingLeft?: Padding;
+  paddingRight?: Padding;
+  paddingTop?: Padding;
+  paddingBottom?: Padding;
+  text?: string;
+};
+
+type JsonRendererItemBase<TProps = CommonTypographyProps> = {
+  props?: TProps;
+  id?: string;
+};
+
+export type JsonRendererItem =
+  | ({ component: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "blockquote" } & JsonRendererItemBase<CommonTypographyProps>)
+  | ({ component: "code" } & JsonRendererItemBase<CommonTypographyProps & { block?: boolean }>)
+  | ({ component: "label" } & JsonRendererItemBase<CommonTypographyProps & { required?: boolean }>)
+  // prettier-ignore
+  | ({ component: "list" }
+    & JsonRendererItemBase<Omit<CommonTypographyProps, "fontSize" | "color" | "fontWeight" | "lineHeight" | "letterSpacing" | "text">
+    & { type?: "ul" | "ol"; spacing?: Size; items?: string[] }
+    >)
+  | ({ component: "message" } & JsonRendererItemBase<Omit<CommonTypographyProps, "fontSize" | "color" | "fontWeight" | "lineHeight" | "letterSpacing"> & { severity?: Severity; variant?: Variant; icon?: Icons }>);

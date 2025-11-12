@@ -16,6 +16,7 @@ const props = defineProps({
   size: { type: String as () => Size, default: "md" },
   fontWeight: { type: String as () => FontWeight, default: "medium" as FontWeight },
   neumorphic: { type: Boolean, default: false },
+  highlighted: { type: Boolean, default: false },
 });
 
 const severityClasses = {
@@ -93,6 +94,7 @@ const classes = computed(() => {
       { 'px-2 py-1 text-sm': props.size === 'sm', 'px-2.5 py-1.5 text-sm': props.size === 'md', 'px-3 py-2 text-base': props.size === 'lg', 'px-3.5 py-2.5 text-lg': props.size === 'xl' },
       { 'font-normal': props.fontWeight === 'normal', 'font-medium': props.fontWeight === 'medium', 'font-semibold': props.fontWeight === 'semibold', 'font-bold': props.fontWeight === 'bold' },
       { neumorphic: props.neumorphic },
+      { 'bg-highlight': props.highlighted },
     ]"
     class="flex cursor-pointer items-center justify-center gap-2 rounded border border-transparent transition-all duration-200 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
   >
