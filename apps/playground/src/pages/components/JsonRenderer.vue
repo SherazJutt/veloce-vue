@@ -79,5 +79,22 @@ const json: JsonRendererItem[] = [
     props: { type: "ul", spacing: "sm" },
     items: ["Consistent Design", "Dark Mode", "TypeScript", "Customizable"],
   },
+  {
+    component: "label",
+    id: useRandomId(),
+    props: { required: true, color: "warning" },
+    slot: "Email Address",
+  },
+  {
+    component: "p",
+    id: useRandomId(),
+    props: { fontSize: "sm", color: "muted" },
+    slot: "We'll never share your email with anyone else.",
+  },
 ];
 </script>
+
+<!-- <div class="mt-4">
+  <Label required>Email Address</Label>
+  <P size="sm" color="muted">We'll never share your email with anyone else.</P>
+</div> -->

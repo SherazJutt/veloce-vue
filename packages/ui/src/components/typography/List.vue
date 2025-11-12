@@ -9,10 +9,10 @@ const { padding, paddingLeft, paddingRight, paddingTop, paddingBottom } = getPad
 const props = defineProps({
   type: { type: String as () => "ul" | "ol", default: "ul" },
   spacing: { type: String as () => Size, default: "sm" as Size },
-  items: { type: Array as () => string[], required: true },
+  items: { type: Array as () => string[] | undefined, required: true },
   // margin
   margin: { type: String as () => Margin, default: "" },
-  marginLeft: { type: String as () => Margin, default: "lg" },
+  marginLeft: { type: String as () => Margin, default: "xl" },
   marginRight: { type: String as () => Margin, default: "" },
   marginTop: { type: String as () => Margin, default: "" },
   marginBottom: { type: String as () => Margin, default: "" },
@@ -24,12 +24,11 @@ const props = defineProps({
   paddingBottom: { type: String as () => Padding, default: "" },
 });
 
-const spacingClasses: Record<string, string> = {
-  xs: "space-y-1",
-  sm: "space-y-2",
-  md: "space-y-4",
-  lg: "space-y-6",
-  xl: "space-y-8",
+const spacingClasses: Record<Size, string> = {
+  sm: "space-y-1",
+  md: "space-y-2",
+  lg: "space-y-3",
+  xl: "space-y-4",
 };
 
 const listStyleClasses: Record<string, string> = {
@@ -59,6 +58,6 @@ const classes = computed(() => {
 
 <template>
   <component :is="type" :class="classes">
-    <li v-for="(item, i) in items" :key="i">{{ item }}</li>
+    <li v-for="(item, i) in items || []" :key="i">{{ item }}</li>
   </component>
 </template>

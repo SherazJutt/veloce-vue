@@ -54,10 +54,10 @@
     <!-- Paragraph Sizes -->
     <section>
       <H2 class="mb-4">Paragraph Sizes</H2>
-      <P size="sm">Small paragraph text (text-sm)</P>
-      <P size="md">Medium paragraph text (text-base) - Default</P>
-      <P size="lg">Large paragraph text (text-lg)</P>
-      <P size="xl">Extra large paragraph text (text-xl)</P>
+      <P fontSize="sm">Small paragraph text (text-sm)</P>
+      <P fontSize="md">Medium paragraph text (text-base) - Default</P>
+      <P fontSize="lg">Large paragraph text (text-lg)</P>
+      <P fontSize="xl">Extra large paragraph text (text-xl)</P>
     </section>
 
     <!-- Paragraph Font Weights -->
@@ -87,17 +87,17 @@
         <P>You can also use <Span color="success" fontWeight="semibold">success colored bold span</Span> for emphasis.</P>
       </div>
       <div>
-        <P>And here's a <Span color="muted" size="sm">small muted span</Span> for less important text.</P>
+        <P>And here's a <Span color="muted" fontSize="sm">small muted span</Span> for less important text.</P>
       </div>
     </section>
 
     <!-- Span Sizes -->
     <section>
       <H2 class="mb-4">Span Sizes</H2>
-      <P>Small span: <Span size="sm">text-sm</Span></P>
-      <P>Medium span: <Span size="md">text-base</Span></P>
-      <P>Large span: <Span size="lg">text-lg</Span></P>
-      <P>Extra large span: <Span size="xl">text-xl</Span></P>
+      <P>Small span: <Span fontSize="sm">text-sm</Span></P>
+      <P>Medium span: <Span fontSize="md">text-base</Span></P>
+      <P>Large span: <Span fontSize="lg">text-lg</Span></P>
+      <P>Extra large span: <Span fontSize="xl">text-xl</Span></P>
     </section>
 
     <!-- Blockquotes -->
@@ -154,10 +154,10 @@
     <!-- Label Sizes -->
     <section>
       <H2 class="mb-4">Label Sizes</H2>
-      <Label size="sm">Small Label</Label>
-      <Label size="md">Medium Label - Default</Label>
-      <Label size="lg">Large Label</Label>
-      <Label size="xl">Extra Large Label</Label>
+      <Label fontSize="sm">Small Label</Label>
+      <Label fontSize="md">Medium Label - Default</Label>
+      <Label fontSize="lg">Large Label</Label>
+      <Label fontSize="xl">Extra Large Label</Label>
     </section>
 
     <!-- Label Font Weights -->
@@ -193,7 +193,7 @@
         </ul>
         <div class="mt-4">
           <Label required>Email Address</Label>
-          <P size="sm" color="muted">We'll never share your email with anyone else.</P>
+          <P fontSize="sm" color="muted">We'll never share your email with anyone else.</P>
         </div>
       </div>
     </section>
