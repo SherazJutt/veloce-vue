@@ -47,8 +47,20 @@ type JsonRendererItemBase<TProps = CommonTypographyProps> = {
   id?: string;
   slot?: string | any;
 };
-
 export type JsonRendererItem =
-  | ({ component: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "blockquote" } & JsonRendererItemBase<CommonTypographyProps>)
+  | ({
+      component: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "blockquote";
+    } & JsonRendererItemBase<CommonTypographyProps>)
   | ({ component: "code" } & JsonRendererItemBase<CommonTypographyProps & { block?: boolean }>)
-  | ({ component: "label" } & JsonRendererItemBase<CommonTypographyProps & { required?: boolean }>);
+  | ({ component: "label" } & JsonRendererItemBase<CommonTypographyProps & { required?: boolean }>)
+  | (({
+      component: "list";
+    } & Omit<
+      JsonRendererItemBase<
+        Omit<CommonTypographyProps, "fontSize" | "color" | "fontWeight" | "lineHeight" | "letterSpacing"> & {
+          type?: "ul" | "ol";
+          spacing?: Size;
+        }
+      >,
+      "slot"
+    >) & { items?: string[] });

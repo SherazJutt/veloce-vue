@@ -1,16 +1,16 @@
 <template>
-  <div>
+  <div class="*:first:mt-0 *:last:mb-0">
     <template v-for="item in json" :key="item.id">
-      <component :is="componentMap[item.component]" v-bind="item.props" v-html="item.slot"></component>
+      <component :is="componentMap[item.component]" v-bind="item.props" v-bind:items="item.component === 'list' ? item.items : undefined" v-html="item.slot" />
     </template>
   </div>
-  <pre>{{ json }}</pre>
+  <!-- <pre>{{ json }}</pre> -->
 </template>
 
 <script setup lang="ts">
 import type { JsonRendererItem } from "@veloce/types";
 
-import { H1, H2, H3, H4, H5, H6, P, Span, Blockquote, Code, Label } from "@veloce/typography";
+import { H1, H2, H3, H4, H5, H6, P, Span, Blockquote, Code, Label, List } from "@veloce/typography";
 
 const componentMap = {
   h1: H1,
@@ -24,6 +24,7 @@ const componentMap = {
   blockquote: Blockquote,
   code: Code,
   label: Label,
+  list: List,
 };
 
 const props = defineProps({

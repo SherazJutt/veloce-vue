@@ -7,5 +7,6 @@ export { default as H4 } from "../components/typography/H4.vue";
 export { default as H5 } from "../components/typography/H5.vue";
 export { default as H6 } from "../components/typography/H6.vue";
 export { default as Label } from "../components/typography/Label.vue";
+export { default as List } from "../components/typography/List.vue";
 export { default as P } from "../components/typography/P.vue";
 export { default as Span } from "../components/typography/Span.vue";
