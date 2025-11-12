@@ -63,7 +63,7 @@ const json: JsonRendererItem[] = [
   {
     component: "blockquote",
     id: useRandomId(),
-    props: { color: "info", text: 'Tip: Make sure to import the CSS file in your main application file: <code class="text-highlight">import "veloce/style.css"</code>' },
+    props: { color: "info", text: 'Tip: Make sure to import the CSS file in your main application file: <span class="text-highlight">import "veloce/style.css"</span>' },
   },
   {
     component: "h3",
