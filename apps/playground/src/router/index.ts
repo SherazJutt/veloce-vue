@@ -144,6 +144,11 @@ const router = createRouter({
           name: "jsonrenderer",
           component: () => import("../pages/components/JsonRenderer.vue"),
         },
+        {
+          path: "mini-editor",
+          name: "mini-editor",
+          component: () => import("../pages/components/MiniEditor.vue"),
+        },
       ],
     },
   ],

@@ -26,6 +26,7 @@ export const global = createGlobalState(() => {
     { name: "Icons", pathName: "icons", description: "Icons component for displaying icons" },
     { name: "Toast", pathName: "toast", description: "Toast notification system for displaying temporary messages" },
     { name: "JsonRenderer", pathName: "jsonrenderer", description: "Component for rendering JSON data in a formatted way" },
+    { name: "MiniEditor", pathName: "mini-editor", description: "Component for editing content in a mini editor" },
   ];
 
   return { components };

@@ -21,3 +21,4 @@ export { default as Separator } from "../components/Separator.vue";
 export { default as Skeleton } from "../components/Skeleton.vue";
 export { default as Switch } from "../components/Switch.vue";
 export { default as Tooltip } from "../components/Tooltip.vue";
+export { default as MiniEditor } from "../components/MiniEditor.vue";

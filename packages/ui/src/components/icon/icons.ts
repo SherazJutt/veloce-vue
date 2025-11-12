@@ -134,6 +134,9 @@ import XCircle from "../../icons/XCircle.vue";
 import Zap from "../../icons/Zap.vue";
 import ZoomIn from "../../icons/ZoomIn.vue";
 import ZoomOut from "../../icons/ZoomOut.vue";
+import Bold from "../../icons/Bold.vue";
+import Italic from "../../icons/Italic.vue";
+import Highlight from "../../icons/Highlight.vue";
 
 // Map of all icons
 export const iconsMap = {
@@ -273,4 +276,7 @@ export const iconsMap = {
   zap: Zap,
   "zoom-in": ZoomIn,
   "zoom-out": ZoomOut,
+  bold: Bold,
+  italic: Italic,
+  highlight: Highlight,
 } as const;
