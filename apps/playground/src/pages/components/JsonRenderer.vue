@@ -13,11 +13,8 @@ const json: JsonRendererItem[] = [
   {
     component: "code",
     id: useRandomId(),
-    props: {
-      fontSize: "md",
-      color: "primary",
-    },
-    slot: ["hello world", { component: "h1", props: { fontSize: "md", color: "primary" }, slot: ["hello world 2"] }],
+
+    slot: `hello world <span class="text-highlight">from</span> user`,
   },
 ];
 </script>

@@ -45,7 +45,7 @@ type CommonTypographyProps = {
 type JsonRendererItemBase<TProps = CommonTypographyProps> = {
   props?: TProps;
   id?: string;
-  slot?: (string | JsonRendererItem)[];
+  slot?: string | any;
 };
 
 export type JsonRendererItem =
