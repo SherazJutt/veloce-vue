@@ -46,6 +46,11 @@ const json: JsonRendererItem[] = [
     props: { text: "Usage" },
   },
   {
+    component: "message",
+    id: useRandomId(),
+    props: { text: "This is a message" },
+  },
+  {
     component: "p",
     id: useRandomId(),
     props: { text: "Import the components you need in your Vue components:" },

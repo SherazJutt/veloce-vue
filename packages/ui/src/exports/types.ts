@@ -54,6 +54,7 @@ export type JsonRendererItem =
   | ({ component: "label" } & JsonRendererItemBase<CommonTypographyProps & { required?: boolean }>)
   // prettier-ignore
   | ({ component: "list" }
-      & JsonRendererItemBase<Omit<CommonTypographyProps, "fontSize" | "color" | "fontWeight" | "lineHeight" | "letterSpacing" | "text">
-      & { type?: "ul" | "ol"; spacing?: Size; items?: string[] }
-    >);
+    & JsonRendererItemBase<Omit<CommonTypographyProps, "fontSize" | "color" | "fontWeight" | "lineHeight" | "letterSpacing" | "text">
+    & { type?: "ul" | "ol"; spacing?: Size; items?: string[] }
+    >)
+  | ({ component: "message" } & JsonRendererItemBase<Omit<CommonTypographyProps, "fontSize" | "color" | "fontWeight" | "lineHeight" | "letterSpacing"> & { severity?: Severity; variant?: Variant; icon?: Icons }>);
