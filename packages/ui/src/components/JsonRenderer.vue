@@ -1,12 +1,9 @@
 <template>
   <div class="*:first:mt-0 *:last:mb-0">
     <template v-for="item in json" :key="item.id">
-      <component :is="componentMap[item.component]" v-if="item.component === 'list'" v-bind="item.props" :items="item.items" />
-      <component :is="componentMap[item.component]" v-else-if="item.component === 'label'" v-bind="item.props" />
-      <component :is="componentMap[item.component]" v-else v-bind="item.props" v-html="item.slot" />
+      <component :is="componentMap[item.component]" v-bind="item.props" />
     </template>
   </div>
-  <!-- <pre>{{ json }}</pre> -->
 </template>
 
 <script setup lang="ts">

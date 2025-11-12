@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import { computed } from "vue";
 import type { TextColor, FontWeight, Margin, Padding, FontSize, LineHeight, LetterSpacing } from "@veloce/types";
 import { getTypography, getMargin, getPadding } from "@veloce/utils";
 
@@ -8,6 +8,7 @@ const { margin, marginLeft, marginRight, marginTop, marginBottom } = getMargin()
 const { padding, paddingLeft, paddingRight, paddingTop, paddingBottom } = getPadding();
 
 const props = defineProps({
+  text: { type: String, default: "" },
   fontSize: { type: String as () => FontSize, default: "" as FontSize },
   color: { type: String as () => TextColor, default: "" as TextColor },
   fontWeight: { type: String as () => FontWeight, default: "" as FontWeight },
@@ -26,10 +27,6 @@ const props = defineProps({
   paddingRight: { type: String as () => Padding, default: "" },
   paddingTop: { type: String as () => Padding, default: "" },
   paddingBottom: { type: String as () => Padding, default: "" },
-});
-
-onMounted(() => {
-  console.log(props);
 });
 
 const classes = computed(() => {
@@ -57,7 +54,7 @@ const classes = computed(() => {
 
 <template>
   <label :class="classes" class="block">
-    <slot />
+    {{ props.text }}
     <span v-if="props.required" class="text-error ml-1">*</span>
   </label>
 </template>

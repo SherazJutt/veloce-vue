@@ -40,27 +40,20 @@ type CommonTypographyProps = {
   paddingRight?: Padding;
   paddingTop?: Padding;
   paddingBottom?: Padding;
+  text?: string;
 };
 
 type JsonRendererItemBase<TProps = CommonTypographyProps> = {
   props?: TProps;
   id?: string;
-  slot?: string | any;
 };
+
 export type JsonRendererItem =
-  | ({
-      component: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "blockquote";
-    } & JsonRendererItemBase<CommonTypographyProps>)
+  | ({ component: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "blockquote" } & JsonRendererItemBase<CommonTypographyProps>)
   | ({ component: "code" } & JsonRendererItemBase<CommonTypographyProps & { block?: boolean }>)
   | ({ component: "label" } & JsonRendererItemBase<CommonTypographyProps & { required?: boolean }>)
-  | (({
-      component: "list";
-    } & Omit<
-      JsonRendererItemBase<
-        Omit<CommonTypographyProps, "fontSize" | "color" | "fontWeight" | "lineHeight" | "letterSpacing"> & {
-          type?: "ul" | "ol";
-          spacing?: Size;
-        }
-      >,
-      "slot"
-    >) & { items?: string[] });
+  // prettier-ignore
+  | ({ component: "list" }
+      & JsonRendererItemBase<Omit<CommonTypographyProps, "fontSize" | "color" | "fontWeight" | "lineHeight" | "letterSpacing" | "text">
+      & { type?: "ul" | "ol"; spacing?: Size; items?: string[] }
+    >);

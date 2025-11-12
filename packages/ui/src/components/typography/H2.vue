@@ -8,6 +8,7 @@ const { margin, marginLeft, marginRight, marginTop, marginBottom } = getMargin()
 const { padding, paddingLeft, paddingRight, paddingTop, paddingBottom } = getPadding();
 
 const props = defineProps({
+  text: { type: String, default: "" },
   fontSize: { type: String as () => FontSize, default: "3xl" as FontSize },
   color: { type: String as () => TextColor, default: "default" as TextColor },
   fontWeight: { type: String as () => FontWeight, default: "medium" as FontWeight },
@@ -51,7 +52,5 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <h2 :class="classes">
-    <slot />
-  </h2>
+  <h2 :class="classes" v-html="props.text" />
 </template>
