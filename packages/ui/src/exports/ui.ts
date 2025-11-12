@@ -8,6 +8,7 @@ export { default as Chip } from "../components/Chip.vue";
 export { default as Drawer } from "../components/Drawer.vue";
 export { default as Fieldset } from "../components/Fieldset.vue";
 export { default as Input } from "../components/Input.vue";
+export { default as JsonRenderer } from "../components/JsonRenderer.vue";
 export { default as Layout } from "../components/Layout.vue";
 export { default as Message } from "../components/Message.vue";
 export { default as Modal } from "../components/Modal.vue";
