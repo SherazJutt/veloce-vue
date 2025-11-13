@@ -32,6 +32,18 @@ function format(command: string) {
   updateButtonStates();
 }
 
+function unwrapHighlightSpan(span: HTMLElement) {
+  const parent = span.parentNode;
+  if (parent) {
+    // Move all children before the span
+    while (span.firstChild) {
+      parent.insertBefore(span.firstChild, span);
+    }
+    parent.removeChild(span);
+    parent.normalize();
+  }
+}
+
 function toggleHighlight() {
   if (!editor.value) return;
   editor.value.focus();
@@ -42,31 +54,62 @@ function toggleHighlight() {
   const range = selection.getRangeAt(0);
   if (range.collapsed) return;
 
-  // Check if selection is inside an existing highlight span
-  let container: Node | null = range.commonAncestorContainer;
-  let highlightSpan: HTMLElement | null = null;
+  // Find all highlight spans within the selection range
+  const highlightSpans: HTMLElement[] = [];
+  const container = range.commonAncestorContainer;
 
-  while (container && container !== editor.value) {
-    if (container.nodeType === Node.ELEMENT_NODE) {
-      const el = container as HTMLElement;
+  // Use TreeWalker to find all highlight spans in the range
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_ELEMENT, {
+    acceptNode: (node) => {
+      const el = node as HTMLElement;
       if (el.tagName === "SPAN" && el.classList.contains("text-highlight")) {
-        highlightSpan = el;
-        break;
+        return NodeFilter.FILTER_ACCEPT;
       }
+      return NodeFilter.FILTER_SKIP;
+    },
+  });
+
+  let node;
+  while ((node = walker.nextNode())) {
+    const el = node as HTMLElement;
+    if (!highlightSpans.includes(el)) {
+      highlightSpans.push(el);
     }
-    container = container.parentNode;
   }
 
-  if (highlightSpan) {
-    // Unwrap highlight span
-    const parent = highlightSpan.parentNode;
-    if (parent) {
-      while (highlightSpan.firstChild) {
-        parent.insertBefore(highlightSpan.firstChild, highlightSpan);
+  // Also check parent chain for highlight spans
+  let parentNode: Node | null = range.commonAncestorContainer;
+  while (parentNode && parentNode !== editor.value) {
+    if (parentNode.nodeType === Node.ELEMENT_NODE) {
+      const el = parentNode as HTMLElement;
+      if (el.tagName === "SPAN" && el.classList.contains("text-highlight")) {
+        if (!highlightSpans.includes(el)) {
+          highlightSpans.push(el);
+        }
       }
-      parent.removeChild(highlightSpan);
-      parent.normalize();
     }
+    parentNode = parentNode.parentNode;
+  }
+
+  if (highlightSpans.length > 0) {
+    // Remove all highlight spans, starting from deepest (innermost) first
+    // Sort so that if span A contains span B, we process B first
+    const sortedSpans = [...highlightSpans].sort((a, b) => {
+      if (a.contains(b)) {
+        return 1;
+      }
+      if (b.contains(a)) {
+        return -1;
+      }
+      return 0;
+    });
+
+    sortedSpans.forEach((span) => {
+      // Check if span still exists (might have been removed as part of unwrapping parent)
+      if (span.parentNode) {
+        unwrapHighlightSpan(span);
+      }
+    });
   } else {
     // Wrap selection in span.text-highlight
     const span = document.createElement("span");
