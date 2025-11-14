@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { motion, AnimatePresence } from "motion-v";
 
-const props = defineProps({
+defineProps({
   position: { type: String as () => "top" | "bottom", default: "bottom", options: ["top", "bottom"] },
   bodyClass: { type: String, default: "" },
   contentClass: { type: String, default: "" },

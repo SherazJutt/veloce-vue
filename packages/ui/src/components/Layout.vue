@@ -42,7 +42,7 @@ import { motion, AnimatePresence } from "motion-v";
 
 const emit = defineEmits<{ (e: "sidebar", showSidebar: boolean): void }>();
 
-const props = defineProps({
+defineProps({
   brandName: { type: String, default: "VeloceVue" },
 });
 
