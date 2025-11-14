@@ -4,15 +4,15 @@
   </div>
 </template> -->
 
-<!-- <template>
+<template>
   <div>
     <h1 class="text-2xl font-bold underline">Hello World</h1>
-    <Icon icon="at-sign" />
+    <Icon :icon="Alert" />
   </div>
 </template>
 <script setup lang="ts">
-import { Icon } from "veloce-vue/icons";
-</script> -->
+import { Icon, Alert } from "veloce-vue/icons";
+</script>
 
 <!-- <template>
   <div>
@@ -24,12 +24,12 @@ import { Icon } from "veloce-vue/icons";
 import { Badge } from "veloce-vue/ui";
 </script> -->
 
-<template>
+<!-- <template>
   <div>
     <h1 class="text-2xl font-bold underline">Hello World</h1>
-    <Button icon="at-sign" label="Button" />
+    <Button label="Button" />
   </div>
 </template>
 <script setup lang="ts">
 import { Button } from "veloce-vue/ui";
-</script>
+</script> -->
