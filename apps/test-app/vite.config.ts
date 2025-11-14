@@ -14,6 +14,7 @@ export default defineConfig({
     },
   },
   build: {
+    emptyOutDir: true,
     outDir: "../../build/test-app",
   },
 });
