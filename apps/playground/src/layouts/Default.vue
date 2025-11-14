@@ -5,7 +5,7 @@
       <Sidebar :close-on-click="isMobile" @close="onClose" />
     </template>
     <template #header-actions>
-      <Button :icon="isDark ? 'sun' : 'moon'" class="p-1!" variant="ghost" @click="toggleDark" />
+      <Button :icon="isDark ? Sun : Moon" class="p-1!" variant="ghost" @click="toggleDark" />
     </template>
   </Layout>
   <ToastContainer position="bottom-right" :max-toasts="5" />
@@ -15,6 +15,7 @@
 import { Button, Layout } from "@veloce/ui";
 import { ToastContainer } from "@veloce/toast";
 import Sidebar from "@/components/Sidebar.vue";
+import { Sun, Moon } from "@veloce/icons";
 
 import { computed } from "vue";
 import { useWindowSize } from "@vueuse/core";

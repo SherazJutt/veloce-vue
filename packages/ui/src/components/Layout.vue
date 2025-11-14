@@ -1,7 +1,7 @@
 <template>
   <header class="flex h-14 items-center justify-between gap-4 border-b px-4">
     <div class="flex items-center gap-2">
-      <Button icon="hamburger" iconClass="size-6" class="p-1!" variant="soft" @click="toggleSidebar" />
+      <Button :icon="Hamburger" iconClass="size-6" class="p-1!" variant="soft" @click="toggleSidebar" />
       <router-link v-if="brandName" to="/">
         <h1 class="text-base font-medium">{{ brandName }}</h1>
       </router-link>
@@ -36,6 +36,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { Button } from "@veloce/ui";
+import { Hamburger } from "@veloce/icons";
 import { useStorage } from "@vueuse/core";
 import { motion, AnimatePresence } from "motion-v";
 

@@ -1,8 +1,9 @@
 <template>
   <div>
-    <Button icon="at-sign" label="Button" />
+    <Button label="Button" />
   </div>
 </template>
 <script setup lang="ts">
 import { Button } from "@veloce/ui";
+import { Alert } from "@veloce/icons";
 </script>

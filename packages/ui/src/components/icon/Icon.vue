@@ -1,20 +1,15 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Icons, type Icons as IconsType } from "./index.ts";
+import type { Component } from "vue";
 
-// Props
 const props = defineProps<{
-  icon: IconsType | (string & {}); // autocomplete for icons
+  icon: Component;
   class?: string;
   size?: number | string;
 }>();
 
 const size = computed(() => props.size ?? 24);
-
-// component to render
-const IconComponent = computed(() => {
-  return props.icon ? Icons[props.icon as IconsType] : "";
-});
+const IconComponent = computed(() => props.icon);
 </script>
 
 <template>

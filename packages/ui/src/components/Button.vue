@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { Icon, type Icons } from "@veloce/icons";
+import { computed, type Component } from "vue";
+import { Icon, Loading } from "@veloce/icons";
 import { type Variant, type Severity, type Position, type Size, type FontWeight } from "@veloce/types";
 
 const props = defineProps({
@@ -9,7 +9,7 @@ const props = defineProps({
   disabled: { type: Boolean, default: false },
   variant: { type: String as () => Variant, default: "solid" },
   severity: { type: String as () => Severity, default: "primary" },
-  icon: { type: String as () => Icons, default: "" },
+  icon: { type: Object as () => Component, default: () => null },
   iconClass: { type: String, default: "" },
   iconPosition: { type: String as () => Position, default: "right" },
   rounded: { type: Boolean, default: false },
@@ -102,7 +102,7 @@ const classes = computed(() => {
     <template v-else>
       <span v-if="props.label" :class="{ 'order-2': props.iconPosition === 'left' }"> {{ props.label }} </span>
       <Icon v-if="props.icon && !props.loading" :icon="props.icon" :class="props.iconClass" class="size-5 text-current duration-200" />
-      <Icon v-if="props.loading" icon="loading" class="size-5 text-current duration-200" />
+      <Icon v-if="props.loading" :icon="Loading" class="size-5 text-current duration-200" />
     </template>
   </button>
 </template>
