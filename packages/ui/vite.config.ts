@@ -47,8 +47,6 @@ export default defineConfig({
       external: (id) => {
         // Externalize Vue and all its sub-modules
         if (id === "vue" || id.startsWith("vue/")) return true;
-        // Externalize CSS files - they should be imported separately
-        if (id.endsWith(".css")) return true;
         // Externalize peer dependencies
         if (id === "motion-v" || id.startsWith("motion-v/")) return true;
         if (id === "@vueuse/core" || id.startsWith("@vueuse/core/")) return true;
@@ -70,6 +68,13 @@ export default defineConfig({
           }
           // For non-entry files, preserveModules will handle the structure
           return "[name].js";
+        },
+        assetFileNames: (assetInfo) => {
+          // Extract CSS to veloce.css to match package.json exports
+          if (assetInfo.name === "style.css" || assetInfo.name?.endsWith(".css")) {
+            return "veloce.css";
+          }
+          return assetInfo.name || "[name].[ext]";
         },
       },
     },
