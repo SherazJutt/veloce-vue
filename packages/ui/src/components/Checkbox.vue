@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Icon, type Icons } from "@veloce/icons";
-import { computed } from "vue";
+import { Icon, Check } from "@veloce/icons";
+import { computed, type Component } from "vue";
 
 type CheckboxSize = "sm" | "md" | "lg";
 type CheckboxVariant = "primary" | "secondary" | "success" | "info" | "error" | "warning";
@@ -11,7 +11,7 @@ const props = defineProps({
   checkboxClass: { type: String, default: "" },
   size: { type: String as () => CheckboxSize, default: "md" },
   variant: { type: String as () => CheckboxVariant, default: "primary" },
-  icon: { type: String as () => Icons, default: "check" },
+  icon: { type: Object as () => Component, default: () => Check },
   disabled: { type: Boolean, default: false },
 });
 

@@ -47,6 +47,9 @@ export default defineConfig({
       external: (id) => {
         // Externalize Vue and all its sub-modules
         if (id === "vue" || id.startsWith("vue/")) return true;
+        // Externalize peer dependencies
+        if (id === "motion-v" || id.startsWith("motion-v/")) return true;
+        if (id === "@vueuse/core" || id.startsWith("@vueuse/core/")) return true;
         // Externalize other peer dependencies (this will requires the consuming app to install the peer dependencies explicitly
         // e.g pnpm add vuedraggable)
 
@@ -56,6 +59,23 @@ export default defineConfig({
       output: {
         interop: "auto",
         globals: { vue: "Vue" },
+        preserveModules: true, // Enable tree-shaking by preserving module structure
+        preserveModulesRoot: "src",
+        entryFileNames: ({ name }) => {
+          // Keep ui.js, icons.js, config.js as entry points
+          if (name === "ui" || name === "icons" || name === "config") {
+            return `${name}.js`;
+          }
+          // For non-entry files, preserveModules will handle the structure
+          return "[name].js";
+        },
+        assetFileNames: (assetInfo) => {
+          // Extract CSS to veloce.css to match package.json exports
+          if (assetInfo.name === "style.css" || assetInfo.name?.endsWith(".css")) {
+            return "veloce.css";
+          }
+          return assetInfo.name || "[name].[ext]";
+        },
       },
     },
   },

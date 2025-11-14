@@ -20,22 +20,23 @@
 import { Accordion } from "@veloce/ui";
 import { H4 } from "@veloce/typography";
 import { type AccordionItem } from "@veloce/types";
+import { Moon, Sun, Hamburger } from "@veloce/icons";
 
 const items: AccordionItem[] = [
   {
     title: "Item 1",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, eos! Voluptas explicabo odit quis earum nobis! Totam, molestias, magni beatae illum assumenda ipsum quas a nemo, tenetur perferendis minima quis!",
-    icon: "moon",
+    icon: Moon,
   },
   {
     title: "Item 2",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, eos! Voluptas explicabo odit quis earum nobis! Totam, molestias, magni beatae illum assumenda ipsum quas a nemo, tenetur perferendis minima quis!",
-    icon: "sun",
+    icon: Sun,
   },
   {
     title: "Item 3",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, eos! Voluptas explicabo odit quis earum nobis! Totam, molestias, magni beatae illum assumenda ipsum quas a nemo, tenetur perferendis minima quis!",
-    icon: "hamburger",
+    icon: Hamburger,
   },
 ];
 
@@ -43,19 +44,19 @@ const MultipleOpenItems: AccordionItem[] = [
   {
     title: "Item 1",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, eos! Voluptas explicabo odit quis earum nobis! Totam, molestias, magni beatae illum assumenda ipsum quas a nemo, tenetur perferendis minima quis!",
-    icon: "moon",
+    icon: Moon,
     active: true,
   },
   {
     title: "Item 2",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, eos! Voluptas explicabo odit quis earum nobis! Totam, molestias, magni beatae illum assumenda ipsum quas a nemo, tenetur perferendis minima quis!",
-    icon: "sun",
+    icon: Sun,
     active: true,
   },
   {
     title: "Item 3",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, eos! Voluptas explicabo odit quis earum nobis! Totam, molestias, magni beatae illum assumenda ipsum quas a nemo, tenetur perferendis minima quis!",
-    icon: "hamburger",
+    icon: Hamburger,
   },
 ];
 </script>

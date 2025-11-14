@@ -5,7 +5,7 @@ import { type Variant, type Severity, type Size, type FontWeight } from "@veloce
 import { onClickOutside } from "@vueuse/core";
 import { motion, AnimatePresence } from "motion-v";
 import { Input } from "@veloce/ui";
-import { Icon } from "@veloce/icons";
+import { Icon, ChevronDown, Check, Search } from "@veloce/icons";
 const props = defineProps({
   options: { type: Array as () => string[], required: true },
   variant: { type: String as () => Variant, default: "outlined" as Variant },
@@ -88,7 +88,7 @@ const buttonLabel = computed(() => selectedOption.value || "Select");
     <!-- select trigger -->
     <Button
       :icon-class="isOpen ? 'rotate-180 transition-transform duration-200' : 'transition-transform duration-200'"
-      icon="chevron-down"
+      :icon="ChevronDown"
       class="justify-between! w-full capitalize"
       :variant="variant"
       :size="size"
@@ -113,7 +113,7 @@ const buttonLabel = computed(() => selectedOption.value || "Select");
         }"
       >
         <div v-if="showFilter" class="border-b p-2">
-          <Input v-model="searchQuery" trailing-icon="search" placeholder="Search" :size="size" />
+          <Input v-model="searchQuery" :trailing-icon="Search" placeholder="Search" :size="size" />
         </div>
         <ul class="h-full max-h-[220px] overflow-y-auto overflow-x-hidden p-2">
           <li
@@ -125,7 +125,7 @@ const buttonLabel = computed(() => selectedOption.value || "Select");
             @click="selectOption(option)"
           >
             <span>{{ option }} </span>
-            <Icon v-if="option === selectedOption" icon="check" class="size-5" />
+            <Icon v-if="option === selectedOption" :icon="Check" class="size-5" />
           </li>
           <li v-if="filteredOptions.length === 0" :class="optionSizeClasses" class="">No options found</li>
         </ul>

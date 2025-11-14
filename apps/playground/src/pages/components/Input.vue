@@ -67,23 +67,23 @@
       <div class="space-y-4">
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Leading Icon</h3>
-          <Input v-model="value11" leading-icon="sun" label="Leading Icon" placeholder="With leading icon" />
+          <Input v-model="value11" :leading-icon="Sun" label="Leading Icon" placeholder="With leading icon" />
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Trailing Icon</h3>
-          <Input v-model="value12" trailing-icon="moon" label="Trailing Icon" placeholder="With trailing icon" />
+          <Input v-model="value12" :trailing-icon="Moon" label="Trailing Icon" placeholder="With trailing icon" />
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Both Icons</h3>
-          <Input v-model="value13" leading-icon="sun" trailing-icon="moon" label="Both Icons" placeholder="With both icons" />
+          <Input v-model="value13" :leading-icon="Sun" :trailing-icon="Moon" label="Both Icons" placeholder="With both icons" />
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Leading Icon with Floating Label</h3>
-          <Input v-model="value14" leading-icon="alert" label-style="float" placeholder="Floating with icon" />
+          <Input v-model="value14" :leading-icon="Alert" label-style="float" placeholder="Floating with icon" />
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Password with Icons</h3>
-          <Input type="password" v-model="value15" leading-icon="alert" label="Password with Icon" placeholder="Secure password" />
+          <Input type="password" v-model="value15" :leading-icon="Alert" label="Password with Icon" placeholder="Secure password" />
         </div>
       </div>
     </section>
@@ -98,7 +98,7 @@
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Help Text with Icon</h3>
-          <Input v-model="value17" leading-icon="alert" label="Email" placeholder="Enter email" help-text="We'll never share your email" />
+          <Input v-model="value17" :leading-icon="Alert" label="Email" placeholder="Enter email" help-text="We'll never share your email" />
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Help Text with Floating Label</h3>
@@ -113,15 +113,15 @@
       <div class="space-y-4">
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Small with Icon</h3>
-          <Input v-model="value19" leading-icon="sun" size="sm" label="Small" placeholder="Small input" />
+          <Input v-model="value19" :leading-icon="Sun" size="sm" label="Small" placeholder="Small input" />
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Large with Icon</h3>
-          <Input v-model="value20" leading-icon="moon" size="lg" label="Large" placeholder="Large input" />
+          <Input v-model="value20" :leading-icon="Moon" size="lg" label="Large" placeholder="Large input" />
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Extra Large with Icon</h3>
-          <Input v-model="value21" leading-icon="alert" size="xl" label="Extra Large" placeholder="Extra large input" />
+          <Input v-model="value21" :leading-icon="Alert" size="xl" label="Extra Large" placeholder="Extra large input" />
         </div>
       </div>
     </section>
@@ -140,7 +140,7 @@
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Floating Label with Icon</h3>
-          <Input v-model="value24" leading-icon="sun" label-style="float" placeholder="Email" />
+          <Input v-model="value24" :leading-icon="Sun" label-style="float" placeholder="Email" />
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Floating Label - All Sizes</h3>
@@ -159,6 +159,7 @@
 <script setup lang="ts">
 import { Input } from "@veloce/ui";
 import { ref } from "vue";
+import { Sun, Moon, Alert } from "@veloce/icons";
 
 const value1 = ref("");
 const value2 = ref("");

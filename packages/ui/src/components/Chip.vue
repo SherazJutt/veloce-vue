@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { Icon, type Icons } from "@veloce/icons";
+import { computed, type Component } from "vue";
+import { Icon, Close } from "@veloce/icons";
 import { type Severity, type Size } from "@veloce/types";
 
 const props = defineProps({
   label: { type: String, default: "" },
-  icon: { type: String as () => Icons, default: "" },
+  icon: { type: Object as () => Component, default: () => null },
   removable: { type: Boolean, default: false },
   severity: { type: String as () => Severity, default: "primary" },
   size: { type: String as () => Size, default: "md" },
@@ -49,7 +49,7 @@ const handleRemove = () => {
       <slot>{{ props.label }}</slot>
     </span>
     <button type="button" v-if="props.removable" class="ml-0.5 flex items-center justify-center rounded-full hover:bg-black/10 dark:hover:bg-white/10" @click="handleRemove">
-      <Icon icon="close" class="size-3.5" />
+      <Icon :icon="Close" class="size-3.5" />
     </button>
   </div>
 </template>

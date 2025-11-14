@@ -1,4 +1,4 @@
-import { type Icons } from "@veloce/icons";
+import type { Component } from "vue";
 
 // =common types =============================================================
 
@@ -21,7 +21,7 @@ export type LineHeight = Sizes;
 export type LetterSpacing = Sizes;
 
 // =accordion types ========================================================
-export type AccordionItem = { title: string; content: string; slot?: string; icon?: Icons; active?: boolean };
+export type AccordionItem = { title: string; content: string; slot?: string; icon?: Component; active?: boolean };
 
 // =json renderer types ========================================================
 type CommonTypographyProps = {
@@ -57,4 +57,4 @@ export type JsonRendererItem =
     & JsonRendererItemBase<Omit<CommonTypographyProps, "fontSize" | "color" | "fontWeight" | "lineHeight" | "letterSpacing" | "text">
     & { type?: "ul" | "ol"; spacing?: Size; items?: string[] }
     >)
-  | ({ component: "message" } & JsonRendererItemBase<Omit<CommonTypographyProps, "fontSize" | "color" | "fontWeight" | "lineHeight" | "letterSpacing"> & { severity?: Severity; variant?: Variant; icon?: Icons }>);
+  | ({ component: "message" } & JsonRendererItemBase<Omit<CommonTypographyProps, "fontSize" | "color" | "fontWeight" | "lineHeight" | "letterSpacing"> & { severity?: Severity; variant?: Variant; icon?: Component }>);

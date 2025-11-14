@@ -45,7 +45,8 @@ const classes = computed(() => {
 
 <template>
   <span :class="classes" class="flex items-center justify-center">
-    <span v-if="!props.dot">{{ props.value || $slots.default }}</span>
+    <slot v-if="$slots.default" />
+    <span v-else-if="!props.dot">{{ props.value }}</span>
     <slot v-if="props.dot" />
   </span>
 </template>

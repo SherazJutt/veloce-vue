@@ -10,7 +10,7 @@
         <!-- title -->
         <h4 class="text-[0.95em] font-medium">{{ title }}</h4>
         <!-- close button -->
-        <Button icon="close" class="p-1!" circle variant="ghost" @click="show = false" />
+        <Button :icon="Close" class="p-1!" circle variant="ghost" @click="show = false" />
       </div>
       <!-- description -->
       <p class="text-muted text-sm">{{ description }}</p>
@@ -30,6 +30,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { Button } from "@veloce/ui";
+import { Close } from "@veloce/icons";
 
 const props = defineProps({
   direction: { type: String as () => "left" | "bottom" | "right", default: "bottom", options: ["left", "bottom", "right"] },

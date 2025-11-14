@@ -56,6 +56,8 @@ const pkg = {
     "motion-v": "^1.7.4",
   },
 
+  sideEffects: ["**/*.css", "**/veloce.css", "**/style.css"],
+
   keywords: ["veloce-vue"],
 };
 

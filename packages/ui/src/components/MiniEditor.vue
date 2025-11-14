@@ -1,20 +1,7 @@
-<template>
-  <div class="overflow-hidden rounded border">
-    <!-- Toolbar -->
-    <div class="flex gap-2 border-b bg-neutral-50 p-2 dark:bg-neutral-800/25">
-      <Button icon="bold" :highlighted="isBold" :variant="isBold ? 'solid' : 'ghost'" severity="neutral" size="sm" @click="format('bold')" />
-      <Button icon="italic" icon-class="size-4" :highlighted="isItalic" :variant="isItalic ? 'solid' : 'ghost'" severity="neutral" size="sm" @click="format('italic')" />
-      <Button icon="highlight" icon-class="size-4" :highlighted="isHighlighted" :variant="isHighlighted ? 'solid' : 'ghost'" severity="neutral" size="sm" title="Highlight" @click="toggleHighlight" />
-    </div>
-
-    <!-- Editor -->
-    <div @keyup="updateButtonStates" class="min-h-[150px] p-3 outline-none focus-visible:ring-0" ref="editor" contenteditable="true" @input="emitContent" @mouseup="updateButtonStates" @focus="updateButtonStates"></div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ref, watch, onMounted, defineProps, defineEmits } from "vue";
 import Button from "./Button.vue";
+import { Bold, Italic, Highlight } from "@veloce/icons";
 
 const props = defineProps<{ modelValue: string }>();
 const emit = defineEmits<{ (e: "update:modelValue", value: string): void }>();
@@ -167,3 +154,17 @@ watch(
   },
 );
 </script>
+
+<template>
+  <div class="overflow-hidden rounded border">
+    <!-- Toolbar -->
+    <div class="flex gap-2 border-b bg-neutral-50 p-2 dark:bg-neutral-800/25">
+      <Button :icon="Bold" :highlighted="isBold" :variant="isBold ? 'solid' : 'ghost'" severity="neutral" size="sm" @click="format('bold')" />
+      <Button :icon="Italic" icon-class="size-4" :highlighted="isItalic" :variant="isItalic ? 'solid' : 'ghost'" severity="neutral" size="sm" @click="format('italic')" />
+      <Button :icon="Highlight" icon-class="size-4" :highlighted="isHighlighted" :variant="isHighlighted ? 'solid' : 'ghost'" severity="neutral" size="sm" title="Highlight" @click="toggleHighlight" />
+    </div>
+
+    <!-- Editor -->
+    <div @keyup="updateButtonStates" class="min-h-[150px] p-3 outline-none focus-visible:ring-0" ref="editor" contenteditable="true" @input="emitContent" @mouseup="updateButtonStates" @focus="updateButtonStates"></div>
+  </div>
+</template>

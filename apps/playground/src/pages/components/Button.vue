@@ -125,32 +125,32 @@
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Icon Right (Default)</h3>
           <div class="flex flex-wrap gap-3">
-            <Button icon="check" label="Success" severity="success" />
-            <Button icon="close" label="Cancel" severity="error" />
-            <Button icon="alert" label="Info" severity="info" />
-            <Button icon="alert" label="Warning" severity="warning" />
+            <Button :icon="Check" label="Success" severity="success" />
+            <Button :icon="Close" label="Cancel" severity="error" />
+            <Button :icon="Info" label="Info" severity="info" />
+            <Button :icon="Alert" label="Warning" severity="warning" />
           </div>
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Icon Left</h3>
           <div class="flex flex-wrap gap-3">
-            <Button icon="check" icon-position="left" label="Success" severity="success" />
-            <Button icon="close" icon-position="left" label="Cancel" severity="error" />
-            <Button icon="alert" icon-position="left" label="Info" severity="info" />
-            <Button icon="alert" icon-position="left" label="Warning" severity="warning" />
+            <Button :icon="Check" icon-position="left" label="Success" severity="success" />
+            <Button :icon="Close" icon-position="left" label="Cancel" severity="error" />
+            <Button :icon="Alert" icon-position="left" label="Info" severity="info" />
+            <Button :icon="Alert" icon-position="left" label="Warning" severity="warning" />
           </div>
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Icon Only</h3>
           <div class="flex flex-wrap gap-3">
-            <Button icon="check" severity="success" />
-            <Button icon="close" severity="error" />
-            <Button icon="alert" severity="info" />
-            <Button icon="alert" severity="warning" />
-            <Button icon="sun" severity="primary" />
-            <Button icon="moon" severity="secondary" />
-            <Button icon="sun" severity="neutral" />
-            <Button icon="moon" severity="neutral" />
+            <Button :icon="Check" severity="success" />
+            <Button :icon="Close" severity="error" />
+            <Button :icon="Alert" severity="info" />
+            <Button :icon="Alert" severity="warning" />
+            <Button :icon="Sun" severity="primary" />
+            <Button :icon="Moon" severity="secondary" />
+            <Button :icon="Sun" severity="neutral" />
+            <Button :icon="Moon" severity="neutral" />
           </div>
         </div>
       </div>
@@ -175,9 +175,9 @@
       <div class="flex flex-wrap gap-3">
         <Button label="Default" />
         <Button rounded label="Rounded Full" />
-        <Button icon="check" rounded severity="success" />
-        <Button icon="sun" rounded severity="neutral" />
-        <Button icon="moon" rounded severity="neutral" />
+        <Button :icon="Check" rounded severity="success" />
+        <Button :icon="Sun" rounded severity="neutral" />
+        <Button :icon="Moon" rounded severity="neutral" />
       </div>
     </section>
 
@@ -219,4 +219,5 @@
 
 <script setup lang="ts">
 import { Button } from "@veloce/ui";
+import { Check, Close, Info, Alert, Sun, Moon } from "@veloce/icons";
 </script>

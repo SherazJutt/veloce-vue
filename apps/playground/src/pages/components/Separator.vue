@@ -102,16 +102,16 @@
       <div class="space-y-4">
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Icon Only</h3>
-          <Separator icon="alert" direction="horizontal" />
+          <Separator :icon="Alert" direction="horizontal" />
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Icon with Different Severities</h3>
           <div class="space-y-3">
-            <Separator icon="check" severity="primary" direction="horizontal" />
-            <Separator icon="check" severity="success" direction="horizontal" />
-            <Separator icon="alert" severity="warning" direction="horizontal" />
-            <Separator icon="close" severity="error" direction="horizontal" />
-            <Separator icon="sun" severity="info" direction="horizontal" />
+            <Separator :icon="Check" severity="primary" direction="horizontal" />
+            <Separator :icon="Check" severity="success" direction="horizontal" />
+            <Separator :icon="Alert" severity="warning" direction="horizontal" />
+            <Separator :icon="Close" severity="error" direction="horizontal" />
+            <Separator :icon="Sun" severity="info" direction="horizontal" />
           </div>
         </div>
       </div>
@@ -123,16 +123,16 @@
       <div class="space-y-4">
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Icon + Label</h3>
-          <Separator icon="alert" label="Section Title" direction="horizontal" />
+          <Separator :icon="Alert" label="Section Title" direction="horizontal" />
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Icon + Label with Different Severities</h3>
           <div class="space-y-3">
-            <Separator icon="check" label="Success" severity="success" direction="horizontal" />
-            <Separator icon="alert" label="Warning" severity="warning" direction="horizontal" />
-            <Separator icon="close" label="Error" severity="error" direction="horizontal" />
-            <Separator icon="sun" label="Info" severity="info" direction="horizontal" />
-            <Separator icon="moon" label="Neutral" severity="neutral" direction="horizontal" />
+            <Separator :icon="Check" label="Success" severity="success" direction="horizontal" />
+            <Separator :icon="Alert" label="Warning" severity="warning" direction="horizontal" />
+            <Separator :icon="Close" label="Error" severity="error" direction="horizontal" />
+            <Separator :icon="Sun" label="Info" severity="info" direction="horizontal" />
+            <Separator :icon="Moon" label="Neutral" severity="neutral" direction="horizontal" />
           </div>
         </div>
       </div>
@@ -148,18 +148,18 @@
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Icon with Border</h3>
-          <Separator icon="alert" bordered direction="horizontal" />
+          <Separator :icon="Alert" bordered direction="horizontal" />
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Icon + Label with Border</h3>
-          <Separator icon="check" label="Bordered" bordered direction="horizontal" />
+          <Separator :icon="Check" label="Bordered" bordered direction="horizontal" />
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Bordered with Different Severities</h3>
           <div class="space-y-3">
-            <Separator icon="check" label="Success" severity="success" bordered direction="horizontal" />
-            <Separator icon="alert" label="Warning" severity="warning" bordered direction="horizontal" />
-            <Separator icon="close" label="Error" severity="error" bordered direction="horizontal" />
+            <Separator :icon="Check" label="Success" severity="success" bordered direction="horizontal" />
+            <Separator :icon="Alert" label="Warning" severity="warning" bordered direction="horizontal" />
+            <Separator :icon="Close" label="Error" severity="error" bordered direction="horizontal" />
           </div>
         </div>
       </div>
@@ -175,20 +175,20 @@
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Icon Only</h3>
-          <Separator icon="alert" bordered rounded direction="horizontal" />
+          <Separator :icon="Alert" bordered rounded direction="horizontal" />
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Icon + Label Only</h3>
-          <Separator icon="check" label="Rounded" bordered rounded direction="horizontal" />
+          <Separator :icon="Check" label="Rounded" bordered rounded direction="horizontal" />
         </div>
         <div>
           <h3 class="text-muted mb-2 text-sm font-medium">Icon + Label with Different Severities</h3>
           <div class="space-y-3">
-            <Separator icon="check" label="Success" severity="success" bordered rounded direction="horizontal" />
-            <Separator icon="alert" label="Warning" severity="warning" bordered rounded direction="horizontal" />
-            <Separator icon="close" label="Error" severity="error" bordered rounded direction="horizontal" />
-            <Separator icon="sun" label="Info" severity="info" bordered rounded direction="horizontal" />
-            <Separator icon="moon" label="Neutral" severity="neutral" bordered rounded direction="horizontal" />
+            <Separator :icon="Check" label="Success" severity="success" bordered rounded direction="horizontal" />
+            <Separator :icon="Alert" label="Warning" severity="warning" bordered rounded direction="horizontal" />
+            <Separator :icon="Close" label="Error" severity="error" bordered rounded direction="horizontal" />
+            <Separator :icon="Sun" label="Info" severity="info" bordered rounded direction="horizontal" />
+            <Separator :icon="Moon" label="Neutral" severity="neutral" bordered rounded direction="horizontal" />
           </div>
         </div>
       </div>
@@ -252,4 +252,5 @@
 
 <script setup lang="ts">
 import { Separator } from "@veloce/ui";
+import { Alert, Check, Close, Sun, Moon } from "@veloce/icons";
 </script>

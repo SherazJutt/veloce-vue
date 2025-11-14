@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, type Component } from "vue";
 import { useRandomId } from "@veloce/utils";
-import { Icon, type Icons } from "@veloce/icons";
+import { Icon, Eye, EyeOff } from "@veloce/icons";
 import { type Size } from "@veloce/types";
 
 const id = useRandomId();
 
 const props = defineProps({
-  leadingIcon: { type: String as () => Icons, default: "" },
-  trailingIcon: { type: String as () => Icons, default: "" },
+  leadingIcon: { type: Object as () => Component, default: () => null },
+  trailingIcon: { type: Object as () => Component, default: () => null },
   placeholder: { type: String, default: "" },
   iconClass: { type: String, default: "" },
   helpText: { type: String, default: "" },
@@ -85,7 +85,7 @@ const sizeClasses = computed(() => {
 
       <!-- password toggle -->
       <div v-if="type === 'password'" class="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer" @click="togglePasswordVisibility">
-        <Icon :icon="isPasswordVisible ? 'eye-off' : 'eye'" :class="sizeClasses.icon" class="text-muted" />
+        <Icon :icon="isPasswordVisible ? EyeOff : Eye" :class="sizeClasses.icon" class="text-muted" />
       </div>
     </div>
 

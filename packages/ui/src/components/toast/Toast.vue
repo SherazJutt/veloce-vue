@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from "vue";
-import { Icon, type Icons } from "@veloce/icons";
+import { computed, onMounted, onUnmounted, ref, type Component } from "vue";
+import { Icon, CheckCircle, Info, Alert, XCircle, Close } from "@veloce/icons";
 import { type Severity } from "@veloce/types";
 import { motion } from "motion-v";
 
@@ -8,7 +8,7 @@ const props = defineProps({
   id: { type: String, required: true },
   message: { type: String, default: "" },
   severity: { type: String as () => Severity, default: "info" },
-  icon: { type: String as () => Icons, default: "" },
+  icon: { type: Object as () => Component, default: () => null },
   duration: { type: Number, default: 5000 },
   closable: { type: Boolean, default: true },
   position: { type: String as () => "top-left" | "top-right" | "top-center" | "bottom-left" | "bottom-right" | "bottom-center", default: "top-right" },
@@ -18,14 +18,14 @@ const emit = defineEmits<{
   close: [id: string];
 }>();
 
-const defaultIcons: Record<Severity, Icons> = {
-  success: "check-circle",
-  info: "info",
-  warning: "alert",
-  error: "x-circle",
-  primary: "info",
-  secondary: "info",
-  neutral: "info",
+const defaultIcons: Record<Severity, Component> = {
+  success: CheckCircle,
+  info: Info,
+  warning: Alert,
+  error: XCircle,
+  primary: Info,
+  secondary: Info,
+  neutral: Info,
 };
 
 const severityClasses = {
@@ -57,7 +57,7 @@ const progressBarClass = computed(() => {
 });
 
 const iconToShow = computed(() => {
-  return props.icon || defaultIcons[props.severity] || "info";
+  return props.icon || defaultIcons[props.severity] || Info;
 });
 
 const animationProps = computed(() => {
@@ -187,14 +187,14 @@ onUnmounted(() => {
       <template v-if="$slots.icon">
         <slot name="icon" />
       </template>
-      <Icon :icon="iconToShow" class="mt-0.5 size-5 shrink-0" v-else-if="iconToShow" />
+      <Icon :icon="iconToShow" class="mt-0.5 size-5" v-else-if="iconToShow" />
       <div class="flex-1">
         <slot>
           <p class="text-sm font-medium">{{ message }}</p>
         </slot>
       </div>
       <button type="button" v-if="closable" class="ml-auto shrink-0 rounded p-0.5 transition-colors hover:bg-black/10 dark:hover:bg-white/10" @click="handleClose">
-        <Icon icon="close" class="size-4" />
+        <Icon :icon="Close" class="size-4" />
       </button>
     </div>
 

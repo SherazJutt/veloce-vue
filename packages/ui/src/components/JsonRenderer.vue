@@ -32,7 +32,7 @@ const componentMap = {
   message: Message,
 };
 
-const props = defineProps({
+defineProps({
   json: { type: Array as () => JsonRendererItem[], required: true },
 });
 </script>

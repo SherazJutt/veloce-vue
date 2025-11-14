@@ -2,15 +2,15 @@
   <div>
     <div class="mb-6">
       <div class="relative [&_input]:pr-10">
-        <Input v-model="searchTerm" leading-icon="search" placeholder="Search icons..." />
+        <Input v-model="searchTerm" :leading-icon="Search" placeholder="Search icons..." />
         <button v-if="searchTerm" class="text-muted-foreground hover:text-foreground absolute right-3 top-[17px] z-10 -translate-y-1/2" @click="clearSearch">
-          <Icon icon="x" class="size-4" />
+          <Icon :icon="X" class="size-4" />
         </button>
       </div>
     </div>
     <div class="flex flex-wrap gap-4">
       <div v-for="icon in filteredIcons" :key="icon" class="hover:border-border hover:bg-muted/50 flex cursor-pointer flex-col items-center gap-1 rounded border border-transparent p-2 transition-colors" @click="copyIconName(icon)">
-        <Icon :icon="icon" class="size-8" />
+        <Icon :icon="icons[icon as keyof typeof icons]" class="size-8" />
         <h5 class="text-muted text-sm">{{ icon }}</h5>
       </div>
     </div>
@@ -20,10 +20,13 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Icon, iconsList } from "@veloce/icons";
+import { Icon, X, Search } from "@veloce/icons";
 import { Input } from "@veloce/ui";
+import * as icons from "@veloce/icons";
 
 const searchTerm = ref("");
+
+const iconsList = Object.keys(icons).filter((name) => name !== "Icon");
 
 const filteredIcons = computed(() => {
   if (!searchTerm.value.trim()) {
