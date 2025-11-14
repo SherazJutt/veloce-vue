@@ -20,29 +20,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, type Ref } from "vue";
 import { AnimatePresence } from "motion-v";
 import Toast from "./Toast.vue";
 import { setToastContainer } from "@veloce/toast";
-import type { Severity } from "@veloce/types";
-import type { Component } from "vue";
+import type { ToastItem } from "@veloce/toast";
 import { useRandomId } from "@veloce/utils";
-
-export interface ToastItem {
-  id: string;
-  message: string;
-  severity?: Severity;
-  icon?: Component;
-  duration?: number;
-  closable?: boolean;
-}
 
 const props = defineProps({
   position: { type: String as () => "top-center" | "bottom-center" | "top-right" | "top-left" | "bottom-right" | "bottom-left", default: "top-right" },
   maxToasts: { type: Number, default: 5 },
 });
 
-const toasts = ref<ToastItem[]>([]);
+const toasts: Ref<ToastItem[]> = ref<ToastItem[]>([]);
 
 const containerClasses = computed(() => {
   const baseClasses = "fixed z-[9999] flex flex-col gap-3 p-4 pointer-events-none";
@@ -57,7 +47,7 @@ const containerClasses = computed(() => {
   return `${baseClasses} ${positionClasses[props.position] || positionClasses["top-right"]}`;
 });
 
-const addToast = (toast: ToastItem) => {
+const addToast = (toast: ToastItem): void => {
   const newToast: ToastItem = {
     id: toast.id || useRandomId(),
     message: toast.message,
@@ -79,14 +69,14 @@ const addToast = (toast: ToastItem) => {
   }
 };
 
-const removeToast = (id: string) => {
-  const index = toasts.value.findIndex((toast) => toast.id === id);
+const removeToast = (id: string): void => {
+  const index = toasts.value.findIndex((toast: ToastItem) => toast.id === id);
   if (index > -1) {
     toasts.value.splice(index, 1);
   }
 };
 
-const clearAll = () => {
+const clearAll = (): void => {
   toasts.value = [];
 };
 
@@ -94,5 +84,10 @@ onMounted(() => {
   setToastContainer({ addToast, removeToast, clearAll, toasts });
 });
 
-defineExpose({ addToast, removeToast, clearAll, toasts });
+defineExpose<{
+  addToast: (toast: ToastItem) => void;
+  removeToast: (id: string) => void;
+  clearAll: () => void;
+  toasts: typeof toasts;
+}>({ addToast, removeToast, clearAll, toasts });
 </script>

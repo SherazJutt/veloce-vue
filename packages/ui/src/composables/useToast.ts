@@ -1,7 +1,15 @@
 import type { Severity } from "@veloce/types";
 import type { Component } from "vue";
-import type { ToastItem } from "../components/toast/ToastContainer.vue";
 import { useRandomId } from "@veloce/utils";
+
+export interface ToastItem {
+  id: string;
+  message: string;
+  severity?: Severity;
+  icon?: Component;
+  duration?: number;
+  closable?: boolean;
+}
 
 export interface ToastOptions {
   message: string;
