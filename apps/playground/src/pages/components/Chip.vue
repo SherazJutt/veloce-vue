@@ -18,11 +18,11 @@
     <section>
       <h2 class="mb-4 text-xl font-semibold">With Icons</h2>
       <div class="flex flex-wrap gap-3">
-        <Chip label="Apple" icon="check" />
-        <Chip label="Facebook" icon="check" severity="info" />
-        <Chip label="Google" icon="check" severity="success" />
-        <Chip label="Microsoft" icon="check" severity="warning" />
-        <Chip label="GitHub" icon="check" severity="error" />
+        <Chip :icon="Check" label="Apple" />
+        <Chip :icon="Check" label="Facebook" severity="info" />
+        <Chip :icon="Check" label="Google" severity="success" />
+        <Chip :icon="Check" label="Microsoft" severity="warning" />
+        <Chip :icon="Check" label="GitHub" severity="error" />
       </div>
     </section>
 
@@ -52,7 +52,7 @@
         <Chip label="Default" />
         <Chip label="Rounded" rounded />
         <Chip label="Rounded" rounded severity="success" />
-        <Chip label="Rounded" rounded severity="info" icon="check" />
+        <Chip :icon="Check" label="Rounded" rounded severity="info" />
       </div>
     </section>
 
@@ -64,9 +64,7 @@
           <span class="font-bold">Custom</span>
           <span class="text-xs opacity-75">Content</span>
         </Chip>
-        <Chip severity="success" icon="check">
-          Custom Slot
-        </Chip>
+        <Chip :icon="Check" severity="success"> Custom Slot </Chip>
       </div>
     </section>
   </div>
@@ -75,6 +73,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { Chip } from "@veloce/ui";
+import { Check } from "@veloce/icons";
 
 const chips = ref([
   { label: "Apple", severity: "primary" as const },
@@ -88,4 +87,3 @@ const removeChip = (chip: { label: string; severity: string }) => {
   chips.value = chips.value.filter((c) => c.label !== chip.label);
 };
 </script>
-

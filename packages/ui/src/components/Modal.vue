@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Button } from "@veloce/ui";
+import { Close } from "@veloce/icons";
 import { motion, AnimatePresence } from "motion-v";
 import { useWindowSize } from "@vueuse/core";
 
@@ -31,7 +32,7 @@ const { width } = useWindowSize();
         <!-- Modal header -->
         <div class="flex items-center gap-4 border-b px-4 py-2">
           <h3 class="text-primary flex-1 text-lg font-medium">Modal title</h3>
-          <Button icon="close" class="p-1!" variant="ghost" circle @click="show = false" />
+          <Button :icon="Close" class="p-1!" variant="ghost" circle @click="show = false" />
         </div>
 
         <!-- Modal body -->

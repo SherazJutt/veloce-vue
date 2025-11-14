@@ -71,10 +71,10 @@
           <span class="text-xs">New</span>
         </Badge>
         <Badge severity="success">
-          <span class="text-xs">Sale</span>
+          <span class="px-4 text-xs">Sale</span>
         </Badge>
         <Badge severity="warning">
-          <span class="text-xs">Hot</span>
+          <span class="h-8 p-2 text-xs">Hot</span>
         </Badge>
       </div>
     </section>

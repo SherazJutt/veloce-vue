@@ -20,7 +20,7 @@
     <!-- With Icon -->
     <section>
       <h2 class="mb-4 text-xl font-semibold">With Icon</h2>
-      <Fieldset icon="settings" legend="Settings">
+      <Fieldset :icon="Settings" legend="Settings">
         <div class="space-y-2">
           <Checkbox v-model="enableNotifications" label="Enable notifications" />
           <Checkbox v-model="enableDarkMode" label="Enable dark mode" />
@@ -49,13 +49,13 @@
     <section>
       <h2 class="mb-4 text-xl font-semibold">Multiple Fieldsets</h2>
       <div class="space-y-4">
-        <Fieldset icon="user" legend="Account Details">
+        <Fieldset :icon="User" legend="Account Details">
           <p class="text-muted text-sm">Account information goes here</p>
         </Fieldset>
-        <Fieldset icon="settings" legend="Preferences">
+        <Fieldset :icon="Settings" legend="Preferences">
           <p class="text-muted text-sm">User preferences go here</p>
         </Fieldset>
-        <Fieldset icon="lock" legend="Security">
+        <Fieldset :icon="Lock" legend="Security">
           <p class="text-muted text-sm">Security settings go here</p>
         </Fieldset>
       </div>
@@ -66,6 +66,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { Fieldset, Input, Checkbox } from "@veloce/ui";
+import { Settings, User, Lock } from "@veloce/icons";
 
 const isCollapsed = ref(false);
 const enableNotifications = ref(false);

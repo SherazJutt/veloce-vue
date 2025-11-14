@@ -14,9 +14,9 @@
 </template>
 
 <script setup lang="ts">
-import { Icon, type Icons } from "@veloce/icons";
+import { Icon } from "@veloce/icons";
 import { type Direction, type Severity, type Size } from "@veloce/types";
-import { computed } from "vue";
+import { computed, type Component } from "vue";
 
 type SeparatorType = "solid" | "dashed" | "dotted";
 
@@ -26,7 +26,7 @@ const props = defineProps({
   type: { type: String as () => SeparatorType, default: "solid" as SeparatorType },
   size: { type: String as () => Size, default: "md" as Size },
   label: { type: String, default: "" },
-  icon: { type: String as () => Icons, default: "" },
+  icon: { type: Object as () => Component, default: () => null },
   bordered: { type: Boolean, default: false },
   rounded: { type: Boolean, default: false },
   height: {

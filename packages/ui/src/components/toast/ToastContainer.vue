@@ -25,14 +25,14 @@ import { AnimatePresence } from "motion-v";
 import Toast from "./Toast.vue";
 import { setToastContainer } from "@veloce/toast";
 import type { Severity } from "@veloce/types";
-import type { Icons } from "@veloce/icons";
+import type { Component } from "vue";
 import { useRandomId } from "@veloce/utils";
 
 export interface ToastItem {
   id: string;
   message: string;
   severity?: Severity;
-  icon?: Icons;
+  icon?: Component;
   duration?: number;
   closable?: boolean;
 }

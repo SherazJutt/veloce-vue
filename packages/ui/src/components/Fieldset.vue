@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { Icon, type Icons } from "@veloce/icons";
+import { computed, type Component } from "vue";
+import { Icon, ChevronDown } from "@veloce/icons";
 
 const props = defineProps({
   legend: { type: String, default: "" },
-  icon: { type: String as () => Icons, default: "" },
+  icon: { type: Object as () => Component, default: () => null },
   toggleable: { type: Boolean, default: false },
   collapsed: { type: Boolean, default: false },
 });
@@ -28,7 +28,7 @@ const toggleCollapse = () => {
     >
       <Icon v-if="props.icon" :icon="props.icon" class="size-4" />
       <span>{{ props.legend }}</span>
-      <Icon v-if="props.toggleable" icon="chevron-down" :class="{ 'rotate-180': !isCollapsed }" class="size-4 transition-transform duration-200" />
+      <Icon v-if="props.toggleable" :icon="ChevronDown" :class="{ 'rotate-180': !isCollapsed }" class="size-4 transition-transform duration-200" />
     </legend>
     <div v-if="!isCollapsed || !props.toggleable" class="mt-2">
       <slot />

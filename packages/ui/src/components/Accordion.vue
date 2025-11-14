@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Icon } from "@veloce/icons";
+import { Icon, ChevronDown } from "@veloce/icons";
 import { motion, AnimatePresence } from "motion-v";
 import { type AccordionItem, type Size } from "@veloce/types";
 
@@ -76,7 +76,7 @@ const roundedClasses = computed(() => {
           <span class="accordion-title-text">{{ item.title }}</span>
         </div>
         <!-- Chevron Icon -->
-        <Icon icon="chevron-down" :class="{ 'rotate-180 ': item.active }" class="accordion-chevron-icon size-5 duration-200" />
+        <Icon :icon="ChevronDown" :class="{ 'rotate-180 ': item.active }" class="accordion-chevron-icon size-5 duration-200" />
       </div>
 
       <!-- Accordion Body -->

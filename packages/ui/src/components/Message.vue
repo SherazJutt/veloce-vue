@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { Icon, type Icons } from "@veloce/icons";
+import { computed, type Component } from "vue";
+import { Icon, CheckCircle, Info, Alert, Close } from "@veloce/icons";
 import type { Margin, Padding, Severity, Variant } from "@veloce/types";
 import { getMargin, getPadding } from "@veloce/utils";
 const { margin, marginLeft, marginRight, marginTop, marginBottom } = getMargin();
@@ -9,7 +9,7 @@ const { padding, paddingLeft, paddingRight, paddingTop, paddingBottom } = getPad
 const props = defineProps({
   severity: { type: String as () => Severity, default: "info" },
   variant: { type: String as () => Variant, default: "solid" },
-  icon: { type: String as () => Icons, default: "" },
+  icon: { type: Object as () => Component, default: () => null },
   closable: { type: Boolean, default: false },
   // margin
   margin: { type: String as () => Margin, default: "" },
@@ -29,14 +29,14 @@ const emit = defineEmits<{
   close: [];
 }>();
 
-const defaultIcons: Record<Severity, Icons> = {
-  success: "check-circle",
-  info: "info",
-  warning: "alert",
-  error: "close",
-  primary: "info",
-  secondary: "info",
-  neutral: "info",
+const defaultIcons: Record<Severity, Component> = {
+  success: CheckCircle,
+  info: Info,
+  warning: Alert,
+  error: Close,
+  primary: Info,
+  secondary: Info,
+  neutral: Info,
 };
 
 const severityClasses = {
@@ -93,7 +93,7 @@ const marginPaddingClasses = computed(() => {
 });
 
 const iconToShow = computed(() => {
-  return props.icon || defaultIcons[props.severity] || "info";
+  return props.icon || defaultIcons[props.severity] || Info;
 });
 
 const handleClose = () => {
@@ -110,6 +110,6 @@ const handleClose = () => {
     <div class="flex-1">
       <slot />
     </div>
-    <Icon v-if="props.closable" icon="close" class="ml-auto shrink-0 cursor-pointer rounded p-0.5 duration-100 hover:bg-black/10 dark:hover:bg-white/10" @click="handleClose" />
+    <Icon v-if="props.closable" :icon="Close" class="ml-auto shrink-0 cursor-pointer rounded p-0.5 duration-100 hover:bg-black/10 dark:hover:bg-white/10" @click="handleClose" />
   </div>
 </template>

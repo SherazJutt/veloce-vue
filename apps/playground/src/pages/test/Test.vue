@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button label="Button" />
+    <Button :icon="Alert" label="Button" />
   </div>
 </template>
 <script setup lang="ts">

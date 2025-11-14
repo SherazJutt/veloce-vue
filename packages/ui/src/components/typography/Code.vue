@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { Button } from "@veloce/ui";
+import { Check, Copy } from "@veloce/icons";
 import type { TextColor, FontWeight, Margin, Padding, FontSize, LineHeight, LetterSpacing } from "@veloce/types";
 import { getTypography, getMargin, getPadding } from "@veloce/utils";
 
@@ -66,6 +67,6 @@ const copyToClipboard = async () => {
 <template>
   <code :class="[classes, block ? 'block p-2.5' : 'px-1.5 py-0.5']" class="relative rounded border border-neutral-200 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800">
     <span>{{ props.text }}</span>
-    <Button :disabled="isCopied" :icon="isCopied ? 'check' : 'copy'" class="dark:hover:bg-neutral-700! p-1! absolute right-2 top-1/2 -translate-y-1/2" size="sm" variant="ghost" @click="copyToClipboard" />
+    <Button :disabled="isCopied" :icon="isCopied ? Check : Copy" class="dark:hover:bg-neutral-700! p-1! absolute right-2 top-1/2 -translate-y-1/2" size="sm" variant="ghost" @click="copyToClipboard" />
   </code>
 </template>
