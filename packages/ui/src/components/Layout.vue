@@ -35,18 +35,19 @@
 import { ref, onMounted } from "vue";
 import { Button } from "@veloce-vue/ui";
 import { Hamburger } from "@veloce-vue/icons";
-import { useStorage } from "@vueuse/core";
 import { motion, AnimatePresence } from "motion-v";
 
 const emit = defineEmits<{ (e: "sidebar", showSidebar: boolean): void }>();
 
-const showSidebar = useStorage("showSidebar", false);
+const model = defineModel<boolean>({ default: false });
+const showSidebar = ref(model.value ?? false);
 const isInitialLoad = ref(true);
 
 onMounted(() => setTimeout(() => (isInitialLoad.value = false), 100));
 
 const toggleSidebar = () => {
   showSidebar.value = !showSidebar.value;
+  model.value = showSidebar.value;
   emit("sidebar", showSidebar.value);
 };
 </script>
