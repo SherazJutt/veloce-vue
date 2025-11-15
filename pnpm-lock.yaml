@@ -124,8 +124,8 @@ importers:
         specifier: ^1.30.0
         version: 1.30.0
       veloce-vue:
-        specifier: file:../../build/package
-        version: file:build/package(motion-v@1.7.4(@vueuse/core@13.9.0(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
+        specifier: ^0.21.0
+        version: 0.21.0(motion-v@1.7.4(@vueuse/core@13.9.0(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
       vue:
         specifier: ^3.5.22
         version: 3.5.22(typescript@5.9.3)
@@ -4196,8 +4196,8 @@ packages:
     peerDependencies:
       vue: ^3.3.0
 
-  veloce-vue@file:build/package:
-    resolution: {directory: build/package, type: directory}
+  veloce-vue@0.21.0:
+    resolution: {integrity: sha512-LngjmnuXN7JafzeScu66BHo8yhcoGIe9rkjg+6kVwtp1sf8AS1vG7tJx1+36spCxhjP9y3J7GUAfKaBFoa+0vQ==}
     peerDependencies:
       motion-v: ^1.7.4
       vue: ^3.3.0
@@ -8784,7 +8784,7 @@ snapshots:
     dependencies:
       vue: 3.5.22(typescript@5.9.3)
 
-  veloce-vue@file:build/package(motion-v@1.7.4(@vueuse/core@13.9.0(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)):
+  veloce-vue@0.21.0(motion-v@1.7.4(@vueuse/core@13.9.0(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)):
     dependencies:
       motion-v: 1.7.4(@vueuse/core@13.9.0(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
       vue: 3.5.22(typescript@5.9.3)
