@@ -4,8 +4,16 @@
     <template #sidebar="{ onClose }">
       <Sidebar :close-on-click="isMobile" @close="onClose" />
     </template>
-    <template #header-actions>
+    <template #left-actions>
+      <router-link to="/">
+        <h1 class="text-base font-medium">VeloceVue</h1>
+      </router-link>
+    </template>
+    <template #right-actions>
       <Button :icon="isDark ? Sun : Moon" class="p-1!" variant="ghost" @click="toggleDark" />
+    </template>
+    <template #view>
+      <router-view />
     </template>
   </Layout>
   <ToastContainer position="bottom-right" :max-toasts="5" />

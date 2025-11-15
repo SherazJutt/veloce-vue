@@ -2,13 +2,11 @@
   <header class="flex h-14 items-center justify-between gap-4 border-b px-4">
     <div class="flex items-center gap-2">
       <Button :icon="Hamburger" iconClass="size-6" class="p-1!" variant="soft" @click="toggleSidebar" />
-      <router-link v-if="brandName" to="/">
-        <h1 class="text-base font-medium">{{ brandName }}</h1>
-      </router-link>
+      <slot name="left-actions" />
     </div>
 
     <div class="header-actions flex items-center gap-2">
-      <slot name="header-actions" />
+      <slot name="right-actions" />
     </div>
   </header>
   <main class="relative h-[calc(100dvh-3.5rem)] overflow-hidden">
@@ -29,7 +27,7 @@
       </motion.div>
     </AnimatePresence>
     <div :class="{ 'lg:ml-[240px]': showSidebar }" class="h-full overflow-auto p-2 transition-[margin-left] duration-300 ease-in-out">
-      <router-view />
+      <slot name="view" />
     </div>
   </main>
 </template>
@@ -41,10 +39,6 @@ import { useStorage } from "@vueuse/core";
 import { motion, AnimatePresence } from "motion-v";
 
 const emit = defineEmits<{ (e: "sidebar", showSidebar: boolean): void }>();
-
-defineProps({
-  brandName: { type: String, default: "VeloceVue" },
-});
 
 const showSidebar = useStorage("showSidebar", false);
 const isInitialLoad = ref(true);
