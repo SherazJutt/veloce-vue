@@ -48,6 +48,31 @@ const pkg = {
       import: "./config.js",
       default: "./config.js",
     },
+    "./toast": {
+      types: "./exports/toast.d.ts",
+      import: "./toast.js",
+      default: "./toast.js",
+    },
+    "./types": {
+      types: "./exports/types.d.ts",
+      import: "./types.js",
+      default: "./types.js",
+    },
+    "./typography": {
+      types: "./exports/typography.d.ts",
+      import: "./typography.js",
+      default: "./typography.js",
+    },
+    "./utils": {
+      types: "./exports/utils.d.ts",
+      import: "./utils.js",
+      default: "./utils.js",
+    },
+    "./composables": {
+      types: "./exports/composables.d.ts",
+      import: "./composables.js",
+      default: "./composables.js",
+    },
     "./styles.css": "./veloce.css",
   },
 
