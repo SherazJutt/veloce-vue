@@ -19,7 +19,7 @@
     "baseUrl": ".",
     "rootDir": "src",
     "paths": {
-      "@veloce/*": ["./src/exports/*"]
+      "@veloce-vue/*": ["./src/exports/*"]
     },
 
     /* === Linting & Strictness === */

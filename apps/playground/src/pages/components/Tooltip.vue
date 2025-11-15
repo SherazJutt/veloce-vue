@@ -20,5 +20,5 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Tooltip, Button } from "@veloce/ui";
+import { Tooltip, Button } from "@veloce-vue/ui";
 </script>

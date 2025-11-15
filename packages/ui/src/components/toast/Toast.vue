@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, type Component } from "vue";
-import { Icon, CheckCircle, Info, Alert, XCircle, Close } from "@veloce/icons";
-import { type Severity } from "@veloce/types";
+import { Icon, CheckCircle, Info, Alert, XCircle, Close } from "@veloce-vue/icons";
+import { type Severity } from "@veloce-vue/types";
 import { motion } from "motion-v";
 
 const props = defineProps({

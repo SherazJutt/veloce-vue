@@ -75,5 +75,5 @@
 </template>
 
 <script setup lang="ts">
-import { ProgressSpinner } from "@veloce/ui";
+import { ProgressSpinner } from "@veloce-vue/ui";
 </script>

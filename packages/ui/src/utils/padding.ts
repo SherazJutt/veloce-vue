@@ -1,4 +1,4 @@
-import type { Padding } from "@veloce/types";
+import type { Padding } from "@veloce-vue/types";
 
 export function getPadding() {
   return { padding, paddingLeft, paddingRight, paddingTop, paddingBottom };

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Button } from "@veloce/ui";
-import { Close } from "@veloce/icons";
+import { Button } from "@veloce-vue/ui";
+import { Close } from "@veloce-vue/icons";
 import { motion, AnimatePresence } from "motion-v";
 import { useWindowSize } from "@vueuse/core";
 

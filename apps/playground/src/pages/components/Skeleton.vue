@@ -102,5 +102,5 @@
 </template>
 
 <script setup lang="ts">
-import { Skeleton } from "@veloce/ui";
+import { Skeleton } from "@veloce-vue/ui";
 </script>

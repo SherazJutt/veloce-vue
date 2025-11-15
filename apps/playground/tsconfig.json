@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@veloce/*": ["../../packages/ui/src/exports/*"],
+      "@veloce-vue/*": ["../../packages/ui/src/exports/*"],
       "@store/*": ["./src/store/*"]
     },
 

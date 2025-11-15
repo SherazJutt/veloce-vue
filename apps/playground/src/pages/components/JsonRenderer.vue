@@ -5,9 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import { JsonRenderer } from "@veloce/ui";
-import type { JsonRendererItem } from "@veloce/types";
-import { useRandomId } from "@veloce/utils";
+import { JsonRenderer } from "@veloce-vue/ui";
+import type { JsonRendererItem } from "@veloce-vue/types";
+import { useRandomId } from "@veloce-vue/utils";
 
 const json: JsonRendererItem[] = [
   {

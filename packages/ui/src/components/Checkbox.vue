@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Icon, Check } from "@veloce/icons";
+import { Icon, Check } from "@veloce-vue/icons";
 import { computed, type Component } from "vue";
 
 type CheckboxSize = "sm" | "md" | "lg";
@@ -86,7 +86,10 @@ const getVariantClasses = computed(() => {
 
 <template>
   <div :class="[getSizeClasses.gap, props.disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer']" class="flex w-fit select-none items-center" @click="!props.disabled ? (model = !model) : null">
-    <div :class="[getSizeClasses.checkbox, model ? [getVariantClasses.bg, getVariantClasses.border] : [getVariantClasses.border, props.disabled ? 'opacity-50' : getVariantClasses.hover], checkboxClass]" class="m-0 flex items-center justify-center rounded-sm border-2 duration-200">
+    <div
+      :class="[getSizeClasses.checkbox, model ? [getVariantClasses.bg, getVariantClasses.border] : [getVariantClasses.border, props.disabled ? 'opacity-50' : getVariantClasses.hover], checkboxClass]"
+      class="m-0 flex items-center justify-center rounded-sm border-2 duration-200"
+    >
       <Icon v-if="model" :icon="icon" :class="`${getSizeClasses.icon} ${getVariantClasses.text}`" />
     </div>
     <div :class="[labelClass, getSizeClasses.text]">{{ label }}</div>

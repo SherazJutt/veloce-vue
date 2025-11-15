@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { Margin, Padding, Size } from "@veloce/types";
-import { getMargin, getPadding } from "@veloce/utils";
+import type { Margin, Padding, Size } from "@veloce-vue/types";
+import { getMargin, getPadding } from "@veloce-vue/utils";
 
 const { margin, marginLeft, marginRight, marginTop, marginBottom } = getMargin();
 const { padding, paddingLeft, paddingRight, paddingTop, paddingBottom } = getPadding();

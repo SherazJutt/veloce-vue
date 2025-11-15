@@ -20,9 +20,9 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Icon, X, Search } from "@veloce/icons";
-import { Input } from "@veloce/ui";
-import * as icons from "@veloce/icons";
+import { Icon, X, Search } from "@veloce-vue/icons";
+import { Input } from "@veloce-vue/ui";
+import * as icons from "@veloce-vue/icons";
 
 const searchTerm = ref("");
 

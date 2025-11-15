@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, defineProps, defineEmits } from "vue";
 import Button from "./Button.vue";
-import { Bold, Italic, Highlight } from "@veloce/icons";
+import { Bold, Italic, Highlight } from "@veloce-vue/icons";
 
 const props = defineProps<{ modelValue: string }>();
 const emit = defineEmits<{ (e: "update:modelValue", value: string): void }>();

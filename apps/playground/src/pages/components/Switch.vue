@@ -131,7 +131,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { Switch } from "@veloce/ui";
+import { Switch } from "@veloce-vue/ui";
 
 const value0 = ref(false);
 const value1 = ref(true);

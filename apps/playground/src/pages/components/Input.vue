@@ -157,9 +157,9 @@
 </template>
 
 <script setup lang="ts">
-import { Input } from "@veloce/ui";
+import { Input } from "@veloce-vue/ui";
 import { ref } from "vue";
-import { Sun, Moon, Alert } from "@veloce/icons";
+import { Sun, Moon, Alert } from "@veloce-vue/icons";
 
 const value1 = ref("");
 const value2 = ref("");

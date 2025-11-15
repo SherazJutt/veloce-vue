@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { type Component } from "vue";
-import { Icon, ChevronDown } from "@veloce/icons";
+import { Icon, ChevronDown } from "@veloce-vue/icons";
 
 const props = defineProps({
   legend: { type: String, default: "" },

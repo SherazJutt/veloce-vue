@@ -251,6 +251,6 @@
 </template>
 
 <script setup lang="ts">
-import { Separator } from "@veloce/ui";
-import { Alert, Check, Close, Sun, Moon } from "@veloce/icons";
+import { Separator } from "@veloce-vue/ui";
+import { Alert, Check, Close, Sun, Moon } from "@veloce-vue/icons";
 </script>

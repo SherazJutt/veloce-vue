@@ -1,4 +1,4 @@
-import type { Margin } from "@veloce/types";
+import type { Margin } from "@veloce-vue/types";
 
 export function getMargin() {
   return { margin, marginLeft, marginRight, marginTop, marginBottom };

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref, type Component } from "vue";
-import { useRandomId } from "@veloce/utils";
-import { Icon, Eye, EyeOff } from "@veloce/icons";
-import { type Size } from "@veloce/types";
+import { useRandomId } from "@veloce-vue/utils";
+import { Icon, Eye, EyeOff } from "@veloce-vue/icons";
+import { type Size } from "@veloce-vue/types";
 
 const id = useRandomId();
 

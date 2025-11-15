@@ -13,7 +13,7 @@ export default defineConfig({
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
       "@store": fileURLToPath(new URL("./src/store", import.meta.url)),
-      "@veloce": fileURLToPath(new URL("../../packages/ui/src/exports", import.meta.url)),
+      "@veloce-vue": fileURLToPath(new URL("../../packages/ui/src/exports", import.meta.url)),
     },
   },
   build: {

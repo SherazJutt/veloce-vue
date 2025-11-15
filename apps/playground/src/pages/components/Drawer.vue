@@ -10,7 +10,7 @@
   </Drawer>
 </template>
 <script setup lang="ts">
-import { Drawer, Button } from "@veloce/ui";
+import { Drawer, Button } from "@veloce-vue/ui";
 import { ref } from "vue";
 
 const show = ref(false);

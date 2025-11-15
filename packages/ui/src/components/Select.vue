@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { computed, ref, useTemplateRef, watch } from "vue";
-import { Button } from "@veloce/ui";
-import { type Variant, type Severity, type Size, type FontWeight } from "@veloce/types";
+import { Button } from "@veloce-vue/ui";
+import { type Variant, type Severity, type Size, type FontWeight } from "@veloce-vue/types";
 import { onClickOutside } from "@vueuse/core";
 import { motion, AnimatePresence } from "motion-v";
-import { Input } from "@veloce/ui";
-import { Icon, ChevronDown, Check, Search } from "@veloce/icons";
+import { Input } from "@veloce-vue/ui";
+import { Icon, ChevronDown, Check, Search } from "@veloce-vue/icons";
 const props = defineProps({
   options: { type: Array as () => string[], required: true },
   variant: { type: String as () => Variant, default: "outlined" as Variant },

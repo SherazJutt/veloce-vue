@@ -1,4 +1,4 @@
-import type { FontSize, FontWeight, LetterSpacing, LineHeight, TextColor } from "@veloce/types";
+import type { FontSize, FontWeight, LetterSpacing, LineHeight, TextColor } from "@veloce-vue/types";
 
 export function getTypography() {
   return { fontSizes, fontWeights, textColors, lineHeights, letterSpacings };

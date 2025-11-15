@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { Severity } from "@veloce/types";
+import type { Severity } from "@veloce-vue/types";
 
 const props = defineProps({
   value: { type: Number, default: 0 },

@@ -12,9 +12,9 @@
 </template>
 
 <script setup lang="ts">
-import type { JsonRendererItem } from "@veloce/types";
-import { H1, H2, H3, H4, H5, H6, P, Span, Blockquote, Code, Label, List } from "@veloce/typography";
-import { Message } from "@veloce/ui";
+import type { JsonRendererItem } from "@veloce-vue/types";
+import { H1, H2, H3, H4, H5, H6, P, Span, Blockquote, Code, Label, List } from "@veloce-vue/typography";
+import { Message } from "@veloce-vue/ui";
 
 const componentMap = {
   h1: H1,

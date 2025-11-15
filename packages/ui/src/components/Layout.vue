@@ -33,8 +33,8 @@
 </template>
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { Button } from "@veloce/ui";
-import { Hamburger } from "@veloce/icons";
+import { Button } from "@veloce-vue/ui";
+import { Hamburger } from "@veloce-vue/icons";
 import { useStorage } from "@vueuse/core";
 import { motion, AnimatePresence } from "motion-v";
 

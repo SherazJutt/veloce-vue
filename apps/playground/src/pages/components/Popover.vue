@@ -18,5 +18,5 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Popover, Button } from "@veloce/ui";
+import { Popover, Button } from "@veloce-vue/ui";
 </script>

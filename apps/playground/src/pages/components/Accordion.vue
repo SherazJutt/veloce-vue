@@ -17,10 +17,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Accordion } from "@veloce/ui";
-import { H4 } from "@veloce/typography";
-import { type AccordionItem } from "@veloce/types";
-import { Moon, Sun, Hamburger } from "@veloce/icons";
+import { Accordion } from "@veloce-vue/ui";
+import { H4 } from "@veloce-vue/typography";
+import { type AccordionItem } from "@veloce-vue/types";
+import { Moon, Sun, Hamburger } from "@veloce-vue/icons";
 
 const items: AccordionItem[] = [
   {

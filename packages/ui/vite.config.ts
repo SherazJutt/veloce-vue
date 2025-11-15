@@ -26,7 +26,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@veloce": path.resolve(__dirname, "./src/exports"),
+      "@veloce-vue": path.resolve(__dirname, "./src/exports"),
     },
   },
   build: {

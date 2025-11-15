@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, type Component } from "vue";
-import { Icon, Close } from "@veloce/icons";
-import { type Severity, type Size } from "@veloce/types";
+import { Icon, Close } from "@veloce-vue/icons";
+import { type Severity, type Size } from "@veloce-vue/types";
 
 const props = defineProps({
   label: { type: String, default: "" },
