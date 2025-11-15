@@ -72,8 +72,8 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { Chip } from "@veloce/ui";
-import { Check } from "@veloce/icons";
+import { Chip } from "@veloce-vue/ui";
+import { Check } from "@veloce-vue/icons";
 
 const chips = ref([
   { label: "Apple", severity: "primary" as const },

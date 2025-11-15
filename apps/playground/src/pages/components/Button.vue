@@ -218,6 +218,6 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from "@veloce/ui";
-import { Check, Close, Info, Alert, Sun, Moon } from "@veloce/icons";
+import { Button } from "@veloce-vue/ui";
+import { Check, Close, Info, Alert, Sun, Moon } from "@veloce-vue/icons";
 </script>

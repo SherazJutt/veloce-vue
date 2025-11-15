@@ -11,7 +11,7 @@
 </template>
 <script setup lang="ts">
 import { computed } from "vue";
-import type { Severity, Size } from "@veloce/types";
+import type { Severity, Size } from "@veloce-vue/types";
 
 const props = defineProps({
   severity: { type: String as () => Severity, default: "primary" as Severity },

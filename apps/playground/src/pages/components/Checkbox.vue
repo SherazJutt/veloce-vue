@@ -13,7 +13,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Checkbox } from "@veloce/ui";
+import { Checkbox } from "@veloce-vue/ui";
 import { ref } from "vue";
 
 const model = ref(false);

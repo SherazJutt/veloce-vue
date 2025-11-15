@@ -23,9 +23,9 @@
 import { ref, computed, onMounted, type Ref } from "vue";
 import { AnimatePresence } from "motion-v";
 import Toast from "./Toast.vue";
-import { setToastContainer } from "@veloce/toast";
-import type { ToastItem } from "@veloce/toast";
-import { useRandomId } from "@veloce/utils";
+import { setToastContainer } from "@veloce-vue/toast";
+import type { ToastItem } from "@veloce-vue/toast";
+import { useRandomId } from "@veloce-vue/utils";
 
 const props = defineProps({
   position: { type: String as () => "top-center" | "bottom-center" | "top-right" | "top-left" | "bottom-right" | "bottom-left", default: "top-right" },

@@ -72,7 +72,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { ProgressBar, Button } from "@veloce/ui";
+import { ProgressBar, Button } from "@veloce-vue/ui";
 
 const progressValue = ref(0);
 const dynamicProgress = ref(30);
@@ -112,4 +112,3 @@ const decreaseProgress = () => {
   dynamicProgress.value = Math.max(dynamicProgress.value - 10, 0);
 };
 </script>
-

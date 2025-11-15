@@ -4,7 +4,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Select } from "@veloce/ui";
+import { Select } from "@veloce-vue/ui";
 import { ref } from "vue";
 
 const model = ref("");

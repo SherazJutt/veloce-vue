@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { TextColor, FontWeight, Margin, Padding, FontSize, LineHeight, LetterSpacing } from "@veloce/types";
-import { getTypography, getMargin, getPadding } from "@veloce/utils";
+import type { TextColor, FontWeight, Margin, Padding, FontSize, LineHeight, LetterSpacing } from "@veloce-vue/types";
+import { getTypography, getMargin, getPadding } from "@veloce-vue/utils";
 
 const { fontSizes, fontWeights, textColors, letterSpacings, lineHeights } = getTypography();
 const { margin, marginLeft, marginRight, marginTop, marginBottom } = getMargin();

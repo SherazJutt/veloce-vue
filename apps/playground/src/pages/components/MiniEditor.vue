@@ -5,7 +5,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { MiniEditor } from "@veloce/ui";
+import { MiniEditor } from "@veloce-vue/ui";
 
 const content = ref(`hello world from user`);
 </script>

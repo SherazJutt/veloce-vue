@@ -20,14 +20,14 @@
 </template>
 
 <script setup lang="ts">
-import { Button, Layout } from "@veloce/ui";
-import { ToastContainer } from "@veloce/toast";
+import { Button, Layout } from "@veloce-vue/ui";
+import { ToastContainer } from "@veloce-vue/toast";
 import Sidebar from "@/components/Sidebar.vue";
-import { Sun, Moon } from "@veloce/icons";
+import { Sun, Moon } from "@veloce-vue/icons";
 
 import { computed } from "vue";
 import { useWindowSize } from "@vueuse/core";
-import { useColorMode } from "@veloce/composables";
+import { useColorMode } from "@veloce-vue/composables";
 
 const { isDark, toggleDark } = useColorMode();
 const { width } = useWindowSize();

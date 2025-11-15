@@ -19,7 +19,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Button } from "@veloce/ui";
+import { Button } from "@veloce-vue/ui";
 import { global } from "@store/global";
 
 const emit = defineEmits<{ close: [] }>();

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Icon, ChevronDown } from "@veloce/icons";
+import { Icon, ChevronDown } from "@veloce-vue/icons";
 import { motion, AnimatePresence } from "motion-v";
-import { type AccordionItem, type Size } from "@veloce/types";
+import { type AccordionItem, type Size } from "@veloce-vue/types";
 
 // Props definition
 // `items` is an array of objects where each object represents an accordion item.

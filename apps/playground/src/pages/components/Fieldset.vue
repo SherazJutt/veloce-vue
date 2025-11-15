@@ -65,8 +65,8 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { Fieldset, Input, Checkbox } from "@veloce/ui";
-import { Settings, User, Lock } from "@veloce/icons";
+import { Fieldset, Input, Checkbox } from "@veloce-vue/ui";
+import { Settings, User, Lock } from "@veloce-vue/icons";
 
 const isCollapsed = ref(false);
 const enableNotifications = ref(false);

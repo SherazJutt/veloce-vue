@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, type Component } from "vue";
-import { Icon, CheckCircle, Info, Alert, Close } from "@veloce/icons";
-import type { Margin, Padding, Severity, Variant } from "@veloce/types";
-import { getMargin, getPadding } from "@veloce/utils";
+import { Icon, CheckCircle, Info, Alert, Close } from "@veloce-vue/icons";
+import type { Margin, Padding, Severity, Variant } from "@veloce-vue/types";
+import { getMargin, getPadding } from "@veloce-vue/utils";
 const { margin, marginLeft, marginRight, marginTop, marginBottom } = getMargin();
 const { padding, paddingLeft, paddingRight, paddingTop, paddingBottom } = getPadding();
 

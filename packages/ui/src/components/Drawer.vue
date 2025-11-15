@@ -29,8 +29,8 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { Button } from "@veloce/ui";
-import { Close } from "@veloce/icons";
+import { Button } from "@veloce-vue/ui";
+import { Close } from "@veloce-vue/icons";
 
 const props = defineProps({
   direction: { type: String as () => "left" | "bottom" | "right", default: "bottom", options: ["left", "bottom", "right"] },

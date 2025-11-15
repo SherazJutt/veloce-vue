@@ -3,5 +3,5 @@
 </template>
 
 <script setup lang="ts">
-import { Layout } from "@veloce/ui";
+import { Layout } from "@veloce-vue/ui";
 </script>

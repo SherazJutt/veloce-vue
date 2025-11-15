@@ -1,6 +1,6 @@
-import type { Severity } from "@veloce/types";
+import type { Severity } from "@veloce-vue/types";
 import type { Component } from "vue";
-import { useRandomId } from "@veloce/utils";
+import { useRandomId } from "@veloce-vue/utils";
 
 export interface ToastItem {
   id: string;

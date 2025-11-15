@@ -82,9 +82,9 @@ toast.clear();</code></pre>
 </template>
 
 <script setup lang="ts">
-import { Button } from "@veloce/ui";
-import { useToast } from "@veloce/toast";
-import { Upload, Bell } from "@veloce/icons";
+import { Button } from "@veloce-vue/ui";
+import { useToast } from "@veloce-vue/toast";
+import { Upload, Bell } from "@veloce-vue/icons";
 import { markRaw } from "vue";
 
 const toast = useToast();

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Button } from "@veloce/ui";
-import { Check, Copy } from "@veloce/icons";
-import type { TextColor, FontWeight, Margin, Padding, FontSize, LineHeight, LetterSpacing } from "@veloce/types";
-import { getTypography, getMargin, getPadding } from "@veloce/utils";
+import { Button } from "@veloce-vue/ui";
+import { Check, Copy } from "@veloce-vue/icons";
+import type { TextColor, FontWeight, Margin, Padding, FontSize, LineHeight, LetterSpacing } from "@veloce-vue/types";
+import { getTypography, getMargin, getPadding } from "@veloce-vue/utils";
 
 const { fontSizes, fontWeights, textColors, letterSpacings, lineHeights } = getTypography();
 const { margin, marginLeft, marginRight, marginTop, marginBottom } = getMargin();

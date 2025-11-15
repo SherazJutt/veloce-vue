@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { Icon } from "@veloce/icons";
-import { type Direction, type Severity, type Size } from "@veloce/types";
+import { Icon } from "@veloce-vue/icons";
+import { type Direction, type Severity, type Size } from "@veloce-vue/types";
 import { computed, type Component } from "vue";
 
 type SeparatorType = "solid" | "dashed" | "dotted";

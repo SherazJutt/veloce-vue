@@ -4,6 +4,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Button } from "@veloce/ui";
-import { Alert } from "@veloce/icons";
+import { Button } from "@veloce-vue/ui";
+import { Alert } from "@veloce-vue/icons";
 </script>

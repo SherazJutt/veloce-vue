@@ -8,7 +8,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { RangeSlider } from "@veloce/ui";
+import { RangeSlider } from "@veloce-vue/ui";
 import { ref } from "vue";
 
 const value = ref(25);

@@ -67,8 +67,8 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { Message, Button } from "@veloce/ui";
-import { Send } from "@veloce/icons";
+import { Message, Button } from "@veloce-vue/ui";
+import { Send } from "@veloce-vue/icons";
 
 const showMessage1 = ref(true);
 const showMessage2 = ref(true);

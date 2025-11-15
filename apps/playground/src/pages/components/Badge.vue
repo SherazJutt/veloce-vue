@@ -82,5 +82,5 @@
 </template>
 
 <script setup lang="ts">
-import { Badge } from "@veloce/ui";
+import { Badge } from "@veloce-vue/ui";
 </script>
