@@ -26,7 +26,9 @@
         <slot name="sidebar" :showSidebar="showSidebar" @close="toggleSidebar" />
       </motion.div>
     </AnimatePresence>
-    <div :class="{ 'lg:ml-[240px]': showSidebar }" class="h-full overflow-auto p-2 transition-[margin-left] duration-300 ease-in-out">
+    <div :class="{ 'lg:ml-[240px]': showSidebar }" class="relative h-full overflow-auto p-2 transition-[margin-left] duration-300 ease-in-out">
+      <!-- backdrop -->
+      <div :class="showSidebar ? 'left-0' : '-left-full'" class="duration-250 absolute top-0 z-40 h-full w-full bg-black/40 backdrop-blur-[1px] ease-in-out lg:hidden" @click="toggleSidebar"></div>
       <slot name="view" />
     </div>
   </main>
@@ -36,24 +38,27 @@ import { ref, onMounted } from "vue";
 import { Button } from "@veloce-vue/ui";
 import { Hamburger } from "@veloce-vue/icons";
 import { motion, AnimatePresence } from "motion-v";
-import { useCookies } from "@vueuse/integrations/useCookies";
-const cookies = useCookies(["showSidebar"]);
+import { useWindowSize } from "@vueuse/core";
 
 const emit = defineEmits<{ (e: "sidebar", showSidebar: boolean): void }>();
 
-const showSidebar = ref(cookies.get("showSidebar") ?? true);
+const { width } = useWindowSize();
+
+const showSidebar = ref(false);
 const isInitialLoad = ref(true);
 
-onMounted(() => setTimeout(() => (isInitialLoad.value = false), 100));
+onMounted(() => {
+  setTimeout(() => {
+    isInitialLoad.value = false;
+
+    if (width.value > 992) {
+      showSidebar.value = true;
+    }
+  }, 500);
+});
 
 const toggleSidebar = () => {
   showSidebar.value = !showSidebar.value;
-  cookies.set("showSidebar", showSidebar.value, {
-    path: "/",
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 365, // 1 year
-  });
-
   emit("sidebar", showSidebar.value);
 };
 </script>
