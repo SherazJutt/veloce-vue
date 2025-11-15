@@ -14,12 +14,15 @@ const newPlaygroundPackageJson = {
   dependencies: {
     "vue-router": "^4.6.3",
     ...uiPackageJson.dependencies,
+    ...playgroundPackageJson.peerDependencies,
   },
 
   devDependencies: {
     ...uiPackageJson.devDependencies,
   },
 };
+
+delete newPlaygroundPackageJson.peerDependencies;
 
 const playgroundPkgPath = path.join(rootDir, "apps/playground/package.json");
 fs.writeFileSync(playgroundPkgPath, JSON.stringify(newPlaygroundPackageJson, null, 2));
