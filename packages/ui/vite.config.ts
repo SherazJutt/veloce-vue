@@ -39,6 +39,11 @@ export default defineConfig({
         ui: path.resolve(__dirname, "src/exports/ui.ts"),
         icons: path.resolve(__dirname, "src/exports/icons.ts"),
         config: path.resolve(__dirname, "src/exports/config.ts"),
+        toast: path.resolve(__dirname, "src/exports/toast.ts"),
+        types: path.resolve(__dirname, "src/exports/types.ts"),
+        typography: path.resolve(__dirname, "src/exports/typography.ts"),
+        utils: path.resolve(__dirname, "src/exports/utils.ts"),
+        composables: path.resolve(__dirname, "src/exports/composables.ts"),
       },
       formats: ["es"],
     },
@@ -62,8 +67,8 @@ export default defineConfig({
         preserveModules: true, // Enable tree-shaking by preserving module structure
         preserveModulesRoot: "src",
         entryFileNames: ({ name }) => {
-          // Keep ui.js, icons.js, config.js as entry points
-          if (name === "ui" || name === "icons" || name === "config") {
+          // Keep ui.js, icons.js, config.js, toast.js, types.js, typography.js, utils.js, composables.js as entry points
+          if (name === "ui" || name === "icons" || name === "config" || name === "toast" || name === "types" || name === "typography" || name === "utils" || name === "composables") {
             return `${name}.js`;
           }
           // For non-entry files, preserveModules will handle the structure
