@@ -76,10 +76,7 @@ const pkg = {
     "./styles.css": "./veloce.css",
   },
 
-  peerDependencies: {
-    vue: "^3.3.0",
-    "motion-v": "^1.7.4",
-  },
+  peerDependencies: rootPkg.peerDependencies,
 
   sideEffects: ["**/*.css", "**/veloce.css", "**/style.css"],
 

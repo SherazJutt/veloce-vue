@@ -1,26 +1,19 @@
 {
   "name": "playground",
-  "version": "0.22.0",
+  "version": "0.25.0",
   "private": false,
   "type": "module",
   "dependencies": {
     "vue-router": "^4.6.3",
     "@vueuse/core": "^13.9.0",
-    "github-markdown-css": "^5.8.1",
-    "lucide-vue-next": "^0.548.0",
     "motion-v": "^1.7.4",
-    "prismjs": "^1.30.0",
     "vue": "^3.5.22"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.9",
-    "@types/markdown-it": "^14.1.2",
     "@types/node": "^24.6.0",
-    "@types/prismjs": "^1.26.5",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.8.1",
-    "dompurify": "^3.3.0",
-    "markdown-it": "^14.1.0",
     "sass-embedded": "^1.93.2",
     "tailwindcss": "^4.0.9",
     "typescript": "~5.9.3",
