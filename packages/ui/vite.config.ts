@@ -55,10 +55,9 @@ export default defineConfig({
         // Externalize peer dependencies
         if (id === "motion-v" || id.startsWith("motion-v/")) return true;
         if (id === "@vueuse/core" || id.startsWith("@vueuse/core/")) return true;
+        if (id === "@vueuse/integrations" || id.startsWith("@vueuse/integrations/")) return true;
+        if (id === "universal-cookie" || id.startsWith("universal-cookie/")) return true;
         // Externalize other peer dependencies (this will requires the consuming app to install the peer dependencies explicitly
-        // e.g pnpm add vuedraggable)
-
-        // return ["vuedraggable"].includes(id);
         return false;
       },
       output: {

@@ -35,18 +35,25 @@
 import { ref, onMounted } from "vue";
 import { Button } from "@veloce-vue/ui";
 import { Hamburger } from "@veloce-vue/icons";
-import { useStorage } from "@vueuse/core";
 import { motion, AnimatePresence } from "motion-v";
+import { useCookies } from "@vueuse/integrations/useCookies";
+const cookies = useCookies(["showSidebar"]);
 
 const emit = defineEmits<{ (e: "sidebar", showSidebar: boolean): void }>();
 
-const showSidebar = useStorage("showSidebar", false);
+const showSidebar = ref(cookies.get("showSidebar") ?? true);
 const isInitialLoad = ref(true);
 
 onMounted(() => setTimeout(() => (isInitialLoad.value = false), 100));
 
 const toggleSidebar = () => {
   showSidebar.value = !showSidebar.value;
+  cookies.set("showSidebar", showSidebar.value, {
+    path: "/",
+    sameSite: "lax",
+    maxAge: 60 * 60 * 24 * 365, // 1 year
+  });
+
   emit("sidebar", showSidebar.value);
 };
 </script>
