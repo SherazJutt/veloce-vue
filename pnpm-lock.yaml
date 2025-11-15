@@ -38,6 +38,9 @@ importers:
       '@vueuse/core':
         specifier: ^13.9.0
         version: 13.9.0(vue@3.5.22(typescript@5.9.3))
+      '@vueuse/integrations':
+        specifier: ^14.0.0
+        version: 14.0.0(fuse.js@7.1.0)(universal-cookie@7.2.2)(vue@3.5.22(typescript@5.9.3))
       motion-v:
         specifier: ^1.7.4
         version: 1.7.4(@vueuse/core@13.9.0(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
