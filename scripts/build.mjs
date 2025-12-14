@@ -55,8 +55,6 @@ const pkg = {
     },
     "./types": {
       types: "./exports/types.d.ts",
-      import: "./types.js",
-      default: "./types.js",
     },
     "./typography": {
       types: "./exports/typography.d.ts",

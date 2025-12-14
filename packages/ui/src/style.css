@@ -1,18 +1,19 @@
-@source "./utils";
+/* ----------------------------
+   Imports must come first
+   ---------------------------- */
+@import "./styles/vars.css";
+@import "./styles/theme.css";
+@import "./styles/scrollbar.css";
+@import "./styles/utilities.css";
+@import "./styles/layers/base.css";
 
+/* ----------------------------
+      Custom directives
+      ---------------------------- */
+@source "./utils";
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* variables */
-@import "./styles/vars.css";
-
-/* theme */
-@import "./styles/theme.css";
-
-/* scrollbar */
-@import "./styles/scrollbar.css";
-
-/* utilities */
-@import "./styles/utilities.css";
-
-/* layers */
-@import "./styles/layers/base.css";
+/* ----------------------------
+      Any additional global CSS
+      ---------------------------- */
+/* You can add more global styles here */
