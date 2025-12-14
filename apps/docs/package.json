@@ -1,18 +1,12 @@
 {
-  "name": "docs",
-  "type": "module",
-  "private": true,
+  "name": "docus-starter",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "dev": "nuxt dev --extends docus",
+    "build": "nuxt build --extends docus"
   },
   "dependencies": {
-    "nuxt": "^4.2.0",
-    "veloce-vue": "^0.16.0",
-    "vue": "^3.5.22",
-    "vue-router": "^4.6.3"
+    "docus": "latest",
+    "better-sqlite3": "^12.2.0",
+    "nuxt": "^4.1.2"
   }
 }
