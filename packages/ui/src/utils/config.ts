@@ -1,7 +1,18 @@
 interface Colors {
   primary: string;
+  "primary-light": string;
   secondary: string;
-  accent: string;
+  "secondary-light": string;
+  success: string;
+  "success-light": string;
+  info: string;
+  "info-light": string;
+  warning: string;
+  "warning-light": string;
+  error: string;
+  "error-light": string;
+  neutral: string;
+  "neutral-light": string;
 }
 
 interface config {
@@ -31,6 +42,8 @@ const applyCSSVars = (colors: Colors) => {
   for (const color in colors) {
     if (colors[color as keyof Colors]) {
       root.style.setProperty(`--ui-color-${color}`, colors[color as keyof Colors]);
+    } else {
+      console.warn(`Color ${color} not found in the colors object. Available colors are: ${Object.keys(colors).join(", ")}`);
     }
   }
 };
