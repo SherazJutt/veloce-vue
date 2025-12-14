@@ -29,7 +29,7 @@ export default defineConfig({
   build: {
     outDir: "../../build/package",
     sourcemap: false,
-    cssCodeSplit: true, // irrelevant now, but safe
+    cssCodeSplit: true,
     lib: {
       entry: {
         ui: path.resolve(__dirname, "src/exports/ui.ts"),
