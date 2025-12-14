@@ -1,39 +1,35 @@
-import { defineConfig, Plugin } from "vite";
+import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
-import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import dts from "vite-plugin-dts";
 
 export default defineConfig({
   plugins: [
     vue(),
-    tailwindcss(),
     tsconfigPaths({ ignoreConfigErrors: true }),
     dts({
       tsconfigPath: "./tsconfig.json",
       outDir: "../../build/package",
       entryRoot: "src",
-      insertTypesEntry: false,
       copyDtsFiles: true,
       staticImport: true,
       rollupTypes: false,
-
-      // Generate types for all public API files
       include: ["src/exports/**/*.ts", "src/components/**/*.vue", "src/components/**/*.ts"],
       exclude: ["node_modules/**", "**/*.spec.ts", "**/*.test.ts"],
     }),
   ],
+
   resolve: {
     alias: {
       "@veloce-vue": path.resolve(__dirname, "./src/exports"),
     },
   },
+
   build: {
     outDir: "../../build/package",
     sourcemap: false,
-    cssCodeSplit: false,
-
+    cssCodeSplit: true, // irrelevant now, but safe
     lib: {
       entry: {
         ui: path.resolve(__dirname, "src/exports/ui.ts"),
@@ -49,37 +45,11 @@ export default defineConfig({
     },
 
     rollupOptions: {
-      external: (id) => {
-        // Externalize Vue and all its sub-modules
-        if (id === "vue" || id.startsWith("vue/")) return true;
-        // Externalize peer dependencies
-        if (id === "motion-v" || id.startsWith("motion-v/")) return true;
-        if (id === "@vueuse/core" || id.startsWith("@vueuse/core/")) return true;
-        if (id === "@vueuse/integrations" || id.startsWith("@vueuse/integrations/")) return true;
-        if (id === "universal-cookie" || id.startsWith("universal-cookie/")) return true;
-        // Externalize other peer dependencies (this will requires the consuming app to install the peer dependencies explicitly
-        return false;
-      },
+      external: ["vue", "motion-v", "@vueuse/core", "@vueuse/integrations", "universal-cookie"],
       output: {
-        interop: "auto",
-        globals: { vue: "Vue" },
-        preserveModules: true, // Enable tree-shaking by preserving module structure
+        preserveModules: true,
         preserveModulesRoot: "src",
-        entryFileNames: ({ name }) => {
-          // Keep ui.js, icons.js, config.js, toast.js, types.js, typography.js, utils.js, composables.js as entry points
-          if (name === "ui" || name === "icons" || name === "config" || name === "toast" || name === "types" || name === "typography" || name === "utils" || name === "composables") {
-            return `${name}.js`;
-          }
-          // For non-entry files, preserveModules will handle the structure
-          return "[name].js";
-        },
-        assetFileNames: (assetInfo) => {
-          // Extract CSS to veloce.css to match package.json exports
-          if (assetInfo.name === "style.css" || assetInfo.name?.endsWith(".css")) {
-            return "veloce.css";
-          }
-          return assetInfo.name || "[name].[ext]";
-        },
+        entryFileNames: ({ name }) => (["ui", "icons", "config", "toast", "types", "typography", "utils", "composables"].includes(name ?? "") ? `${name}.js` : "[name].js"),
       },
     },
   },
