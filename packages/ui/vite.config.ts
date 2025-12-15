@@ -3,10 +3,12 @@ import vue from "@vitejs/plugin-vue";
 import path from "path";
 import tsconfigPaths from "vite-tsconfig-paths";
 import dts from "vite-plugin-dts";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [
     vue(),
+    tailwindcss(),
     tsconfigPaths({ ignoreConfigErrors: true }),
     dts({
       tsconfigPath: "./tsconfig.json",
@@ -29,7 +31,7 @@ export default defineConfig({
   build: {
     outDir: "../../build/package",
     sourcemap: false,
-    cssCodeSplit: true,
+    cssCodeSplit: true, // keeps CSS in separate files per entry
     lib: {
       entry: {
         ui: path.resolve(__dirname, "src/exports/ui.ts"),
@@ -39,7 +41,6 @@ export default defineConfig({
         typography: path.resolve(__dirname, "src/exports/typography.ts"),
         utils: path.resolve(__dirname, "src/exports/utils.ts"),
         composables: path.resolve(__dirname, "src/exports/composables.ts"),
-        style: path.resolve(__dirname, "src/style.css"),
       },
       formats: ["es"],
     },
@@ -49,7 +50,12 @@ export default defineConfig({
       output: {
         preserveModules: true,
         preserveModulesRoot: "src",
-        entryFileNames: ({ name }) => (["ui", "icons", "config", "toast", "types", "typography", "utils", "composables"].includes(name ?? "") ? `${name}.js` : "[name].js"),
+        entryFileNames: ({ name }) => {
+          if (["ui", "icons", "config", "toast", "types", "typography", "utils", "composables"].includes(name ?? "")) {
+            return `${name}.js`;
+          }
+          return "[name].js";
+        },
       },
     },
   },

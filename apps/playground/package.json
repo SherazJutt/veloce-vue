@@ -1,6 +1,6 @@
 {
   "name": "playground",
-  "version": "0.29.0",
+  "version": "0.36.0",
   "private": false,
   "type": "module",
   "dependencies": {
@@ -12,8 +12,6 @@
     "vue": "^3.5.22"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.18",
-    "tailwindcss": "^4.1.18",
     "@types/node": "^24.6.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.8.1",
@@ -23,7 +21,9 @@
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-vue-devtools": "^8.0.2",
     "vite-tsconfig-paths": "^5.1.4",
-    "vue-tsc": "^3.1.0"
+    "vue-tsc": "^3.1.0",
+    "@tailwindcss/vite": "^4.1.18",
+    "tailwindcss": "^4.1.18"
   },
   "scripts": {
     "dev": "vite",
