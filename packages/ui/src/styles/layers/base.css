@@ -2,8 +2,4 @@
   * {
     @apply border-border;
   }
-  body {
-    color: var(--ui-color-text);
-    background-color: var(--ui-color-background);
-  }
 }
