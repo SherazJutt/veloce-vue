@@ -71,12 +71,12 @@ const pkg = {
       import: "./composables.js",
       default: "./composables.js",
     },
-    "./styles.css": "./veloce.css",
+    "./styles.css": "./style.css",
   },
 
   peerDependencies: rootPkg.peerDependencies,
 
-  sideEffects: ["**/*.css", "**/veloce.css", "**/style.css"],
+  sideEffects: ["**/*.css"],
 
   keywords: ["veloce-vue"],
 };
