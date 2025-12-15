@@ -1,3 +1,13 @@
+@theme {
+  /* shadows */
+  --shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
 @theme inline {
   /* Main Brand Colors */
   --color-primary: var(--ui-color-primary);
@@ -23,39 +33,4 @@
 
   /* Border Radius */
   --radius: var(--ui-border-radius);
-}
-
-@theme {
-  /* shadows */
-  --shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
-  --shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
-
-  /* breakpoints */
-
-  /* to use normal breakpoints you can use sm, md, lg, xl ... */
-  /* to use min breakpoints you can use min-sm, min-md, min-lg, min-xl ... */
-  /* to use max breakpoints you can use max-sm, max-md, max-lg, max-xl ... */
-  /* by default all the breakpints are min width so (min-breakpoint) is not requird
-        unless you need min-max breakpoint
-        eg.(min width: 576px and max width: 768px) with tailwild css (min-sm:max-md:bg-red-500) */
-
-  --breakpoint-coxs: 375px;
-  --breakpoint-xs: 425px;
-  --breakpoint-cosm: 500px;
-  --breakpoint-sm: 576px;
-  --breakpoint-comd: 650px;
-  --breakpoint-md: 768px;
-  --breakpoint-colg: 850px;
-  --breakpoint-lg: 992px;
-  --breakpoint-coxl: 1050px;
-  --breakpoint-xl: 1200px;
-  --breakpoint-co2xl: 1320px;
-  --breakpoint-2xl: 1440px;
-  --breakpoint-3xl: 1660px;
-  --breakpoint-1700: 1700px;
-  --breakpoint-4xl: 1800px;
 }
