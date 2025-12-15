@@ -1,7 +1,7 @@
 import { defineNuxtConfig } from "nuxt/config";
 
 export default defineNuxtConfig({
-  css: ["veloce-vue/styles.css"],
+  css: ["~/assets/css/main.css"],
   components: {
     dirs: [
       {
