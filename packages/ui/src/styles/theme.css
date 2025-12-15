@@ -10,27 +10,27 @@
 
 @theme inline {
   /* Main Brand Colors */
-  --color-primary: var(--ui-color-primary);
-  --color-primary-light: color-mix(in srgb, var(--ui-color-primary) 12%, transparent);
-  --color-secondary: var(--ui-color-secondary);
-  --color-secondary-light: color-mix(in srgb, var(--ui-color-secondary) 12%, transparent);
-  --color-success: var(--ui-color-success);
-  --color-success-light: color-mix(in srgb, var(--ui-color-success) 12%, transparent);
-  --color-info: var(--ui-color-info);
-  --color-info-light: color-mix(in srgb, var(--ui-color-info) 12%, transparent);
-  --color-warning: var(--ui-color-warning);
-  --color-warning-light: color-mix(in srgb, var(--ui-color-warning) 12%, transparent);
-  --color-error: var(--ui-color-error);
-  --color-error-light: color-mix(in srgb, var(--ui-color-error) 12%, transparent);
-  --color-neutral: var(--ui-color-neutral);
-  --color-neutral-light: color-mix(in srgb, var(--ui-color-neutral) 12%, transparent);
+  --color-primary: var(--veloce-vue-color-primary);
+  --color-primary-light: color-mix(in srgb, var(--veloce-vue-color-primary) 12%, transparent);
+  --color-secondary: var(--veloce-vue-color-secondary);
+  --color-secondary-light: color-mix(in srgb, var(--veloce-vue-color-secondary) 12%, transparent);
+  --color-success: var(--veloce-vue-color-success);
+  --color-success-light: color-mix(in srgb, var(--veloce-vue-color-success) 12%, transparent);
+  --color-info: var(--veloce-vue-color-info);
+  --color-info-light: color-mix(in srgb, var(--veloce-vue-color-info) 12%, transparent);
+  --color-warning: var(--veloce-vue-color-warning);
+  --color-warning-light: color-mix(in srgb, var(--veloce-vue-color-warning) 12%, transparent);
+  --color-error: var(--veloce-vue-color-error);
+  --color-error-light: color-mix(in srgb, var(--veloce-vue-color-error) 12%, transparent);
+  --color-neutral: var(--veloce-vue-color-neutral);
+  --color-neutral-light: color-mix(in srgb, var(--veloce-vue-color-neutral) 12%, transparent);
 
   /* Background Colors */
-  --color-background: var(--ui-color-background);
+  --color-background: var(--veloce-vue-color-background);
 
   /* Border Colors */
-  --color-border: var(--ui-color-border);
+  --color-border: var(--veloce-vue-color-border);
 
   /* Border Radius */
-  --radius: var(--ui-border-radius);
+  --radius: var(--veloce-vue-border-radius);
 }

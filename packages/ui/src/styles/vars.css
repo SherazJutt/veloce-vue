@@ -4,44 +4,44 @@
 /* Light mode colors */
 :root {
   /* Main Brand Colors */
-  --ui-color-primary: #e88711;
-  --ui-color-secondary: #2b7fff;
-  --ui-color-success: #00c271;
-  --ui-color-info: #2b7fff;
-  --ui-color-warning: #f0b100;
-  --ui-color-error: #fb2c36;
+  --veloce-vue-color-primary: #e88711;
+  --veloce-vue-color-secondary: #2b7fff;
+  --veloce-vue-color-success: #00c271;
+  --veloce-vue-color-info: #2b7fff;
+  --veloce-vue-color-warning: #f0b100;
+  --veloce-vue-color-error: #fb2c36;
 
   /* Text Colors */
-  --ui-color-text: var(--color-neutral-700);
-  --ui-color-text-muted: var(--color-neutral-500);
-  --ui-color-text-inverted: var(--color-white);
+  --veloce-vue-color-text: var(--color-neutral-700);
+  --veloce-vue-color-text-muted: var(--color-neutral-500);
+  --veloce-vue-color-text-inverted: var(--color-white);
 
   /* Background Colors */
-  --ui-color-background: var(--color-white);
+  --veloce-vue-color-background: var(--color-white);
 
   /* Border Colors */
-  --ui-color-border: var(--color-slate-200);
-  --ui-border-radius: 0.25rem;
+  --veloce-vue-color-border: var(--color-slate-200);
+  --veloce-vue-border-radius: 0.25rem;
 }
 
 /* Dark mode colors */
 :root:where(.dark) {
   /* Main Brand Colors */
-  --ui-color-primary: #e58b1d;
-  --ui-color-secondary: #51a2ff;
-  --ui-color-success: #00dc82;
-  --ui-color-info: #51a2ff;
-  --ui-color-warning: #fdc700;
-  --ui-color-error: #ff6467;
+  --veloce-vue-color-primary: #e58b1d;
+  --veloce-vue-color-secondary: #51a2ff;
+  --veloce-vue-color-success: #00dc82;
+  --veloce-vue-color-info: #51a2ff;
+  --veloce-vue-color-warning: #fdc700;
+  --veloce-vue-color-error: #ff6467;
 
   /* Text Colors */
-  --ui-color-text: var(--color-neutral-300);
-  --ui-color-text-muted: var(--color-neutral-400);
-  --ui-color-text-inverted: var(--color-neutral-900);
+  --veloce-vue-color-text: var(--color-neutral-300);
+  --veloce-vue-color-text-muted: var(--color-neutral-400);
+  --veloce-vue-color-text-inverted: var(--color-neutral-900);
 
   /* Background Colors */
-  --ui-color-background: var(--color-neutral-900);
+  --veloce-vue-color-background: var(--color-neutral-900);
 
   /* Border Colors */
-  --ui-color-border: var(--color-neutral-800);
+  --veloce-vue-color-border: var(--color-neutral-800);
 }
