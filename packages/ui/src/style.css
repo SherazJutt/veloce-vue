@@ -4,4 +4,3 @@
 @import "./styles/layers/base.css";
 
 @source "./utils";
-@custom-variant dark (&:where(.dark, .dark *));
