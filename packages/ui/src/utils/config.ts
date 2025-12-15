@@ -1,18 +1,11 @@
 interface Colors {
   primary: string;
-  "primary-light": string;
   secondary: string;
-  "secondary-light": string;
   success: string;
-  "success-light": string;
   info: string;
-  "info-light": string;
   warning: string;
-  "warning-light": string;
   error: string;
-  "error-light": string;
   neutral: string;
-  "neutral-light": string;
 }
 
 interface config {
