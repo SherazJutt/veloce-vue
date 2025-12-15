@@ -18,8 +18,6 @@ const newPlaygroundPackageJson = {
   },
 
   devDependencies: {
-    "@tailwindcss/vite": "^4.1.18",
-    tailwindcss: "^4.1.18",
     ...uiPackageJson.devDependencies,
   },
 };

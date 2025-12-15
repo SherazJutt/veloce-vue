@@ -71,7 +71,7 @@ const pkg = {
       import: "./composables.js",
       default: "./composables.js",
     },
-    "./styles.css": "./style.css",
+    "./styles.css": "./build-style.css",
   },
 
   peerDependencies: rootPkg.peerDependencies,
