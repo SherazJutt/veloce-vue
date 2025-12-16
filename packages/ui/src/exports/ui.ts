@@ -1,4 +1,4 @@
-import "../build-style.css";
+import "../style.css";
 
 export { default as Accordion } from "../components/Accordion.vue";
 export { default as Badge } from "../components/Badge.vue";
