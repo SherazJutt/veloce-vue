@@ -13,6 +13,8 @@ const newPlaygroundPackageJson = {
 
   dependencies: {
     "vue-router": "^4.6.3",
+    "@tailwindcss/vite": "^4.1.18",
+    tailwindcss: "^4.1.18",
     ...uiPackageJson.dependencies,
     ...playgroundPackageJson.peerDependencies,
   },

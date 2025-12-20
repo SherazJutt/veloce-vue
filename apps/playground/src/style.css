@@ -27,8 +27,8 @@
   }
 
   body {
-    color: var(--ui-text);
-    background-color: var(--ui-background);
+    color: var(--colors-ui-text);
+    background-color: var(--colors-ui-background);
   }
 }
 

@@ -1,9 +1,9 @@
 @utility text-inverted {
-  color: var(--ui-text-inverted);
+  color: var(--colors-ui-text-inverted);
 }
 
 @utility text-muted {
-  color: var(--ui-text-muted);
+  color: var(--colors-ui-text-muted);
 }
 
 @utility text-dimmed {
@@ -16,5 +16,6 @@
 }
 
 @utility text-highlight {
-  @apply inline-table rounded bg-neutral-100 px-1.5 outline outline-neutral-200/75 dark:bg-neutral-800 dark:outline-neutral-700/75;
+  background-color: transparent;
+  /* @apply inline-table rounded bg-neutral-100 px-1.5 outline outline-neutral-200/75 dark:bg-neutral-800 dark:outline-neutral-700/75; */
 }
