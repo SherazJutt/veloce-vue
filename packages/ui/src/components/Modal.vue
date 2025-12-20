@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Button } from "@veloce-vue/ui";
-import { Close } from "@veloce-vue/icons";
-import { motion, AnimatePresence } from "motion-v";
-import { useWindowSize } from "@vueuse/core";
+import { Button } from '../exports/ui';
+import { Close } from '../exports/icons';
+import { motion, AnimatePresence } from 'motion-v';
+import { useWindowSize } from '@vueuse/core';
 
 const show = defineModel();
 

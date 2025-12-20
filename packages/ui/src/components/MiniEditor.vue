@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref, watch, onMounted, defineProps, defineEmits } from "vue";
-import Button from "./Button.vue";
-import { Bold, Italic, Highlight } from "@veloce-vue/icons";
+import { ref, watch, onMounted } from 'vue';
+import Button from './Button.vue';
+import { Bold, Italic, Highlight } from '../exports/icons';
 
 const props = defineProps<{ modelValue: string }>();
-const emit = defineEmits<{ (e: "update:modelValue", value: string): void }>();
+const emit = defineEmits<{ (e: 'update:modelValue', value: string): void }>();
 
 const editor = ref<HTMLDivElement | null>(null);
 const isBold = ref(false);
@@ -49,7 +49,7 @@ function toggleHighlight() {
   const walker = document.createTreeWalker(container, NodeFilter.SHOW_ELEMENT, {
     acceptNode: (node) => {
       const el = node as HTMLElement;
-      if (el.tagName === "SPAN" && el.classList.contains("text-highlight")) {
+      if (el.tagName === 'SPAN' && el.classList.contains('text-highlight')) {
         return NodeFilter.FILTER_ACCEPT;
       }
       return NodeFilter.FILTER_SKIP;
@@ -69,7 +69,7 @@ function toggleHighlight() {
   while (parentNode && parentNode !== editor.value) {
     if (parentNode.nodeType === Node.ELEMENT_NODE) {
       const el = parentNode as HTMLElement;
-      if (el.tagName === "SPAN" && el.classList.contains("text-highlight")) {
+      if (el.tagName === 'SPAN' && el.classList.contains('text-highlight')) {
         if (!highlightSpans.includes(el)) {
           highlightSpans.push(el);
         }
@@ -99,8 +99,8 @@ function toggleHighlight() {
     });
   } else {
     // Wrap selection in span.text-highlight
-    const span = document.createElement("span");
-    span.className = "text-highlight";
+    const span = document.createElement('span');
+    span.className = 'text-highlight';
 
     try {
       range.surroundContents(span);
@@ -128,18 +128,18 @@ function updateButtonStates() {
   }
 
   const container = selection.anchorNode?.parentElement;
-  isBold.value = document.queryCommandState("bold");
-  isItalic.value = document.queryCommandState("italic");
-  isHighlighted.value = !!container?.classList?.contains("text-highlight");
+  isBold.value = document.queryCommandState('bold');
+  isItalic.value = document.queryCommandState('italic');
+  isHighlighted.value = !!container?.classList?.contains('text-highlight');
 }
 
 function emitContent() {
-  if (editor.value) emit("update:modelValue", editor.value.innerHTML);
+  if (editor.value) emit('update:modelValue', editor.value.innerHTML);
 }
 
 onMounted(() => {
   if (editor.value) {
-    editor.value.innerHTML = props.modelValue || "";
+    editor.value.innerHTML = props.modelValue || '';
     updateButtonStates();
   }
 });
@@ -148,10 +148,10 @@ watch(
   () => props.modelValue,
   (newVal) => {
     if (editor.value && editor.value.innerHTML !== newVal) {
-      editor.value.innerHTML = newVal || "";
+      editor.value.innerHTML = newVal || '';
       updateButtonStates();
     }
-  },
+  }
 );
 </script>
 

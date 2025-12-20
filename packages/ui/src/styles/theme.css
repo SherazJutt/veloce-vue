@@ -10,27 +10,27 @@
 
 @theme inline {
   /* Main Brand Colors */
-  --color-primary: var(--ui-primary);
-  --color-primary-light: color-mix(in srgb, var(--ui-primary) 12%, transparent);
-  --color-secondary: var(--ui-secondary);
-  --color-secondary-light: color-mix(in srgb, var(--ui-secondary) 12%, transparent);
-  --color-success: var(--ui-success);
-  --color-success-light: color-mix(in srgb, var(--ui-success) 12%, transparent);
-  --color-info: var(--ui-info);
-  --color-info-light: color-mix(in srgb, var(--ui-info) 12%, transparent);
-  --color-warning: var(--ui-warning);
-  --color-warning-light: color-mix(in srgb, var(--ui-warning) 12%, transparent);
-  --color-error: var(--ui-error);
-  --color-error-light: color-mix(in srgb, var(--ui-error) 12%, transparent);
-  --color-neutral: var(--ui-neutral);
-  --color-neutral-light: color-mix(in srgb, var(--ui-neutral) 12%, transparent);
+  --color-primary: var(--colors-ui-primary);
+  --color-primary-light: color-mix(in srgb, var(--colors-ui-primary) 12%, transparent);
+  --color-secondary: var(--colors-ui-secondary);
+  --color-secondary-light: color-mix(in srgb, var(--colors-ui-secondary) 12%, transparent);
+  --color-success: var(--colors-ui-success);
+  --color-success-light: color-mix(in srgb, var(--colors-ui-success) 12%, transparent);
+  --color-info: var(--colors-ui-info);
+  --color-info-light: color-mix(in srgb, var(--colors-ui-info) 12%, transparent);
+  --color-warning: var(--colors-ui-warning);
+  --color-warning-light: color-mix(in srgb, var(--colors-ui-warning) 12%, transparent);
+  --color-error: var(--colors-ui-error);
+  --color-error-light: color-mix(in srgb, var(--colors-ui-error) 12%, transparent);
+  --color-neutral: var(--color-neutral);
+  --color-neutral-light: color-mix(in srgb, var(--color-neutral) 12%, transparent);
 
   /* Background Colors */
-  --color-background: var(--ui-background);
+  --color-background: var(--colors-ui-background);
 
   /* Border Colors */
-  --color-border: var(--ui-border);
+  --color-border: var(--colors-ui-border);
 
   /* Border Radius */
-  --radius: var(--ui-border-radius);
+  --radius: var(--colors-ui-border-radius);
 }

@@ -1,28 +1,28 @@
 <script setup lang="ts">
-import { computed, type Component } from "vue";
-import { Icon, CheckCircle, Info, Alert, Close } from "@veloce-vue/icons";
-import type { Margin, Padding, Severity, Variant } from "@veloce-vue/types";
-import { getMargin, getPadding } from "@veloce-vue/utils";
+import { computed, type Component } from 'vue';
+import { Icon, CheckCircle, Info, Alert, Close } from '../exports/icons';
+import type { Margin, Padding, Severity, Variant } from '../exports/types';
+import { getMargin, getPadding } from '../exports/utils';
 const { margin, marginLeft, marginRight, marginTop, marginBottom } = getMargin();
 const { padding, paddingLeft, paddingRight, paddingTop, paddingBottom } = getPadding();
 
 const props = defineProps({
-  severity: { type: String as () => Severity, default: "info" },
-  variant: { type: String as () => Variant, default: "solid" },
+  severity: { type: String as () => Severity, default: 'info' },
+  variant: { type: String as () => Variant, default: 'solid' },
   icon: { type: Object as () => Component, default: () => null },
   closable: { type: Boolean, default: false },
   // margin
-  margin: { type: String as () => Margin, default: "" },
-  marginLeft: { type: String as () => Margin, default: "" },
-  marginRight: { type: String as () => Margin, default: "" },
-  marginTop: { type: String as () => Margin, default: "lg" },
-  marginBottom: { type: String as () => Margin, default: "md" },
+  margin: { type: String as () => Margin, default: '' },
+  marginLeft: { type: String as () => Margin, default: '' },
+  marginRight: { type: String as () => Margin, default: '' },
+  marginTop: { type: String as () => Margin, default: 'lg' },
+  marginBottom: { type: String as () => Margin, default: 'md' },
   // padding
-  padding: { type: String as () => Padding, default: "" },
-  paddingLeft: { type: String as () => Padding, default: "" },
-  paddingRight: { type: String as () => Padding, default: "" },
-  paddingTop: { type: String as () => Padding, default: "" },
-  paddingBottom: { type: String as () => Padding, default: "" },
+  padding: { type: String as () => Padding, default: '' },
+  paddingLeft: { type: String as () => Padding, default: '' },
+  paddingRight: { type: String as () => Padding, default: '' },
+  paddingTop: { type: String as () => Padding, default: '' },
+  paddingBottom: { type: String as () => Padding, default: '' },
 });
 
 const emit = defineEmits<{
@@ -41,37 +41,37 @@ const defaultIcons: Record<Severity, Component> = {
 
 const severityClasses = {
   success: {
-    solid: "bg-success-light dark:bg-success/20 text-success border-success/30",
-    outlined: "border-success text-success bg-transparent",
+    solid: 'bg-success-light dark:bg-success/20 text-success border-success/30',
+    outlined: 'border-success text-success bg-transparent',
   },
   info: {
-    solid: "bg-info-light dark:bg-info/20 text-info border-info/30",
-    outlined: "border-info text-info bg-transparent",
+    solid: 'bg-info-light dark:bg-info/20 text-info border-info/30',
+    outlined: 'border-info text-info bg-transparent',
   },
   warning: {
-    solid: "bg-warning-light dark:bg-warning/20 text-warning border-warning/30",
-    outlined: "border-warning text-warning bg-transparent",
+    solid: 'bg-warning-light dark:bg-warning/20 text-warning border-warning/30',
+    outlined: 'border-warning text-warning bg-transparent',
   },
   error: {
-    solid: "bg-error-light dark:bg-error/20 text-error border-error/30",
-    outlined: "border-error text-error bg-transparent",
+    solid: 'bg-error-light dark:bg-error/20 text-error border-error/30',
+    outlined: 'border-error text-error bg-transparent',
   },
   primary: {
-    solid: "bg-primary-light dark:bg-primary/20 text-primary border-primary/30",
-    outlined: "border-primary text-primary bg-transparent",
+    solid: 'bg-primary-light dark:bg-primary/20 text-primary border-primary/30',
+    outlined: 'border-primary text-primary bg-transparent',
   },
   secondary: {
-    solid: "bg-secondary-light dark:bg-secondary/20 text-secondary border-secondary/30",
-    outlined: "border-secondary text-secondary bg-transparent",
+    solid: 'bg-secondary-light dark:bg-secondary/20 text-secondary border-secondary/30',
+    outlined: 'border-secondary text-secondary bg-transparent',
   },
   neutral: {
-    solid: "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 border-neutral-300 dark:border-neutral-700",
-    outlined: "border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 bg-transparent",
+    solid: 'bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 border-neutral-300 dark:border-neutral-700',
+    outlined: 'border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 bg-transparent',
   },
 };
 
 const classes = computed(() => {
-  const variantKey = props.variant === "outlined" ? "outlined" : "solid";
+  const variantKey = props.variant === 'outlined' ? 'outlined' : 'solid';
   return severityClasses[props.severity]?.[variantKey] || severityClasses.info.solid;
 });
 
@@ -97,7 +97,7 @@ const iconToShow = computed(() => {
 });
 
 const handleClose = () => {
-  emit("close");
+  emit('close');
 };
 </script>
 

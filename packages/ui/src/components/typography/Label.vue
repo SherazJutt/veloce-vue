@@ -1,32 +1,32 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import type { TextColor, FontWeight, Margin, Padding, FontSize, LineHeight, LetterSpacing } from "@veloce-vue/types";
-import { getTypography, getMargin, getPadding } from "@veloce-vue/utils";
+import { computed } from 'vue';
+import type { TextColor, FontWeight, Margin, Padding, FontSize, LineHeight, LetterSpacing } from '../../exports/types';
+import { getTypography, getMargin, getPadding } from '../../exports/utils';
 
 const { fontSizes, fontWeights, textColors, letterSpacings, lineHeights } = getTypography();
 const { margin, marginLeft, marginRight, marginTop, marginBottom } = getMargin();
 const { padding, paddingLeft, paddingRight, paddingTop, paddingBottom } = getPadding();
 
 const props = defineProps({
-  text: { type: String, default: "" },
-  fontSize: { type: String as () => FontSize, default: "" as FontSize },
-  color: { type: String as () => TextColor, default: "" as TextColor },
-  fontWeight: { type: String as () => FontWeight, default: "" as FontWeight },
-  lineHeight: { type: String as () => LineHeight, default: "" as LineHeight },
-  letterSpacing: { type: String as () => LetterSpacing, default: "" as LetterSpacing },
+  text: { type: String, default: '' },
+  fontSize: { type: String as () => FontSize, default: '' as FontSize },
+  color: { type: String as () => TextColor, default: '' as TextColor },
+  fontWeight: { type: String as () => FontWeight, default: '' as FontWeight },
+  lineHeight: { type: String as () => LineHeight, default: '' as LineHeight },
+  letterSpacing: { type: String as () => LetterSpacing, default: '' as LetterSpacing },
   required: { type: Boolean, default: false },
   // margin
-  margin: { type: String as () => Margin, default: "" },
-  marginLeft: { type: String as () => Margin, default: "" },
-  marginRight: { type: String as () => Margin, default: "" },
-  marginTop: { type: String as () => Margin, default: "sm" },
-  marginBottom: { type: String as () => Margin, default: "sm" },
+  margin: { type: String as () => Margin, default: '' },
+  marginLeft: { type: String as () => Margin, default: '' },
+  marginRight: { type: String as () => Margin, default: '' },
+  marginTop: { type: String as () => Margin, default: 'sm' },
+  marginBottom: { type: String as () => Margin, default: 'sm' },
   // padding
-  padding: { type: String as () => Padding, default: "" },
-  paddingLeft: { type: String as () => Padding, default: "" },
-  paddingRight: { type: String as () => Padding, default: "" },
-  paddingTop: { type: String as () => Padding, default: "" },
-  paddingBottom: { type: String as () => Padding, default: "" },
+  padding: { type: String as () => Padding, default: '' },
+  paddingLeft: { type: String as () => Padding, default: '' },
+  paddingRight: { type: String as () => Padding, default: '' },
+  paddingTop: { type: String as () => Padding, default: '' },
+  paddingBottom: { type: String as () => Padding, default: '' },
 });
 
 const classes = computed(() => {
