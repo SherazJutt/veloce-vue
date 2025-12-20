@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, onMounted, defineProps, defineEmits } from "vue";
+import { ref, watch, onMounted } from "vue";
 import Button from "./Button.vue";
 import { Bold, Italic, Highlight } from "@veloce-vue/icons";
 
