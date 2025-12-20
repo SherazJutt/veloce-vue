@@ -1,25 +1,20 @@
 import { execSync } from "node:child_process";
-import { writeFileSync, readFileSync, readdirSync, copyFileSync, mkdirSync, existsSync } from "node:fs";
+import { writeFileSync, readFileSync, readdirSync, copyFileSync, mkdirSync, existsSync, rmSync } from "node:fs";
 import { resolve, join } from "node:path";
 
-// ─────────────────────────────────────────────
-// Capture ROOT before chdir
-// ─────────────────────────────────────────────
 const ROOT = process.cwd();
 
-// Move into packages/ui
+// empty build directory
+if (existsSync(resolve(ROOT, "build"))) {
+  rmSync(resolve(ROOT, "build"), { recursive: true });
+}
+
 const UI_DIR = resolve(ROOT, "packages/ui");
 process.chdir(UI_DIR);
 
-// ─────────────────────────────────────────────
-// 1. Build declarations
-// ─────────────────────────────────────────────
 console.log("💪 Building TypeScript declarations");
 execSync("pnpm vue-tsc", { stdio: "inherit" });
 
-// ─────────────────────────────────────────────
-// 2. Copy source files
-// ─────────────────────────────────────────────
 console.log("🔄 Copying source files...");
 
 const srcDir = resolve(UI_DIR, "src");
@@ -37,16 +32,12 @@ function copyRecursive(src, dest, excludeDirs = ["assets"]) {
     const destPath = join(dest, entry.name);
 
     if (entry.isDirectory()) {
-      if (excludeDirs.includes(entry.name)) return;
+      if (excludeDirs.includes(entry.name)) continue;
       copyRecursive(srcPath, destPath, excludeDirs);
-      return;
-    }
-
-    if (entry.isFile()) {
+    } else if (entry.isFile()) {
       const ext = entry.name.split(".").pop();
       if (["vue", "ts", "css"].includes(ext)) {
         copyFileSync(srcPath, destPath);
-        console.log("copied", srcPath, "→", destPath);
       }
     }
   }
@@ -54,12 +45,8 @@ function copyRecursive(src, dest, excludeDirs = ["assets"]) {
 
 copyRecursive(srcDir, destDir);
 
-// ─────────────────────────────────────────────
-// 3. Create publishable package.json
-// ─────────────────────────────────────────────
 console.log("📝 Creating package.json...");
 
-// IMPORTANT: read UI package.json
 const uiPkg = JSON.parse(readFileSync(resolve(UI_DIR, "package.json"), "utf-8"));
 
 const publishPkg = {
