@@ -28,14 +28,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import { Button } from "@veloce-vue/ui";
-import { Close } from "@veloce-vue/icons";
+import { computed } from 'vue';
+import { Button } from '../exports/ui';
+import { Close } from '../exports/icons';
 
 const props = defineProps({
-  direction: { type: String as () => "left" | "bottom" | "right", default: "bottom", options: ["left", "bottom", "right"] },
-  title: { type: String, default: "" },
-  description: { type: String, default: "" },
+  direction: { type: String as () => 'left' | 'bottom' | 'right', default: 'bottom', options: ['left', 'bottom', 'right'] },
+  title: { type: String, default: '' },
+  description: { type: String, default: '' },
   showFooter: { type: Boolean, default: false },
   show: { type: Boolean, default: false },
 });
@@ -43,37 +43,37 @@ const props = defineProps({
 const show = defineModel();
 
 const drawerdirections = computed(() => {
-  let currClasses = "";
+  let currClasses = '';
 
   switch (props.direction) {
-    case "left":
-      currClasses = show.value ? "fixed top-0 left-0 bottom-0" : "fixed top-0 -left-full bottom-0";
+    case 'left':
+      currClasses = show.value ? 'fixed top-0 left-0 bottom-0' : 'fixed top-0 -left-full bottom-0';
       break;
-    case "bottom":
-      currClasses = show.value ? "fixed left-0 bottom-0 right-0" : "fixed left-0 right-0 -bottom-full";
+    case 'bottom':
+      currClasses = show.value ? 'fixed left-0 bottom-0 right-0' : 'fixed left-0 right-0 -bottom-full';
       break;
-    case "right":
-      currClasses = show.value ? "fixed top-0 right-0 bottom-0" : "fixed top-0 -right-full bottom-0";
+    case 'right':
+      currClasses = show.value ? 'fixed top-0 right-0 bottom-0' : 'fixed top-0 -right-full bottom-0';
       break;
     default:
-      alert("Invalid direction");
+      alert('Invalid direction');
   }
 
   return currClasses;
 });
 
 const defaultClasses = computed(() => {
-  let classes = "";
+  let classes = '';
 
   switch (props.direction) {
-    case "left":
-      classes = "w-full max-w-[22.5rem]";
+    case 'left':
+      classes = 'w-full max-w-[22.5rem]';
       break;
-    case "bottom":
-      classes = "w-full h-full max-h-[90dvh]";
+    case 'bottom':
+      classes = 'w-full h-full max-h-[90dvh]';
       break;
-    case "right":
-      classes = "w-full max-w-[22.5rem]";
+    case 'right':
+      classes = 'w-full max-w-[22.5rem]';
       break;
     default:
       break;

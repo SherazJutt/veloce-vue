@@ -1,27 +1,27 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { type Severity, type Size } from "@veloce-vue/types";
+import { computed } from 'vue';
+import { type Severity, type Size } from '../exports/types';
 
 const props = defineProps({
-  severity: { type: String as () => Severity, default: "primary" },
-  size: { type: String as () => Size, default: "md" },
+  severity: { type: String as () => Severity, default: 'primary' },
+  size: { type: String as () => Size, default: 'md' },
 });
 
 const severityClasses = {
-  primary: "text-primary",
-  secondary: "text-secondary",
-  success: "text-success",
-  info: "text-info",
-  warning: "text-warning",
-  error: "text-error",
-  neutral: "text-neutral-500",
+  primary: 'text-primary',
+  secondary: 'text-secondary',
+  success: 'text-success',
+  info: 'text-info',
+  warning: 'text-warning',
+  error: 'text-error',
+  neutral: 'text-neutral-500',
 };
 
 const sizeClasses = {
-  sm: "size-8",
-  md: "size-12",
-  lg: "size-16",
-  xl: "size-24",
+  sm: 'size-8',
+  md: 'size-12',
+  lg: 'size-16',
+  xl: 'size-24',
 };
 
 const classes = computed(() => {

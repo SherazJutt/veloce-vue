@@ -1,6 +1,6 @@
-import type { Severity } from "@veloce-vue/types";
-import type { Component } from "vue";
-import { useRandomId } from "@veloce-vue/utils";
+import type { Severity } from '../exports/types';
+import type { Component } from 'vue';
+import { useRandomId } from '../exports/utils';
 
 export interface ToastItem {
   id: string;
@@ -34,14 +34,14 @@ export const setToastContainer = (instance: ToastContainerMethods | null) => {
 
 const showToast = (options: ToastOptions) => {
   if (!toastContainerInstance) {
-    console.warn("Toast container not initialized. Make sure to add <ToastContainer> to your app.");
+    console.warn('Toast container not initialized. Make sure to add <ToastContainer> to your app.');
     return;
   }
 
   const toastItem: ToastItem = {
     id: useRandomId(),
     message: options.message,
-    severity: options.severity || "info",
+    severity: options.severity || 'info',
     icon: options.icon,
     duration: options.duration ?? 5000,
     closable: options.closable ?? true,
@@ -51,20 +51,20 @@ const showToast = (options: ToastOptions) => {
 };
 
 export const useToast = () => {
-  const success = (message: string, options?: Omit<ToastOptions, "message" | "severity">) => {
-    return showToast({ ...options, message, severity: "success" });
+  const success = (message: string, options?: Omit<ToastOptions, 'message' | 'severity'>) => {
+    return showToast({ ...options, message, severity: 'success' });
   };
 
-  const error = (message: string, options?: Omit<ToastOptions, "message" | "severity">) => {
-    return showToast({ ...options, message, severity: "error" });
+  const error = (message: string, options?: Omit<ToastOptions, 'message' | 'severity'>) => {
+    return showToast({ ...options, message, severity: 'error' });
   };
 
-  const warning = (message: string, options?: Omit<ToastOptions, "message" | "severity">) => {
-    return showToast({ ...options, message, severity: "warning" });
+  const warning = (message: string, options?: Omit<ToastOptions, 'message' | 'severity'>) => {
+    return showToast({ ...options, message, severity: 'warning' });
   };
 
-  const info = (message: string, options?: Omit<ToastOptions, "message" | "severity">) => {
-    return showToast({ ...options, message, severity: "info" });
+  const info = (message: string, options?: Omit<ToastOptions, 'message' | 'severity'>) => {
+    return showToast({ ...options, message, severity: 'info' });
   };
 
   const show = (message: string, options?: ToastOptions) => {

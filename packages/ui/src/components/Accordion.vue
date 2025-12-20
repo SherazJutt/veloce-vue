@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import { Icon, ChevronDown } from "@veloce-vue/icons";
-import { motion, AnimatePresence } from "motion-v";
-import { type AccordionItem, type Size } from "@veloce-vue/types";
+import { computed, ref } from 'vue';
+import { Icon, ChevronDown } from '../exports/icons';
+import { motion, AnimatePresence } from 'motion-v';
+import { type AccordionItem, type Size } from '../exports/types';
 
 // Props definition
 // `items` is an array of objects where each object represents an accordion item.
@@ -11,11 +11,11 @@ import { type AccordionItem, type Size } from "@veloce-vue/types";
 const props = defineProps({
   items: { type: Array as () => AccordionItem[], required: true },
   shadow: { type: Boolean, default: false },
-  contentClass: { type: String, default: "" },
-  headerClass: { type: String, default: "" },
+  contentClass: { type: String, default: '' },
+  headerClass: { type: String, default: '' },
   multiple: { type: Boolean, default: false },
   bordered: { type: Boolean, default: true },
-  rounded: { type: String as () => Size | "none", default: "sm" },
+  rounded: { type: String as () => Size | 'none', default: 'sm' },
 });
 
 // Track active state for each accordion item by index
@@ -52,11 +52,11 @@ const toggleItem = (index: number) => {
 
 const roundedClasses = computed(() => {
   return {
-    none: "",
-    sm: "rounded",
-    md: "rounded-md",
-    lg: "rounded-lg",
-    xl: "rounded-xl",
+    none: '',
+    sm: 'rounded',
+    md: 'rounded-md',
+    lg: 'rounded-lg',
+    xl: 'rounded-xl',
   };
 });
 </script>

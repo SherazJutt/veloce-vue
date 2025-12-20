@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { computed, type Component } from "vue";
-import { Icon, Close } from "@veloce-vue/icons";
-import { type Severity, type Size } from "@veloce-vue/types";
+import { computed, type Component } from 'vue';
+import { Icon, Close } from '../exports/icons';
+import { type Severity, type Size } from '../exports/types';
 
 const props = defineProps({
-  label: { type: String, default: "" },
+  label: { type: String, default: '' },
   icon: { type: Object as () => Component, default: () => null },
   removable: { type: Boolean, default: false },
-  severity: { type: String as () => Severity, default: "primary" },
-  size: { type: String as () => Size, default: "md" },
+  severity: { type: String as () => Severity, default: 'primary' },
+  size: { type: String as () => Size, default: 'md' },
   rounded: { type: Boolean, default: false },
 });
 
@@ -17,28 +17,28 @@ const emit = defineEmits<{
 }>();
 
 const severityClasses = {
-  primary: "bg-primary text-inverted",
-  secondary: "bg-secondary text-inverted",
-  success: "bg-success text-inverted",
-  info: "bg-info text-inverted",
-  warning: "bg-warning text-inverted",
-  error: "bg-error text-inverted",
-  neutral: "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200",
+  primary: 'bg-primary text-inverted',
+  secondary: 'bg-secondary text-inverted',
+  success: 'bg-success text-inverted',
+  info: 'bg-info text-inverted',
+  warning: 'bg-warning text-inverted',
+  error: 'bg-error text-inverted',
+  neutral: 'bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200',
 };
 
 const sizeClasses = {
-  sm: "px-2 py-0.5 text-xs",
-  md: "px-2.5 py-1 text-sm",
-  lg: "px-3 py-1.5 text-base",
-  xl: "px-4 py-2 text-lg",
+  sm: 'px-2 py-0.5 text-xs',
+  md: 'px-2.5 py-1 text-sm',
+  lg: 'px-3 py-1.5 text-base',
+  xl: 'px-4 py-2 text-lg',
 };
 
 const classes = computed(() => {
-  return [severityClasses[props.severity] || severityClasses.primary, sizeClasses[props.size] || sizeClasses.md, { "rounded-full": props.rounded }];
+  return [severityClasses[props.severity] || severityClasses.primary, sizeClasses[props.size] || sizeClasses.md, { 'rounded-full': props.rounded }];
 });
 
 const handleRemove = () => {
-  emit("remove");
+  emit('remove');
 };
 </script>
 
