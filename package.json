@@ -6,8 +6,7 @@
     "dev": "pnpm --filter playground dev",
     "build:package": "node scripts/build.mjs",
     "build:playground": "pnpm --filter playground build",
-    "preview:playground": "pnpm --filter playground preview",
-    "prepare": "node scripts/prepare-workspace.mjs"
+    "preview:playground": "pnpm --filter playground preview"
   },
   "devDependencies": {
     "prettier": "^3.4.2",

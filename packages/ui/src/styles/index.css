@@ -1,5 +1,7 @@
-@import './vars.css';
-@import './theme.css';
-@import './utilities.css';
+@import "./vars.css";
+@import "./theme.css";
+@import "./utilities.css";
 
 @source "../utils";
+
+@custom-variant dark (&:where(.dark, .dark *));
