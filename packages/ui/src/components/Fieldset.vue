@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { type Component } from "vue";
-import { Icon, ChevronDown } from "@veloce-vue/icons";
+import { type Component } from 'vue';
+import { Icon, ChevronDown } from '../exports/icons';
 
 const props = defineProps({
-  legend: { type: String, default: "" },
+  legend: { type: String, default: '' },
   icon: { type: Object as () => Component, default: () => null },
   toggleable: { type: Boolean, default: false },
   collapsed: { type: Boolean, default: false },
 });
 
-const isCollapsed = defineModel<boolean>("collapsed", { default: false });
+const isCollapsed = defineModel<boolean>('collapsed', { default: false });
 
 const toggleCollapse = () => {
   if (props.toggleable) {

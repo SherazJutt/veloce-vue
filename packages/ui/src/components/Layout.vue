@@ -34,13 +34,13 @@
   </main>
 </template>
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { Button } from "@veloce-vue/ui";
-import { Hamburger } from "@veloce-vue/icons";
-import { motion, AnimatePresence } from "motion-v";
-import { useWindowSize } from "@vueuse/core";
+import { ref, onMounted } from 'vue';
+import { Button } from '../exports/ui';
+import { Hamburger } from '../exports/icons';
+import { motion, AnimatePresence } from 'motion-v';
+import { useWindowSize } from '@vueuse/core';
 
-const emit = defineEmits<{ (e: "sidebar", showSidebar: boolean): void }>();
+const emit = defineEmits<{ (e: 'sidebar', showSidebar: boolean): void }>();
 
 const { width } = useWindowSize();
 
@@ -59,6 +59,6 @@ onMounted(() => {
 
 const toggleSidebar = () => {
   showSidebar.value = !showSidebar.value;
-  emit("sidebar", showSidebar.value);
+  emit('sidebar', showSidebar.value);
 };
 </script>

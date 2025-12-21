@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { computed, ref, useTemplateRef, watch } from "vue";
-import { Button } from "@veloce-vue/ui";
-import { type Variant, type Severity, type Size, type FontWeight } from "@veloce-vue/types";
-import { onClickOutside } from "@vueuse/core";
-import { motion, AnimatePresence } from "motion-v";
-import { Input } from "@veloce-vue/ui";
-import { Icon, ChevronDown, Check, Search } from "@veloce-vue/icons";
+import { computed, ref, useTemplateRef, watch } from 'vue';
+import { Button } from '../exports/ui';
+import { type Variant, type Severity, type Size, type FontWeight } from '../exports/types';
+import { onClickOutside } from '@vueuse/core';
+import { motion, AnimatePresence } from 'motion-v';
+import { Input } from '../exports/ui';
+import { Icon, ChevronDown, Check, Search } from '../exports/icons';
 const props = defineProps({
   options: { type: Array as () => string[], required: true },
-  variant: { type: String as () => Variant, default: "outlined" as Variant },
-  severity: { type: String as () => Severity, default: "neutral" as Severity },
-  size: { type: String as () => Size, default: "md" },
+  variant: { type: String as () => Variant, default: 'outlined' as Variant },
+  severity: { type: String as () => Severity, default: 'neutral' as Severity },
+  size: { type: String as () => Size, default: 'md' },
   showFilter: { type: Boolean, default: false },
   isOpen: { type: Boolean, default: false },
   closeOnClickOutside: { type: Boolean, default: true },
-  fontWeight: { type: String as () => FontWeight, default: "normal" },
+  fontWeight: { type: String as () => FontWeight, default: 'normal' },
 });
 
-const emit = defineEmits(["update:isOpen"]);
+const emit = defineEmits(['update:isOpen']);
 
 const model = defineModel<string>();
 
@@ -25,7 +25,7 @@ const selectedOption = computed(() => model.value);
 const isOpen = ref(props.isOpen ?? false);
 const isHoveringOption = ref<boolean>(false);
 
-const target = useTemplateRef<HTMLElement>("target");
+const target = useTemplateRef<HTMLElement>('target');
 onClickOutside(target, () => {
   props.closeOnClickOutside;
   isOpen.value = false;
@@ -35,11 +35,11 @@ onClickOutside(target, () => {
 // Keep `isOpen` in sync with external prop and emit updates
 watch(
   () => props.isOpen,
-  (val) => val !== isOpen.value && (isOpen.value = val),
+  (val) => val !== isOpen.value && (isOpen.value = val)
 );
 
 watch(isOpen, (val) => {
-  emit("update:isOpen", val);
+  emit('update:isOpen', val);
 });
 
 const toggleOpen = () => {
@@ -55,10 +55,10 @@ const selectOption = (option: string) => {
 const closeMenu = () => {
   isOpen.value = false;
   isHoveringOption.value = false;
-  searchQuery.value = "";
+  searchQuery.value = '';
 };
 
-const searchQuery = ref("");
+const searchQuery = ref('');
 
 // Computed for filtering options based on search input
 const filteredOptions = computed(() => {
@@ -69,34 +69,24 @@ const filteredOptions = computed(() => {
 // Size classes for options matching Button component
 const optionSizeClasses = computed(() => {
   switch (props.size) {
-    case "sm":
-      return "text-sm py-1 px-2";
-    case "md":
-      return "text-sm py-1.5 px-2.5";
-    case "lg":
-      return "text-base py-2 px-3";
-    case "xl":
-      return "text-lg py-2.5 px-3.5";
+    case 'sm':
+      return 'text-sm py-1 px-2';
+    case 'md':
+      return 'text-sm py-1.5 px-2.5';
+    case 'lg':
+      return 'text-base py-2 px-3';
+    case 'xl':
+      return 'text-lg py-2.5 px-3.5';
   }
 });
 
-const buttonLabel = computed(() => selectedOption.value || "Select");
+const buttonLabel = computed(() => selectedOption.value || 'Select');
 </script>
 
 <template>
   <div class="relative" ref="target">
     <!-- select trigger -->
-    <Button
-      :icon-class="isOpen ? 'rotate-180 transition-transform duration-200' : 'transition-transform duration-200'"
-      :icon="ChevronDown"
-      class="justify-between! w-full capitalize"
-      :variant="variant"
-      :size="size"
-      :label="buttonLabel"
-      :font-weight="fontWeight"
-      :severity="severity"
-      @click="toggleOpen"
-    />
+    <Button :icon-class="isOpen ? 'rotate-180 transition-transform duration-200' : 'transition-transform duration-200'" :icon="ChevronDown" class="justify-between! w-full capitalize" :variant="variant" :size="size" :label="buttonLabel" :font-weight="fontWeight" :severity="severity" @click="toggleOpen" />
 
     <!-- select menu -->
     <AnimatePresence>
@@ -116,14 +106,7 @@ const buttonLabel = computed(() => selectedOption.value || "Select");
           <Input v-model="searchQuery" :trailing-icon="Search" placeholder="Search" :size="size" />
         </div>
         <ul class="h-full max-h-[220px] overflow-y-auto overflow-x-hidden p-2">
-          <li
-            v-for="(option, index) in filteredOptions"
-            :key="index"
-            :class="[optionSizeClasses, { 'dark:text-neutral-300': option !== selectedOption }, { 'bg-neutral-100/75 dark:bg-neutral-800/75': option === selectedOption && !isHoveringOption }]"
-            class="flex w-full cursor-pointer items-center justify-between rounded border border-transparent text-left transition-colors duration-150 hover:bg-neutral-100/75 dark:hover:bg-neutral-800/75"
-            @mouseenter="isHoveringOption = true"
-            @click="selectOption(option)"
-          >
+          <li v-for="(option, index) in filteredOptions" :key="index" :class="[optionSizeClasses, { 'dark:text-neutral-300': option !== selectedOption }, { 'bg-neutral-100/75 dark:bg-neutral-800/75': option === selectedOption && !isHoveringOption }]" class="flex w-full cursor-pointer items-center justify-between rounded border border-transparent text-left transition-colors duration-150 hover:bg-neutral-100/75 dark:hover:bg-neutral-800/75" @mouseenter="isHoveringOption = true" @click="selectOption(option)">
             <span>{{ option }} </span>
             <Icon v-if="option === selectedOption" :icon="Check" class="size-5" />
           </li>

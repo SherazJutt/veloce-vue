@@ -14,26 +14,26 @@
 </template>
 
 <script setup lang="ts">
-import { Icon } from "@veloce-vue/icons";
-import { type Direction, type Severity, type Size } from "@veloce-vue/types";
-import { computed, type Component } from "vue";
+import { Icon } from '../exports/icons';
+import { type Direction, type Severity, type Size } from '../exports/types';
+import { computed, type Component } from 'vue';
 
-type SeparatorType = "solid" | "dashed" | "dotted";
+type SeparatorType = 'solid' | 'dashed' | 'dotted';
 
 const props = defineProps({
-  direction: { type: String as () => Direction, default: "vertical" as Direction },
-  severity: { type: String as () => Severity, default: "primary" as Severity },
-  type: { type: String as () => SeparatorType, default: "solid" as SeparatorType },
-  size: { type: String as () => Size, default: "md" as Size },
-  label: { type: String, default: "" },
+  direction: { type: String as () => Direction, default: 'vertical' as Direction },
+  severity: { type: String as () => Severity, default: 'primary' as Severity },
+  type: { type: String as () => SeparatorType, default: 'solid' as SeparatorType },
+  size: { type: String as () => Size, default: 'md' as Size },
+  label: { type: String, default: '' },
   icon: { type: Object as () => Component, default: () => null },
   bordered: { type: Boolean, default: false },
   rounded: { type: Boolean, default: false },
   height: {
     type: String,
-    default: "",
+    default: '',
     validator: (value: string) => {
-      const isValid = value === "" || value === "auto" || /^-?\d+(\.\d+)?(px|rem|em)$/.test(value);
+      const isValid = value === '' || value === 'auto' || /^-?\d+(\.\d+)?(px|rem|em)$/.test(value);
       if (!isValid) {
         console.warn(`[Separator] Invalid "height" prop. Expected "auto" or a number with unit (e.g. "8px", "1rem"). Received: ${value}`);
       }
@@ -44,33 +44,33 @@ const props = defineProps({
 
 const colorClass = computed<string>(() => {
   const colors: Record<Severity, string> = {
-    primary: "border-primary",
-    secondary: "border-secondary",
-    success: "border-success",
-    info: "border-info",
-    warning: "border-warning",
-    error: "border-error",
-    neutral: "border-border",
+    primary: 'border-primary',
+    secondary: 'border-secondary',
+    success: 'border-success',
+    info: 'border-info',
+    warning: 'border-warning',
+    error: 'border-error',
+    neutral: 'border-border',
   };
   return colors[props.severity];
 });
 
 const borderTypeClass = computed<string>(() => {
   const borderTypes: Record<SeparatorType, string> = {
-    solid: "border-solid",
-    dashed: "border-dashed",
-    dotted: "border-dotted",
+    solid: 'border-solid',
+    dashed: 'border-dashed',
+    dotted: 'border-dotted',
   };
   return borderTypes[props.type];
 });
 
 const sizeClasses = computed<{ border: string; cross: string }>(() => {
   const map: Record<Direction, Record<Size, string>> = {
-    horizontal: { sm: "border-t-[1px]", md: "border-t-[2px]", lg: "border-t-[4px]", xl: "border-t-[6px]" },
-    vertical: { sm: "border-s-[1px]", md: "border-s-[2px]", lg: "border-s-[4px]", xl: "border-s-[6px]" },
+    horizontal: { sm: 'border-t-[1px]', md: 'border-t-[2px]', lg: 'border-t-[4px]', xl: 'border-t-[6px]' },
+    vertical: { sm: 'border-s-[1px]', md: 'border-s-[2px]', lg: 'border-s-[4px]', xl: 'border-s-[6px]' },
   };
 
-  const cross = props.direction === "horizontal" ? "h-px" : "w-px";
+  const cross = props.direction === 'horizontal' ? 'h-px' : 'w-px';
 
   return { border: map[props.direction][props.size], cross };
 });
@@ -78,14 +78,14 @@ const sizeClasses = computed<{ border: string; cross: string }>(() => {
 const containerClasses = computed<string[]>(() => {
   const classes: string[] = [];
 
-  if (props.direction === "horizontal") classes.push("w-full", "py-4");
-  if (props.direction === "vertical" && (props.height === "auto" || props.height === "")) classes.push("h-full");
+  if (props.direction === 'horizontal') classes.push('w-full', 'py-4');
+  if (props.direction === 'vertical' && (props.height === 'auto' || props.height === '')) classes.push('h-full');
 
   return classes;
 });
 
 const containerStyle = computed<Record<string, string> | undefined>(() => {
-  if (props.height && props.height !== "auto") return { height: props.height };
+  if (props.height && props.height !== 'auto') return { height: props.height };
   return undefined;
 });
 </script>
