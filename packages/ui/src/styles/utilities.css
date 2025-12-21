@@ -16,6 +16,5 @@
 }
 
 @utility text-highlight {
-  background-color: transparent;
-  /* @apply inline-table rounded bg-neutral-100 px-1.5 outline outline-neutral-200/75 dark:bg-neutral-800 dark:outline-neutral-700/75; */
+  @apply inline-table rounded bg-neutral-100 px-1.5 outline outline-neutral-200/75 dark:bg-neutral-800 dark:outline-neutral-700/75;
 }

@@ -23,6 +23,9 @@ import { computed, ref } from "vue";
 import { Icon, X, Search } from "@veloce-vue/icons";
 import { Input } from "@veloce-vue/ui";
 import * as icons from "@veloce-vue/icons";
+import { useToast } from "@veloce-vue/toast";
+
+const toast = useToast();
 
 const searchTerm = ref("");
 
@@ -43,10 +46,9 @@ const clearSearch = () => {
 const copyIconName = async (iconName: string) => {
   try {
     await navigator.clipboard.writeText(iconName);
-    // add a toast notification
-    console.log("Icon name copied to clipboard:", iconName);
+    toast.success(`${iconName} icon copied to clipboard!`);
   } catch (err) {
-    console.error("Failed to copy icon name:", err);
+    toast.error(`Failed to copy ${iconName} icon!`);
   }
 };
 </script>
