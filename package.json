@@ -15,12 +15,5 @@
     "prettier": "^3.4.2",
     "prettier-plugin-organize-attributes": "^1.0.0",
     "prettier-plugin-tailwindcss": "^0.6.9"
-  },
-  "pnpm": {
-    "overrides": {
-      "@tiptap/core": "^3.14.0",
-      "@tiptap/pm": "^3.14.0",
-      "@tiptap/starter-kit": "^3.14.0"
-    }
   }
 }
