@@ -106,7 +106,7 @@ const classes = computed(() => {
     </template>
   </button>
 </template>
-<style lang="scss">
+<style>
 .veloce-button-neumorphic {
   position: relative;
 
