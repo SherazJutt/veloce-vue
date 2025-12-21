@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@import "../../../packages/ui/src/style.css";
+@import "../../../packages/ui/src/styles/index.css";
 @source "../../../packages/ui/src/components";
 
 @theme {
