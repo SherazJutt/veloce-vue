@@ -3,3 +3,9 @@
 
 @import "../../node_modules/veloce-vue/styles/index.css";
 @source "../../node_modules/veloce-vue/components";
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
