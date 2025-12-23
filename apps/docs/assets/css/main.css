@@ -10,6 +10,20 @@
   }
 }
 
-/* update the md file to remove the inline binding of the components 
- and create files with all the required variants and then pass the prop
- to show the specific variant */
+.remove-padding-first-child {
+  & > *:first-child {
+    padding: 0;
+  }
+}
+
+.first-child-margin-top {
+  & > *:first-child {
+    @apply mt-0.5;
+  }
+}
+
+.first-child-margin-bottom {
+  & > *:first-child {
+    @apply mb-0.5;
+  }
+}
