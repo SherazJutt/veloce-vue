@@ -49,13 +49,11 @@ const items: AccordionItem[] = itemsContent.map((item, index) => ({
 
 const SingleOpenItem: AccordionItem[] = itemsContent.map((item, index) => ({
   ...item,
-  icon: [Moon, Sun, Hamburger][index],
   active: index === 0,
 }));
 
 const MultipleOpenItems: AccordionItem[] = itemsContent.map((item, index) => ({
   ...item,
-  icon: [Moon, Sun, Hamburger][index],
   active: index === 0 || index === 2,
 }));
 </script>
