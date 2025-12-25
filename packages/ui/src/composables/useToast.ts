@@ -1,6 +1,6 @@
-import type { Severity } from '../exports/types';
-import type { Component } from 'vue';
-import { useRandomId } from '../exports/utils';
+import type { Severity } from "../exports/types";
+import type { Component } from "vue";
+import { useRandomId } from "../exports/utils";
 
 export interface ToastItem {
   id: string;
@@ -17,6 +17,7 @@ export interface ToastOptions {
   icon?: Component;
   duration?: number;
   closable?: boolean;
+  containerId?: string;
 }
 
 interface ToastContainerMethods {
@@ -26,54 +27,69 @@ interface ToastContainerMethods {
   toasts: any;
 }
 
-let toastContainerInstance: ToastContainerMethods | null = null;
+const DEFAULT_CONTAINER_ID = "default-toast-container";
+const toastContainerInstances = new Map<string, ToastContainerMethods>();
 
-export const setToastContainer = (instance: ToastContainerMethods | null) => {
-  toastContainerInstance = instance;
+export const setToastContainer = (instance: ToastContainerMethods | null, containerId?: string) => {
+  const id = containerId || DEFAULT_CONTAINER_ID;
+  if (instance) {
+    toastContainerInstances.set(id, instance);
+  } else {
+    toastContainerInstances.delete(id);
+  }
 };
 
-const showToast = (options: ToastOptions) => {
-  if (!toastContainerInstance) {
-    console.warn('Toast container not initialized. Make sure to add <ToastContainer> to your app.');
+const getToastContainer = (containerId?: string): ToastContainerMethods | null => {
+  const id = containerId || DEFAULT_CONTAINER_ID;
+  return toastContainerInstances.get(id) || null;
+};
+
+const showToast = (options: ToastOptions & { containerId?: string }) => {
+  const containerId = options.containerId || DEFAULT_CONTAINER_ID;
+  const container = getToastContainer(containerId);
+
+  if (!container) {
+    console.warn(`Toast container with ID "${containerId}" not initialized. Make sure to add <ToastContainer> to your app.`);
     return;
   }
 
   const toastItem: ToastItem = {
     id: useRandomId(),
     message: options.message,
-    severity: options.severity || 'info',
+    severity: options.severity || "info",
     icon: options.icon,
     duration: options.duration ?? 5000,
     closable: options.closable ?? true,
   };
 
-  toastContainerInstance.addToast(toastItem);
+  container.addToast(toastItem);
 };
 
-export const useToast = () => {
-  const success = (message: string, options?: Omit<ToastOptions, 'message' | 'severity'>) => {
-    return showToast({ ...options, message, severity: 'success' });
+export const useToast = (containerId?: string) => {
+  const success = (message: string, options?: Omit<ToastOptions, "message" | "severity"> & { containerId?: string }) => {
+    return showToast({ ...options, message, severity: "success", containerId: options?.containerId || containerId });
   };
 
-  const error = (message: string, options?: Omit<ToastOptions, 'message' | 'severity'>) => {
-    return showToast({ ...options, message, severity: 'error' });
+  const error = (message: string, options?: Omit<ToastOptions, "message" | "severity"> & { containerId?: string }) => {
+    return showToast({ ...options, message, severity: "error", containerId: options?.containerId || containerId });
   };
 
-  const warning = (message: string, options?: Omit<ToastOptions, 'message' | 'severity'>) => {
-    return showToast({ ...options, message, severity: 'warning' });
+  const warning = (message: string, options?: Omit<ToastOptions, "message" | "severity"> & { containerId?: string }) => {
+    return showToast({ ...options, message, severity: "warning", containerId: options?.containerId || containerId });
   };
 
-  const info = (message: string, options?: Omit<ToastOptions, 'message' | 'severity'>) => {
-    return showToast({ ...options, message, severity: 'info' });
+  const info = (message: string, options?: Omit<ToastOptions, "message" | "severity"> & { containerId?: string }) => {
+    return showToast({ ...options, message, severity: "info", containerId: options?.containerId || containerId });
   };
 
-  const show = (message: string, options?: ToastOptions) => {
-    return showToast({ ...options, message });
+  const show = (message: string, options?: Omit<ToastOptions, "message"> & { containerId?: string }) => {
+    return showToast({ ...options, message, containerId: options?.containerId || containerId });
   };
 
   const clear = () => {
-    if (toastContainerInstance) {
-      toastContainerInstance.clearAll();
+    const container = getToastContainer(containerId);
+    if (container) {
+      container.clearAll();
     }
   };
 
