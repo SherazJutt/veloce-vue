@@ -20,20 +20,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, type Ref } from "vue";
+import { ref, computed } from "vue";
 import { AnimatePresence } from "motion-v";
 import Toast from "./Toast.vue";
-import { setToastContainer } from "../../exports/toast";
-import type { ToastItem } from "../../exports/toast";
+import type { ToastItem } from "../../composables/useToast";
 import { useRandomId } from "../../exports/utils";
+import { toasts } from "../../composables/useToast";
 
 const props = defineProps({
   position: { type: String as () => "top-center" | "bottom-center" | "top-right" | "top-left" | "bottom-right" | "bottom-left", default: "top-right" },
   maxToasts: { type: Number, default: 5 },
   containerId: { type: String, default: "default-toast-container" },
 });
-
-const toasts: Ref<ToastItem[]> = ref<ToastItem[]>([]);
 
 const containerClasses = computed(() => {
   const baseClasses = "fixed z-[9999] flex flex-col gap-3 p-4 pointer-events-none";
@@ -49,6 +47,8 @@ const containerClasses = computed(() => {
 });
 
 const addToast = (toast: ToastItem): void => {
+  console.log("toasts");
+
   const newToast: ToastItem = {
     id: toast.id || useRandomId(),
     message: toast.message,
@@ -80,14 +80,6 @@ const removeToast = (id: string): void => {
 const clearAll = (): void => {
   toasts.value = [];
 };
-
-onMounted(() => {
-  setToastContainer({ addToast, removeToast, clearAll, toasts }, props.containerId);
-});
-
-onUnmounted(() => {
-  setToastContainer(null, props.containerId);
-});
 
 defineExpose<{
   addToast: (toast: ToastItem) => void;

@@ -1,4 +1,5 @@
 <template>
+  <pre>{{ toasts }}</pre>
   <div class="space-y-8 p-4">
     <!-- Basic Toasts -->
     <section>
@@ -83,7 +84,7 @@ toast.clear();</code></pre>
 
 <script setup lang="ts">
 import { Button } from "@veloce-vue/ui";
-import { useToast } from "@veloce-vue/toast";
+import { useToast, toasts } from "@veloce-vue/toast";
 import { Upload, Bell } from "@veloce-vue/icons";
 import { markRaw } from "vue";
 

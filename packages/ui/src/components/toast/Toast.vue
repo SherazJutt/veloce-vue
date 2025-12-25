@@ -1,17 +1,67 @@
+<template>
+  <motion.div
+    :class="classes"
+    class="relative flex max-w-[400px] min-w-[300px] flex-col overflow-hidden rounded-lg border shadow-lg backdrop-blur-sm"
+    layout
+    :initial="animationProps.initial"
+    :animate="animationProps.animate"
+    :exit="animationProps.exit"
+    :transition="{
+      duration: 0.3,
+      ease: [0.4, 0, 0.2, 1],
+      layout: {
+        duration: 0.3,
+        ease: [0.4, 0, 0.2, 1],
+      },
+    }"
+    @mouseenter="pauseTimer"
+    @mouseleave="startTimer"
+  >
+    <div class="flex items-start gap-3 p-4">
+      <template v-if="$slots.icon">
+        <slot name="icon" />
+      </template>
+      <Icon :icon="iconToShow" class="mt-0.5 size-5" v-else-if="iconToShow" />
+      <div class="flex-1">
+        <slot>
+          <p class="text-sm font-medium">{{ message }}</p>
+        </slot>
+      </div>
+      <button type="button" v-if="closable" class="ml-auto shrink-0 rounded p-0.5 transition-colors hover:bg-black/10 dark:hover:bg-white/10" @click="handleClose">
+        <Icon :icon="Close" class="size-4" />
+      </button>
+    </div>
+
+    <!-- Progress Bar -->
+    <div v-if="duration > 0" class="absolute bottom-0 left-0 h-1 w-full overflow-hidden bg-black/10 dark:bg-white/10">
+      <motion.div
+        :class="progressBarClass"
+        class="h-full"
+        :style="{ width: `${progressPercentage}%` }"
+        :initial="{ width: '100%' }"
+        :animate="{ width: `${progressPercentage}%` }"
+        :transition="{
+          duration: isPaused ? 0 : 0.16,
+          ease: 'linear',
+        }"
+      />
+    </div>
+  </motion.div>
+</template>
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, type Component } from 'vue';
-import { Icon, CheckCircle, Info, Alert, XCircle, Close } from '../../exports/icons';
-import { type Severity } from '../../exports/types';
-import { motion } from 'motion-v';
+import { computed, onMounted, onUnmounted, ref, type Component } from "vue";
+import { Icon, CheckCircle, Info, Alert, XCircle, Close } from "../../exports/icons";
+import { type Severity } from "../../exports/types";
+import { motion } from "motion-v";
 
 const props = defineProps({
   id: { type: String, required: true },
-  message: { type: String, default: '' },
-  severity: { type: String as () => Severity, default: 'info' },
+  message: { type: String, default: "" },
+  severity: { type: String as () => Severity, default: "info" },
   icon: { type: Object as () => Component, default: () => null },
   duration: { type: Number, default: 5000 },
   closable: { type: Boolean, default: true },
-  position: { type: String as () => 'top-left' | 'top-right' | 'top-center' | 'bottom-left' | 'bottom-right' | 'bottom-center', default: 'top-right' },
+  position: { type: String as () => "top-left" | "top-right" | "top-center" | "bottom-left" | "bottom-right" | "bottom-center", default: "top-right" },
 });
 
 const emit = defineEmits<{
@@ -29,23 +79,23 @@ const defaultIcons: Record<Severity, Component> = {
 };
 
 const severityClasses = {
-  success: 'bg-success-light dark:bg-success/20 text-success border-success/30',
-  info: 'bg-info-light dark:bg-info/20 text-info border-info/30',
-  warning: 'bg-warning-light dark:bg-warning/20 text-warning border-warning/30',
-  error: 'bg-error-light dark:bg-error/20 text-error border-error/30',
-  primary: 'bg-primary-light dark:bg-primary/20 text-primary border-primary/30',
-  secondary: 'bg-secondary-light dark:bg-secondary/20 text-secondary border-secondary/30',
-  neutral: 'bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 border-neutral-300 dark:border-neutral-700',
+  success: "bg-success-light dark:bg-success/20 text-success border-success/30",
+  info: "bg-info-light dark:bg-info/20 text-info border-info/30",
+  warning: "bg-warning-light dark:bg-warning/20 text-warning border-warning/30",
+  error: "bg-error-light dark:bg-error/20 text-error border-error/30",
+  primary: "bg-primary-light dark:bg-primary/20 text-primary border-primary/30",
+  secondary: "bg-secondary-light dark:bg-secondary/20 text-secondary border-secondary/30",
+  neutral: "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 border-neutral-300 dark:border-neutral-700",
 };
 
 const progressBarClasses = {
-  success: 'bg-success',
-  info: 'bg-info',
-  warning: 'bg-warning',
-  error: 'bg-error',
-  primary: 'bg-primary',
-  secondary: 'bg-secondary',
-  neutral: 'bg-neutral-500',
+  success: "bg-success",
+  info: "bg-info",
+  warning: "bg-warning",
+  error: "bg-error",
+  primary: "bg-primary",
+  secondary: "bg-secondary",
+  neutral: "bg-neutral-500",
 };
 
 const classes = computed(() => {
@@ -61,7 +111,7 @@ const iconToShow = computed(() => {
 });
 
 const animationProps = computed(() => {
-  let yOffset = props.position.includes('top') ? -50 : 50;
+  let yOffset = props.position.includes("top") ? -50 : 50;
 
   return {
     initial: { opacity: 0, x: 0, y: yOffset, scale: 0.9 },
@@ -97,7 +147,7 @@ const updateProgress = () => {
 };
 
 const handleClose = () => {
-  emit('close', props.id);
+  emit("close", props.id);
 };
 
 const startTimer = () => {
@@ -163,54 +213,3 @@ onUnmounted(() => {
   clearTimer();
 });
 </script>
-
-<template>
-  <motion.div
-    :class="classes"
-    class="relative flex min-w-[300px] max-w-[400px] flex-col overflow-hidden rounded-lg border shadow-lg backdrop-blur-sm"
-    layout
-    :initial="animationProps.initial"
-    :animate="animationProps.animate"
-    :exit="animationProps.exit"
-    :transition="{
-      duration: 0.3,
-      ease: [0.4, 0, 0.2, 1],
-      layout: {
-        duration: 0.3,
-        ease: [0.4, 0, 0.2, 1],
-      },
-    }"
-    @mouseenter="pauseTimer"
-    @mouseleave="startTimer"
-  >
-    <div class="flex items-start gap-3 p-4">
-      <template v-if="$slots.icon">
-        <slot name="icon" />
-      </template>
-      <Icon :icon="iconToShow" class="mt-0.5 size-5" v-else-if="iconToShow" />
-      <div class="flex-1">
-        <slot>
-          <p class="text-sm font-medium">{{ message }}</p>
-        </slot>
-      </div>
-      <button type="button" v-if="closable" class="ml-auto shrink-0 rounded p-0.5 transition-colors hover:bg-black/10 dark:hover:bg-white/10" @click="handleClose">
-        <Icon :icon="Close" class="size-4" />
-      </button>
-    </div>
-
-    <!-- Progress Bar -->
-    <div v-if="duration > 0" class="absolute bottom-0 left-0 h-1 w-full overflow-hidden bg-black/10 dark:bg-white/10">
-      <motion.div
-        :class="progressBarClass"
-        class="h-full"
-        :style="{ width: `${progressPercentage}%` }"
-        :initial="{ width: '100%' }"
-        :animate="{ width: `${progressPercentage}%` }"
-        :transition="{
-          duration: isPaused ? 0 : 0.16,
-          ease: 'linear',
-        }"
-      />
-    </div>
-  </motion.div>
-</template>
