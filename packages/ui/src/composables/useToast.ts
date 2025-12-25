@@ -29,14 +29,27 @@ interface ToastContainerMethods {
 
 let toastContainerId: string = "default-toast-container";
 const toastContainerInstances = new Map<string, ToastContainerMethods>();
+// Track how many containers are registered per containerId
+const containerInstanceCounts = new Map<string, number>();
 
 export const setToastContainer = (instance: ToastContainerMethods | null, containerId: string) => {
-  toastContainerId = containerId;
-
   if (instance) {
+    // Register instance and increment count
+    toastContainerId = containerId;
     toastContainerInstances.set(containerId, instance);
+    const currentCount = containerInstanceCounts.get(containerId) || 0;
+    containerInstanceCounts.set(containerId, currentCount + 1);
   } else {
-    toastContainerInstances.delete(containerId);
+    // Decrement count and only delete if count reaches 0
+    const currentCount = containerInstanceCounts.get(containerId) || 0;
+    if (currentCount > 1) {
+      // Other instances still exist, just decrement count
+      containerInstanceCounts.set(containerId, currentCount - 1);
+    } else {
+      // Last instance, remove completely
+      toastContainerInstances.delete(containerId);
+      containerInstanceCounts.delete(containerId);
+    }
   }
 };
 
