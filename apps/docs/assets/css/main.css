@@ -1,4 +1,29 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-@import "veloce-vue/styles.css";
+@import "../../node_modules/veloce-vue/styles/index.css";
+@source "../../node_modules/veloce-vue/components";
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
+
+.remove-padding-first-child {
+  & > *:first-child {
+    padding: 0;
+  }
+}
+
+.first-child-margin-top {
+  & > *:first-child {
+    @apply mt-0.5;
+  }
+}
+
+.first-child-margin-bottom {
+  & > *:first-child {
+    @apply mb-0.5;
+  }
+}
