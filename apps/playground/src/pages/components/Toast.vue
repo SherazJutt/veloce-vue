@@ -106,11 +106,11 @@ const showInfo = () => {
 };
 
 const showPrimary = () => {
-  toast.show("This is a primary toast", { message: "This is a primary toast", severity: "primary" });
+  toast.show("This is a primary toast", { severity: "primary" });
 };
 
 const showSecondary = () => {
-  toast.show("This is a secondary toast", { message: "This is a secondary toast", severity: "secondary" });
+  toast.show("This is a secondary toast", { severity: "secondary" });
 };
 
 const showLongDuration = () => {

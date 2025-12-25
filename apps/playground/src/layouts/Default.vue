@@ -20,16 +20,17 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
+
 import { Button, Layout } from "@veloce-vue/ui";
 import { ToastContainer } from "@veloce-vue/toast";
 import Sidebar from "@/components/Sidebar.vue";
 import { Sun, Moon } from "@veloce-vue/icons";
-
-import { computed } from "vue";
-import { useWindowSize } from "@vueuse/core";
 import { useColorMode } from "@veloce-vue/composables";
 
+import { useWindowSize } from "@vueuse/core";
 const { isDark, toggleDark } = useColorMode();
+
 const { width } = useWindowSize();
 const isMobile = computed(() => width.value <= 992);
 </script>

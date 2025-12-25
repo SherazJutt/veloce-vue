@@ -1,5 +1,5 @@
 <template>
-  <div :class="containerClasses" class="w-full sm:w-auto">
+  <div :class="containerClasses" class="w-full sm:w-auto" :id="containerId">
     <AnimatePresence>
       <Toast
         v-for="(toast, index) in toasts"
@@ -30,7 +30,7 @@ import { useRandomId } from "../../exports/utils";
 const props = defineProps({
   position: { type: String as () => "top-center" | "bottom-center" | "top-right" | "top-left" | "bottom-right" | "bottom-left", default: "top-right" },
   maxToasts: { type: Number, default: 5 },
-  containerId: { type: String, default: undefined },
+  containerId: { type: String, default: "default-toast-container" },
 });
 
 const toasts: Ref<ToastItem[]> = ref<ToastItem[]>([]);

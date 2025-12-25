@@ -27,25 +27,26 @@ interface ToastContainerMethods {
   toasts: any;
 }
 
-const DEFAULT_CONTAINER_ID = "default-toast-container";
+let toastContainerId: string = "default-toast-container";
 const toastContainerInstances = new Map<string, ToastContainerMethods>();
 
-export const setToastContainer = (instance: ToastContainerMethods | null, containerId?: string) => {
-  const id = containerId || DEFAULT_CONTAINER_ID;
+export const setToastContainer = (instance: ToastContainerMethods | null, containerId: string) => {
+  toastContainerId = containerId;
+
   if (instance) {
-    toastContainerInstances.set(id, instance);
+    toastContainerInstances.set(containerId, instance);
   } else {
-    toastContainerInstances.delete(id);
+    toastContainerInstances.delete(containerId);
   }
 };
 
 const getToastContainer = (containerId?: string): ToastContainerMethods | null => {
-  const id = containerId || DEFAULT_CONTAINER_ID;
+  const id = containerId || toastContainerId;
   return toastContainerInstances.get(id) || null;
 };
 
 const showToast = (options: ToastOptions & { containerId?: string }) => {
-  const containerId = options.containerId || DEFAULT_CONTAINER_ID;
+  const containerId = options.containerId || toastContainerId;
   const container = getToastContainer(containerId);
 
   if (!container) {
