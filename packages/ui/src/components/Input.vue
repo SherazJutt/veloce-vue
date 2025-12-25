@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { computed, ref, type Component } from 'vue';
-import { useRandomId } from '../exports/utils';
-import { Icon, Eye, EyeOff } from '../exports/icons';
-import { type Size } from '../exports/types';
+import { computed, ref, type Component } from "vue";
+import { useRandomId } from "../exports/utils";
+import { Icon, Eye, EyeOff } from "../exports/icons";
+import { type Size } from "../exports/types";
 
 const id = useRandomId();
 
 const props = defineProps({
   leadingIcon: { type: Object as () => Component, default: () => null },
   trailingIcon: { type: Object as () => Component, default: () => null },
-  placeholder: { type: String, default: '' },
-  iconClass: { type: String, default: '' },
-  helpText: { type: String, default: '' },
-  type: { type: String as () => 'text' | 'password', default: 'text' },
-  labelStyle: { type: String as () => 'float' | 'static', default: 'static' },
-  label: { type: String, default: '' },
-  size: { type: String as () => Size, default: 'md' },
+  placeholder: { type: String, default: "" },
+  iconClass: { type: String, default: "" },
+  helpText: { type: String, default: "" },
+  type: { type: String as () => "text" | "password", default: "text" },
+  labelStyle: { type: String as () => "float" | "static", default: "static" },
+  label: { type: String, default: "" },
+  size: { type: String as () => Size, default: "md" },
 });
 
 const model = defineModel();
@@ -27,14 +27,14 @@ const togglePasswordVisibility = () => (isPasswordVisible.value = !isPasswordVis
 
 const sizeClasses = computed(() => {
   switch (props.size) {
-    case 'sm':
-      return { container: 'h-[30px]', input: 'px-2 py-1 text-sm', icon: 'size-4', text: 'text-sm', floatLabel: { focus: 'text-xs', base: 'text-sm' } };
-    case 'md':
-      return { container: 'h-[34px]', input: 'px-2.5 py-1.5 text-sm', icon: 'size-4', text: 'text-sm', floatLabel: { focus: 'text-xs', base: 'text-sm' } };
-    case 'lg':
-      return { container: 'h-[42px]', input: 'px-3 py-2 text-base', icon: 'size-5', text: 'text-base', floatLabel: { focus: 'text-sm', base: 'text-base' } };
-    case 'xl':
-      return { container: 'h-[50px]', input: 'px-3.5 py-2.5 text-lg', icon: 'size-6', text: 'text-lg', floatLabel: { focus: 'text-sm', base: 'text-lg' } };
+    case "sm":
+      return { container: "h-[30px]", input: "px-2 py-1 text-sm", icon: "size-4", text: "text-sm", floatLabel: { focus: "text-xs", base: "text-sm" } };
+    case "md":
+      return { container: "h-[34px]", input: "px-2.5 py-1.5 text-sm", icon: "size-4", text: "text-sm", floatLabel: { focus: "text-xs", base: "text-sm" } };
+    case "lg":
+      return { container: "h-[42px]", input: "px-3 py-2 text-base", icon: "size-5", text: "text-base", floatLabel: { focus: "text-sm", base: "text-base" } };
+    case "xl":
+      return { container: "h-[50px]", input: "px-3.5 py-2.5 text-lg", icon: "size-6", text: "text-lg", floatLabel: { focus: "text-sm", base: "text-lg" } };
   }
 });
 </script>
@@ -45,21 +45,46 @@ const sizeClasses = computed(() => {
       <label class="text-sm font-medium duration-100" :for="id">{{ label }}</label>
     </div>
 
-    <div :class="[{ 'mb-6': helpText }, sizeClasses.container]" class="relative">
+    <div :class="[sizeClasses.container]" class="relative">
       <!-- leading icon -->
-      <Icon v-if="leadingIcon" :icon="leadingIcon" :class="[sizeClasses.icon, iconClass]" class="text-muted absolute left-3 top-1/2 -translate-y-1/2" />
+      <Icon v-if="leadingIcon" :icon="leadingIcon" :class="[sizeClasses.icon, iconClass]" class="text-muted absolute top-1/2 left-3 -translate-y-1/2" />
       <!-- trailing icon -->
-      <Icon v-if="trailingIcon" :icon="trailingIcon" :class="[sizeClasses.icon, iconClass]" class="text-muted absolute right-3 top-1/2 -translate-y-1/2" />
+      <Icon v-if="trailingIcon" :icon="trailingIcon" :class="[sizeClasses.icon, iconClass]" class="text-muted absolute top-1/2 right-3 -translate-y-1/2" />
 
       <!-- input -->
-      <input :type="type === 'password' && isPasswordVisible ? 'text' : type" v-model="model" :class="[sizeClasses.input, sizeClasses.text, { 'pr-12': props.type === 'password' }, { 'pl-10': leadingIcon && props.size === 'md' }, { 'pl-9': leadingIcon && props.size === 'sm' }, { 'pl-11': leadingIcon && props.size === 'lg' }, { 'pl-12': leadingIcon && props.size === 'xl' }, { 'pr-10': trailingIcon && props.type !== 'password' && props.size === 'md' }, { 'pr-9': trailingIcon && props.type !== 'password' && props.size === 'sm' }, { 'pr-11': trailingIcon && props.type !== 'password' && props.size === 'lg' }, { 'pr-12': trailingIcon && props.type !== 'password' && props.size === 'xl' }]" class="outline-primary dark:placeholder:text-muted focus:border-primary/75 peer h-full w-full rounded border outline-none duration-200" :id="id" :placeholder="labelStyle === 'float' ? ' ' : placeholder" @focus="isFocused = true" @blur="isFocused = false" />
+      <input
+        :type="type === 'password' && isPasswordVisible ? 'text' : type"
+        v-model="model"
+        :class="[
+          sizeClasses.input,
+          sizeClasses.text,
+          { 'pr-12': props.type === 'password' },
+          { 'pl-10': leadingIcon && props.size === 'md' },
+          { 'pl-9': leadingIcon && props.size === 'sm' },
+          { 'pl-11': leadingIcon && props.size === 'lg' },
+          { 'pl-12': leadingIcon && props.size === 'xl' },
+          { 'pr-10': trailingIcon && props.type !== 'password' && props.size === 'md' },
+          { 'pr-9': trailingIcon && props.type !== 'password' && props.size === 'sm' },
+          { 'pr-11': trailingIcon && props.type !== 'password' && props.size === 'lg' },
+          { 'pr-12': trailingIcon && props.type !== 'password' && props.size === 'xl' },
+        ]"
+        class="outline-primary dark:placeholder:text-muted focus:border-primary/75 peer h-full w-full rounded border duration-200 outline-none"
+        :id="id"
+        :placeholder="labelStyle === 'float' ? ' ' : placeholder"
+        @focus="isFocused = true"
+        @blur="isFocused = false"
+      />
       <!-- floating label -->
-      <div v-if="labelStyle === 'float'" :class="[model || isFocused ? `-top-1.5 px-0.5 ${sizeClasses.floatLabel.focus}` : `bottom-0 top-0 my-auto ${sizeClasses.floatLabel.base}`]" class="bg-background dark:text-muted absolute left-2.5 h-fit rounded leading-none text-neutral-400 duration-100">
+      <div
+        v-if="labelStyle === 'float'"
+        :class="[model || isFocused ? `-top-1.5 px-0.5 ${sizeClasses.floatLabel.focus}` : `top-0 bottom-0 my-auto ${sizeClasses.floatLabel.base}`]"
+        class="bg-background dark:text-muted absolute left-2.5 h-fit rounded leading-none text-neutral-400 duration-100"
+      >
         {{ placeholder }}
       </div>
 
       <!-- password toggle -->
-      <div v-if="type === 'password'" class="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer" @click="togglePasswordVisibility">
+      <div v-if="type === 'password'" class="absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer" @click="togglePasswordVisibility">
         <Icon :icon="isPasswordVisible ? EyeOff : Eye" :class="sizeClasses.icon" class="text-muted" />
       </div>
     </div>
