@@ -1,12 +1,15 @@
 import type { Severity } from "../exports/types";
-import type { Component } from "vue";
+import type { Ref } from "vue";
+import { markRaw } from "vue";
 import { useRandomId } from "../exports/utils";
+import { useStorage } from "@vueuse/core";
+import type { IconName } from "../exports/icons";
 
 export interface ToastItem {
   id: string;
   message: string;
   severity?: Severity;
-  icon?: Component;
+  icon?: IconName;
   duration?: number;
   closable?: boolean;
 }
@@ -14,97 +17,58 @@ export interface ToastItem {
 export interface ToastOptions {
   message: string;
   severity?: Severity;
-  icon?: Component;
+  icon?: IconName;
   duration?: number;
   closable?: boolean;
-  containerId?: string;
 }
 
-interface ToastContainerMethods {
-  addToast: (toast: ToastItem) => void;
-  removeToast: (id: string) => void;
-  clearAll: () => void;
-  toasts: any;
+interface Toast {
+  success: (message: string, options?: Omit<ToastOptions, "message" | "severity">) => void;
+  error: (message: string, options?: Omit<ToastOptions, "message" | "severity">) => void;
+  warning: (message: string, options?: Omit<ToastOptions, "message" | "severity">) => void;
+  info: (message: string, options?: Omit<ToastOptions, "message" | "severity">) => void;
+  show: (message: string, options?: Omit<ToastOptions, "message">) => void;
+  clear: () => void;
 }
 
-let toastContainerId: string = "default-toast-container";
-const toastContainerInstances = new Map<string, ToastContainerMethods>();
-// Track how many containers are registered per containerId
-const containerInstanceCounts = new Map<string, number>();
+export const toasts: Ref<ToastItem[]> = useStorage("veloce-toasts", []);
 
-export const setToastContainer = (instance: ToastContainerMethods | null, containerId: string) => {
-  if (instance) {
-    // Register instance and increment count
-    toastContainerId = containerId;
-    toastContainerInstances.set(containerId, instance);
-    const currentCount = containerInstanceCounts.get(containerId) || 0;
-    containerInstanceCounts.set(containerId, currentCount + 1);
-  } else {
-    // Decrement count and only delete if count reaches 0
-    const currentCount = containerInstanceCounts.get(containerId) || 0;
-    if (currentCount > 1) {
-      // Other instances still exist, just decrement count
-      containerInstanceCounts.set(containerId, currentCount - 1);
-    } else {
-      // Last instance, remove completely
-      toastContainerInstances.delete(containerId);
-      containerInstanceCounts.delete(containerId);
-    }
-  }
-};
+export const useToast = (): Toast => {
+  const showToast = (options: ToastOptions): void => {
+    const toastItem: ToastItem = {
+      id: useRandomId(),
+      message: options.message,
+      severity: options.severity || "info",
+      icon: options.icon,
+      duration: options.duration ?? 5000,
+      closable: options.closable ?? true,
+    };
 
-const getToastContainer = (containerId?: string): ToastContainerMethods | null => {
-  const id = containerId || toastContainerId;
-  return toastContainerInstances.get(id) || null;
-};
-
-const showToast = (options: ToastOptions & { containerId?: string }) => {
-  const containerId = options.containerId || toastContainerId;
-  const container = getToastContainer(containerId);
-
-  if (!container) {
-    console.warn(`Toast container with ID "${containerId}" not initialized. Make sure to add <ToastContainer> to your app.`);
-    return;
-  }
-
-  const toastItem: ToastItem = {
-    id: useRandomId(),
-    message: options.message,
-    severity: options.severity || "info",
-    icon: options.icon,
-    duration: options.duration ?? 5000,
-    closable: options.closable ?? true,
+    toasts.value.push(toastItem);
   };
 
-  container.addToast(toastItem);
-};
-
-export const useToast = (containerId?: string) => {
-  const success = (message: string, options?: Omit<ToastOptions, "message" | "severity"> & { containerId?: string }) => {
-    return showToast({ ...options, message, severity: "success", containerId: options?.containerId || containerId });
+  const success = (message: string, options?: Omit<ToastOptions, "message" | "severity">) => {
+    return showToast({ ...options, message, severity: "success" });
   };
 
-  const error = (message: string, options?: Omit<ToastOptions, "message" | "severity"> & { containerId?: string }) => {
-    return showToast({ ...options, message, severity: "error", containerId: options?.containerId || containerId });
+  const error = (message: string, options?: Omit<ToastOptions, "message" | "severity">) => {
+    return showToast({ ...options, message, severity: "error" });
   };
 
-  const warning = (message: string, options?: Omit<ToastOptions, "message" | "severity"> & { containerId?: string }) => {
-    return showToast({ ...options, message, severity: "warning", containerId: options?.containerId || containerId });
+  const warning = (message: string, options?: Omit<ToastOptions, "message" | "severity">) => {
+    return showToast({ ...options, message, severity: "warning" });
   };
 
-  const info = (message: string, options?: Omit<ToastOptions, "message" | "severity"> & { containerId?: string }) => {
-    return showToast({ ...options, message, severity: "info", containerId: options?.containerId || containerId });
+  const info = (message: string, options?: Omit<ToastOptions, "message" | "severity">) => {
+    return showToast({ ...options, message, severity: "info" });
   };
 
-  const show = (message: string, options?: Omit<ToastOptions, "message"> & { containerId?: string }) => {
-    return showToast({ ...options, message, containerId: options?.containerId || containerId });
+  const show = (message: string, options?: Omit<ToastOptions, "message">) => {
+    return showToast({ ...options, message });
   };
 
   const clear = () => {
-    const container = getToastContainer(containerId);
-    if (container) {
-      container.clearAll();
-    }
+    toasts.value = [];
   };
 
   return { success, error, warning, info, show, clear };

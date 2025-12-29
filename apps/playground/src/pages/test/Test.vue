@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Button :icon="Alert" label="Button" />
+    <pre>{{ toastStore }}</pre>
   </div>
 </template>
 <script setup lang="ts">
-import { Button } from "@veloce-vue/ui";
-import { Alert } from "@veloce-vue/icons";
+import { useToastStore } from "@veloce-vue/toast";
+const toastStore = useToastStore();
 </script>

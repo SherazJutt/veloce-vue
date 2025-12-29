@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, type Component } from "vue";
-import { Icon, Loading } from "../exports/icons";
+import { Icon, Loading, type IconName } from "../exports/icons";
 import { type Variant, type Severity, type Position, type Size, type FontWeight } from "../exports/types";
 
 const props = defineProps({
@@ -9,7 +9,7 @@ const props = defineProps({
   disabled: { type: Boolean, default: false },
   variant: { type: String as () => Variant, default: "solid" },
   severity: { type: String as () => Severity, default: "primary" },
-  icon: { type: Object as () => Component, default: () => null },
+  icon: { type: Object as () => IconName | Component, default: () => null },
   iconClass: { type: String, default: "" },
   iconPosition: { type: String as () => Position, default: "right" },
   rounded: { type: Boolean, default: false },

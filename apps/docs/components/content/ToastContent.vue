@@ -28,8 +28,6 @@
 <script setup lang="ts">
 import { Button } from "veloce-vue/ui";
 import { useToast } from "veloce-vue/toast";
-import { Upload, Bell } from "veloce-vue/icons";
-import { markRaw } from "vue";
 import { ToastContainer } from "veloce-vue/toast";
 
 const props = defineProps({
@@ -70,10 +68,10 @@ const showNoAutoClose = () => {
 };
 
 const showCustomIcon = () => {
-  toast.success("File uploaded successfully!", { icon: markRaw(Upload) });
+  toast.success("File uploaded successfully!");
 };
 
 const showBellIcon = () => {
-  toast.info("You have a new notification", { icon: markRaw(Bell) });
+  toast.info("You have a new notification");
 };
 </script>
