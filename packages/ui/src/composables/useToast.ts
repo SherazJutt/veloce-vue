@@ -1,5 +1,6 @@
 import type { Severity } from "../exports/types";
 import type { Component, Ref } from "vue";
+import { markRaw } from "vue";
 import { useRandomId } from "../exports/utils";
 import { useStorage } from "@vueuse/core";
 
@@ -33,6 +34,9 @@ export const toasts: Ref<ToastItem[]> = useStorage("veloce-toasts", []);
 
 export const useToast = (): Toast => {
   const showToast = (options: ToastOptions) => {
+    const icon = options.icon ? markRaw(options.icon) : undefined;
+    console.log(icon);
+
     const toastItem: ToastItem = {
       id: useRandomId(),
       message: options.message,

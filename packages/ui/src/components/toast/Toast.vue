@@ -18,10 +18,7 @@
     @mouseleave="startTimer"
   >
     <div class="flex items-start gap-3 p-4">
-      <template v-if="$slots.icon">
-        <slot name="icon" />
-      </template>
-      <Icon :icon="iconToShow" class="mt-0.5 size-5" v-else-if="iconToShow" />
+      <Icon v-if="iconToShow" :icon="iconToShow" class="mt-0.5 size-5" />
       <div class="flex-1">
         <slot>
           <p class="text-sm font-medium">{{ message }}</p>
