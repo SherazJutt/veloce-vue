@@ -20,15 +20,12 @@
       <Button label="Toast with Custom Icon" severity="success" @click="showCustomIcon" />
       <Button label="Toast with Bell Icon" severity="info" @click="showBellIcon" />
     </div>
-
-    <ToastContainer position="bottom-right" :max-toasts="5" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { Button } from "veloce-vue/ui";
 import { useToast } from "veloce-vue/toast";
-import { ToastContainer } from "veloce-vue/toast";
 
 const props = defineProps({
   basic: { type: Boolean, default: false },

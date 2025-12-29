@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount } from "vue";
+import { computed, onBeforeMount } from "vue";
 import { AnimatePresence } from "motion-v";
 import Toast from "./Toast.vue";
 import type { ToastItem } from "../../composables/useToast";
@@ -32,7 +32,7 @@ const props = defineProps({
   containerId: { type: String, default: "default-toast-container" },
 });
 
-onBeforeUnmount(() => (toasts.value = []));
+onBeforeMount(() => (toasts.value = []));
 
 const containerClasses = computed(() => {
   const baseClasses = "fixed z-[9999] flex flex-col gap-3 p-4 pointer-events-none";
