@@ -46,8 +46,8 @@
   </motion.div>
 </template>
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, type Component } from "vue";
-import { Icon, CheckCircle, Info, Alert, XCircle, Close } from "../../exports/icons";
+import { computed, onMounted, onUnmounted, ref } from "vue";
+import { Icon, Close, type IconName } from "../../exports/icons";
 import { type Severity } from "../../exports/types";
 import { motion } from "motion-v";
 
@@ -55,25 +55,15 @@ const props = defineProps({
   id: { type: String, required: true },
   message: { type: String, default: "" },
   severity: { type: String as () => Severity, default: "info" },
-  icon: { type: Object as () => Component, default: () => null },
   duration: { type: Number, default: 5000 },
   closable: { type: Boolean, default: true },
   position: { type: String as () => "top-left" | "top-right" | "top-center" | "bottom-left" | "bottom-right" | "bottom-center", default: "top-right" },
+  icon: { type: String as () => IconName, default: undefined },
 });
 
 const emit = defineEmits<{
   close: [id: string];
 }>();
-
-const defaultIcons: Record<Severity, Component> = {
-  success: CheckCircle,
-  info: Info,
-  warning: Alert,
-  error: XCircle,
-  primary: Info,
-  secondary: Info,
-  neutral: Info,
-};
 
 const severityClasses = {
   success: "bg-success-light dark:bg-success/20 text-success border-success/30",
@@ -104,7 +94,19 @@ const progressBarClass = computed(() => {
 });
 
 const iconToShow = computed(() => {
-  return props.icon || defaultIcons[props.severity] || Info;
+  const defaultIcons: Record<Severity, IconName> = {
+    success: "CheckCircle",
+    info: "Info",
+    warning: "Alert",
+    error: "XCircle",
+    primary: "Info",
+    secondary: "Info",
+    neutral: "Info",
+  };
+
+  console.log("=>", props.icon);
+
+  return props.icon ? props.icon : defaultIcons[props.severity];
 });
 
 const animationProps = computed(() => {

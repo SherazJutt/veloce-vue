@@ -20,11 +20,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onBeforeUnmount } from "vue";
 import { AnimatePresence } from "motion-v";
 import Toast from "./Toast.vue";
 import type { ToastItem } from "../../composables/useToast";
-import { useRandomId } from "../../exports/utils";
 import { toasts } from "../../composables/useToast";
 
 const props = defineProps({
@@ -32,6 +31,8 @@ const props = defineProps({
   maxToasts: { type: Number, default: 5 },
   containerId: { type: String, default: "default-toast-container" },
 });
+
+onBeforeUnmount(() => (toasts.value = []));
 
 const containerClasses = computed(() => {
   const baseClasses = "fixed z-[9999] flex flex-col gap-3 p-4 pointer-events-none";
@@ -46,45 +47,10 @@ const containerClasses = computed(() => {
   return `${baseClasses} ${positionClasses[props.position] || positionClasses["top-right"]}`;
 });
 
-const addToast = (toast: ToastItem): void => {
-  console.log("toasts");
-
-  const newToast: ToastItem = {
-    id: toast.id || useRandomId(),
-    message: toast.message,
-    severity: toast.severity || "info",
-    icon: toast.icon,
-    duration: toast.duration ?? 5000,
-    closable: toast.closable ?? true,
-  };
-
-  if (props.position.includes("top")) {
-    toasts.value.unshift(newToast);
-  } else {
-    toasts.value.push(newToast);
-  }
-
-  // Limit the number of toasts
-  if (toasts.value.length > props.maxToasts) {
-    toasts.value.shift();
-  }
-};
-
 const removeToast = (id: string): void => {
   const index = toasts.value.findIndex((toast: ToastItem) => toast.id === id);
   if (index > -1) {
     toasts.value.splice(index, 1);
   }
 };
-
-const clearAll = (): void => {
-  toasts.value = [];
-};
-
-defineExpose<{
-  addToast: (toast: ToastItem) => void;
-  removeToast: (id: string) => void;
-  clearAll: () => void;
-  toasts: typeof toasts;
-}>({ addToast, removeToast, clearAll, toasts });
 </script>

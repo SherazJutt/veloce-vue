@@ -1,14 +1,15 @@
 import type { Severity } from "../exports/types";
-import type { Component, Ref } from "vue";
+import type { Ref } from "vue";
 import { markRaw } from "vue";
 import { useRandomId } from "../exports/utils";
 import { useStorage } from "@vueuse/core";
+import type { IconName } from "../exports/icons";
 
 export interface ToastItem {
   id: string;
   message: string;
   severity?: Severity;
-  icon?: Component;
+  icon?: IconName;
   duration?: number;
   closable?: boolean;
 }
@@ -16,7 +17,7 @@ export interface ToastItem {
 export interface ToastOptions {
   message: string;
   severity?: Severity;
-  icon?: Component;
+  icon?: IconName;
   duration?: number;
   closable?: boolean;
 }
@@ -33,10 +34,7 @@ interface Toast {
 export const toasts: Ref<ToastItem[]> = useStorage("veloce-toasts", []);
 
 export const useToast = (): Toast => {
-  const showToast = (options: ToastOptions) => {
-    const icon = options.icon ? markRaw(options.icon) : undefined;
-    console.log(icon);
-
+  const showToast = (options: ToastOptions): void => {
     const toastItem: ToastItem = {
       id: useRandomId(),
       message: options.message,
@@ -47,7 +45,6 @@ export const useToast = (): Toast => {
     };
 
     toasts.value.push(toastItem);
-    console.log("toast added");
   };
 
   const success = (message: string, options?: Omit<ToastOptions, "message" | "severity">) => {

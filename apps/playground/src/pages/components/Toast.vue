@@ -85,8 +85,6 @@ toast.clear();</code></pre>
 <script setup lang="ts">
 import { Button } from "@veloce-vue/ui";
 import { useToast, toasts } from "@veloce-vue/toast";
-import { Upload, Bell } from "@veloce-vue/icons";
-import { markRaw } from "vue";
 
 const toast = useToast();
 
@@ -127,11 +125,11 @@ const showNoAutoClose = () => {
 };
 
 const showCustomIcon = () => {
-  toast.success("File uploaded successfully!", { icon: markRaw(Upload) });
+  toast.success("File uploaded successfully!", { icon: "Upload" });
 };
 
 const showBellIcon = () => {
-  toast.info("You have a new notification", { icon: markRaw(Bell) });
+  toast.info("You have a new notification", { icon: "Bell" });
 };
 
 const showMultiple = () => {
