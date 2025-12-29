@@ -1,7 +1,7 @@
-import { ref } from "vue";
 import type { Severity } from "../exports/types";
 import type { Component, Ref } from "vue";
 import { useRandomId } from "../exports/utils";
+import { useStorage } from "@vueuse/core";
 
 export interface ToastItem {
   id: string;
@@ -29,7 +29,7 @@ interface Toast {
   clear: () => void;
 }
 
-export const toasts: Ref<ToastItem[]> = ref([]);
+export const toasts: Ref<ToastItem[]> = useStorage("veloce-toasts", []);
 
 export const useToast = (): Toast => {
   const showToast = (options: ToastOptions) => {
@@ -43,6 +43,7 @@ export const useToast = (): Toast => {
     };
 
     toasts.value.push(toastItem);
+    console.log("toast added");
   };
 
   const success = (message: string, options?: Omit<ToastOptions, "message" | "severity">) => {
