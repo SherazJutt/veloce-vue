@@ -66,13 +66,13 @@ const emit = defineEmits<{
 }>();
 
 const severityClasses = {
-  success: "bg-success-light dark:bg-success/20 text-success border-success/30",
-  info: "bg-info-light dark:bg-info/20 text-info border-info/30",
-  warning: "bg-warning-light dark:bg-warning/20 text-warning border-warning/30",
-  error: "bg-error-light dark:bg-error/20 text-error border-error/30",
-  primary: "bg-primary-light dark:bg-primary/20 text-primary border-primary/30",
-  secondary: "bg-secondary-light dark:bg-secondary/20 text-secondary border-secondary/30",
-  neutral: "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 border-neutral-300 dark:border-neutral-700",
+  success: "bg-success-light text-success border-success/30",
+  info: "bg-info-light text-info border-info/30",
+  warning: "bg-warning-light text-warning border-warning/30",
+  error: "bg-error-light text-error border-error/30",
+  primary: "bg-primary-light text-primary border-primary/30",
+  secondary: "bg-secondary-light text-secondary border-secondary/30",
+  neutral: "bg-neutral-100 text-neutral-700 dark:text-neutral-200 border-neutral-300 dark:border-neutral-700",
 };
 
 const progressBarClasses = {

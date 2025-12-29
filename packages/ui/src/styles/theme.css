@@ -22,8 +22,8 @@
   --color-warning-light: color-mix(in srgb, var(--colors-ui-warning) 12%, transparent);
   --color-error: var(--colors-ui-error);
   --color-error-light: color-mix(in srgb, var(--colors-ui-error) 12%, transparent);
-  --color-neutral: var(--color-neutral);
-  --color-neutral-light: color-mix(in srgb, var(--color-neutral) 12%, transparent);
+  --color-neutral: var(--color-neutral-500);
+  --color-neutral-light: color-mix(in srgb, var(--color-neutral-500) 12%, transparent);
 
   /* Background Colors */
   --color-background: var(--colors-ui-background);
