@@ -1,19 +1,15 @@
 ---
 seo:
-  title: Write beautiful docs with Markdown
-  description: Ship fast, flexible, and SEO-optimized documentation with beautiful
-    design out of the box. Docus brings together the best of the Nuxt ecosystem.
-    Powered by Nuxt UI.
+  title: VeloceVue - Modern Vue.js UI Component Library
+  description: Build beautiful and responsive user interfaces with VeloceVue. A modern Vue.js UI component library built with Vue 3, TypeScript, and Tailwind CSS v4.
 ---
 
 ::u-page-hero
 #title
-Write beautiful docs with Markdown
+Build beautiful UIs with VeloceVue
 
 #description
-Ship fast, flexible, and SEO-optimized documentation with beautiful design out of the box.
-
-Docus brings the best of the Nuxt ecosystem into one CLI.
+A modern Vue.js UI component library built with Vue 3, TypeScript, and Tailwind CSS v4. Ship fast, flexible, and beautiful user interfaces with minimal setup.
 
 #links
   :::u-button
@@ -31,11 +27,11 @@ Docus brings the best of the Nuxt ecosystem into one CLI.
   color: neutral
   icon: simple-icons-github
   size: xl
-  to: https://github.com/nuxt-content/docus
+  to: https://github.com
   variant: outline
   ---
-  Star on GitHub
-  :::
+  View on GitHub
+  ::
 ::
 
 ::u-page-section
@@ -45,79 +41,73 @@ Shipped with many features
 #features
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
+  icon: i-simple-icons-vuedotjs
   target: _blank
-  to: https://nuxt.com
+  to: https://vuejs.org
   ---
   #title
-  Built with [Nuxt 4]{.text-primary}
+  Built with [Vue 3]{.text-primary}
   
   #description
-  Optimized by the most famous Vue framework. Docus gives you everything you need to build fast, performant, and SEO-friendly websites.
+  Leveraging the power of Vue 3's Composition API and reactivity system. VeloceVue provides a modern, performant foundation for building interactive user interfaces.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
+  icon: i-simple-icons-typescript
   target: _blank
-  to: https://ui.nuxt.com/
+  to: https://www.typescriptlang.org
   ---
   #title
-  Powered by [Nuxt UI]{.text-primary}
+  Full [TypeScript]{.text-primary} support
   
   #description
-  Beautiful out of the box, minimal by design but highly customizable. Docus leverages Nuxt UI to give you the best docs writing experience with zero boilerplate, just focus on your content.
+  Type-safe components with comprehensive type definitions. Get autocomplete, type checking, and better developer experience out of the box.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
+  icon: i-simple-icons-tailwindcss
   target: _blank
-  to: https://content.nuxt.com
+  to: https://tailwindcss.com
   ---
   #title
-  Enhanced Markdown syntax by [Nuxt Content]{.text-primary}
+  Powered by [Tailwind CSS v4]{.text-primary}
   
   #description
-  The only thing you need to take care about is writing your content. Write your pages in Markdown and extend with MDC syntax to embed Nuxt UI or custom Vue components. Structure, routing, and rendering are handled for you.
+  Beautiful components styled with the latest Tailwind CSS. Minimal by design but highly customizable with utility classes and CSS variables.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://nuxt.com/docs/guide/directory-structure/app-config
+  icon: i-lucide-palette
   ---
   #title
-  Customize with [Nuxt App Config]{.text-primary}
+  [Customizable]{.text-primary} theme colors
   
   #description
-  Update colors, social links, header logos and component styles globally using the `app.config.ts`, no direct code modifications required.
+  Easily customize your theme colors through a simple configuration file. Update primary, secondary, success, info, warning, error, and neutral colors globally using CSS variables.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://content.nuxt.com/studio
+  icon: i-lucide-moon
   ---
   #title
-  Collaborate on [Nuxt Studio]{.text-primary}
+  Built-in [dark mode]{.text-primary} support
   
   #description
-  Write and manage your content visually, with zero Markdown knowledge required. Let your non technical colleagues collaborate on the documentation and integrate Vue components without code skills.
+  All components support dark mode out of the box. Use the `useColorMode` composable to toggle between light and dark themes seamlessly.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://ui.nuxt.com/components/content-search
+  icon: i-lucide-package
   ---
   #title
-  Built-in navigation and [full-text search]{.text-primary}
+  [Tree-shakable]{.text-primary} and lightweight
   
   #description
-  Only focus on ordering your content, Docus handles the search modal and auto-generates the side navigation for you.
-  :::
+  Import only what you need. VeloceVue is optimized for performance with tree-shaking support, keeping your bundle size small while providing a comprehensive component library.
+  ::
 ::
