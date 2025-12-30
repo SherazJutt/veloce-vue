@@ -65,10 +65,10 @@ const showNoAutoClose = () => {
 };
 
 const showCustomIcon = () => {
-  toast.success("File uploaded successfully!");
+  toast.success("File uploaded successfully!", { icon: "Upload" });
 };
 
 const showBellIcon = () => {
-  toast.info("You have a new notification");
+  toast.info("You have a new notification", { icon: "Bell" });
 };
 </script>

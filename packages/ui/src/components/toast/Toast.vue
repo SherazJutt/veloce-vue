@@ -104,8 +104,6 @@ const iconToShow = computed(() => {
     neutral: "Info",
   };
 
-  console.log("=>", props.icon);
-
   return props.icon ? props.icon : defaultIcons[props.severity];
 });
 

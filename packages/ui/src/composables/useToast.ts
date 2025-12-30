@@ -1,6 +1,5 @@
 import type { Severity } from "../exports/types";
 import type { Ref } from "vue";
-import { markRaw } from "vue";
 import { useRandomId } from "../exports/utils";
 import { useStorage } from "@vueuse/core";
 import type { IconName } from "../exports/icons";
