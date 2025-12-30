@@ -22,7 +22,7 @@ const links = ref([
   },
   {
     label: "View on GitHub",
-    to: "https://github.com",
+    to: "https://github.com/SherazJutt/veloce-vue",
     color: "neutral",
     icon: "simple-icons-github",
     size: "xl",
@@ -37,11 +37,11 @@ const links = ref([
 }
 
 .bg-grid {
-  background-image: linear-gradient(to right, rgb(0 0 0 / 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgb(0 0 0 / 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgb(0 0 0 / 0.2) 1px, transparent 1px), linear-gradient(to bottom, rgb(0 0 0 / 0.2) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 .dark .bg-grid {
-  background-image: linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgb(255 255 255 / 0.2) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 0.2) 1px, transparent 1px);
 }
 </style>
