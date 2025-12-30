@@ -27,17 +27,17 @@ const links = ref([
 ]);
 </script>
 
-<style scoped>
+<style>
 .grid-pattern {
   min-height: 400px;
 }
 
 .bg-grid {
-  background-image: linear-gradient(to right, rgb(0 0 0 / 0.035) 1px, transparent 1px), linear-gradient(to bottom, rgb(0 0 0 / 0.035) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgb(0 0 0 / 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgb(0 0 0 / 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 .dark .bg-grid {
-  background-image: linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
 }
 </style>
