@@ -4,34 +4,7 @@ seo:
   description: Build beautiful and responsive user interfaces with VeloceVue. A modern Vue.js UI component library built with Vue 3, TypeScript, and Tailwind CSS v4.
 ---
 
-::u-page-hero
-#title
-Build beautiful UIs with VeloceVue
-
-#description
-A modern Vue.js UI component library built with Vue 3, TypeScript, and Tailwind CSS v4. Ship fast, flexible, and beautiful user interfaces with minimal setup.
-
-#links
-  :::u-button
-  ---
-  color: neutral
-  size: xl
-  to: /getting-started/installation
-  trailing-icon: i-lucide-arrow-right
-  ---
-  Get started
-  :::
-
-  :::u-button
-  ---
-  color: neutral
-  icon: simple-icons-github
-  size: xl
-  to: https://github.com
-  variant: outline
-  ---
-  View on GitHub
-  ::
+::HomepageHero
 ::
 
 ::u-page-section
