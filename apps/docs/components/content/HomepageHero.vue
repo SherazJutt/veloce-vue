@@ -2,7 +2,11 @@
   <div class="grid-pattern relative w-full overflow-hidden">
     <div class="bg-grid absolute inset-0 opacity-30"></div>
     <div class="relative z-10">
-      <UPageHero title="Ultimate Vue UI library" description="A Nuxt/Vue-integrated UI library providing a rich set of fully-styled, accessible and highly customizable components for building modern web applications." :links="links" />
+      <UPageHero
+        title="Build beautiful UIs with VeloceVue"
+        description="A modern Vue.js UI component library built with Vue 3, TypeScript, and Tailwind CSS v4. Ship fast, flexible, and beautiful user interfaces with minimal setup."
+        :links="links"
+      />
     </div>
   </div>
 </template>
